@@ -1,0 +1,88 @@
+{
+  "careers": {
+    "jobs": {
+      "open_positions": "Open Positions",
+      "department": "Department",
+      "location": "Location",
+      "job_type": "Job Type",
+      "days_ago": "days ago",
+      "part_time": "Part Time",
+      "full_time": "Full Time"
+    },
+    "life": {
+      "hero": {
+        "title": "Life at AVID"
+      },
+      "culture": {
+        "title": "Our Culture",
+        "description1": "Life at Avid Organics is shaped by people who care about doing meaningful work well. Curiosity drives our thinking. Collaboration strengthens our outcomes. Progress is a shared responsibility.",
+        "description2": "Our culture is built on respect, openness and the confidence that comes from working with teams who take pride in their craft."
+      },
+      "why_work_with_us": {
+        "title": "Why Work with Us",
+        "intro": "Avid Organics is a place for people who want to build, solve and advance. You will work on challenges that influence global industries and contribute to products that reach millions of lives.",
+        "metrics_title": "Culture Metrics",
+        "employees_prefix": "A growing team of ",
+        "employees_suffix": " employees",
+        "continents_prefix": " across ",
+        "continents_highlight": "three continents",
+        "retention_highlight": "employee retention",
+        "promotions_suffix": " internal promotions",
+        "promotions_timeframe": " in the last three years",
+        "tenure_highlight": "Average tenure above five years",
+        "tenure_desc1": "across key operational",
+        "tenure_desc2": "and technical teams",
+        "collab_highlight": "Cross-functional collaboration platforms",
+        "collab_desc1": "used across manufacturing,",
+        "collab_desc2": "R&D, quality and supply chain",
+        "diversity_highlight": "Diversity representation increasing year over year,",
+        "diversity_desc": "supported by inclusive hiring practices"
+      },
+      "learning": {
+        "title": "Learning & Growth",
+        "description1": "We want people to build long-term careers with us. Learning at Avid is structured, continuous, and closely aligned with where the company is heading next.",
+        "description2": "Whether your ambition lies in deepening expertise or stepping into leadership, we help you move forward with confidence and support."
+      },
+      "safety": {
+        "title": "Safety & Well-being",
+        "description": "Our approach to safety is uncompromising. We aim to be the safest workplace in the chemical industry, and our results reflect that commitment. Operational discipline, formal training, behavioural safety practices and continuous audits ensure that safety is part of how we work, not just what we comply with.",
+        "metrics_title": "Safety Metrics",
+        "metrics": {
+          "injuries": {
+            "title": "Zero lost-time injuries",
+            "text": "in FY2025"
+          },
+          "compliance": {
+            "title": "100% safety training compliance",
+            "text": "across manufacturing teams"
+          },
+          "audits": {
+            "text": "Independent audits and continuous improvement cycles"
+          }
+        }
+      },
+      "diversity": {
+        "title": "Diversity & Inclusion",
+        "description": "We believe diverse teams build stronger ideas and more resilient organisations. Our culture encourages people to bring their authentic selves to work and contribute without hesitation."
+      },
+      "benefits": {
+        "title": "Benefits & Rewards",
+        "intro": "We recognise people who set high standards and elevate the work around them. Our reward philosophy is simple:",
+        "philosophy": "invest in people who invest in the company.",
+        "offering_title": "Our offering includes",
+        "list": {
+          "compensation": "Competitive compensation aligned with industry benchmarks",
+          "performance": "Performance-based rewards and recognition",
+          "development": "Professional development and certification support",
+          "inclusive": "A safe, responsible and inclusive workplace",
+          "growth": "Opportunities for cross-functional growth and global exposure"
+        }
+      },
+      "join": {
+        "title": "Join Our Team",
+        "description": "Avid Organics is creating one of India's most trusted specialty chemical companies. Join a workplace that values clarity, ambition, and responsibility equally. Explore open positions and find where you can make an impact.",
+        "cta": "View Current Openings"
+      }
+    }
+  }
+}

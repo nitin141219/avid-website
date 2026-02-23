@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "slide_1_title": "Basierend auf Nachhaltigkeit für einen besseren Planeten",
+    "slide_1_subtitle": "Integration des Umweltschutzes und des Wohlergehens der Gemeinschaft in nachhaltige Industriebetriebe und Geschäftspraktiken im Einklang mit den SDGs der Vereinten Nationen.",
+    "slide_1_button": "Erfahren Sie mehr",
+    "slide_2_title": "Förderung von Innovationen durch ein fortschrittliches F&E-Ökosystem",
+    "slide_2_subtitle": "Fortschrittliche Forschung, kontinuierliche Verbesserung und die Verpflichtung zum Durchbruch bei skalierbaren, leistungsstarken Lösungen.",
+    "slide_2_button": "Erfahren Sie mehr über unsere Forschung und Entwicklung",
+    "slide_3_title": "Führender Hersteller von Glycin und Glykolsäure",
+    "slide_3_subtitle": "Vom Gesundheitswesen bis zur häuslichen Pflege: Förderung der Eigenständigkeit und industrieller Standards durch erstklassige Spezialchemikalien.",
+    "slide_3_button": "Kontaktieren Sie uns"
+  },
+  "our-market": {
+    "title": "Unsere Märkte",
+    "animal_nutrition": "Tierernährung",
+    "food_beverage": "Lebensmittel und Getränke",
+    "industrial": "Industrie- und Spezialanwendungen",
+    "personal_care": "Körperpflege und Kosmetik",
+    "pharma": "Arzneimittel"
+  },
+  "key-products": {
+    "title": "Unsere Schlüsselprodukte",
+    "tagline": "Ein Fokus auf Hochleistungschemie.",
+    "description": "Als Hersteller bieten wir eine beispiellose Expertise in unseren Kerntechnologien.\n Unsere Produktserien sind so konzipiert, dass sie ein Spektrum an Qualitäten bieten und unseren Partnern maßgeschneiderte Lösungen für ihre spezifischen Anwendungen bieten.",
+    "series": "Serie",
+    "aviga": {
+      "subtitle": "Glykolsäure",
+      "description": "Die AviGa™-Serie (Glykolsäure): Unsere führende Glykolsäure-Plattform, die Qualitäten von hochreinen kosmetischen (CP) bis hin zu robusten technischen (T) Spezifikationen bietet und für überlegene Leistung entwickelt wurde."
+    },
+    "avigly": {
+      "subtitle": "Glycin USP",
+      "description": "Die AviGly™-Serie (Glycin): Unsere Flaggschifflinie von Glycin, erhältlich in hochreiner Pharmaqualität (USP) und vielseitigen technischen Qualitäten, um den strengsten Branchenanforderungen gerecht zu werden."
+    },
+    "avivan": {
+      "subtitle": "Taurine",
+      "description": "AviVan™ (Vanillin): Eine führende Wahl für die Lebensmittel- und Duftstoffindustrie, die außergewöhnliche sensorische Profile liefert, die durch unsere hervorragende Herstellungsqualität gestützt werden."
+    }
+  },
+  "milestones": {
+    "began": {
+      "title": ["Wo es ist", "Begann"],
+      "description": "Von einer Produktionslinie zu 4.200 MT jährlicher Kapazität über Glycin, Glykolsäure und Taurin. Drei Jahrzehnte der Bedienung von regulierten Industrien legten den Grundstein für globale Expansion.",
+      "button": "Kennen Sie unsere Geschichte"
+    },
+    "operate": {
+      "title": ["Wie wir", "Arbeiten"],
+      "description": "18.000 Quadratmeter große emissionsfreie Anlage in Vadodara. 150+ Fachleute in Fertigung, F&E und Qualität. Strategische Partner in über 30 Ländern unterstützt durch Regionalbüros in den USA und Europa.",
+      "button": "Entdecken Sie unsere Fähigkeiten"
+    },
+    "next": {
+      "title": ["Was ist", "Nächste"],
+      "description": "Nachdem wir nun 100 % erneuerbaren Strom erzeugt haben und das Ziel der Klimaneutralität bis 2050 verfolgen, treiben wir die verantwortungsvolle Produktion weiter voran und bauen gleichzeitig unsere globalen Kapazitäten aus.",
+      "button": "Entdecken Sie unsere Verpflichtungen"
+    }
+  },
+  "stats": {
+    "mt_annual": "MT jährlich",
+    "years": "Jahre",
+    "manufacturing_excellence": "Exzellente Fertigung",
+    "glycine_capacity": "Glycinkapazität",
+    "glycolic_acid_capacity": "Glykolsäurekapazität"
+  },
+  "global_presence": {
+    "title": "Globale Präsenz",
+    "subTitle": "Fertigungszentrale in Vadodara, Indien. Regionale Verkaufsunterstützung durch Avid Organics America Inc. und unser Büro in Maastricht, Niederlande."
+  },
+  "press_release": {
+    "title": "Pressemitteilungen"
+  }
+}

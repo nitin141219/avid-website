@@ -1,0 +1,20 @@
+{
+  "downloads": {
+    "description": "We believe in complete transparency. Whether you need a specific Product Data Sheet (PDS) or our latest regulatory certification, you can find and download all our essential compliance documents right here.",
+    "products_and_solutions": "Products and Solutions",
+    "certifications": "Certifications",
+    "error": "No data found"
+  },
+  "news": {
+    "title": "News & Announcements",
+    "error": "No news found"
+  },
+  "events": {
+    "title": "Events",
+    "error": "No events found"
+  },
+  "blogs": {
+    "title": "Blog",
+    "error": "No blog found"
+  }
+}

@@ -1,0 +1,72 @@
+{
+    "contact_us": {
+        "hero": {
+            "title": "Asóciese con Avid Organics",
+            "subtitle1": "Ya sea que busque intermediarios químicos de alta pureza, especificaciones técnicas u oportunidades de asociación, nuestro equipo global está listo para ayudarlo.",
+            "subtitle2": "Apoyamos a clientes en los sectores farmacéutico, de cuidado personal, nutracéutico, agroquímico e industrial con un servicio técnico receptivo y un rendimiento de la cadena de suministro confiable."
+        },
+        "global_locations": {
+            "title": "Ubicaciones Globales"
+        },
+        "get_in_touch": {
+            "title": "Póngase en Contacto",
+            "general_inquiries": "Consultas Generales"
+        },
+        "form": {
+            "title": "Contáctenos",
+            "labels": {
+                "first_name": "Nombre",
+                "last_name": "Apellido",
+                "company": "Empresa",
+                "country": "País",
+                "contact_method": "Método de Contacto Preferido",
+                "email": "Correo electrónico",
+                "phone": "Teléfono",
+                "phone_number": "Número de Teléfono",
+                "email_address": "Dirección de Correo Electrónico",
+                "department": "Departamento/Tipo de Consulta",
+                "message": "Mensaje",
+                "receive_updates": "Me gustaría recibir actualizaciones de productos y comunicaciones técnicas de Avid Organics.",
+                "agree": "Estoy de acuerdo con la",
+                "privacy_policy": "Política de Privacidad"
+            },
+            "placeholders": {
+                "message": "Por favor, proporcione detalles sobre su consulta"
+            },
+            "buttons": {
+                "submit": "Enviar",
+                "submitting": "Enviando..."
+            },
+            "validation": {
+                "first_name_required": "El nombre es obligatorio",
+                "first_name_min": "El nombre debe tener al menos 3 caracteres",
+                "last_name_required": "El apellido es obligatorio",
+                "last_name_min": "El apellido debe tener al menos 3 caracteres",
+                "company_required": "La empresa es obligatoria",
+                "company_min": "La empresa debe tener al menos 3 caracteres",
+                "country_required": "El país es obligatorio",
+                "contact_method_min": "El método de contacto preferido es obligatorio",
+                "phone_required": "El número de teléfono es obligatorio",
+                "phone_digits": "El número de teléfono debe contener solo dígitos",
+                "phone_min": "El número de teléfono debe tener al menos 10 dígitos",
+                "phone_max": "El número de teléfono no puede exceder los 15 dígitos",
+                "email_invalid": "Ingrese una dirección de correo electrónico válida",
+                "email_required": "La dirección de correo electrónico es obligatoria",
+                "department_min": "El departamento/tipo de consulta es obligatorio",
+                "message_required": "El mensaje es obligatorio",
+                "agree_required": "Debe aceptar la Política de Privacidad"
+            },
+            "departments": {
+                "product_technical": "Información Técnica y de Productos",
+                "sales_quotations": "Ventas y Cotizaciones",
+                "quality_regulatory": "Documentación de Calidad y Regulatoria",
+                "procurement_supply_chain": "Compras y Cadena de Suministro",
+                "human_resources": "Recursos Humanos",
+                "hse": "Salud, Seguridad y Medio Ambiente",
+                "sustainability": "Sostenibilidad",
+                "media_public_relations": "Medios y Relaciones Públicas",
+                "general_inquiries": "Consultas Generales"
+            }
+        }
+    }
+}

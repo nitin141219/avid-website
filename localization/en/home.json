@@ -1,0 +1,70 @@
+{
+  "hero": {
+    "slide_1_title": "Grounded in Sustainability for a Better Planet",
+    "slide_1_subtitle": "Integrating environmental care & community well-being into sustainable industrial operations & business practices compliant with UN SDGs.",
+    "slide_1_button": "Learn More",
+    "slide_2_title": "Fueling Innovation Through an Advanced R&D Ecosystem",
+    "slide_2_subtitle": "Advanced research, continuous improvement, and a commitment to breakthroughs in scalable, high-performance solutions.",
+    "slide_2_button": "Explore Our R&D",
+    "slide_3_title": "Leading Manufacturer of Glycine and Glycolic Acid",
+    "slide_3_subtitle": "From healthcare to home care, driving self-reliance and industry standards through top-tier specialty chemicals.",
+    "slide_3_button": "Contact Us"
+  },
+  "our-market": {
+    "title": "Our Markets",
+    "personal_care": "Personal Care & Cosmetics",
+    "pharma": "Pharmaceuticals",
+    "food_beverage": "Food & Beverages",
+    "animal_nutrition": "Animal Nutrition",
+    "industrial": "Industrial & Specialty Applications"
+  },
+  "key-products": {
+    "title": "Our Key Products",
+    "tagline": "A Focus on High-Performance Chemistries.",
+    "description": "As the manufacturer, we offer unparalleled expertise in our core technologies.\n Our product series are engineered to provide a spectrum of grades, giving our partners tailored solutions for their specific applications.",
+    "series": "Series",
+    "aviga": {
+      "subtitle": "Glycolic Acid",
+      "description": "The AviGa™ Series (Glycolic Acid): Our premier Glycolic Acid platform, offering grades from high purity Cosmetic (CP) to robust Technical (T) specifications, engineered for superior performance."
+    },
+    "avigly": {
+      "subtitle": "Glycine USP",
+      "description": "The AviGly™ Series (Glycine): Our flagship line of Glycine, available in high purity pharmaceutical (USP) and versatile technical grades to meet the most stringent industry demands."
+    },
+    "avivan": {
+      "subtitle": "Taurine",
+      "description": "AviVan™ (Vanillin): A leading choice for the food and fragrance industries, delivering exceptional sensory profiles backed by our manufacturing excellence."
+    }
+  },
+  "milestones": {
+    "began": {
+      "title": ["Where It", "Began"],
+      "description": "From a single production line to 4,200 MT annual capacity across glycine, glycolic acid, and taurine. Three decades of serving regulated industries built the foundation for global expansion.",
+      "button": "Know Our Story"
+    },
+    "operate": {
+      "title": ["How We", "Operate"],
+      "description": "18,000 sq. m. zero-discharge facility in Vadodara. 150+ professionals across manufacturing, R&D, and quality. Strategic partners in 30+ countries supported through regional offices in the US and Europe.",
+      "button": "Explore Our Capabilities"
+    },
+    "next": {
+      "title": ["What’s", "Next"],
+      "description": "With 100% renewable electricity now achieved and a net-zero carbon target for 2050, we continue to advance responsible manufacturing while expanding our global capabilities.",
+      "button": "Explore Our Commitments"
+    }
+  },
+  "stats": {
+    "mt_annual": "MT Annual",
+    "years": "Years",
+    "manufacturing_excellence": "Manufacturing Excellence",
+    "glycine_capacity": "Glycine Capacity",
+    "glycolic_acid_capacity": "Glycolic Acid Capacity"
+  },
+  "global_presence": {
+    "title": "Global Presence",
+    "subTitle": "Manufacturing headquarters in Vadodara, India. Regional sales support through Avid Organics America Inc. and our Maastricht, Netherlands office."
+  },
+  "press_release": {
+    "title": "News & Announcements"
+  }
+}

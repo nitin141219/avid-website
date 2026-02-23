@@ -1,0 +1,70 @@
+{
+  "login": {
+    "mainTitle": "ACCESO",
+    "loginTitle": "Inicie sesión en su cuenta",
+    "fields": {
+      "email": {
+        "label": "Dirección de correo electrónico"
+      },
+      "password": {
+        "label": "Contraseña"
+      }
+    },
+    "buttons": {
+      "login": {
+        "text": "Iniciar sesión",
+        "loadingText": "Iniciando sesión..."
+      },
+      "forgotPassword": "¿Olvidó su contraseña?",
+      "signUp": "Solicitud de registro"
+    },
+    "information": {
+      "title": "¡Bienvenido a AVID ACCESS!",
+      "description": "AVID ACCESS es su plataforma en línea para realizar pedidos de productos químicos fácilmente y acceder a información actualizada.",
+      "benefits": {
+        "title": "Como cliente registrado, usted se beneficia de nuestros servicios en línea:",
+        "items": [
+          "Descargar Hojas de Datos de Productos (PDS)",
+          "Descargar Hojas de Datos de Seguridad (SDS)",
+          "Acceder a Certificaciones de Calidad y Cumplimiento",
+          "Soporte al cliente prioritario",
+          "Solicitar muestras y soporte técnico"
+        ]
+      }
+    },
+    "emailRequired": "El correo electrónico es obligatorio",
+    "passwordRequired": "La contraseña es obligatoria",
+    "emailInvalid": "Por favor, introduzca una dirección de correo electrónico válida",
+    "toast": {
+      "invalidCredentials": "Correo electrónico o contraseña no válidos",
+      "loginFailed": "Error al iniciar sesión. Por favor, inténtelo de nuevo.",
+      "networkError": "Algo salió mal. Por favor, inténtelo de nuevo."
+    }
+  },
+  "forgot_password": {
+    "title": "Olvidé mi contraseña",
+    "emailLabel": "Dirección de correo electrónico",
+    "emailPlaceholder": "Introduzca la dirección de correo electrónico",
+    "button": "Enviar enlace de restablecimiento",
+    "success": "Enlace de restablecimiento de contraseña enviado. Por favor, revise su correo electrónico",
+    "buttonLoading": "Enviando...",
+    "emailRequired": "El correo electrónico es obligatorio",
+    "emailInvalid": "Por favor, introduzca una dirección de correo electrónico válida",
+    "resetTitle": "Restablezca su contraseña",
+    "newPasswordLabel": "Nueva contraseña",
+    "confirmPasswordLabel": "Confirmar contraseña",
+    "resetButton": "Restablecer contraseña",
+    "resettingButton": "Restableciendo...",
+    "secureAccount": "Asegure su cuenta con una nueva contraseña",
+    "validation": {
+      "passwordRequired": "La contraseña es obligatoria",
+      "passwordsMatch": "Las contraseñas deben coincidir",
+      "confirmPasswordRequired": "La confirmación de la contraseña es obligatoria"
+    },
+    "toast": {
+      "invalidToken": "Token inválido o expirado",
+      "successReset": "¡Contraseña restablecida con éxito! Por favor, inicie sesión",
+      "error": "Algo salió mal. Por favor, inténtelo de nuevo."
+    }
+  }
+}

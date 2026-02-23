@@ -1,0 +1,102 @@
+{
+  "about": {
+    "hero": {
+      "title": "Acerca de Avid Organics"
+    },
+    "main": {
+      "p1": "For over two decades, Avid Organics has been shaping specialty chemistry with a focus on purity, consistency, and responsible innovation. We are a leading Indian manufacturer of glycine, glycolic acid, and a range of high-purity specialty chemicals. Our 18,000 sq. m. facility in Vadodara, Gujarat operates with an annual capacity of 4,200 MT and supports regulated applications across pharmaceutical, cosmetic, nutrition, personal care, and industrial sectors.",
+      "p2": "We serve global customers through Avid Organics America Inc. in the United States and our regional sales office in the Netherlands, providing support, distribution alignment, and customer engagement in major international markets.",
+      "p3": "Our team of over 150 professionals across manufacturing, R&D, quality, supply chain, and commercial operations reflects our commitment to building a globally trusted chemical company from India."
+    },
+    "pillars": {
+      "mission": {
+        "title": "Misión",
+        "description": "Fabricar productos químicos especializados de alta pureza que cumplan con las especificaciones requeridas por marcas globales. Entregar calidad consistente, lote tras lote. Construir asociaciones a largo plazo a través de confiabilidad técnica y servicio receptivo."
+      },
+      "vision": {
+        "title": "Visión",
+        "description": "Convertirse en el socio preferido de productos químicos especializados para formuladores en industrias reguladas en todo el mundo, reconocido por innovación sostenible y excelencia en manufactura."
+      }
+    },
+    "valueSystem": {
+      "title": "Sistema de Valores",
+      "description": "Cuatro principios fundamentales guían cómo operamos.",
+      "agility": {
+        "title": "Agilidad",
+        "desc": "Priorizamos personas, soluciones y colaboración. Nuestro enfoque ágil nos ayuda a adaptarnos a entornos regulatorios complejos y necesidades cambiantes del cliente."
+      },
+      "value": {
+        "title": "Valor",
+        "desc": "Cada acción se mide por su capacidad de crear un impacto significativo a través de química confiable. Nos enfocamos en resultados que apoyen el éxito a largo plazo para clientes, socios e interesados."
+      },
+      "innovation": {
+        "title": "Innovación",
+        "desc": "Innovamos a través de química responsable. Enfatizamos el impacto práctico, el rigor científico y la responsabilidad del proceso en lugar de la innovación por sí misma."
+      },
+      "development": {
+        "title": "Desarrollo",
+        "desc": "El progreso es iterativo. Confiamos en la evaluación y la ejecución estructurada para garantizar consistencia y mejora en cada etapa de las operaciones."
+      }
+    },
+    "story": {
+      "title": "Nuestra Historia",
+      "items": {
+        "2007": "Establecida en Vadodara con un enfoque en la producción de ácido glicólico que cumplía con los estándares internacionales. Aseguró el primer pedido de exportación en meses, posicionando a Avid entre los pocos fabricantes indios capaces de cumplir con estrictos requisitos de calidad.",
+        "2012": "Logró la producción de glicina a escala comercial y comenzó la calificación de clientes multinacionales, posicionando a la empresa como el mayor fabricante de aminoácidos de la India por volumen.",
+        "2014": "Encargó una instalación de fabricación construida a propósito de 18,000 m² en Pochva, Vadodara, con capacidades integradas de producción y fabricación por contrato.",
+        "2017": "Aseguró el cumplimiento fundamental de grado alimenticio para admitir mercados regulados.",
+        "2019": "Logró la certificación FSSC 22000 para seguridad alimentaria y aplicaciones de alta pureza.",
+        "2020": "Implementó ISO 14001 e ISO 45001.",
+        "2021": "Obtuvo las certificaciones HALAL, KOSHER y SMETA. Fortaleció la posición en el mercado como un proveedor importante en Europa, América y Asia-Pacífico.",
+        "2023": "Redujo las emisiones de carbono por unidad de producción en un 22 por ciento desde los niveles de 2018 mediante la optimización energética y el abastecimiento renovable.",
+        "2025": "Estableció una subsidiaria en Estados Unidos para proporcionar soporte regulatorio regional y mejorar la capacidad de respuesta para socios estratégicos."
+      }
+    }
+  },
+  "manufacturing-excellence": {
+    "excellences": {
+      "processTechnology": {
+        "title": "Tecnología de Procesos",
+        "description": "Nuestros procesos de fabricación propios permiten un control preciso de las impurezas, entregando constantemente productos de alta pureza para aplicaciones reguladas. Las condiciones están optimizadas para el control de reacciones, purificación, pruebas de estrés y confiabilidad lote tras lote."
+      },
+      "researchDevelopment": {
+        "title": "Investigación y Desarrollo",
+        "description": "Nuestras capacidades internas de I+D se centran en la optimización de procesos, la reducción de impurezas, el desarrollo de nuevos productos, el escalado y la validación de métodos. Nuestros sistemas analíticos respaldan las presentaciones regulatorias y la mejora continua."
+      },
+      "supplyChainReliability": {
+        "title": "Confiabilidad de la Cadena de Suministro",
+        "description": "Mantenemos inventario estratégico, proveedores de respaldo calificados y gestión de cambios documentada para garantizar una entrega constante. El diseño de instalaciones integradas y la redundancia respaldan una tasa de entrega a tiempo del 97 por ciento."
+      },
+      "qualityControlAssurance": {
+        "title": "Control y Garantía de Calidad",
+        "description": "Operamos laboratorios analíticos internos que realizan pruebas de pureza, impurezas, metales pesados, solventes residuales, microbiología y parámetros físicos. No se libera ningún lote sin documentación y aprobación. La garantía de calidad incluye análisis de causa raíz, sistemas de acción correctiva, flujos de trabajo electrónicos, calificación de proveedores y equipos, validación y control de cambios."
+      }
+    },
+    "advancedManufacturing": {
+      "title": "Fabricación Avanzada \n y Digitalización",
+      "description": "El programa de fabricación avanzada 2026 de Avid representa nuestra actualización operativa más extensa desde el establecimiento de la instalación. Los sistemas automatizados de manejo de materiales reducirán la intervención manual mientras mejoran la consistencia. El monitoreo de procesos en tiempo real con control de calidad estadístico permitirá la detección temprana antes de que ocurran problemas. Las mejoras en la eficiencia energética apuntan a una reducción del 15% en el consumo por kilogramo producido a través de la recuperación de calor, condiciones de proceso optimizadas y actualizaciones de equipos."
+    },
+    "qualitySafetyEnvironmental": {
+      "title": "Compromiso con la Calidad, \n Seguridad y Medio Ambiente",
+      "description1": "Operamos sistemas de seguridad certificados ISO 45001, tratamiento de agua de descarga cero y funcionamos completamente con electricidad renovable. Nuestro enfoque respalda tanto la integridad del producto como la responsabilidad ambiental.",
+      "description2": "No realizamos pruebas en animales y nos aseguramos de que los productos suministrados a formulaciones éticas permanezcan libres de crueldad."
+    },
+    "certifications": {
+      "title": "Certificaciones y Cumplimiento \n Regulatorio"
+    }
+  },
+  "leadership-team": {
+    "dheeraj_jain": {
+      "role": "Director Ejecutivo y Director General",
+      "bio": "Dheeraj Jain fundó Avid Organics in 2007, estableciendo la capacidad de fabricación de glicina y ácido glicólico más grande de la India a través del desarrollo sistemático de infraestructura de calidad y excelencia operativa. Ingeniero químico del Instituto de Tecnología de Manipal con experiencia previa en operaciones de exportación de la industria química, ha liderado la evolución de Avid de productor regional de glicina a fabricante de productos químicos especializados de múltiples productos que sirve a clientes en todo el mundo."
+    },
+    "bhaskar_banerjee": {
+      "role": "Director Financiero y de Operaciones",
+      "bio": "Bhaskar Banerjee lidera la planificación y el análisis financiero, la eficiencia operativa y la optimización de la cadena de suministro para las operaciones globales de Avid. Su mandato abarca la profesionalización de los controles financieros, la implementación de capacidades avanzadas de ERP y análisis, y la garantía de la escalabilidad operativa. Con amplia experiencia en gestión financiera y estrategia operativa para empresas manufactureras, impulsa la infraestructura organizacional que respalda la presencia internacional de Avid."
+    },
+    "shivani_jain": {
+      "role": "Directora",
+      "bio": "Shivani Jain se desempeña como Directora en Avid Organics, donde ha sido fundamental para dar forma a la cultura organizacional y las prácticas de las personas de la empresa. Se enfoca en construir equipos sólidos, impulsar el compromiso y crear un entorno de trabajo basado en la colaboración, el crecimiento y el respeto. Sus iniciativas han brindado una mayor alineación en toda la organización y han ayudado a construir una base para el crecimiento a largo plazo y la excelencia operativa."
+    }
+  }
+}

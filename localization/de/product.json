@@ -1,0 +1,662 @@
+{
+    "product": {
+        "chemicalInfo": {
+            "casNumber": "CAS-Nummer",
+            "molecularFormula": "Molekularformel",
+            "molecularWeight": "Molekulargewicht"
+        },
+        "alpha-hydroxy-acids": {
+            "aviga-hp": {
+                "hero": {
+                    "title": "ALPHA\nHYDROXY\nSÄURE",
+                    "subtitle": "Marktführende Lösungen für anspruchsvolle Anwendungen"
+                },
+                "information": {
+                    "subText": "Glykolsäure 70% Kosmetikqualität",
+                    "description": "AviGa™ HP70 setzt Maßstäbe für hochreine Glykolsäure in regulierten Branchen. Hergestellt über unser patentiertes MCA-Verfahren (Monochloressigsäure), bietet AviGa™ HP70 höchste Reinheit, einen stabilen pH-Wert und minimale Verunreinigungen. Diese Lösung in pharmazeutischer/kosmetischer Qualität eignet sich ideal für anspruchsvolle Formulierungen in der Anti-Aging-Hautpflege, bei chemischen Peelings, dermatologischen Behandlungen und in der pharmazeutischen Synthese."
+                },
+                "applications": {
+                    "title": "Primär\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Fortgeschrittene \n Dermatologie",
+                            "description": "Professionelle chemische Peelings, dermatologische Behandlungen gegen Lichtschäden und Hyperpigmentierung"
+                        },
+                        "1": {
+                            "title": "Premium-Anti-Aging \n Formulierungen",
+                            "description": "Seren, Cremes und gezielte Behandlungen nutzen die nachgewiesene Wirksamkeit von Glykolsäure bei der Kollagenstimulation und der Zellerneuerung."
+                        },
+                        "2": {
+                            "title": "Pharmazeutische \n Synthese",
+                            "description": "Zwischenprodukt für Wirkstoffe und Hilfsstoffe, die hochreine Carbonsäuren erfordern"
+                        },
+                        "3": {
+                            "title": "Industrie \n spezialitäten",
+                            "description": "Elektronik, Präzisionsreinigung & Halbleiterhilfsmittel, Präzisionsreinigung von Luft- und Raumfahrtkomponenten Teil von hochwertigen industriellen Spülprodukten (nicht schäumend)."
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & \n Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Sicherheit",
+                            "description": "Umfassende Sicherheitsdatenblätter, Transportzertifizierungen für den weltweiten Versand"
+                        },
+                        "1": {
+                            "title": "Qualitätskontrolle",
+                            "description": "Chargenspezifisches Analysezertifikat, Echtzeit-Produktionsüberwachung, Validierung durch Dritte verfügbar"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Ballons"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Schlagzeug"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Taschen"
+                        }
+                    },
+                    "packagingText": "ISO-Großtanks",
+                    "buttons": {
+                        "0": {
+                            "label": "PDS herunterladen"
+                        },
+                        "1": {
+                            "label": "Sicherheitsdatenblatt herunterladen"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb."
+                        }
+                    }
+                }
+            },
+            "aviga-t": {
+                "hero": {
+                    "title": "ALPHA\nHYDROXY\nSÄURE",
+                    "subtitle": "Marktführende Lösungen für anspruchsvolle Anwendungen"
+                },
+                "information": {
+                    "subText": "Glykolsäure 70% Technische Qualität",
+                    "description": "AviGa™ T ist unsere Glykolsäure in Industriequalität, entwickelt für anspruchsvolle Anwendungen in der Herstellung, Verarbeitung, Formulierung und Spezialchemie. Hergestellt nach demselben fortschrittlichen, formaldehydfreien MCA-Verfahren wie unsere pharmazeutischen Produkte, bietet AviGa™ T außergewöhnliche Reinheit und Konsistenz zu wettbewerbsfähigen Preisen. Diese technische Lösung ist ein wichtiger Bestandteil für die chemische Synthese, industrielle Reinigungssysteme und spezielle Fertigungsprozesse, bei denen Leistung und Zuverlässigkeit höchste Priorität haben."
+                },
+                "applications": {
+                    "title": "Hauptanwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Chemische\nSynthese",
+                            "description": "Zwischenprodukt für Spezialester, Polymervorstufen und Hochleistungsmaterialien"
+                        },
+                        "1": {
+                            "title": "Industrielle Entkalkung\nund Reinigung",
+                            "description": "Hochleistungsformulierungen für die Metallbehandlung, Molkereianlagen, Wärmetauscher und Kesselsysteme"
+                        },
+                        "2": {
+                            "title": "Ölfeld",
+                            "description": "Zwischenprodukt für Wirkstoffe und Hilfsstoffe, die hochreine Carbonsäuren erfordern"
+                        },
+                        "3": {
+                            "title": "Textilverarbeitung",
+                            "description": "pH-Wert-Regulierung, Färbeprozesse, Ausrüstungsbehandlungen"
+                        },
+                        "4": {
+                            "title": "Lederherstellung",
+                            "description": "Gerbprozesse, pH-Wert-Einstellung, chemische Verarbeitung"
+                        },
+                        "5": {
+                            "title": "Spezialklebstoffe \nund -beschichtungen",
+                            "description": "Polymermodifizierung, pH-Wert-Kontrolle in Formulierungen"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & \nQualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Sicherheit",
+                            "description": "Umfassende Sicherheitsdatenblätter, Transportzertifizierungen für den weltweiten Versand"
+                        },
+                        "1": {
+                            "title": "Qualitätskontrolle",
+                            "description": "Chargenspezifisches Analysezertifikat, Echtzeit-Produktionsüberwachung, Validierung durch Dritte verfügbar"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der \n Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Ballons"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Schlagzeug"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Taschen"
+                        }
+                    },
+                    "packagingText": "ISO-Großtanks",
+                    "buttons": {
+                        "0": {
+                            "label": "PDS herunterladen"
+                        },
+                        "1": {
+                            "label": "Sicherheitsdatenblatt herunterladen"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            }
+        },
+        "amino-acids": {
+            "avigly-hp": {
+                "hero": {
+                    "title": "AMINO\nSÄUREN",
+                    "subtitle": "Pharmazeutisch reine Bausteine für Biowissenschaften & Ernährung"
+                },
+                "information": {
+                    "subText": "Glycin USP",
+                    "description": "Glycin ist ein grundlegender Bestandteil in mehreren regulierten Branchen. AviGly™ HP adressiert dies direkt: ein Titer von 98,5–101,5% und ein Profil mit ultra niedriger Verunreinigung, verifiziert gegen die wichtigsten internationalen Pharmakopoea-Standards.\nHergestellt in einer Anlage, die zu 100% mit erneuerbarem Strom betrieben wird, erfüllt es auch die Beschaffungskriterien von strategischen Partnern mit aktiven Nachhaltigkeitsverpflichtungen."
+                },
+                "applications": {
+                    "title": "Primäre\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Aktive Pharmazeutische\nWirkstoffe (APIs)",
+                            "description": "Struktureller Bestandteil bei der Synthese von Antibiotika, Antipsychotika und Diabetes-Behandlungen"
+                        },
+                        "1": {
+                            "title": "Kosmetik & Persönliche\nPflege",
+                            "description": "Stabilisator für Vitamin-C-Formulierungen, Aminosäureanreicherung in Haut- und Haarpflege"
+                        },
+                        "2": {
+                            "title": "Pharmazeutische\nHilfsstoffe",
+                            "description": "Tablettenherstellung, Formulierungen mit kontrollierter Freisetzung, Geschmacksmaskierung"
+                        },
+                        "3": {
+                            "title": "Nutrazeutika",
+                            "description": "Hochreine Aminosäuresupplementierung, Sporternährung, therapeutische Ernährungsprodukte"
+                        },
+                        "4": {
+                            "title": "Lebensmittel &\nGetränke",
+                            "description": "Geschmacksverstärker, Süßungsmittel, Konservierungsstoff, spezielle Lebensmittelanwendungen"
+                        },
+                        "5": {
+                            "title": "Tier\nernährung",
+                            "description": "Essentielle Aminosäuresupplementierung in Futterformulierungen für Geflügel, Schweine und Aquakultur"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Arzneibuchstandards",
+                            "description": "USP/NF, Europäisches Arzneibuch (EP), Japanisches Arzneibuch (JP)"
+                        },
+                        "1": {
+                            "title": "Qualitätsdokumentation",
+                            "description": "Vollständige Chargenprotokolle, Stabilitätsdaten (ICH-Richtlinien), Elementverunreinigungsanalyse (USP <232>)"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Fasertrommeln"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Fässer"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Jumbo-Säcke"
+                        }
+                    },
+                    "buttons": {
+                        "0": {
+                            "label": "PDS herunterladen"
+                        },
+                        "1": {
+                            "label": "Sicherheitsdatenblatt herunterladen"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            },
+            "avigly-t": {
+                "hero": {
+                    "title": "AMINO\nSÄUREN",
+                    "subtitle": "Pharmazeutisch reine Bausteine für Biowissenschaften & Ernährung"
+                },
+                "information": {
+                    "subText": "Glycin technische Qualität",
+                    "description": "AviGly™ T ist unser Glycin in technischer und Futtermittelqualität, entwickelt für industrielle Anwendungen und Tierernährungsmärkte. Als Indiens größter Glycinproduzent liefern wir konsistente Qualität zu wettbewerbsfähigen Preisen für Großkunden in Landwirtschaft, Tierfutter und Industrie. Diese vielseitige Aminosäure erfüllt kritische Funktionen im Tierstoffwechsel, in der chemischen Synthese und in Spezialanwendungen, die eine zuverlässige Glycinversorgung erfordern."
+                },
+                "applications": {
+                    "title": "Primäre\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Chemische\nZwischenprodukte",
+                            "description": "Synthese von Herbiziden (Glyphosat), Chelatbildnern, Spezialpolymeren, Tensiden"
+                        },
+                        "1": {
+                            "title": "Industrielle\nVerarbeitung",
+                            "description": "Metallbehandlung, Galvanisierung, Wasseraufbereitungsformulierungen"
+                        },
+                        "2": {
+                            "title": "Spezial\nsynthese",
+                            "description": "Forschung und Entwicklung, Laborreagenzien, kundenspezifische Chemikalienherstellung"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Qualitätskontrolle",
+                            "description": "Chargenspezifisches CoA, Schwermetallprüfung, mikrobiologische Analyse, Nährwertanalyse"
+                        },
+                        "1": {
+                            "title": "Sicherheit",
+                            "description": "Umfassendes SDB, globale Transportkonformität"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Mehrwandige\nPapiersäcke"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Big Bags (FIBC)"
+                        }
+                    },
+                    "packagingText": "Großbehälter, kundenspezifische Verpackung möglich",
+                    "buttons": {
+                        "0": {
+                            "label": "PDS herunterladen"
+                        },
+                        "1": {
+                            "label": "Sicherheitsdatenblatt herunterladen"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            },
+            "avitau": {
+                "hero": {
+                    "title": "AMINO\nSÄUREN",
+                    "subtitle": "Pharmazeutisch reine Bausteine für Biowissenschaften & Ernährung"
+                },
+                "information": {
+                    "subText": "Taurin",
+                    "description": "AviTau™ ist unser hochbioverfügbares Taurin, das nach pharmazeutischen Standards für funktionelle Lebensmittel, Getränke, Nutrazeutika und pharmazeutische Anwendungen hergestellt wird. Dank unserer Expertise in der Aminosäureproduktion liefern wir Taurin mit außergewöhnlicher Reinheit (99,5 % min), niedrigem Feuchtigkeitsgehalt und konsistenter Kristallstruktur für optimale Auflösung und Bioverfügbarkeit. Da die weltweite Nachfrage nach Energy-Drinks und funktionellen Nahrungsergänzungsmitteln weiter wächst, bietet AviTau™ eine zuverlässige, qualitativ hochwertige Lieferkettenlösung für Hersteller weltweit."
+                },
+                "applications": {
+                    "title": "Primäre\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Funktionelle\nGetränke",
+                            "description": "Energy-Drinks, Sportgetränke, funktionelles Wasser, trinkfertige Ernährungsprodukte"
+                        },
+                        "1": {
+                            "title": "Nutrazeutika &\nNahrungsergänzungsmittel",
+                            "description": "Formulierungen für die Herz-Kreislauf-Gesundheit, neurologische Unterstützung, leistungssteigernde Produkte"
+                        },
+                        "2": {
+                            "title": "Pharmazeutische\nFormulierungen",
+                            "description": "Therapeutische Anwendungen bei Herz-Kreislauf-Erkrankungen, Diabetes-Unterstützung, neurologischer Gesundheit"
+                        },
+                        "3": {
+                            "title": "Tier\nernährung",
+                            "description": "Anreicherung von Katzen- und Hundefutter (essentieller Nährstoff für Katzen), Aquakulturfutter, spezielle Tiernahrung."
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Arzneibuchstandards",
+                            "description": "USP/NF, Europäisches Arzneibuch (EP), Japanisches Arzneibuch (JP)"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Säcke"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Fässer"
+                        }
+                    },
+                    "packagingText": "Großbehälter, kundenspezifische Verpackung möglich",
+                    "buttons": {
+                        "0": {
+                            "label": "PDS herunterladen"
+                        },
+                        "1": {
+                            "label": "Sicherheitsdatenblatt herunterladen"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            }
+        },
+        "aromatic-and-fine-chemicals": {
+            "avivan": {
+                "hero": {
+                    "title": "Aromatische\n& Feinchemikalien",
+                    "subtitle": "Hochreine Inhaltsstoffe für Geschmacks-, Duft- und Industrieanwendungen"
+                },
+                "information": {
+                    "subText": "Vanillin",
+                    "description": "AviVan™ ist unser Premium-Vanillin, entwickelt für konsistente olfaktorische Leistung, thermische Stabilität und breite Formulierungskompatibilität in Nahrungsmitteln, Getränken, Duftstoffen und pharmazeutischen Anwendungen. Mit einer Reinheit von über 99,5 % und einem charakteristischen, echten Vanille-Sensorikprofil bietet AviVan™ die Zuverlässigkeit, die von globalen Aromenhäusern, Duftherstellern und Lebensmittelproduzenten gefordert wird. Unsere fortschrittlichen Synthese- und Reinigungsverfahren gewährleisten eine gleichbleibende Qualität von Charge zu Charge und eliminieren Fehnoten, die die Produktqualität beeinträchtigen."
+                },
+                "applications": {
+                    "title": "Primäre\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Lebensmittel- & Getränke\naromatisierung",
+                            "description": "Backwaren, Süßwaren, Molkereiprodukte, Getränke, Desserts, Eiscreme, Schokoladenprodukte"
+                        },
+                        "1": {
+                            "title": "Duftstoff\nformulierungen",
+                            "description": "Feine Düfte, Körperpflegeprodukte, Raumdüfte, funktionelle Düfte"
+                        },
+                        "2": {
+                            "title": "Pharmazeutische\nAnwendungen",
+                            "description": "Geschmacksmaskierung in oralen Formulierungen, Aromastoff für Kinder- und Geriatriemedikamente"
+                        },
+                        "3": {
+                            "title": "Industrielle\nBeduftung",
+                            "description": "Lufterfrischer, Reinigungsprodukte, parfümierte Industrieanwendungen"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Zertifizierungen",
+                            "description": "Koscher, Halal, gentechnikfrei, allergenfrei (gemäß EU- und US-Vorschriften)"
+                        },
+                        "1": {
+                            "title": "Qualitätskontrolle",
+                            "description": "GC-MS-Reinheitsprüfung, sensorische Bewertung durch geschultes Panel, Schwermetall- und Mikrobiologietests"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingText": "Kundenspezifische Verpackung für Aromenhäuser",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Fasertrommeln mit\nSchutzeinlage"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            },
+            "guaiacol": {
+                "hero": {
+                    "title": "Aromatische\n& Feinchemikalien",
+                    "subtitle": "Hochreine Inhaltsstoffe für Geschmacks-, Duft- und Industrieanwendungen"
+                },
+                "information": {
+                    "subText": "",
+                    "description": "Guaiacol ist eine spezielle aromatische Verbindung, die als wichtiges Zwischenprodukt in der Duftstoffsynthese, der pharmazeutischen Herstellung und der Feinchemikalienproduktion dient. Unser hochreines Guaiacol (98%+ Gehalt) liefert konsistente Reaktivität und Leistung für spezialisierte Anwendungen, die eine kontrollierte Phenolchemie erfordern. Mit etablierter regulatorischer Compliance und umfassender Qualitätsdokumentation beliefert Avid Organics Innovatoren in den Bereichen Duftstoffe, Pharma und Spezialchemikalien weltweit mit diesem essentiellen Zwischenprodukt."
+                },
+                "applications": {
+                    "title": "Primäre\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Duft- & Aroma\nZwischenprodukte",
+                            "description": "Synthese von Vanillin, Eugenolderivaten, speziellen Aromachemikalien"
+                        },
+                        "1": {
+                            "title": "Pharmazeutische\nSynthese",
+                            "description": "Zwischenprodukt für APIs, Expektorantien und Spezialtherapeutika"
+                        },
+                        "2": {
+                            "title": "Spezial\nchemikalien",
+                            "description": "Kundenspezifische Synthese, Forschungsanwendungen, Feinchemikalienherstellung"
+                        },
+                        "3": {
+                            "title": "Forschung &\nEntwicklung",
+                            "description": "Laborreagenzien, akademische Forschung, Innovationsprojekte"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Sicherheit",
+                            "description": "Umfassendes SDB mit Handhabungs-, Lagerungs- und Notfallprotokollen"
+                        },
+                        "1": {
+                            "title": "Qualitätskontrolle",
+                            "description": "GC-Reinheitsanalyse, Charakterisierung von Spurenverunreinigungen, chargenspezifisches CoA"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Fässer"
+                        }
+                    },
+                    "packagingText": "Kundenspezifische Verpackung erhältlich",
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            }
+        },
+        "specialty-chemicals-and-intermediates": {
+            "chlorhexidine-base": {
+                "hero": {
+                    "title": "SPEZIALCHEMIKALIEN\n& ZWISCHENPRODUKTE",
+                    "subtitle": "Fortschrittliche Zwischenprodukte für pharmazeutische & industrielle Innovation"
+                },
+                "information": {
+                    "description": "Chlorhexidin-Base ist ein hochreines antimikrobielles Zwischenprodukt, das für die pharmazeutische und industrielle Synthese entwickelt wurde. Dieses kritische Zwischenprodukt dient als Grundlage für die Herstellung von Chlorhexidinsalzen (Digluconat, Diacetat, Dihydrochlorid), die häufig in Antiseptika im Gesundheitswesen, Mundpflegeprodukten und pharmazeutischen Formulierungen verwendet werden. Unser fortschrittlicher Herstellungsprozess liefert gleichbleibende Reinheit, kontrollierte Partikelgröße und umfassende regulatorische Dokumentation zur Unterstützung weltweiter Produktregistrierungen.",
+                    "subText": ""
+                },
+                "applications": {
+                    "title": "Primäre\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Antiseptika &\nDesinfektionsmittel",
+                            "description": "Zwischenprodukt für chirurgische Peelings, Wundversorgungsprodukte, Antiseptika im Gesundheitswesen"
+                        },
+                        "1": {
+                            "title": "Mundpflege\nprodukte",
+                            "description": "Grundlage für Mundwässer, Mundspülungen, zahnärztliche antiseptische Formulierungen"
+                        },
+                        "2": {
+                            "title": "Pharmazeutische\nSynthese",
+                            "description": "Herstellung von Chlorhexidingluconat-, -acetat- und -hydrochloridsalzen für regulierte Anwendungen"
+                        },
+                        "3": {
+                            "title": "Industrielle\nAntimikrobielle Mittel",
+                            "description": "Spezialformulierungen, die eine kontrollierte antimikrobielle Aktivität erfordern"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Sicherheit",
+                            "description": "Umfassendes SDB mit Handhabungsprotokollen für aktive pharmazeutische Zwischenprodukte"
+                        },
+                        "1": {
+                            "title": "Qualitätskontrolle",
+                            "description": "HPLC-Reinheitsanalyse, Profilierung von Spurenverunreinigungen, Partikelgrößenverteilung, chargenspezifisches CoA"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Fässer"
+                        }
+                    },
+                    "packagingText": "mit Schutzverpackung für feuchtigkeitsempfindliche Materialien",
+                    "buttons": {
+                        "0": {
+                            "label": "PDS herunterladen"
+                        },
+                        "1": {
+                            "label": "Sicherheitsdatenblatt herunterladen"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            },
+            "mehq": {
+                "hero": {
+                    "title": "SPEZIALCHEMIKALIEN\n& ZWISCHENPRODUKTE",
+                    "subtitle": "Fortschrittliche Zwischenprodukte für pharmazeutische & industrielle Innovation"
+                },
+                "information": {
+                    "subText": "Hydrochinon-Monomethylether",
+                    "description": "MEHQ (Monomethylether-Hydrochinon) ist ein Hochleistungs-Polymerisationsinhibitor und -stabilisator, der für die präzise Steuerung von Radikalreaktionen in der Polymerproduktion, der Monomerlagerung und der Spezialchemikalienherstellung entwickelt wurde. Unser hochreines MEHQ (99 %+ Gehalt) bietet konsistente Inhibierungsleistung, thermische Stabilität und Kompatibilität über diverse Polymersysteme und chemische Prozesse hinweg. Diese essentielle Spezialchemikalie ermöglicht die sichere Handhabung und Lagerung reaktiver Monomere bei gleichzeitiger Optimierung der Polymerisationskontrolle in der kommerziellen Produktion."
+                },
+                "applications": {
+                    "title": "Primäre\nAnwendungen",
+                    "items": {
+                        "0": {
+                            "title": "Polymerisations\ninhibitor",
+                            "description": "Acrylate, Methacrylate, Styrol, Vinylacetat und andere radikalisch polymerisierbare Monomere"
+                        },
+                        "1": {
+                            "title": "Harz- & Monomer\nstabilisierung",
+                            "description": "Lagerstabilisator zur Verhinderung vorzeitiger Polymerisation während Transport und Lagerung"
+                        },
+                        "2": {
+                            "title": "Spezialchemikalien\nsynthese",
+                            "description": "Kontrollierte Polymerisationsreaktionen, Laborforschung, Feinchemikalienherstellung"
+                        },
+                        "3": {
+                            "title": "Industrielle Prozess\nstabilisierung",
+                            "description": "Verhinderung von Polymer-Fouling in chemischen Reaktoren und Wärmetauschern"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Globale Compliance & Qualitätssicherung",
+                    "subtitle": "Fertigungsstandards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Sicherheit",
+                            "description": "Detailliertes SDB, Transportkonformität, Handhabungsprotokolle für Industriechemikalien"
+                        },
+                        "1": {
+                            "title": "Qualitätskontrolle",
+                            "description": "GC/HPLC-Reinheitsprüfung, Analyse von Spurenverunreinigungen, Leistungstests in Standard-Polymersystemen"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Exzellenz in der Lieferkette",
+                    "subtitle": "Verpackungsoptionen",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Fässer"
+                        }
+                    },
+
+                    "packagingText": "Kundenspezifische Verpackung für Polymerhersteller erhältlich",
+                    "buttons": {
+                        "0": {
+                            "label": "PDS herunterladen"
+                        },
+                        "1": {
+                            "label": "Sicherheitsdatenblatt herunterladen"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Kontaktieren Sie den Vertrieb"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

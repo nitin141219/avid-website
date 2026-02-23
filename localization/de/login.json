@@ -1,0 +1,70 @@
+{
+  "login": {
+    "mainTitle": "ZUGANG",
+    "loginTitle": "Melden Sie sich in Ihrem Konto an",
+    "fields": {
+      "email": {
+        "label": "E-Mail-Adresse"
+      },
+      "password": {
+        "label": "Passwort"
+      }
+    },
+    "buttons": {
+      "login": {
+        "text": "Einloggen",
+        "loadingText": "Logging in..."
+      },
+      "forgotPassword": "Passwort vergessen?",
+      "signUp": "Anmeldeanfrage"
+    },
+    "information": {
+      "title": "Willkommen bei AVID ACCESS!",
+      "description": "AVID ACCESS ist Ihre Online-Plattform für die einfache Bestellung von Chemikalien und den Zugriff auf aktuelle Informationen",
+      "benefits": {
+        "title": "Als registrierter Kunde profitieren Sie von unseren Online-Services:",
+        "items": [
+          "Produktdatenblätter (PDS) herunterladen",
+          "Sicherheitsdatenblätter (SDB) herunterladen",
+          "Zugang zu Qualitäts- und Compliance-Zertifizierungen",
+          "Prioritärer Kundensupport",
+          "Muster anfordern und technischen Support erhalten"
+        ]
+      }
+    },
+    "emailRequired": "E-Mail ist erforderlich",
+    "passwordRequired": "Ein Passwort ist erforderlich",
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "toast": {
+      "invalidCredentials": "Ungültige E-Mail-Adresse oder Passwort",
+      "loginFailed": "Anmeldung fehlgeschlagen. Bitte versuchen Sie es erneut.",
+      "networkError": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut"
+    }
+  },
+  "forgot_password": {
+    "title": "Passwort vergessen",
+    "emailLabel": "E-Mail-Adresse",
+    "emailPlaceholder": "Geben Sie die E-Mail-Adresse ein",
+    "button": "Link zum Zurücksetzen senden",
+    "success": "Link zum Zurücksetzen des Passworts gesendet. ",
+    "buttonLoading": "Senden...",
+    "emailRequired": "E-Mail ist erforderlich",
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "resetTitle": "Setzen Sie Ihr Passwort zurück",
+    "newPasswordLabel": "Neues Passwort",
+    "confirmPasswordLabel": "Passwort bestätigen",
+    "resetButton": "Passwort zurücksetzen",
+    "resettingButton": "Wird zurückgesetzt...",
+    "secureAccount": "Sichern Sie Ihr Konto mit einem neuen Passwort",
+    "validation": {
+      "passwordRequired": "Passwort ist erforderlich",
+      "passwordsMatch": "Passwörter müssen übereinstimmen",
+      "confirmPasswordRequired": "Passwortbestätigung ist erforderlich"
+    },
+    "toast": {
+      "invalidToken": "Ungültiger oder abgelaufener Token",
+      "successReset": "Passwort erfolgreich zurückgesetzt! Bitte melden Sie sich an",
+      "error": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut"
+    }
+  }
+}

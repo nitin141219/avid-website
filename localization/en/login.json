@@ -1,0 +1,70 @@
+{
+  "login": {
+    "mainTitle": "ACCESS",
+    "loginTitle": "Log in to your account",
+    "fields": {
+      "email": {
+        "label": "Email address"
+      },
+      "password": {
+        "label": "Password"
+      }
+    },
+    "buttons": {
+      "login": {
+        "text": "Log In",
+        "loadingText": "Logging in..."
+      },
+      "forgotPassword": "Forgot password?",
+      "signUp": "Sign up request"
+    },
+    "information": {
+      "title": "Welcome to AVID ACCESS!",
+      "description": "AVID ACCESS is your online platform for easy ordering of chemicals and accessing up-to-date information.",
+      "benefits": {
+        "title": "As a registered customer, you benefit from our online services:",
+        "items": [
+          "Download Product Data Sheets (PDS)",
+          "Download Safety Data Sheets (SDS)",
+          "Access Quality & Compliance Certifications",
+          "Priority Customer support",
+          "Request samples and technical support"
+        ]
+      }
+    },
+    "emailRequired": "Email is a required",
+    "passwordRequired": "Password is a required",
+    "emailInvalid": "Please enter a valid email address",
+    "toast": {
+      "invalidCredentials": "Invalid email or password",
+      "loginFailed": "Login failed. Please try again.",
+      "networkError": "Something went wrong. Please try again."
+    }
+  },
+  "forgot_password": {
+    "title": "Forgot Password",
+    "emailLabel": "Email address",
+    "emailPlaceholder": "Enter email address",
+    "button": "Send Reset Link",
+    "success": "Password reset link sent. Please check your email",
+    "buttonLoading": "Sending...",
+    "emailRequired": "Email is a required",
+    "emailInvalid": "Please enter a valid email address",
+    "resetTitle": "Reset your password",
+    "newPasswordLabel": "New Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "resetButton": "Reset Password",
+    "resettingButton": "Resetting...",
+    "secureAccount": "Secure your account with a new password",
+    "validation": {
+      "passwordRequired": "Password is required",
+      "passwordsMatch": "Passwords must match",
+      "confirmPasswordRequired": "Confirm Password is required"
+    },
+    "toast": {
+      "invalidToken": "Invalid or expired token",
+      "successReset": "Password reset successfully! Please log in",
+      "error": "Something went wrong. Please try again."
+    }
+  }
+}

@@ -1,0 +1,662 @@
+{
+    "product": {
+        "chemicalInfo": {
+            "casNumber": "CAS Number",
+            "molecularFormula": "Molecular Formula",
+            "molecularWeight": "Molecular Weight"
+        },
+        "alpha-hydroxy-acids": {
+            "aviga-hp": {
+                "hero": {
+                    "title": "ALPHA\nHYDROXY\nACIDS",
+                    "subtitle": "Market-Leading Solutions for Advanced Applications"
+                },
+                "information": {
+                    "subText": "Glycolic Acid 70% Cosmetic Grade",
+                    "description": "AviGa™ HP70 represents the gold standard in high-purity Glycolic Acid for regulated industries. Manufactured via our proprietary MCA (monochloroacetic acid) route—AviGa™ HP70 delivers superior purity profiles, stable pH consistency, and minimal impurities."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Advanced\nDermatology",
+                            "description": "Professional chemical peels and dermatologist-grade treatments."
+                        },
+                        "1": {
+                            "title": "Premium Anti-Aging \n Formulations",
+                            "description": "Serums and creams leveraging glycolic acid efficacy."
+                        },
+                        "2": {
+                            "title": "Pharmaceutical \n Synthesis",
+                            "description": "Intermediate for APIs and excipients requiring high-purity carboxylic acids"
+                        },
+                        "3": {
+                            "title": "Industrial \n Specialties",
+                            "description": "Electronics, Precision Cleaning & Semiconductor Auxiliaries , Aerospace component precise cleaning Part of high-end industrial flush products (non-foaming)."
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Safety",
+                            "description": "Comprehensive SDS, transportation certifications for global shipment"
+                        },
+                        "1": {
+                            "title": "Quality Control",
+                            "description": "Batch-specific CoA, real-time production monitoring, third-party validation available"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Carboys"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Totes"
+                        }
+                    },
+                    "packagingText": "Bulk ISO tanks",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            },
+            "aviga-t": {
+                "hero": {
+                    "title": "ALPHA\nHYDROXY\nACIDS",
+                    "subtitle": "Market-Leading Solutions for Advanced Applications"
+                },
+                "information": {
+                    "subText": "Glycolic Acid 70% Technical Grade",
+                    "description": "AviGa™ T is our industrial-specification Glycolic Acid engineered for high- performance applications in manufacturing, processing, formulations and specialty chemical synthesis. Manufactured via the same advanced formaldehyde-free MCA route as our pharmaceutical-grade products, AviGa™ T delivers exceptional purity and consistency at competitive industrial pricing. This technical-grade solution serves as a critical input for chemical synthesis, industrial cleaning systems, and specialized manufacturing processes where performance and reliability are paramount."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Chemical\nSynthesis",
+                            "description": "Intermediate for specialty esters, polymer precursors and advanced materials"
+                        },
+                        "1": {
+                            "title": "Industrial Descaling\n& Cleaning",
+                            "description": "High-performance formulations for metal treatment, dairy equipment, heat exchangers, boiler systems"
+                        },
+                        "2": {
+                            "title": "Oil\nField",
+                            "description": "Intermediate for APIs and excipients requiring high-purity carboxylic acids"
+                        },
+                        "3": {
+                            "title": "Textile\nProcessing",
+                            "description": "pH control, dyeing operations, finishing treatments"
+                        },
+                        "4": {
+                            "title": "Leather\nManufacturing",
+                            "description": "Tanning processes, pH adjustment, chemical processing"
+                        },
+                        "5": {
+                            "title": "Specialty Adhesives\n& Coatings",
+                            "description": "Polymer modification, pH control in formulations"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Safety",
+                            "description": "Comprehensive SDS, transportation certifications for global shipment"
+                        },
+                        "1": {
+                            "title": "Quality Control",
+                            "description": "Batch-specific CoA, real-time production monitoring, third-party validation available"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Carboys"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Totes"
+                        }
+                    },
+                    "packagingText": "Bulk ISO tanks",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            }
+        },
+        "amino-acids": {
+            "avigly-hp": {
+                "hero": {
+                    "title": "AMINO\nACIDS",
+                    "subtitle": "Pharmaceutical-Grade Building Blocks for Life Sciences & Nutrition"
+                },
+                "information": {
+                    "subText": "Glycine USP",
+                    "description": "Glycine is a foundational ingredient across multiple regulated industries. AviGly™ HP addresses this directly: a 98.5–101.5% assay and ultra-low impurity profile, verified against the major international pharmacopoeial standards.\nManufactured at a facility running on 100% renewable electricity, it also meets the sourcing criteria of strategic partners with active sustainability commitments."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Active Pharmaceutical\nIngredients (APIs)",
+                            "description": "Structural component in antibiotic synthesis, antipsychotic drugs, diabetes treatments"
+                        },
+                        "1": {
+                            "title": "Cosmetics & Personal\nCare",
+                            "description": "Stabilizer for Vitamin C formulations, amino acid enrichment in skin and hair care"
+                        },
+                        "2": {
+                            "title": "Pharmaceutical\nExcipients",
+                            "description": "Tablet manufacturing, controlled-release formulations, taste masking applications"
+                        },
+                        "3": {
+                            "title": "Nutraceuticals",
+                            "description": "High-purity amino acid supplementation, sports nutrition, therapeutic nutrition products"
+                        },
+                        "4": {
+                            "title": "Food &\nBeverage",
+                            "description": "Flavor enhancer, sweetener, preservative, specialty food applications"
+                        },
+                        "5": {
+                            "title": "Animal\nNutrition",
+                            "description": "Essential amino acid supplementation in poultry, swine, and aquaculture feed formulations"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Pharmacopeial Standards",
+                            "description": "USP/NF, European Pharmacopoeia (EP), Japanese Pharmacopoeia (JP)"
+                        },
+                        "1": {
+                            "title": "Quality Documentation",
+                            "description": "Full batch records, stability data (ICH guidelines), elemental impurity analysis (USP <232>)"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Fiber Drums"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Jumbo Sacks"
+                        }
+                    },
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            },
+            "avigly-t": {
+                "hero": {
+                    "title": "AMINO\nACIDS",
+                    "subtitle": "Pharmaceutical-Grade Building Blocks for Life Sciences & Nutrition"
+                },
+                "information": {
+                    "subText": "Glycine Technical Grade",
+                    "description": "AviGly™ T is our technical and feed-grade Glycine, engineered for industrial applications and animal nutrition markets. Leveraging our position as India's largest Glycine producer, we deliver consistent quality at competitive pricing for high-volume customers in agriculture, animal feed, and industrial sectors. This versatile amino acid serves critical functions in animal metabolism, chemical synthesis, and specialty applications requiring a reliable glycine supply."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Chemical\nIntermediates",
+                            "description": "Synthesis of herbicides (glyphosate), chelating agents, specialty polymers, surfactants"
+                        },
+                        "1": {
+                            "title": "Industrial\nProcessing",
+                            "description": "Metal treatment, electroplating, water treatment formulations"
+                        },
+                        "2": {
+                            "title": "Specialty\nSynthesis",
+                            "description": "Research and development, laboratory reagent, custom chemical manufacturing"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Quality Control",
+                            "description": "Batch-specific CoA, heavy metals testing, microbiological analysis, nutritional analysis"
+                        },
+                        "1": {
+                            "title": "Safety",
+                            "description": "Comprehensive SDS, transportation compliance globally"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Multi-wall paper\nbags"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Bulk bags (FIBC),"
+                        }
+                    },
+                    "packagingText": "Bulk containers, custom packaging available",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            },
+            "avitau": {
+                "hero": {
+                    "title": "AMINO\nACIDS",
+                    "subtitle": "Pharmaceutical-Grade Building Blocks for Life Sciences & Nutrition"
+                },
+                "information": {
+                    "subText": "Taurine",
+                    "description": "Taurine is a high-demand ingredient with purity and consistency as the primary sourcing criteria. AviTau™ delivers 99.5% minimum purity and 0.3% maximum moisture content, verified against major international pharmacopoeial standards. Its consistent crystalline structure supports reliable dissolution across formulation types."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Functional\nBeverages",
+                            "description": "Energy drinks, sports drinks, functional waters, ready-to-drink nutritional products"
+                        },
+                        "1": {
+                            "title": "Nutraceuticals &\nDietary Supplements",
+                            "description": "Cardiovascular health formulations, neurological support, exercise performance products"
+                        },
+                        "2": {
+                            "title": "Pharmaceutical\nFormulations",
+                            "description": "Therapeutic applications for cardiovascular conditions, diabetes support, neurological health"
+                        },
+                        "3": {
+                            "title": "Animal\nNutrition",
+                            "description": "Cat and dog food fortification (essential nutrient for felines), aquaculture feed, specialty pet nutrition."
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Pharmacopeial Standards",
+                            "description": "USP/NF, European Pharmacopoeia (EP), Japanese Pharmacopoeia (JP)"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "bags"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        }
+                    },
+                    "packagingText": "Bulk containers, custom packaging available",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            }
+        },
+        "aromatic-and-fine-chemicals": {
+            "avivan": {
+                "hero": {
+                    "title": "Aromatic\n& Fine Chemicals",
+                    "subtitle": "High-Purity Ingredients for Flavour, Fragrance, and Industrial Applications"
+                },
+                "information": {
+                    "subText": "Vanillin",
+                    "description": "AviVan™ is our premium Vanillin, engineered for consistent olfactory performance, thermal stability, and broad formulation compatibility across food, beverage, fragrance, and pharmaceutical applications. With purity exceeding 99.5% and a characteristic, true-vanilla sensory profile, AviVan™ delivers the reliability demanded by global flavor houses, fragrance manufacturers, and food producers. Our advanced synthesis and purification processes ensure batch-to-batch consistency and eliminate off-notes that compromise product quality."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Food & Beverage\nFlavoring",
+                            "description": "Bakery products, confectionery, dairy, beverages, desserts, ice cream, chocolate products"
+                        },
+                        "1": {
+                            "title": "Fragrance\nFormulations",
+                            "description": "Fine fragrance, personal care products, home fragrances, functional fragrances"
+                        },
+                        "2": {
+                            "title": "Pharmaceutical\nApplications",
+                            "description": "Taste masking in oral formulations, flavoring agent for pediatric and geriatric medicines"
+                        },
+                        "3": {
+                            "title": "Industrial\nFragrancing",
+                            "description": "Air fresheners, cleaning products, scented industrial applications"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Certifications",
+                            "description": "Kosher, Halal, non-GMO, allergen-free (per EU and US regulations)"
+                        },
+                        "1": {
+                            "title": "Quality Control",
+                            "description": "GC-MS verification of purity, sensory evaluation by trained panel, heavy metals and microbiology testing"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Fiber drums with \nprotective liner"
+                        }
+                    },
+                    "packagingText": "Custom packaging for flavor houses",
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            },
+            "guaiacol": {
+                "hero": {
+                    "title": "Aromatic\n& Fine Chemicals",
+                    "subtitle": "High-Purity Ingredients for Flavour, Fragrance, and Industrial Applications"
+                },
+                "information": {
+                    "subText": "",
+                    "description": "Guaiacol is a specialty aromatic compound serving as a critical intermediate in fragrance synthesis, pharmaceutical manufacturing, and fine chemical production. Our high-purity Guaiacol (98%+ assay) delivers consistent reactivity and performance for specialized applications requiring controlled phenolic chemistry. With established regulatory compliance and comprehensive quality documentation, Avid Organics supplies this essential intermediate to innovators in fragrance, pharma, and specialty chemicals globally."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Fragrance & Flavor \n Intermediates",
+                            "description": "Synthesis of vanillin, eugenol derivatives, specialty aroma chemicals"
+                        },
+                        "1": {
+                            "title": "Pharmaceutical\nSynthesis",
+                            "description": "Intermediate for APIs, expectorants, and specialty therapeutics"
+                        },
+                        "2": {
+                            "title": "Specialty\nChemicals",
+                            "description": "Custom synthesis, research applications, fine chemical manufacturing"
+                        },
+                        "3": {
+                            "title": "Research & \nDevelopment",
+                            "description": "Laboratory reagent, academic research, innovation projects"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Safety",
+                            "description": "Comprehensive SDS with handling, storage, and emergency response protocols"
+                        },
+                        "1": {
+                            "title": "Quality Control",
+                            "description": "GC purity analysis, trace impurity characterization, batch-specific CoA"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        }
+                    },
+                    "packagingText": "Custom packaging available",
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            }
+        },
+        "specialty-chemicals-and-intermediates": {
+            "chlorhexidine-base": {
+                "hero": {
+                    "title": "SPECIALTY CHEMICALS\n& INTERMEDIATES",
+                    "subtitle": "Advanced Intermediates for Pharmaceutical & Industrial Innovation"
+                },
+                "information": {
+                    "subText": "",
+                    "description": "Chlorhexidine Base is a high-purity antimicrobial intermediate engineered for pharmaceutical and industrial synthesis. This critical intermediate serves as the foundation for manufacturing Chlorhexidine salts (digluconate, diacetate, dihydrochloride) used extensively in healthcare antiseptics, oral care products, and pharmaceutical formulations. Our advanced manufacturing process delivers consistent purity, controlled particle size, and comprehensive regulatory documentation supporting downstream product registrations globally."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Antiseptics &\nDisinfectants",
+                            "description": "Intermediate for surgical scrubs, wound care products, healthcare antiseptics"
+                        },
+                        "1": {
+                            "title": "Oral Care\nProducts",
+                            "description": "Foundation for mouthwashes, oral rinses, dental antiseptic formulations"
+                        },
+                        "2": {
+                            "title": "Pharmaceutical\nSynthesis",
+                            "description": "Production of Chlorhexidine gluconate, acetate, and hydrochloride salts for regulated applications"
+                        },
+                        "3": {
+                            "title": "Industrial\nAntimicrobials",
+                            "description": "Specialty formulations requiring controlled antimicrobial activity"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Safety",
+                            "description": "Comprehensive SDS with handling protocols for active pharmaceutical intermediates"
+                        },
+                        "1": {
+                            "title": "Quality Control",
+                            "description": "HPLC purity analysis, trace impurity profiling, particle size distribution, batch-specific CoA"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        }
+                    },
+                    "packagingText": "with protective packaging for moisture-sensitive materials",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            },
+            "mehq": {
+                "hero": {
+                    "title": "SPECIALTY CHEMICALS\n& INTERMEDIATES",
+                    "subtitle": "Advanced Intermediates for Pharmaceutical & Industrial Innovation"
+                },
+                "information": {
+                    "subText": "Hydroquinone Monomethyl Ether",
+                    "description": "MEHQ (Monomethyl Ether Hydroquinone) is a high-performance polymerization inhibitor and stabilizer engineered for precise control of radical reactions in polymer production, monomer storage, and specialty chemical manufacturing. Our high-purity MEHQ (99%+ assay) delivers consistent inhibition performance, thermal stability, and compatibility across diverse polymer systems and chemical processes. This essential specialty chemical enables safe handling and storage of reactive monomers while optimizing polymerization control in commercial production."
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Polymerization\nInhibitor",
+                            "description": "Acrylates, methacrylates, styrene, vinyl acetate, and other radical-polymerizable monomers"
+                        },
+                        "1": {
+                            "title": "Resin & Monomer\nStabilization",
+                            "description": "Storage stabilizer preventing premature polymerization during transport and storage"
+                        },
+                        "2": {
+                            "title": "Specialty Chemical\nSynthesis",
+                            "description": "Controlled polymerization reactions, laboratory research, fine chemical production"
+                        },
+                        "3": {
+                            "title": "Industrial Process\nStabilization",
+                            "description": "Preventing polymer fouling in chemical reactors and z heat exchangers"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Safety",
+                            "description": "Detailed SDS, transportation compliance, handling protocols for industrial chemicals"
+                        },
+                        "1": {
+                            "title": "Quality Control",
+                            "description": "GC/HPLC purity verification, trace impurity analysis, performance testing in standard polymer systems"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        }
+                    },
+
+                    "packagingText": "Custom packaging available for polymer manufacturers",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

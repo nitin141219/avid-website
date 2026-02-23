@@ -1,0 +1,159 @@
+{
+  "signUp": {
+    "options": {
+      "departmentOptions": [
+        {
+          "label": "Führungsebene",
+          "value": "executive_leadership"
+        },
+        {
+          "label": "Betrieb und Fertigung",
+          "value": "operations_manufacturing"
+        },
+        {
+          "label": "Beschaffung",
+          "value": "procurement"
+        },
+        {
+          "label": "Lieferkette & Logistik",
+          "value": "supply_chain_logistics"
+        },
+        {
+          "label": "Maschinenbau",
+          "value": "engineering"
+        },
+        {
+          "label": "Forschung und Entwicklung",
+          "value": "research_development"
+        },
+        {
+          "label": "Qualität, Regulierung und Konformität",
+          "value": "quality_regulatory_compliance"
+        },
+        {
+          "label": "Gesundheit, Sicherheit, Umwelt und Nachhaltigkeit",
+          "value": "hse_sustainability"
+        },
+        {
+          "label": "Vertrieb & Geschäft",
+          "value": "sales_commercial"
+        },
+        {
+          "label": "Marketing & Unternehmenskommunikation",
+          "value": "marketing_corporate_communications"
+        },
+        {
+          "label": "Kundenservice & Technischer Support",
+          "value": "customer_service_technical_support"
+        },
+        {
+          "label": "Finanzen & Recht",
+          "value": "finance_legal"
+        },
+        {
+          "label": "Personalwesen",
+          "value": "human_resources"
+        },
+        {
+          "label": "Informationstechnologie & Digitales",
+          "value": "information_technology_digital"
+        },
+        {
+          "label": "Verwaltung & Einrichtungen",
+          "value": "administration_facilities"
+        },
+        {
+          "label": "Praktika & Berufseinstieg",
+          "value": "internships_early_careers"
+        },
+        {
+          "label": "Beratung & Unterstützung",
+          "value": "consulting_advisory"
+        },
+        {
+          "label": "Sonstige (Bitte angeben)",
+          "value": "other"
+        }
+      ],
+      "markets": [
+        "Tierernährung",
+        "Speisen und Getränke",
+        "Industrie & Spezial",
+        "Körperpflege & Kosmetik",
+        "Pharmazeutika"
+      ]
+    },
+    "mainTitle": "ZUGANG – Jetzt anmelden",
+    "title": "Persönliche Daten",
+    "fields": {
+      "firstName": "Vor name",
+      "lastName": "Nach name",
+      "company": {
+        "title": "Unternehmens informationen",
+        "fields": {
+          "companyName": "Name der Firma",
+          "department": "Abteilung"
+        }
+      },
+      "businessInterest": {
+        "title": "Geschäftsinteresse",
+        "fields": {
+          "countryInterest": "Land von Interesse",
+          "marketInterest": "Markt von Interesse"
+        }
+      },
+      "contactDetails": {
+        "title": "Kontaktdaten",
+        "Email": "E-Mail",
+        "confirmEmail": "E-Mail bestätigen",
+        "mobileNo": "Telefonnummer",
+        "password": "Passwort",
+        "confirmPassword": "Passwort bestätigen"
+      },
+      "privacyPolicy": {
+        "text": "Ich stimme dem zu",
+        "linkText": "Datenschutzrichtlinie"
+      },
+      "termsAndConditions": "Ich möchte von Avid Organics Produktaktualisierungen und technische Mitteilungen erhalten.",
+      "buttons": {
+        "text": "Einreichen",
+        "loadingText": "Einreichen..."
+      }
+    },
+    "information": {
+      "title": "Werden Sie Partner von Avid Organics",
+      "description": {
+        "0": "Ob Sie hochreine chemische Zwischenprodukte, technische Spezifikationen oder Partnerschaftsmöglichkeiten suchen, unser globales Team steht Ihnen gerne zur Seite.",
+        "1": "Wir unterstützen Kunden aus den Bereichen Pharmazie, Körperpflege, Nahrungsergänzungsmittel, Agrochemie und Industrie mit reaktionsschnellem technischem Service und zuverlässiger Lieferkettenleistung.",
+        "2": "Besitzen Sie bereits ein AVID ACCESS Portal-Konto?",
+        "3": "Sie können sich anmelden, damit wir Ihre Anfrage besser beantworten können."
+      },
+      "buttons": {
+        "text": "Anmelden"
+      }
+    },
+    "validations": {
+      "firstNameRequired": "Der Vorname ist erforderlich",
+      "lastNameRequired": "Nachname ist erforderlich",
+      "companyNameRequired": "Firmenname ist erforderlich",
+      "emailRequired": "E-Mail ist erforderlich",
+      "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+      "countryRequired": "Land ist erforderlich",
+      "phoneRequired": "Telefonnummer ist erforderlich",
+      "phoneDigitsOnly": "Die Telefonnummer darf nur Ziffern enthalten",
+      "phoneMin": "Die Telefonnummer muss mindestens 10 Ziffern haben",
+      "phoneMax": "Die Telefonnummer darf nicht länger als 15 Ziffern sein",
+      "passwordRequired": "Passwort ist erforderlich",
+      "confirmEmailMatch": "E-Mail-Adresse muss übereinstimmen",
+      "confirmEmailRequired": "Bitte bestätigen Sie Ihre E-Mail-Adresse",
+      "confirmPasswordRequired": "Bitte bestätigen Sie Ihr Passwort",
+      "confirmPasswordMatch": "Passwörter müssen übereinstimmen",
+      "agreeRequired": "Sie müssen der Datenschutzerklärung zustimmen"
+    },
+    "toast": {
+      "emailExists": "Ein Konto mit dieser E-Mail-Adresse existiert bereits",
+      "registrationFailed": "Registrierung fehlgeschlagen",
+      "networkError": "Etwas ist schief gelaufen. Bitte versuchen Sie es erneut"
+    }
+  }
+}

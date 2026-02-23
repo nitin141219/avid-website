@@ -1,0 +1,283 @@
+.editor {
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    "Noto Sans",
+    sans-serif;
+  font-size: 16px;
+  line-height: 1.75;
+  color: #111827;
+}
+
+/* ---------- Headings ---------- */
+.editor h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 1.75rem 0 1rem;
+}
+
+.editor h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  margin: 1.5rem 0 0.875rem;
+}
+
+.editor h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 1.25rem 0 0.75rem;
+}
+
+.editor h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 1rem 0 0.5rem;
+}
+
+.editor h5 {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.editor h6 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+/* ---------- Paragraph ---------- */
+.editor p {
+  margin: 0.5rem 0;
+}
+
+/* ---------- Lists ---------- */
+.editor ul,
+.editor ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.editor ul {
+  list-style-type: disc;
+}
+
+.editor ol {
+  list-style-type: decimal;
+}
+
+.editor li {
+  margin: 0.4rem 0;
+}
+
+/* ---------- Blockquote ---------- */
+.editor blockquote {
+  border-left: 4px solid #e5e7eb;
+  padding-left: 1rem;
+  margin: 1.25rem 0;
+  color: #4b5563;
+  font-style: italic;
+}
+
+/* ---------- Inline code ---------- */
+.editor code {
+  background: #f3f4f6;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
+    monospace;
+}
+
+/* ---------- Code block ---------- */
+.editor pre {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1.25rem 0;
+}
+
+.editor pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: 0.875rem;
+}
+
+/* ---------- Links ---------- */
+.editor a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
+.editor a:hover {
+  text-decoration: none;
+}
+
+/* ---------- Images ---------- */
+.editor img {
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+/* ---------- Text alignment ---------- */
+.editor [style*="text-align: center"] {
+  text-align: center;
+}
+
+.editor [style*="text-align: right"] {
+  text-align: right;
+}
+
+.editor [style*="text-align: justify"] {
+  text-align: justify;
+}
+
+/* ---------- Table ---------- */
+.editor table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+.editor td,
+.editor th {
+  min-width: 1em;
+  border: 2px solid #ced4da;
+  padding: 3px 5px;
+  vertical-align: top;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.editor th {
+  font-weight: bold;
+  text-align: left;
+  background-color: #f1f3f5;
+}
+
+.editor .selectedCell:after {
+  z-index: 2;
+  position: absolute;
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(200, 200, 255, 0.4);
+  pointer-events: none;
+}
+
+.editor .column-resize-handle {
+  position: absolute;
+  right: -2px;
+  top: 0;
+  bottom: -2px;
+  width: 4px;
+  background-color: #adf;
+  pointer-events: none;
+}
+
+.editor .tableWrapper {
+  overflow-x: auto;
+}
+
+/* ---------- Resize Handles ---------- */
+
+.editor :global(.tiptap) img {
+  display: block;
+  width: 100%;
+}
+
+.editor :global(.tiptap) [data-resize-handle] {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  z-index: 10;
+}
+
+.editor :global(.tiptap) [data-resize-handle]:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.editor :global(.tiptap) [data-resize-handle="top-left"],
+.editor :global(.tiptap) [data-resize-handle="top-right"],
+.editor :global(.tiptap) [data-resize-handle="bottom-left"],
+.editor :global(.tiptap) [data-resize-handle="bottom-right"] {
+  width: 8px;
+  height: 8px;
+}
+
+.editor :global(.tiptap) [data-resize-handle="top-left"] {
+  top: -4px;
+  left: -4px;
+  cursor: nwse-resize;
+}
+
+.editor :global(.tiptap) [data-resize-handle="top-right"] {
+  top: -4px;
+  right: -4px;
+  cursor: nesw-resize;
+}
+
+.editor :global(.tiptap) [data-resize-handle="bottom-left"] {
+  bottom: -4px;
+  left: -4px;
+  cursor: nesw-resize;
+}
+
+.editor :global(.tiptap) [data-resize-handle="bottom-right"] {
+  bottom: -4px;
+  right: -4px;
+  cursor: nwse-resize;
+}
+
+.editor :global(.tiptap) [data-resize-handle="top"],
+.editor :global(.tiptap) [data-resize-handle="bottom"] {
+  height: 6px;
+  left: 8px;
+  right: 8px;
+}
+
+.editor :global(.tiptap) [data-resize-handle="top"] {
+  top: -3px;
+  cursor: ns-resize;
+}
+
+.editor :global(.tiptap) [data-resize-handle="bottom"] {
+  bottom: -3px;
+  cursor: ns-resize;
+}
+
+.editor :global(.tiptap) [data-resize-handle="left"],
+.editor :global(.tiptap) [data-resize-handle="right"] {
+  width: 6px;
+  top: 8px;
+  bottom: 8px;
+}
+
+.editor :global(.tiptap) [data-resize-handle="left"] {
+  left: -3px;
+  cursor: ew-resize;
+}
+
+.editor :global(.tiptap) [data-resize-handle="right"] {
+  right: -3px;
+  cursor: ew-resize;
+}
+
+.editor :global(.tiptap) [data-resize-state="true"] [data-resize-wrapper] {
+  outline: 1px solid rgba(0, 0, 0, 0.25);
+  border-radius: 0.125rem;
+}

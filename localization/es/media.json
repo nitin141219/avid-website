@@ -1,0 +1,20 @@
+{
+  "downloads": {
+    "description": "Creemos en la transparencia total. Ya sea que necesite una Hoja de Datos de Producto (PDS) específica o nuestra última certificación regulatoria, puede encontrar y descargar todos nuestros documentos de cumplimiento esenciales aquí mismo.",
+    "products_and_solutions": "Productos y Soluciones",
+    "certifications": "Certificaciones",
+    "error": "No se encontraron datos"
+  },
+  "news": {
+    "title": "Noticias y Anuncios",
+    "error": "No se encontraron noticias"
+  },
+  "events": {
+    "title": "Eventos",
+    "error": "No se encontraron eventos"
+  },
+  "blogs": {
+    "title": "Blog",
+    "error": "No se encontró el blog"
+  }
+}

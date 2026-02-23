@@ -1,0 +1,88 @@
+{
+  "careers": {
+    "jobs": {
+      "open_positions": "Offene Stellen",
+      "department": "Abteilung",
+      "location": "Standort",
+      "job_type": "Jobtyp",
+      "days_ago": "vor Tagen",
+      "part_time": "Teilzeit",
+      "full_time": "Vollzeit"
+    },
+    "life": {
+      "hero": {
+        "title": "Leben bei AVID"
+      },
+      "culture": {
+        "title": "Unsere Kultur",
+        "description1": "Das Leben bei Avid Organics wird von Menschen geprägt, denen es wichtig ist, sinnvolle Arbeit gut zu leisten. Neugier treibt unser Denken an. Zusammenarbeit stärkt unsere Ergebnisse. Fortschritt ist eine gemeinsame Verantwortung.",
+        "description2": "Unsere Kultur baut auf Respekt, Offenheit und dem Vertrauen auf, das aus der Zusammenarbeit mit Teams entsteht, die stolz auf ihr Handwerk sind."
+      },
+      "why_work_with_us": {
+        "title": "Warum bei uns arbeiten",
+        "intro": "Avid Organics ist ein Ort für Menschen, die etwas aufbauen, lösen und voranbringen wollen. Sie arbeiten an Herausforderungen, die globale Industrien beeinflussen, und tragen zu Produkten bei, die Millionen von Menschenleben erreichen.",
+        "metrics_title": "Kultur-Kennzahlen",
+        "employees_prefix": "Ein wachsendes Team von ",
+        "employees_suffix": " Mitarbeitern",
+        "continents_prefix": " auf ",
+        "continents_highlight": "drei Kontinenten",
+        "retention_highlight": "Mitarbeiterbindung",
+        "promotions_suffix": " interne Beförderungen",
+        "promotions_timeframe": " in den letzten drei Jahren",
+        "tenure_highlight": "Durchschnittliche Betriebszugehörigkeit über fünf Jahre",
+        "tenure_desc1": "in wichtigen operativen",
+        "tenure_desc2": "und technischen Teams",
+        "collab_highlight": "Funktionsübergreifende Kollaborationsplattformen",
+        "collab_desc1": "genutzt in Produktion,",
+        "collab_desc2": "Forschung & Entwicklung, Qualität und Lieferkette",
+        "diversity_highlight": "Diversitätsrepräsentation steigt Jahr für Jahr,",
+        "diversity_desc": "unterstützt durch integrative Einstellungspraktiken"
+      },
+      "learning": {
+        "title": "Lernen & Entwicklung",
+        "description1": "Wir möchten, dass Menschen langfristige Karrieren bei uns aufbauen. Lernen bei Avid ist strukturiert, kontinuierlich und eng darauf abgestimmt, wohin sich das Unternehmen als nächstes entwickelt.",
+        "description2": "Ob Ihr Ehrgeiz in der Vertiefung von Fachwissen oder dem Schritt in eine Führungsposition liegt, wir helfen Ihnen, selbstbewusst und mit Unterstützung voranzukommen."
+      },
+      "safety": {
+        "title": "Sicherheit & Wohlbefinden",
+        "description": "Unser Ansatz zur Sicherheit ist kompromisslos. Wir streben danach, der sicherste Arbeitsplatz in der chemischen Industrie zu sein, und unsere Ergebnisse spiegeln dieses Engagement wider. Operative Disziplin, formelle Schulungen, verhaltensorientierte Sicherheitspraktiken und kontinuierliche Audits stellen sicher, dass Sicherheit Teil unserer Arbeitsweise ist, nicht nur etwas, das wir einhalten.",
+        "metrics_title": "Sicherheits-Kennzahlen",
+        "metrics": {
+          "injuries": {
+            "title": "Null Arbeitsunfälle mit Ausfallzeit",
+            "text": "im GJ2025"
+          },
+          "compliance": {
+            "title": "100% Einhaltung der Sicherheitsschulungen",
+            "text": "in allen Produktionsteams"
+          },
+          "audits": {
+            "text": "Unabhängige Audits und kontinuierliche Verbesserungszyklen"
+          }
+        }
+      },
+      "diversity": {
+        "title": "Diversität & Inklusion",
+        "description": "Wir glauben, dass diverse Teams stärkere Ideen und widerstandsfähigere Organisationen aufbauen. Unsere Kultur ermutigt Menschen, ihr authentisches Selbst zur Arbeit zu bringen und ohne Zögern beizutragen."
+      },
+      "benefits": {
+        "title": "Vorteile & Belohnungen",
+        "intro": "Wir erkennen Menschen an, die hohe Standards setzen und die Arbeit um sie herum verbessern. Unsere Belohnungsphilosophie ist einfach:",
+        "philosophy": "in Menschen investieren, die in das Unternehmen investieren.",
+        "offering_title": "Unser Angebot umfasst",
+        "list": {
+          "compensation": "Wettbewerbsfähige Vergütung im Branchenvergleich",
+          "performance": "Leistungsbezogene Belohnungen und Anerkennung",
+          "development": "Berufliche Weiterentwicklung und Zertifizierungsunterstützung",
+          "inclusive": "Ein sicherer, verantwortungsvoller und inklusiver Arbeitsplatz",
+          "growth": "Möglichkeiten für funktionsübergreifendes Wachstum und internationale Erfahrung"
+        }
+      },
+      "join": {
+        "title": "Werden Sie Teil unseres Teams",
+        "description": "Avid Organics schafft eines der vertrauenswürdigsten Spezialchemieunternehmen Indiens. Treten Sie einem Arbeitsplatz bei, der Klarheit, Ehrgeiz und Verantwortung gleichermaßen schätzt. Entdecken Sie offene Stellen und finden Sie heraus, wo Sie etwas bewirken können.",
+        "cta": "Aktuelle Stellenangebote ansehen"
+      }
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "market": {
+    "our_solution": "Our Solutions for",
+    "featured_products": "Featured Products",
+
+    "animal-nutrition": {
+      "hero": {
+        "title": "Animal Nutrition",
+        "subtitle": "Optimizing Health and Performance in Animal Nutrition."
+      },
+      "description": "In animal nutrition, chemistry meets biology. Our high-purity amino acids and functional ingredients are engineered for optimal absorption, bioavailability, and metabolic efficiency, providing the essential building blocks for healthy growth and productivity.",
+      "solutions": {
+        "enhanced_bioavailability": {
+          "title": "Enhanced Bioavailability",
+          "text": "We control for molecular integrity and solubility to ensure animals receive the intended nutritional benefit consistently."
+        },
+        "guaranteed_stability": {
+          "title": "Guaranteed Stability",
+          "text": "Our ingredients are designed for chemical stability during feed storage, processing, and digestion."
+        },
+        "efficient_production": {
+          "title": "Efficient Production",
+          "text": "Our sustainable manufacturing processes reduce waste and energy use while ensuring product safety and performance."
+        }
+      },
+      "productsTitle": "Featured Products",
+      "products": {
+        "avigly_hp": {
+          "desc": "Food-grade amino acid for flavor enhancement and nutritional fortification."
+        },
+        "avitau": {
+          "desc": "A key functional additive for health and development."
+        }
+      }
+    },
+
+    "food-and-beverages": {
+      "hero": {
+        "title": "Food & Beverages",
+        "subtitle": "Enhancing Taste, Texture, and Stability."
+      },
+      "description": "In the food and beverage industry, ingredients must be functional, safe, and reliable in diverse and often complex formulations. Our products are engineered to perform predictably under thermal and chemical stress, helping global manufacturers balance taste, preservation, and nutritional integrity.",
+      "solutions": {
+        "consistent_performance": {
+          "title": "Consistent Performance",
+          "text": "Our ingredients act as precise reagents to control pH, enhance flavor, and ensure textural stability in large-scale production."
+        },
+        "assured_food_safety": {
+          "title": "Assured Food Safety",
+          "text": "Manufactured in our FSSC 22000 certified facility, our products meet international safety and quality standards."
+        },
+        "sustainable_sourcing": {
+          "title": "Sustainable Sourcing",
+          "text": "We are committed to responsible manufacturing, helping you create products that are better for consumers and the planet."
+        }
+      },
+      "products": {
+        "avivan": {
+          "desc": "A high-purity aromatic for consistent, high-impact flavor profiles."
+        },
+        "avigly_hp": {
+          "desc": "Food-grade amino acid for flavor enhancement and nutritional fortification."
+        },
+        "avitau": {
+          "desc": "Food-grade amino acid for nutritional fortification in energy beverages and functional food applications."
+        }
+      }
+    },
+
+    "industrial-and-specialty-applications": {
+      "hero": {
+        "title": "Industrial & Specialty Applications",
+        "subtitle": "Reliable Chemistry for Demanding Industrial Processes."
+      },
+      "description": "Industrial applications demand molecules that perform predictably under high-stress conditions. Our technical-grade ingredients are optimized for controlled reactivity and process compatibility, acting as reliable reagents that catalyze efficiency and improve overall process yield.",
+      "solutions": {
+        "predictable_reactivity": {
+          "title": "Predictable Reactivity",
+          "text": "Our products are engineered for consistent performance, reducing side reactions and enhancing production reliability."
+        },
+        "process_compatibility": {
+          "title": "Process Compatibility",
+          "text": "We ensure our ingredients are stable and compatible with a wide range of industrial systems and processes."
+        },
+        "sustainable_manufacturing": {
+          "title": "Sustainable Manufacturing",
+          "text": "Our energy-efficient processes, solvent recovery systems, and minimized waste streams support your environmental compliance goals."
+        }
+      },
+      "products": {
+        "aviga_t": {
+          "desc": "A versatile acid for cleaning, descaling, and chemical synthesis."
+        },
+        "mehq": {
+          "desc": "A high-purity polymerization inhibitor for process control."
+        },
+        "chlorhexidine": {
+          "desc": "A specialty intermediate for high-performance applications."
+        }
+      }
+    },
+
+    "personal-care-and-cosmetics": {
+      "hero": {
+        "title": "Personal Care & Cosmetics",
+        "subtitle": "High-Purity Active Ingredients for Performance"
+      },
+      "description": "In personal care, molecules interact directly with skin, hair, and formulations. Our Glycolic Acids, Amino Acids, and specialty intermediates are designed for controlled activity, predictable reactivity, and long-term stability in complex cosmetic matrices. We treat each formulation as a micro-laboratory, carefully balancing pH, solubility, and compatibility to ensure efficacy, safety, and sensory performance.",
+      "solutions": {
+        "controlled_activity": {
+          "title": "Controlled Activity",
+          "text": "We engineer our molecules for predictable reactivity, ensuring consistent performance in anti-aging serums, exfoliating peels, and other active formulations."
+        },
+        "formulation_stability": {
+          "title": "Formulation Stability",
+          "text": "Our ingredients are designed for long-term stability in complex cosmetic matrices, balancing pH, solubility, and compatibility to protect your product's integrity."
+        },
+        "uncompromising_purity": {
+          "title": "Uncompromising Purity",
+          "text": "We deliver ingredients that meet the highest standards for skin safety, giving you and your customers complete confidence."
+        }
+      },
+      "products": {
+        "aviga_hp": {
+          "desc": "The industry benchmark for high-purity exfoliation and rejuvenation."
+        },
+        "chlorhexidine_base": {
+          "desc": "A high-purity antimicrobial base for personal care preservative systems."
+        },
+        "avigly_hp": {
+          "desc": "High-purity amino acid for skin conditioning, pH buffering, and formulation stabilization in cosmetic systems."
+        },
+        "avitau": {
+          "desc": "Antioxidant amino acid for anti-aging and protective skincare formulations."
+        },
+        "avivan": {
+          "desc": "High-purity aromatic compound providing characteristic vanilla fragrance."
+        }
+      }
+    },
+
+    "pharmaceuticals": {
+      "hero": {
+        "title": "Pharmaceuticals",
+        "subtitle": "Purity and Compliance for Pharmaceutical Innovation."
+      },
+      "description": "The pharmaceutical market demands the highest standards of purity, reproducibility, and regulatory compliance. Our ingredients are manufactured in a certified environment to serve as reliable building blocks for APIs, excipients, and nutraceuticals, supported by comprehensive documentation to ensure a smooth path to market.",
+      "solutions": {
+        "stringent_quality_standards": {
+          "title": "Stringent Quality Standards",
+          "text": "We manufacture ingredients designed to meet stringent USP and other global pharmacopeia standards."
+        },
+        "formulation_stability": {
+          "title": "Formulation Stability",
+          "text": "Our processes ensure the precise molecular composition required for predictable therapeutic outcomes and bioavailability."
+        },
+        "uncompromising_purity": {
+          "title": "Uncompromising Purity",
+          "text": "We provide ingredients and documentation that give our partners confidence for distribution across international healthcare markets."
+        }
+      },
+      "products": {
+        "avigly_hp": {
+          "desc": "High-purity, USP-grade Glycine for APIs and critical formulations."
+        },
+        "avitau": {
+          "desc": "A stable, high-purity amino acid for pharmaceutical and nutraceutical applications."
+        },
+        "chlorhexidine_base": {
+          "desc": "A high-purity intermediate for active ingredient synthesis."
+        },
+        "guaiacol": {
+          "desc": "A versatile intermediate for pharmaceutical synthesis."
+        },
+        "mehq": {
+          "desc": "Pharmaceutical-grade intermediate for API synthesis and antioxidant drug development."
+        }
+      }
+    }
+  }
+}

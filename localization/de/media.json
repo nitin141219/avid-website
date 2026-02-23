@@ -1,0 +1,20 @@
+{
+  "downloads": {
+    "description": "Wir setzen auf absolute Transparenz. Ob Sie ein bestimmtes Produktdatenblatt (PDS) oder unsere neueste behördliche Zertifizierung benötigen – alle wichtigen Konformitätsdokumente finden und laden Sie hier herunter.",
+    "products_and_solutions": "Produkte und Lösungen",
+    "certifications": "Zertifizierungen",
+    "error": "Keine Daten gefunden"
+  },
+  "news": {
+    "title": "Neuigkeiten und Ankündigungen",
+    "error": "Keine Neuigkeiten gefunden"
+  },
+  "events": {
+    "title": "Veranstaltungen",
+    "error": "Keine Veranstaltungen gefunden"
+  },
+  "blogs": {
+    "title": "Blog",
+    "error": "Kein Blog gefunden"
+  }
+}

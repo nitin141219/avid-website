@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "slide_1_title": "Ancré dans la durabilité pour une meilleure planète",
+    "slide_1_subtitle": "Intégrer les soins environnementaux et le bien-être de la communauté dans des opérations industrielles durables et des pratiques commerciales conformes aux ODD de l'ONU.",
+    "slide_1_button": "En savoir plus",
+    "slide_2_title": "Alimenter l'innovation grâce à un écosystème de R&D avancé",
+    "slide_2_subtitle": "Recherche de pointe, amélioration continue et engagement envers des percées dans des solutions évolutives et performantes.",
+    "slide_2_button": "Découvrez notre R&D",
+    "slide_3_title": "Premier fabricant de glycine et d'acide glycolique",
+    "slide_3_subtitle": "Des soins de santé aux soins à domicile, favorisant l'autosuffisance et les normes industrielles grâce aux meilleurs produits chimiques de spécialité.",
+    "slide_3_button": "Contactez-nous"
+  },
+  "our-market": {
+    "title": "Nos Marchés",
+    "personal_care": "Soins personnels & cosmétiques",
+    "pharma": "Produits pharmaceutiques",
+    "food_beverage": "Aliments & Boissons",
+    "animal_nutrition": "Nutrition animale",
+    "industrial": "Applications industrielles & de spécialité"
+  },
+  "key-products": {
+    "title": "Nos Produits Phares",
+    "tagline": "L'accent sur les chimies de haute performance.",
+    "description": "En tant que fabricant, nous offrons une expertise inégalée dans nos technologies de base.\n Nos séries de produits sont conçues pour offrir une gamme de grades, offrant à nos partenaires des solutions sur mesure pour leurs applications spécifiques.",
+    "series": "Série",
+    "aviga": {
+      "subtitle": "Acide Glycolique",
+      "description": "Série AviGa™ (Acide Glycolique) : Notre plateforme de premier plan pour l'acide glycolique, offrant des grades allant de la haute pureté cosmétique (CP) aux spécifications techniques (T) robustes, conçue pour une performance supérieure."
+    },
+    "avigly": {
+      "subtitle": "Glycine USP",
+      "description": "Série AviGly™ (Glycine) : Notre ligne phare de glycine, disponible en grades pharmaceutiques de haute pureté (USP) et en grades techniques polyvalents pour répondre aux demandes les plus strictes de l'industrie."
+    },
+    "avivan": {
+      "subtitle": "Taurine",
+      "description": "AviVan™ (Vanilline) : Un choix de premier plan pour les industries agroalimentaires et de la parfumerie, offrant des profils sensoriels exceptionnels soutenus par notre excellence manufacturière."
+    }
+  },
+  "milestones": {
+    "began": {
+      "title": [
+        "Où tout",
+        "a commencé"
+      ],
+      "description": "D'une seule ligne de production à 4 200 tonnes de capacité annuelle en glycine, acide glycolique et taurine. Trois décennies de service aux industries réglementées ont jeté les fondations de l'expansion mondiale.",
+      "button": "Connaître notre histoire"
+    },
+    "operate": {
+      "title": [
+        "Comment nous",
+        "opérons"
+      ],
+      "description": "Installation de 18 000 m² sans émissions à Vadodara. 150+ professionnels en fabrication, R&D et qualité. Partenaires stratégiques dans plus de 30 pays soutenus par des bureaux régionaux aux États-Unis et en Europe.",
+      "button": "Explorez nos capacités"
+    },
+    "next": {
+      "title": [
+        "Et",
+        "ensuite"
+      ],
+      "description": "Avec 100% d'électricité renouvelable désormais atteinte et un objectif de neutralité carbone pour 2050, nous continuons à faire progresser la fabrication responsable tout en développant nos capacités mondiales.",
+      "button": "Explorez nos engagements"
+    }
+  },
+  "stats": {
+    "mt_annual": "Tonnes Annuelles",
+    "years": "Années",
+    "manufacturing_excellence": "Excellence Manufacturière",
+    "glycine_capacity": "Capacité de Glycine",
+    "glycolic_acid_capacity": "Capacité d'Acide Glycolique"
+  },
+  "global_presence": {
+    "title": "Présence Mondiale",
+    "subTitle": "Siège de fabrication à Vadodara, Inde. Support des ventes régional par Avid Organics America Inc. et notre bureau à Maastricht, Pays-Bas."
+  },
+  "press_release": {
+    "title": "Communiqués de Presse"
+  }
+}

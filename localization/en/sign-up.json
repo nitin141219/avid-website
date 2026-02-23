@@ -1,0 +1,159 @@
+{
+    "signUp": {
+        "options": {
+            "departmentOptions": [
+                {
+                    "label": "Executive Leadership",
+                    "value": "executive_leadership"
+                },
+                {
+                    "label": "Operations & Manufacturing",
+                    "value": "operations_manufacturing"
+                },
+                {
+                    "label": "Procurement",
+                    "value": "procurement"
+                },
+                {
+                    "label": "Supply Chain & Logistics",
+                    "value": "supply_chain_logistics"
+                },
+                {
+                    "label": "Engineering",
+                    "value": "engineering"
+                },
+                {
+                    "label": "Research & Development",
+                    "value": "research_development"
+                },
+                {
+                    "label": "Quality, Regulatory & Compliance",
+                    "value": "quality_regulatory_compliance"
+                },
+                {
+                    "label": "Health, Safety, Environment & Sustainability",
+                    "value": "hse_sustainability"
+                },
+                {
+                    "label": "Sales & Commercial",
+                    "value": "sales_commercial"
+                },
+                {
+                    "label": "Marketing & Corporate Communications",
+                    "value": "marketing_corporate_communications"
+                },
+                {
+                    "label": "Customer Service & Technical Support",
+                    "value": "customer_service_technical_support"
+                },
+                {
+                    "label": "Finance & Legal",
+                    "value": "finance_legal"
+                },
+                {
+                    "label": "Human Resources",
+                    "value": "human_resources"
+                },
+                {
+                    "label": "Information Technology & Digital",
+                    "value": "information_technology_digital"
+                },
+                {
+                    "label": "Administration & Facilities",
+                    "value": "administration_facilities"
+                },
+                {
+                    "label": "Internships & Early Careers",
+                    "value": "internships_early_careers"
+                },
+                {
+                    "label": "Consulting & Advisory",
+                    "value": "consulting_advisory"
+                },
+                {
+                    "label": "Other (Please specify)",
+                    "value": "other"
+                }
+            ],
+            "markets": [
+                "Animal Nutrition",
+                "Food & Beverage",
+                "Industrial & Specialty",
+                "Personal Care & Cosmetics",
+                "Pharmaceuticals"
+            ]
+        },
+        "mainTitle": "ACCESS - Sign Up",
+        "title": "Personal Information",
+        "fields": {
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "company": {
+                "title": "Company Information",
+                "fields": {
+                    "companyName": "Company Name",
+                    "department": "Department"
+                }
+            },
+            "businessInterest": {
+                "title": "Business Interest",
+                "fields": {
+                    "countryInterest": "Country of interest",
+                    "marketInterest": "Market of interest"
+                }
+            },
+            "contactDetails": {
+                "title": "Contact Details",
+                "Email": "Email",
+                "confirmEmail": "Confirm Email",
+                "mobileNo": "Mobile No",
+                "password": "Password",
+                "confirmPassword": "Confirm Password"
+            },
+            "privacyPolicy": {
+                "text": "I agree to the",
+                "linkText": "Privacy Policy"
+            },
+            "termsAndConditions": "I would like to receive product updates and technical communications from Avid Organics.",
+            "buttons": {
+                "text": "Submit",
+                "loadingText": "Submitting..."
+            }
+        },
+        "information": {
+            "title": "Partner With Avid Organics",
+            "description": {
+                "0": "Whether you're seeking high-purity chemical intermediates, technical specifications, or partnership opportunities, our global team is ready to assist you.",
+                "1": "We support customers across pharmaceutical, personal care, nutraceutical, agrochemical, and industrial sectors with responsive technical service and reliable supply chain performance.",
+                "2": "Do you already have an AVID ACCESS Portal account?",
+                "3": "You can sign in to help us better answer your request."
+            },
+            "buttons": {
+                "text": "Sign In"
+            }
+        },
+        "validations": {
+            "firstNameRequired": "First name is required",
+            "lastNameRequired": "Last name is required",
+            "companyNameRequired": "Company name is required",
+            "emailRequired": "Email is required",
+            "emailInvalid": "Please enter a valid email address",
+            "countryRequired": "Country is required",
+            "phoneRequired": "Phone number is required.",
+            "phoneDigitsOnly": "Phone number must contain only digits",
+            "phoneMin": "Phone number must be at least 10 digits",
+            "phoneMax": "Phone number cannot exceed 15 digits",
+            "passwordRequired": "Password is required",
+            "confirmEmailMatch": "Email address must match",
+            "confirmEmailRequired": "Please confirm your email address",
+            "confirmPasswordRequired": "Please confirm your password",
+            "confirmPasswordMatch": "Passwords must match",
+            "agreeRequired": "You must agree to the Privacy Policy"
+        },
+        "toast": {
+            "emailExists": "An account with this email already exists",
+            "registrationFailed": "Registration failed",
+            "networkError": "Something went wrong. Please try again."
+        }
+    }
+}

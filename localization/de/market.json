@@ -1,0 +1,181 @@
+{
+  "market": {
+    "our_solution": "Unsere Lösungen für",
+    "featured_products": "Ausgewählte Produkte",
+
+    "animal-nutrition": {
+      "hero": {
+        "title": "Tierernährung",
+        "subtitle": "Optimierung von Gesundheit und Leistungsfähigkeit in der Tierernährung."
+      },
+      "description": "In der Tierernährung treffen Chemie und Biologie aufeinander. Unsere hochreinen Aminosäuren und funktionellen Inhaltsstoffe sind auf optimale Absorption, Bioverfügbarkeit und metabolische Effizienz ausgelegt und liefern die wesentlichen Bausteine für gesundes Wachstum und Produktivität.",
+      "solutions": {
+        "enhanced_bioavailability": {
+          "title": "Verbesserte Bioverfügbarkeit",
+          "text": "Wir stellen die molekulare Integrität und Löslichkeit sicher, damit Tiere den beabsichtigten ernährungsphysiologischen Nutzen zuverlässig erhalten."
+        },
+        "guaranteed_stability": {
+          "title": "Garantierte Stabilität",
+          "text": "Unsere Inhaltsstoffe sind auf chemische Stabilität während der Lagerung von Futtermitteln, der Verarbeitung und der Verdauung ausgelegt."
+        },
+        "efficient_production": {
+          "title": "Effiziente Produktion",
+          "text": "Unsere nachhaltigen Herstellungsprozesse reduzieren Abfall und Energieverbrauch und gewährleisten gleichzeitig Produktsicherheit und Leistungsfähigkeit."
+        }
+      },
+      "productsTitle": "Ausgewählte Produkte",
+      "products": {
+        "avigly_hp": {
+          "desc": "Lebensmitteltaugliche Aminosäure zur Geschmacksverbesserung und ernährungsphysiologischen Anreicherung."
+        },
+        "avitau": {
+          "desc": "Ein wichtiger funktioneller Zusatzstoff für Gesundheit und Entwicklung."
+        }
+      }
+    },
+
+    "food-and-beverages": {
+      "hero": {
+        "title": "Lebensmittel & Getränke",
+        "subtitle": "Verbesserung von Geschmack, Textur und Stabilität."
+      },
+      "description": "In der Lebensmittel- und Getränkeindustrie müssen Inhaltsstoffe funktional, sicher und in vielfältigen sowie oft komplexen Formulierungen zuverlässig sein. Unsere Produkte sind so entwickelt, dass sie unter thermischer und chemischer Belastung vorhersehbar funktionieren und globalen Herstellern helfen, Geschmack, Haltbarkeit und Nährwertintegrität in Einklang zu bringen.",
+      "solutions": {
+        "consistent_performance": {
+          "title": "Konsistente Leistung",
+          "text": "Unsere Inhaltsstoffe wirken als präzise Reagenzien zur pH-Steuerung, Geschmacksverstärkung und Sicherstellung der Texturstabilität in der großtechnischen Produktion."
+        },
+        "assured_food_safety": {
+          "title": "Gewährleistete Lebensmittelsicherheit",
+          "text": "Hergestellt in unserer nach FSSC 22000 zertifizierten Produktionsstätte erfüllen unsere Produkte internationale Sicherheits- und Qualitätsstandards."
+        },
+        "sustainable_sourcing": {
+          "title": "Nachhaltige Beschaffung",
+          "text": "Wir setzen uns für eine verantwortungsvolle Herstellung ein und unterstützen Sie dabei, Produkte zu entwickeln, die besser für Verbraucher und den Planeten sind."
+        }
+      },
+      "products": {
+        "avivan": {
+          "desc": "Ein hochreiner Aromastoff für konsistente, intensive Geschmacksprofile."
+        },
+        "avigly_hp": {
+          "desc": "Eine grundlegende Aminosäure für metabolische Prozesse."
+        },
+        "avitau": {
+          "desc": "Lebensmitteltaugliche Aminosäure zur ernährungsphysiologischen Anreicherung in Energy-Getränken und funktionellen Lebensmittelanwendungen."
+        }
+      }
+    },
+
+    "industrial-and-specialty-applications": {
+      "hero": {
+        "title": "Industrielle & Spezialanwendungen",
+        "subtitle": "Zuverlässige Chemie für anspruchsvolle industrielle Prozesse."
+      },
+      "description": "Industrielle Anwendungen erfordern Moleküle, die unter Hochlastbedingungen vorhersehbar funktionieren. Unsere technischen Qualitäten sind auf kontrollierte Reaktivität und Prozesskompatibilität optimiert und wirken als zuverlässige Reagenzien, die Effizienz steigern und die Gesamtausbeute von Prozessen verbessern.",
+      "solutions": {
+        "predictable_reactivity": {
+          "title": "Vorhersehbare Reaktivität",
+          "text": "Unsere Produkte sind auf konstante Leistung ausgelegt, reduzieren Nebenreaktionen und erhöhen die Produktionszuverlässigkeit."
+        },
+        "process_compatibility": {
+          "title": "Prozesskompatibilität",
+          "text": "Wir stellen sicher, dass unsere Inhaltsstoffe stabil sind und mit einer Vielzahl industrieller Systeme und Prozesse kompatibel bleiben."
+        },
+        "sustainable_manufacturing": {
+          "title": "Nachhaltige Herstellung",
+          "text": "Unsere energieeffizienten Prozesse, Lösungsmittelrückgewinnungssysteme und minimierten Abfallströme unterstützen Ihre Umwelt- und Compliance-Ziele."
+        }
+      },
+      "products": {
+        "aviga_t": {
+          "desc": "Eine vielseitige Säure für Reinigung, Entkalkung und chemische Synthese."
+        },
+        "mehq": {
+          "desc": "Ein hochreiner Polymerisationsinhibitor zur Prozesskontrolle."
+        },
+        "chlorhexidine": {
+          "desc": "Ein spezieller Zwischenstoff für Hochleistungsanwendungen."
+        }
+      }
+    },
+
+    "personal-care-and-cosmetics": {
+      "hero": {
+        "title": "Körperpflege & Kosmetik",
+        "subtitle": "Hochreine Wirkstoffe für leistungsstarke Formulierungen"
+      },
+      "description": "In der Körperpflege interagieren Moleküle direkt mit Haut, Haar und Formulierungen. Unsere Glykolsäuren, Aminosäuren und spezialisierten Zwischenprodukte sind auf kontrollierte Aktivität, vorhersehbare Reaktivität und langfristige Stabilität in komplexen kosmetischen Matrizes ausgelegt. Wir betrachten jede Formulierung als ein Mikrolabor und balancieren sorgfältig pH-Wert, Löslichkeit und Kompatibilität, um Wirksamkeit, Sicherheit und sensorische Performance sicherzustellen.",
+      "solutions": {
+        "controlled_activity": {
+          "title": "Kontrollierte Aktivität",
+          "text": "Wir entwickeln unsere Moleküle für vorhersehbare Reaktivität und gewährleisten eine konsistente Leistung in Anti-Aging-Seren, exfolierenden Peelings und anderen aktiven Formulierungen."
+        },
+        "formulation_stability": {
+          "title": "Formulierungsstabilität",
+          "text": "Unsere Inhaltsstoffe sind auf langfristige Stabilität in komplexen kosmetischen Matrizes ausgelegt und balancieren pH-Wert, Löslichkeit und Kompatibilität, um die Integrität Ihres Produkts zu schützen."
+        },
+        "uncompromising_purity": {
+          "title": "Kompromisslose Reinheit",
+          "text": "Wir liefern Inhaltsstoffe, die höchsten Anforderungen an die Hautverträglichkeit entsprechen und Ihnen sowie Ihren Kunden vollständige Sicherheit geben."
+        }
+      },
+      "products": {
+        "aviga_hp": {
+          "desc": "Der Branchenmaßstab für hochreine Exfoliation und Hauterneuerung."
+        },
+        "chlorhexidine_base": {
+          "desc": "Eine hochreine antimikrobielle Basis für Konservierungssysteme in der Körperpflege."
+        },
+        "avigly_hp": {
+          "desc": "Hochreine Aminosäure zur Hautkonditionierung, pH-Pufferung und Stabilisierung von Formulierungen in kosmetischen Systemen."
+        },
+        "avitau": {
+          "desc": "Antioxidative Aminosäure für Anti-Aging- und schützende Hautpflegeformulierungen."
+        },
+        "avivan": {
+          "desc": "Hochreine aromatische Verbindung mit charakteristischem Vanilleduft."
+        }
+      }
+    },
+
+    "pharmaceuticals": {
+      "hero": {
+        "title": "Pharmazeutika",
+        "subtitle": "Reinheit und Compliance für pharmazeutische Innovationen."
+      },
+      "description": "Der pharmazeutische Markt erfordert höchste Standards in Bezug auf Reinheit, Reproduzierbarkeit und regulatorische Compliance. Unsere Inhaltsstoffe werden in einer zertifizierten Umgebung hergestellt und dienen als zuverlässige Bausteine für APIs, Hilfsstoffe und Nutraceuticals. Eine umfassende Dokumentation unterstützt einen reibungslosen Marktzugang.",
+      "solutions": {
+        "stringent_quality_standards": {
+          "title": "Strenge Qualitätsstandards",
+          "text": "Wir stellen Inhaltsstoffe her, die so konzipiert sind, dass sie strengen USP- und weiteren globalen Arzneibuchstandards entsprechen."
+        },
+        "formulation_stability": {
+          "title": "Formulierungsstabilität",
+          "text": "Unsere Prozesse gewährleisten die präzise molekulare Zusammensetzung, die für vorhersehbare therapeutische Ergebnisse und Bioverfügbarkeit erforderlich ist."
+        },
+        "uncompromising_purity": {
+          "title": "Kompromisslose Reinheit",
+          "text": "Wir liefern Inhaltsstoffe und Dokumentationen, die unseren Partnern Vertrauen für den Vertrieb auf internationalen Gesundheitsmärkten geben."
+        }
+      },
+      "products": {
+        "avigly_hp": {
+          "desc": "Hochreines Glycin in USP-Qualität für APIs und kritische Formulierungen."
+        },
+        "avitau": {
+          "desc": "Eine stabile, hochreine Aminosäure für pharmazeutische und nutraceutische Anwendungen."
+        },
+        "chlorhexidine_base": {
+          "desc": "Ein hochreiner Zwischenstoff für die Synthese von Wirkstoffen."
+        },
+        "guaiacol": {
+          "desc": "Ein vielseitiger Zwischenstoff für die pharmazeutische Synthese."
+        },
+        "mehq": {
+          "desc": "Zwischenprodukt in pharmazeutischer Qualität für die API-Synthese und die Entwicklung antioxidativer Arzneimittel."
+        }
+      }
+    }
+  }
+}

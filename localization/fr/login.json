@@ -1,0 +1,70 @@
+{
+  "login": {
+    "mainTitle": "ACCÈS",
+    "loginTitle": "Connectez-vous à votre compte",
+    "fields": {
+      "email": {
+        "label": "Adresse e-mail"
+      },
+      "password": {
+        "label": "Mot de passe"
+      }
+    },
+    "buttons": {
+      "login": {
+        "text": "Se connecter",
+        "loadingText": "Connexion en cours..."
+      },
+      "forgotPassword": "Mot de passe oublié ?",
+      "signUp": "Demande d'inscription"
+    },
+    "information": {
+      "title": "Bienvenue sur AVID ACCESS !",
+      "description": "AVID ACCESS est votre plateforme en ligne pour commander facilement des produits chimiques et accéder à des informations à jour.",
+      "benefits": {
+        "title": "En tant que client inscrit, vous bénéficiez de nos services en ligne :",
+        "items": [
+          "Télécharger les fiches techniques des produits (FT)",
+          "Télécharger les fiches de données de sécurité (FDS)",
+          "Accéder aux certifications de qualité et de conformité",
+          "Support client prioritaire",
+          "Demander des échantillons et un support technique"
+        ]
+      }
+    },
+    "emailRequired": "L'e-mail est requis",
+    "passwordRequired": "Le mot de passe est requis",
+    "emailInvalid": "Veuillez entrer une adresse e-mail valide",
+    "toast": {
+      "invalidCredentials": "Adresse e-mail ou mot de passe invalide",
+      "loginFailed": "Échec de la connexion. Veuillez réessayer.",
+      "networkError": "Une erreur s'est produite. Veuillez réessayer."
+    }
+  },
+  "forgot_password": {
+    "title": "Mot de passe oublié",
+    "emailLabel": "Adresse e-mail",
+    "emailPlaceholder": "Entrez l'adresse e-mail",
+    "button": "Envoyer le lien de réinitialisation",
+    "success": "Lien de réinitialisation envoyé. Veuillez consulter vos e-mails",
+    "buttonLoading": "Envoi en cours...",
+    "emailRequired": "L'e-mail est requis",
+    "emailInvalid": "Veuillez entrer une adresse e-mail valide",
+    "resetTitle": "Réinitialisez votre mot de passe",
+    "newPasswordLabel": "Nouveau mot de passe",
+    "confirmPasswordLabel": "Confirmer le mot de passe",
+    "resetButton": "Réinitialiser le mot de passe",
+    "resettingButton": "Réinitialisation...",
+    "secureAccount": "Sécurisez votre compte avec un nouveau mot de passe",
+    "validation": {
+      "passwordRequired": "Le mot de passe est requis",
+      "passwordsMatch": "Les mots de passe doivent correspondre",
+      "confirmPasswordRequired": "La confirmation du mot de passe est requise"
+    },
+    "toast": {
+      "invalidToken": "Jeton invalide ou expiré",
+      "successReset": "Mot de passe réinitialisé avec succès ! Veuillez vous connecter",
+      "error": "Une erreur s'est produite. Veuillez réessayer."
+    }
+  }
+}

@@ -1,0 +1,178 @@
+{
+    "Sustainability": {
+        "Hero": {
+            "title": "Produire avec un Sens.",
+            "subtitle": "La Chimie pour un Avenir Durable."
+        },
+        "Description": {
+            "text": "Avid Organics fabrique des produits chimiques spécialisés pour les marchés pharmaceutiques, les soins personnels, les nutraceutiques, l'agrochimie et les marchés industriels. La durabilité est intégrée dans nos pratiques d'approvisionnement, de production et de rapportage. Notre cadre couvre la performance environnementale, la santé et sécurité au travail, la responsabilité sociale et la gouvernance éthique dans toute notre chainẽ d'approvisionnement."
+        },
+        "RenewableEnergy": {
+            "title": "100% Opérations énergie \n Renouvelable",
+            "subtitle": "Établir une Nouvelle Norme dans la Fabrication Durable",
+            "description": "En 2025, Avid Organics a planté 5 080 arbres natifs près de son installation de Vadodara en utilisant la méthode Miyawaki. Chaque plantation est entretenue pendant quatre ans pour garantir un bénéfice écologique durable, soutenant la biodiversité locale et améliorant la qualité de l'air dans la zone environnante."
+        },
+        "SustainabilityFramework": {
+            "title": "Notre Cadre de Durabilité",
+            "subtitle": "Structuré pour l'Impact. Mesuré pour la Responsabilité.",
+            "description": "La stratégie de durabilité d'Avid Organics s'aligne sur les principales normes ESG, notamment la GRI, le SASB et les Objectifs de Développement Durable des Nations Unies. Notre approche repose sur trois piliers fondamentaux :",
+            "items": [
+                {
+                    "icon": "/images/sustainability/icon-1.png",
+                    "title": [
+                        "Gestion de",
+                        "l'Environnement"
+                    ],
+                    "description": "Réduire notre empreinte environnementale grâce aux énergies renouvelables, à l'efficacité des ressources et à l'innovation dans la chimie verte."
+                },
+                {
+                    "icon": "/images/sustainability/icon-2.png",
+                    "title": [
+                        "Responsabilité",
+                        "Sociale"
+                    ],
+                    "description": "Protéger nos collaborateurs, promouvoir la sécurité et contribuer positivement aux communautés où nous opérons."
+                },
+                {
+                    "icon": "/images/sustainability/icon-3.png",
+                    "title": [
+                        "Gouvernance",
+                        "& Éthique"
+                    ],
+                    "description": "Maintenir l'intégrité, la transparence et la conformité à tous les niveaux de notre organisation."
+                }
+            ]
+        },
+        "EnvironmentalStewardship": {
+            "title": "La Gestion Environnementale en Action",
+            "features": [
+                {
+                    "icon": "/images/sustainability/icon-4.png",
+                    "title": "Chimie Verte dès la Conception",
+                    "desc": "Nos équipes de R&D appliquent les principes de la chimie verte à chaque étape de la production, améliorant l'efficacité des processus, réduisant les déchets et minimisant l'utilisation de matières dangereuses."
+                },
+                {
+                    "icon": "/images/sustainability/icon-5.png",
+                    "title": "Gestion de l'Eau & des Déchets",
+                    "desc": "Nos installations fonctionnent avec un rejet liquide nul (ZLD) grâce à des systèmes avancés de traitement des eaux usées, notamment des évaporateurs à effet multiple. Depuis 2018, nous avons réduit la génération de déchets par unité de 22%, même avec l'augmentation des volumes de production."
+                },
+                {
+                    "icon": "/images/sustainability/icon-6.png",
+                    "title": "Leadership en Énergies Renouvelables",
+                    "desc": "En passant à 100 % d'électricité renouvelable, nous avons éliminé les émissions de Scope 2 et renforcé notre performance carbone globale."
+                },
+                {
+                    "icon": "/images/sustainability/icon-7.png",
+                    "title": "Feuille de Route de Réduction du Carbone",
+                    "desc": "Depuis 2018, nous avons atteint une réduction de 22 % de l'intensité de nos émissions de GES grâce à l'amélioration de l'efficacité et à l'adoption des énergies renouvelables."
+                }
+            ],
+            "future_targets": {
+                "title": "Nos objectifs futurs",
+                "target1": {
+                    "value": "50%",
+                    "text": "de réduction absolue des émissions (Scope 1+2) d'ici"
+                },
+                "target2": {
+                    "value": "Zéro Émission Nette",
+                    "text": "d'ici"
+                }
+            },
+            "reporting": {
+                "text1": "Nos rapports d'émissions suivent les",
+                "text2": "normes et sont vérifiés de manière indépendante.",
+                "validation_title": "Validation Indépendante",
+                "iso": "Systèmes de gestion environnementale certifiés ISO 14001:2015",
+                "commitment": "renforcer notre engagement envers l'amélioration continue et la conformité."
+            }
+        },
+        "SocialResponsibility": {
+            "title": "Responsabilité Sociale",
+            "features": {
+                "ethical": {
+                    "title": "Normes Éthiques",
+                    "description": "Avid Organics maintient une politique stricte de non-expérimentation animale et utilise des méthodologies de test alternatives validées pour toutes les évaluations de sécurité des produits."
+                },
+                "health_safety": {
+                    "title": "Santé & Sécurité des Employés",
+                    "description": "Nous respectons la norme ISO 45001:2018 et entretenons une culture de sécurité proactive axée sur la formation, l'identification des risques et l'amélioration continue. Notre solide bilan en matière de sécurité reflète l'efficacité de cette approche."
+                },
+                "community": {
+                    "title": "Engagement Communautaire",
+                    "description": "Nous investissons dans des initiatives qui apportent une valeur à long terme à la société, notamment :",
+                    "list": {
+                        "0": "Programmes d'éducation pour les enfants défavorisés",
+                        "1": "Campagnes de santé et de don de sang",
+                        "2": "Programmes locaux d'emploi et de développement des compétences"
+                    }
+                },
+                "miyawaki": {
+                    "title": "Initiative de Forêt Miyawaki",
+                    "description_part1": "Avid Organics a planté plus de",
+                    "count": "10 000",
+                    "description_part2": "arbres indégènes sur deux ans en utilisant la méthode Miyawaki, y compris 5 080 en 2025. Chaque plantation est entretenue pendant quatre ans pour garantir un bénéfice écologique durable, soutenant la biodiversité locale et améliorant la qualité de l'air près de nos opérations de Vadodara."
+                }
+            }
+        },
+        "Governance": {
+            "title": "Gouvernance & Gestion des Produits",
+            "certifications_title": "Certifications et Alignement Réglementaire",
+            "certifications_desc": "Les opérations d'Avid Organics répondent aux normes de qualité, de sécurité et de gestion éthique reconnues mondialement :"
+        },
+        "PerformanceReporting": {
+            "title": "Performance et Reporting",
+            "subtitle": "Bâtir la Confiance par un Reporting Transparent",
+            "description": "Avid Organics s'engage à une divulgation ESG claire et vérifiable. Nos rapports de durabilité fournissent des mesures clés sur les indicateurs environnementaux, sociaux et de gouvernance, notamment :",
+            "items": {
+                "ghg": "Émissions de GES et utilisation de l'énergie",
+                "water": "Performance de la gestion de l'eau et des déchets",
+                "health": "Données sur la santé et la sécurité",
+                "diversity": "Progrès en matière de diversité et d'inclusion",
+                "governance": "Supervision de la gouvernance et de l'éthique"
+            }
+        },
+        "GlobalAlignment": {
+            "title": "Alignement Mondial",
+            "subtitle": "Contribuer à une Économie Mondiale Durable",
+            "description": "Les initiatives de durabilité d'Avid Organics s'alignent sur les principaux cadres et objectifs internationaux :",
+            "items": {
+                "sdg": {
+                    "label": "ODD des Nations Unies : ",
+                    "text": "7 (Énergie Propre), 9 (Industrie & Innovation), 12 (Production Responsable) et 13 (Action Climatique)"
+                },
+                "paris": {
+                    "label": "Accord de Paris : ",
+                    "text": "Soutenir les objectifs climatiques mondiaux grâce à des réductions d'émissions mesurables"
+                },
+                "registry": {
+                    "label": "The Climate Registry : ",
+                    "text": "Garantir une comptabilité carbone précise et vérifiable"
+                }
+            }
+        },
+        "OurVision": {
+            "title": "Notre Vision : Zéro Émission Nette d'ici 2040",
+            "subtitle": "Faire Progresser la Chimie vers un Avenir Sobre en Carbone",
+            "targets": {
+                "ghg": {
+                    "value": "50%",
+                    "by_text": "d'ici",
+                    "text": "de réduction des émissions absolues de GES (Scope 1 & 2) d'ici"
+                },
+                "renewable": {
+                    "value": "100%",
+                    "by_text": "d'ici",
+                    "text": "d'énergies renouvelables sur l'ensemble des opérations mondiales d'ici"
+                },
+                "net_zero": {
+                    "value": "Zéro Émission Nette",
+                    "by_text": "d'ici"
+                }
+            }
+        },
+        "Partner": {
+            "title": "Partenariat avec un Leader Durable",
+            "cta": "Contactez-nous"
+        }
+    }
+}

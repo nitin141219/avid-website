@@ -1,0 +1,178 @@
+{
+    "Sustainability": {
+        "Hero": {
+            "title": "Manufacturing with Purpose.",
+            "subtitle": "Chemistry for a Sustainable Future."
+        },
+        "Description": {
+            "text": "Avid Organics manufactures specialty chemicals for pharmaceutical, personal care, nutraceutical, agrochemical, and industrial markets. Sustainability is built into how we source, produce, and report. Our framework spans environmental performance, occupational health and safety, social accountability, and ethical governance across our supply chain."
+        },
+        "RenewableEnergy": {
+            "title": "100% Renewable \n Energy Operations",
+            "subtitle": "Setting a New Standard in Sustainable Manufacturing",
+            "description": "In 2025, Avid Organics planted 5,080 native trees near its Vadodara facility using the Miyawaki method. Each planting is maintained for four years to ensure sustained ecological benefit, supporting local biodiversity and improving air quality in the surrounding area."
+        },
+        "SustainabilityFramework": {
+            "title": "Our Sustainability Framework",
+            "subtitle": "Structured for Impact. Measured for Accountability.",
+            "description": "Avid Organics' sustainability strategy aligns with leading ESG standards, including GRI, SASB, and the UN Sustainable Development Goals. Our approach is built around three core pillars:",
+            "items": [
+                {
+                    "icon": "/images/sustainability/icon-1.png",
+                    "title": [
+                        "Environmental",
+                        "Stewardship"
+                    ],
+                    "description": "Reducing our environmental footprint through renewable energy, resource efficiency, and innovation in green chemistry."
+                },
+                {
+                    "icon": "/images/sustainability/icon-2.png",
+                    "title": [
+                        "Social",
+                        "Responsibility"
+                    ],
+                    "description": "Protecting our people, promoting safety, and contributing positively to the communities where we operate."
+                },
+                {
+                    "icon": "/images/sustainability/icon-3.png",
+                    "title": [
+                        "Governance",
+                        "& Ethics"
+                    ],
+                    "description": "Maintaining integrity, transparency, and compliance across every level of our organization."
+                }
+            ]
+        },
+        "EnvironmentalStewardship": {
+            "title": "Environmental Stewardship in Action",
+            "features": [
+                {
+                    "icon": "/images/sustainability/icon-4.png",
+                    "title": "Green Chemistry by Design",
+                    "desc": "Our R&D teams apply green chemistry principles to every stage of production, improving process efficiency, reducing waste, and minimizing the use of hazardous materials."
+                },
+                {
+                    "icon": "/images/sustainability/icon-5.png",
+                    "title": "Water & Waste Management",
+                    "desc": "Our Vadodara facility operates with zero liquid discharge (ZLD) through advanced wastewater treatment, including multiple-effect evaporators. Since 2018, per-unit waste generation has decreased by 27%, alongside increasing production volumes."
+                },
+                {
+                    "icon": "/images/sustainability/icon-6.png",
+                    "title": "Renewable Energy Leadership",
+                    "desc": "By transitioning to 100% renewable electricity, we have eliminated Scope 2 emissions and strengthened our overall carbon performance."
+                },
+                {
+                    "icon": "/images/sustainability/icon-7.png",
+                    "title": "Carbon Reduction Roadmap",
+                    "desc": "Since 2018, we have achieved a 22% reduction in GHG emissions intensity through efficiency improvements and renewable energy adoption."
+                }
+            ],
+            "future_targets": {
+                "title": "Our future targets",
+                "target1": {
+                    "value": "50%",
+                    "text": "absolute emissions reduction (Scope 1+2) by"
+                },
+                "target2": {
+                    "value": "Net Zero",
+                    "text": "by"
+                }
+            },
+            "reporting": {
+                "text1": "Our emissions reporting follows",
+                "text2": "standards and is independently verified.",
+                "validation_title": "Independent Validation",
+                "iso": "Environmental management systems certified to ISO 14001:2015",
+                "commitment": "reinforce our commitment to continuous improvement and compliance."
+            }
+        },
+        "SocialResponsibility": {
+            "title": "Social Responsibility",
+            "features": {
+                "ethical": {
+                    "title": "Ethical Standards",
+                    "description": "Avid Organics upholds a strict no animal testing policy and employs validated alternative testing methodologies across all product safety assessments."
+                },
+                "health_safety": {
+                    "title": "Employee Health & Safety",
+                    "description": "We maintain compliance with ISO 45001:2018 and operate a proactive safety culture driven by training, risk identification, and continuous improvement. Our strong safety record reflects the effectiveness of this approach."
+                },
+                "community": {
+                    "title": "Community Engagement",
+                    "description": "We invest in initiatives that deliver long-term value to society, including:",
+                    "list": {
+                        "0": "Education programs for underprivileged children",
+                        "1": "Health and blood donation drives",
+                        "2": "Local employment and skill development programs"
+                    }
+                },
+                "miyawaki": {
+                    "title": "Miyawaki Forest Initiative",
+                    "description_part1": "Avid Organics has planted over",
+                    "count": "10,000",
+                    "description_part2": "native trees across two years using the Miyawaki method, including 5,080 in 2025. Each planting is maintained for four years to ensure sustained ecological benefit, supporting local biodiversity and air quality near our Vadodara operations."
+                }
+            }
+        },
+        "Governance": {
+            "title": "Governance & Product Stewardship",
+            "certifications_title": "Certifications and Regulatory Alignment",
+            "certifications_desc": "Avid Organics' operations meet globally recognized standards of quality, safety, and ethical management:"
+        },
+        "PerformanceReporting": {
+            "title": "Performance and Reporting",
+            "subtitle": "Building Trust Through Transparent Reporting",
+            "description": "Avid Organics is committed to clear, verifiable ESG disclosure. Our sustainability reporting provides key metrics across environmental, social, and governance indicators, including:",
+            "items": {
+                "ghg": "GHG Emissions and Energy use",
+                "water": "Water and Waste management performance",
+                "health": "Health and Safety data",
+                "diversity": "Diversity and Inclusion progress",
+                "governance": "Governance and Ethics oversight"
+            }
+        },
+        "GlobalAlignment": {
+            "title": "Global Alignment",
+            "subtitle": "Contributing to a Sustainable Global Economy",
+            "description": "Avid Organics' sustainability initiatives align with major international frameworks and goals:",
+            "items": {
+                "sdg": {
+                    "label": "UN SDGs: ",
+                    "text": "7 (Clean Energy), 9 (Industry & Innovation), 12 (Responsible Production), and 13 (Climate Action)"
+                },
+                "paris": {
+                    "label": "Paris Agreement: ",
+                    "text": "Supporting global climate objectives through measurable emission reductions"
+                },
+                "registry": {
+                    "label": "The Climate Registry: ",
+                    "text": "Ensuring accurate and verifiable carbon accounting"
+                }
+            }
+        },
+        "OurVision": {
+            "title": "Our Vision: Net Zero by 2040",
+            "subtitle": "Advancing Chemistry Toward a Low-Carbon Future",
+            "targets": {
+                "ghg": {
+                    "value": "50%",
+                    "by_text": "by",
+                    "text": "reduction in absolute GHG emissions (Scope 1 & 2) by"
+                },
+                "renewable": {
+                    "value": "100%",
+                    "by_text": "by",
+                    "text": "renewable energy across global operations by"
+                },
+                "net_zero": {
+                    "value": "Net Zero",
+                    "by_text": "by"
+                }
+            }
+        },
+        "Partner": {
+            "title": "Partner with a Sustainable Leader",
+            "cta": "Contact us"
+        }
+    }
+}

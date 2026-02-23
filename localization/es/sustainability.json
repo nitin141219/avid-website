@@ -1,0 +1,178 @@
+{
+    "Sustainability": {
+        "Hero": {
+            "title": "Fabricación con Propósito.",
+            "subtitle": "Química para un Futuro Sostenible."
+        },
+        "Description": {
+            "text": "Avid Organics fabrica químicos especializados para mercados farmacéuticos, de cuidado personal, nutraceúticos, agroqumícos e industriales. La sostenibilidad se integra en nuestras prácticas de abastecimiento, producción e información. Nuestro marco abarca el desempeño ambiental, la salud y seguridad ocupacional, la responsabilidad social y la gobernanza eticá en toda nuestra cadena de suministro."
+        },
+        "RenewableEnergy": {
+            "title": "Operaciones 100% de Energiá \n Renovable",
+            "subtitle": "Estableciendo un Nuevo Estándar en Fabricación Sostenible",
+            "description": "En 2025, Avid Organics plantó 5.080 árboles nativos cerca de su instalación de Vadodara utilizando el método Miyawaki. Cada plantación se mantiene durante cuatro años para garantizar un beneficio ecológico sostenido, apoyando la biodiversidad local y mejorando la calidad del aire en el área circundante."
+        },
+        "SustainabilityFramework": {
+            "title": "Nuestro Marco de Sostenibilidad",
+            "subtitle": "Estructurado para el Impacto. Medido para la Rendición de Cuentas.",
+            "description": "La estrategia de sostenibilidad de Avid Organics se alinea con los principales estándares ESG, incluidos GRI, SASB y los Objetivos de Desarrollo Sostenible de la ONU. Nuestro enfoque se basa en tres pilares fundamentales:",
+            "items": [
+                {
+                    "icon": "/images/sustainability/icon-1.png",
+                    "title": [
+                        "Gestión",
+                        "Ambiental"
+                    ],
+                    "description": "Reducir nuestra huella ambiental a través de la energía renovable, la eficiencia de los recursos y la innovación en química verde."
+                },
+                {
+                    "icon": "/images/sustainability/icon-2.png",
+                    "title": [
+                        "Responsabilidad",
+                        "Social"
+                    ],
+                    "description": "Proteger a nuestra gente, promover la seguridad y contribuir positivamente a las comunidades donde operamos."
+                },
+                {
+                    "icon": "/images/sustainability/icon-3.png",
+                    "title": [
+                        "Gobernanza",
+                        "y Ética"
+                    ],
+                    "description": "Mantener la integridad, la transparencia y el cumplimiento en todos los niveles de nuestra organización."
+                }
+            ]
+        },
+        "EnvironmentalStewardship": {
+            "title": "Gestión Ambiental en Acción",
+            "features": [
+                {
+                    "icon": "/images/sustainability/icon-4.png",
+                    "title": "Química Verde por Diseño",
+                    "desc": "Nuestros equipos de I+D aplican principios de química verde en cada etapa de la producción, mejorando la eficiencia del proceso, reduciendo los residuos y minimizando el uso de materiales peligrosos."
+                },
+                {
+                    "icon": "/images/sustainability/icon-5.png",
+                    "title": "Gestión de Agua y Residuos",
+                    "desc": "Nuestras instalaciones operan con descarga cero de líquidos (ZLD) a través de sistemas avanzados de tratamiento de aguas residuales, incluidos evaporadores de efecto múltiple. Desde 2018, hemos reducido la generación de residuos por unidad en un 22%, incluso con el aumento de los volúmenes de producción."
+                },
+                {
+                    "icon": "/images/sustainability/icon-6.png",
+                    "title": "Liderazgo en Energía Renovable",
+                    "desc": "Al hacer la transición al 100% de electricidad renovable, hemos eliminado las emisiones de Alcance 2 y fortalecido nuestro desempeño general de carbono."
+                },
+                {
+                    "icon": "/images/sustainability/icon-7.png",
+                    "title": "Hoja de Ruta de Reducción de Carbono",
+                    "desc": "Desde 2018, hemos logrado una reducción del 22% en la intensidad de las emisiones de GEI a través de mejoras en la eficiencia y la adopción de energía renovable."
+                }
+            ],
+            "future_targets": {
+                "title": "Nuestros objetivos futuros",
+                "target1": {
+                    "value": "50%",
+                    "text": "reducción absoluta de emisiones (Alcance 1+2) para"
+                },
+                "target2": {
+                    "value": "Cero Neto",
+                    "text": "para"
+                }
+            },
+            "reporting": {
+                "text1": "Nuestro informe de emisiones sigue los",
+                "text2": "estándares y se verifica de forma independiente.",
+                "validation_title": "Validación Independiente",
+                "iso": "Sistemas de gestión ambiental certificados según ISO 14001:2015",
+                "commitment": "refuerzan nuestro compromiso con la mejora continua y el cumplimiento."
+            }
+        },
+        "SocialResponsibility": {
+            "title": "Responsabilidad Social",
+            "features": {
+                "ethical": {
+                    "title": "Estándares Éticos",
+                    "description": "Avid Organics mantiene una política estricta de no realizar pruebas en animales y emplea metodologías de prueba alternativas validadas en todas las evaluaciones de seguridad de productos."
+                },
+                "health_safety": {
+                    "title": "Salud y Seguridad de los Empleados",
+                    "description": "Mantenemos el cumplimiento de ISO 45001:2018 y operamos una cultura de seguridad proactiva impulsada por la capacitación, la identificación de riesgos y la mejora continua. Nuestro sólido historial de seguridad refleja la efectividad de este enfoque."
+                },
+                "community": {
+                    "title": "Compromiso con la Comunidad",
+                    "description": "Invertimos en iniciativas que brindan valor a largo plazo a la sociedad, que incluyen:",
+                    "list": {
+                        "0": "Programas educativos para niños desfavorecidos",
+                        "1": "Campañas de salud y donación de sangre",
+                        "2": "Programas locales de empleo y desarrollo de habilidades"
+                    }
+                },
+                "miyawaki": {
+                    "title": "Iniciativa de Bosque Miyawaki",
+                    "description_part1": "Avid Organics ha plantado más de",
+                    "count": "10.000",
+                    "description_part2": "árboles nativos durante dos años usando el método Miyawaki, incluidos 5.080 en 2025. Cada plantación se mantiene durante cuatro años para garantizar un beneficio ecológico sostenido, apoyando la biodiversidad local y mejorando la calidad del aire cerca de nuestras operaciones de Vadodara."
+                }
+            }
+        },
+        "Governance": {
+            "title": "Gobernanza y Responsabilidad del Producto",
+            "certifications_title": "Certificaciones y Alineación Regulatoria",
+            "certifications_desc": "Las operaciones de Avid Organics cumplen con estándares de calidad, seguridad y gestión ética reconocidos mundialmente:"
+        },
+        "PerformanceReporting": {
+            "title": "Desempeño e Informes",
+            "subtitle": "Generando Confianza a Través de Informes Transparentes",
+            "description": "Avid Organics está comprometida con una divulgación ESG clara y verificable. Nuestros informes de sostenibilidad proporcionan métricas clave en indicadores ambientales, sociales y de gobernanza, que incluyen:",
+            "items": {
+                "ghg": "Emisiones de GEI y uso de energía",
+                "water": "Desempeño en la gestión de agua y residuos",
+                "health": "Datos de salud y seguridad",
+                "diversity": "Progreso en diversidad e inclusión",
+                "governance": "Supervisión de gobernanza y ética"
+            }
+        },
+        "GlobalAlignment": {
+            "title": "Alineación Global",
+            "subtitle": "Contribuyendo a una Economía Global Sostenible",
+            "description": "Las iniciativas de sostenibilidad de Avid Organics se alinean con los principales marcos y objetivos internacionales:",
+            "items": {
+                "sdg": {
+                    "label": "ODS de la ONU: ",
+                    "text": "7 (Energía Limpia), 9 (Industria e Innovación), 12 (Producción Responsable) y 13 (Acción Climática)"
+                },
+                "paris": {
+                    "label": "Acuerdo de París: ",
+                    "text": "Apoyando los objetivos climáticos globales a través de reducciones de emisiones mensurables"
+                },
+                "registry": {
+                    "label": "The Climate Registry: ",
+                    "text": "Garantizando una contabilidad de carbono precisa y verificable"
+                }
+            }
+        },
+        "OurVision": {
+            "title": "Nuestra Visión: Cero Neto para 2040",
+            "subtitle": "Avanzando la Química Hacia un Futuro Bajo en Carbono",
+            "targets": {
+                "ghg": {
+                    "value": "50%",
+                    "by_text": "para",
+                    "text": "reducción en las emisiones absolutas de GEI (Alcance 1 y 2) para"
+                },
+                "renewable": {
+                    "value": "100%",
+                    "by_text": "para",
+                    "text": "energía renovable en todas las operaciones globales para"
+                },
+                "net_zero": {
+                    "value": "Cero Neto",
+                    "by_text": "para"
+                }
+            }
+        },
+        "Partner": {
+            "title": "Asóciese con un Líder Sostenible",
+            "cta": "Contáctenos"
+        }
+    }
+}

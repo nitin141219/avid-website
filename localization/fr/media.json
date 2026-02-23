@@ -1,0 +1,20 @@
+{
+  "downloads": {
+    "description": "Nous croyons en une transparence totale. Que vous ayez besoin d'une fiche technique spécifique (FT) ou de notre dernière certification réglementaire, vous pouvez trouver et télécharger tous nos documents de conformité essentiels ici même.",
+    "products_and_solutions": "Produits et Solutions",
+    "certifications": "Certifications",
+    "error": "Aucune donnée trouvée"
+  },
+  "news": {
+    "title": "Nouvelles & Annonces",
+    "error": "Aucune nouvelle trouvée"
+  },
+  "events": {
+    "title": "Événements",
+    "error": "Aucun événement trouvé"
+  },
+  "blogs": {
+    "title": "Blog",
+    "error": "Aucun blog trouvé"
+  }
+}

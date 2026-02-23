@@ -1,0 +1,159 @@
+{
+    "signUp": {
+        "options": {
+            "departmentOptions": [
+                {
+                    "label": "Liderazgo Ejecutivo",
+                    "value": "executive_leadership"
+                },
+                {
+                    "label": "Operaciones y Fabricación",
+                    "value": "operations_manufacturing"
+                },
+                {
+                    "label": "Adquisiciones",
+                    "value": "procurement"
+                },
+                {
+                    "label": "Cadena de Suministro y Logística",
+                    "value": "supply_chain_logistics"
+                },
+                {
+                    "label": "Ingeniería",
+                    "value": "engineering"
+                },
+                {
+                    "label": "Investigación y Desarrollo",
+                    "value": "research_development"
+                },
+                {
+                    "label": "Calidad, Regulación y Cumplimiento",
+                    "value": "quality_regulatory_compliance"
+                },
+                {
+                    "label": "Salud, Seguridad, Medio Ambiente y Sostenibilidad",
+                    "value": "hse_sustainability"
+                },
+                {
+                    "label": "Ventas y Comercial",
+                    "value": "sales_commercial"
+                },
+                {
+                    "label": "Marketing y Comunicaciones Corporativas",
+                    "value": "marketing_corporate_communications"
+                },
+                {
+                    "label": "Servicio al Cliente y Soporte Técnico",
+                    "value": "customer_service_technical_support"
+                },
+                {
+                    "label": "Finanzas y Legal",
+                    "value": "finance_legal"
+                },
+                {
+                    "label": "Recursos Humanos",
+                    "value": "human_resources"
+                },
+                {
+                    "label": "Tecnología de la Información y Digital",
+                    "value": "information_technology_digital"
+                },
+                {
+                    "label": "Administración e Instalaciones",
+                    "value": "administration_facilities"
+                },
+                {
+                    "label": "Pasantías y Carreras Tempranas",
+                    "value": "internships_early_careers"
+                },
+                {
+                    "label": "Consultoría y Asesoramiento",
+                    "value": "consulting_advisory"
+                },
+                {
+                    "label": "Otro (Por favor, especifique)",
+                    "value": "other"
+                }
+            ],
+            "markets": [
+                "Nutrición Animal",
+                "Alimentos y Bebidas",
+                "Industrial y Especialidades",
+                "Cuidado Personal y Cosméticos",
+                "Farmacéuticos"
+            ]
+        },
+        "mainTitle": "ACCESO - Registrarse",
+        "title": "Información Personal",
+        "fields": {
+            "firstName": "Nombre",
+            "lastName": "Apellido",
+            "company": {
+                "title": "Información de la Empresa",
+                "fields": {
+                    "companyName": "Nombre de la Empresa",
+                    "department": "Departamento"
+                }
+            },
+            "businessInterest": {
+                "title": "Interés Comercial",
+                "fields": {
+                    "countryInterest": "País de interés",
+                    "marketInterest": "Mercado de interés"
+                }
+            },
+            "contactDetails": {
+                "title": "Detalles de Contacto",
+                "Email": "Correo electrónico",
+                "confirmEmail": "Confirmar correo electrónico",
+                "mobileNo": "Núm. de móvil",
+                "password": "Contraseña",
+                "confirmPassword": "Confirmar contraseña"
+            },
+            "privacyPolicy": {
+                "text": "Acepto la",
+                "linkText": "Política de Privacidad"
+            },
+            "termsAndConditions": "Me gustaría recibir actualizaciones de productos y comunicaciones técnicas de Avid Organics.",
+            "buttons": {
+                "text": "Enviar",
+                "loadingText": "Enviando..."
+            }
+        },
+        "information": {
+            "title": "Asóciese con Avid Organics",
+            "description": {
+                "0": "Ya sea que busque intermediarios químicos de alta pureza, especificaciones técnicas o oportunidades de asociación, nuestro equipo global está listo para ayudarle.",
+                "1": "Apoyamos a clientes de los sectores farmacéutico, cuidado personal, nutracéutico, agroquímico e industrial con un servicio técnico receptivo y un rendimiento confiable de la cadena de suministro.",
+                "2": "¿Ya tiene una cuenta en el Portal AVID ACCESS?",
+                "3": "Puede iniciar sesión para ayudarnos a responder mejor a su solicitud."
+            },
+            "buttons": {
+                "text": "Iniciar sesión"
+            }
+        },
+        "validations": {
+            "firstNameRequired": "El nombre es obligatorio",
+            "lastNameRequired": "El apellido es obligatorio",
+            "companyNameRequired": "El nombre de la empresa es obligatorio",
+            "emailRequired": "El correo electrónico es obligatorio",
+            "emailInvalid": "Por favor, introduzca una dirección de correo electrónico válida",
+            "countryRequired": "El país es obligatorio",
+            "phoneRequired": "El número de teléfono es obligatorio.",
+            "phoneDigitsOnly": "El número de teléfono debe contener solo dígitos",
+            "phoneMin": "El número de teléfono debe tener al menos 10 dígitos",
+            "phoneMax": "El número de teléfono no puede exceder los 15 dígitos",
+            "passwordRequired": "La contraseña es obligatoria",
+            "confirmEmailMatch": "La dirección de correo electrónico debe coincidir",
+            "confirmEmailRequired": "Por favor, confirme su dirección de correo electrónico",
+            "confirmPasswordRequired": "Por favor, confirme su contraseña",
+            "confirmPasswordMatch": "Las contraseñas deben coincidir",
+            "agreeRequired": "Debe aceptar la Política de Privacidad"
+        },
+        "toast": {
+            "emailExists": "Ya existe una cuenta con este correo electrónico",
+            "registrationFailed": "Error en el registro",
+            "networkError": "Algo salió mal. Por favor, inténtelo de nuevo."
+        }
+    }
+}

@@ -1,0 +1,102 @@
+{
+  "about": {
+    "hero": {
+      "title": "About Avid Organics"
+    },
+    "main": {
+      "p1": "For over two decades, Avid Organics has been shaping specialty chemistry with a focus on purity, consistency, and responsible innovation. We are a leading Indian manufacturer of glycine, glycolic acid, and a range of high-purity specialty chemicals. Our 18,000 sq. m. facility in Vadodara, Gujarat operates with an annual capacity of 4,200 MT and supports regulated applications across pharmaceutical, cosmetic, nutrition, personal care, and industrial sectors.",
+      "p2": "We serve global customers through Avid Organics America Inc. in the United States and our regional sales office in the Netherlands, providing support, distribution alignment, and customer engagement in major international markets.",
+      "p3": "Our team of over 150 professionals across manufacturing, R&D, quality, supply chain, and commercial operations reflects our commitment to building a globally trusted chemical company from India."
+    },
+    "pillars": {
+      "mission": {
+        "title": "Mission",
+        "description": "Manufacture high-purity specialty chemicals that meet the specifications global brands require. Deliver consistent quality, batch after batch. Build long-term partnerships through technical reliability and responsive service."
+      },
+      "vision": {
+        "title": "Vision",
+        "description": "Become the preferred specialty chemicals partner for formulators in regulated industries worldwide, recognized for sustainable innovation and manufacturing excellence."
+      }
+    },
+    "valueSystem": {
+      "title": "Value System",
+      "description": "Four core principles guide how we operate.",
+      "agility": {
+        "title": "Agility",
+        "desc": "We prioritize people, solutions, and collaboration. Our agile approach helps us adapt to complex regulatory environments and evolving customer needs."
+      },
+      "value": {
+        "title": "Value",
+        "desc": "Every action is measured by its ability to create meaningful impact through dependable chemistry. We focus on outcomes that support long-term success for customers, partners, and stakeholders."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "desc": "We innovate through responsible chemistry. We emphasize practical impact, scientific rigor, and process accountability rather than innovation for its own sake."
+      },
+      "development": {
+        "title": "Development",
+        "desc": "Progress is iterative. We rely on evaluation and structured execution to ensure consistency and improvement at every stage of operations."
+      }
+    },
+    "story": {
+      "title": "Our Story",
+      "items": {
+        "2007": "Founded in Vadodara with a focus on glycolic acid production for international markets.",
+        "2012": "Expanded glycine production through contract manufacturing partnerships.",
+        "2014": "Commissioned an 18,000 sq. m. integrated manufacturing facility in Vadodara, Gujarat.",
+        "2017": "Obtained FSSAI certification, opening access to regulated food and nutrition applications in domestic and export markets.",
+        "2019": "Achieved FSSC 22000 certification for food safety management.",
+        "2020": "Implemented ISO 14001 and ISO 45001 management systems.",
+        "2021": "Secured HALAL, KOSHER, and SMETA certifications.",
+        "2023": "Expanded production capacity to 2400 MT glycine and 2000 MT glycolic acid annually.",
+        "2025": "Established a subsidiary in the United States to provide regional regulatory support and improve responsiveness for strategic partners."
+      }
+    }
+  },
+  "manufacturing-excellence": {
+    "excellences": {
+      "processTechnology": {
+        "title": "Process Technology",
+        "description": "Our proprietary manufacturing processes allow precise impurity control, consistently delivering high-purity products for regulated applications. Conditions are optimized for reaction control, purification, stress testing, and batch-to-batch reliability."
+      },
+      "researchDevelopment": {
+        "title": "Research & Development",
+        "description": "Our in-house R&D; capabilities focus on process optimization, impurity reduction, new product development, scale-up, and method validation. Our analytical systems support regulatory submissions and continuous improvement."
+      },
+      "supplyChainReliability": {
+        "title": "Supply Chain & Reliability",
+        "description": "We maintain strategic inventory, qualified backup suppliers, and documented change management to ensure consistent delivery. Integrated facility design and redundancy support a 97 percent on-time delivery rate."
+      },
+      "qualityControlAssurance": {
+        "title": "Quality Control & Assurance",
+        "description": "We operate in-house analytical labs that test for purity, impurities, heavy metals, residual solvents, microbiology, and physical parameters. No batch is released without documentation and approval. Quality assurance includes root-cause analysis, corrective action systems, electronic workflows, supplier and equipment qualification, validation, and change control."
+      }
+    },
+    "advancedManufacturing": {
+      "title": "Advanced Manufacturing \n and Digitalization",
+      "description": "Avid's 2026 advanced manufacturing program represents our most extensive operational upgrade since facility establishment. Automated material handling systems will reduce manual intervention while improving consistency. Real-time process monitoring with statistical quality control will enable early detection before issues occur. Energy efficiency improvements target a 15% reduction in consumption per kilogram produced through heat recovery, optimized process conditions, and equipment upgrades."
+    },
+    "qualitySafetyEnvironmental": {
+      "title": "Quality, Safety, and \n Environmental Commitment",
+      "description1": "We operate ISO 45001 certified safety systems, zero-discharge water treatment, and run entirely on renewable electricity. Our approach supports both product integrity and environmental responsibility.",
+      "description2": "We do not conduct animal testing and ensure products supplied to ethical formulations remain cruelty-free."
+    },
+    "certifications": {
+      "title": "Certifications & Regulatory \n Compliance"
+    }
+  },
+  "leadership-team": {
+    "dheeraj_jain": {
+      "role": "Chief Executive Officer & Managing Director",
+      "bio": "Dheeraj Jain founded Avid Organics in 2007, establishing India's largest glycine and glycolic acid manufacturing capability through systematic quality infrastructure development and operational excellence. A chemical engineer from Manipal Institute of Technology with prior experience in chemical industry export operations, he has led Avid's evolution from regional glycine producer to multi-product specialty chemical manufacturer serving customers globally."
+    },
+    "bhaskar_banerjee": {
+      "role": "Chief Financial & Operating Officer",
+      "bio": "Bhaskar Banerjee leads financial planning and analysis, operational efficiency, and supply chain optimization for Avid's global operations. His mandate encompasses professionalizing financial controls, implementing advanced ERP and analytics capabilities, and ensuring operational scalability. With extensive experience in financial management and operational strategy for manufacturing enterprises, he drives the organizational infrastructure supporting Avid's international presence."
+    },
+    "shivani_jain": {
+      "role": "Director",
+      "bio": "Shivani Jain serves as Director at Avid Organics, where she has been instrumental in shaping the company's organizational culture and people practices. She focuses on building strong teams, driving engagement, and creating a work environment rooted in collaboration, growth, and respect. Her initiatives have brought greater alignment across the organisation and helped build a foundation for long-term growth and operational excellence."
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "hero": {
+    "slide_1_title": "Basados en la Sostenibilidad para un Planeta Mejor",
+    "slide_1_subtitle": "Integrando el cuidado ambiental y el bienestar de la comunidad en operaciones industriales sostenibles y prácticas comerciales que cumplen con los ODS de la ONU.",
+    "slide_1_button": "Aprender más",
+    "slide_2_title": "Impulsando la Innovación a través de un Ecosistema de I+D Avanzado",
+    "slide_2_subtitle": "Investigación avanzada, mejora continua y un compromiso con avances en soluciones escalables y de alto rendimiento.",
+    "slide_2_button": "Conozca nuestra I+D",
+    "slide_3_title": "Fabricante Líder de Glicina y Ácido Glicólico",
+    "slide_3_subtitle": "Desde el cuidado de la salud hasta el cuidado del hogar, impulsando la autosuficiencia y los estándares industriales a través de los mejores productos químicos especializados.",
+    "slide_3_button": "Contáctenos"
+  },
+  "our-market": {
+    "title": "Nuestros Mercados",
+    "personal_care": "Cuidado Personal y Cosméticos",
+    "pharma": "Farmacéuticos",
+    "food_beverage": "Alimentos y Bebidas",
+    "animal_nutrition": "Nutrición Animal",
+    "industrial": "Aplicaciones Industriales y Especializadas"
+  },
+  "key-products": {
+    "title": "Nuestros Productos Clave",
+    "tagline": "Un Enfoque en Químicas de Alto Rendimiento.",
+    "description": "Como fabricante, ofrecemos una experiencia sin igual en nuestras tecnologías principales.\n Nuestras series de productos están diseñadas para proporcionar un espectro de grados, brindando a nuestros socios soluciones personalizadas para sus aplicaciones específicas.",
+    "series": "Serie",
+    "aviga": {
+      "subtitle": "Ácido Glicólico",
+      "description": "La Serie AviGa™ (Ácido Glicólico): Nuestra plataforma principal de Ácido Glicólico, que ofrece grados desde especificaciones Cosméticas (CP) de alta pureza hasta Técnicas (T) robustas, diseñadas para un rendimiento superior."
+    },
+    "avigly": {
+      "subtitle": "Glicina USP",
+      "description": "La Serie AviGly™ (Glicina): Nuestra línea insignia de Glicina, disponible en grados farmacéuticos de alta pureza (USP) y grados técnicos versátiles para satisfacer las demandas más estrictas de la industria."
+    },
+    "avivan": {
+      "subtitle": "Taurine",
+      "description": "AviVan™ (Vainillina): Una opción líder para las industrias de alimentos y fragancias, que ofrece perfiles sensoriales excepcionales respaldados por nuestra excelencia en la fabricación."
+    }
+  },
+  "milestones": {
+    "began": {
+      "title": [
+        "Dónde",
+        "Comenzó"
+      ],
+      "description": "De una línea de producción única a 4.200 MT de capacidad anual en glicina, ácido glicólico y taurina. Tres décadas sirviendo a industrias reguladas sentaron las bases para la expansión global.",
+      "button": "Conozca nuestra historia"
+    },
+    "operate": {
+      "title": [
+        "Cómo",
+        "Operamos"
+      ],
+      "description": "Instalación de descarga cero de 18.000 metros cuadrados en Vadodara. 150+ profesionales en fabricación, I+D y calidad. Socios estratégicos en más de 30 países apoyados a través de oficinas regionales en EE. UU. y Europa.",
+      "button": "Explore nuestras capacidades"
+    },
+    "next": {
+      "title": [
+        "Qué Sigue",
+        ""
+      ],
+      "description": "Con la electricidad 100% renovable ya lograda y un objetivo de carbono neto cero para 2050, continuamos avanzando en la fabricación responsable mientras expandimos nuestras capacidades globales.",
+      "button": "Explore nuestros compromisos"
+    }
+  },
+  "stats": {
+    "mt_annual": "TM Anual",
+    "years": "Años",
+    "manufacturing_excellence": "Excelencia en Fabricación",
+    "glycine_capacity": "Capacidad de Glicina",
+    "glycolic_acid_capacity": "Capacidad de Ácido Glicólico"
+  },
+  "global_presence": {
+    "title": "Presencia Global",
+    "subTitle": "Sede de manufactura en Vadodara, India. Apoyo regional de ventas a través de Avid Organics America Inc. y nuestra oficina en Maastricht, Países Bajos."
+  },
+  "press_release": {
+    "title": "Comunicados de Prensa"
+  }
+}

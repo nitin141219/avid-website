@@ -1,0 +1,72 @@
+{
+    "contact_us": {
+        "hero": {
+            "title": "Partner With Avid Organics",
+            "subtitle1": "Whether you're seeking high-purity chemical intermediates, technical specifications, or partnership opportunities, our global team is ready to assist you.",
+            "subtitle2": "We support customers across pharmaceutical, personal care, nutraceutical, agrochemical, and industrial sectors with responsive technical service and reliable supply chain performance."
+        },
+        "global_locations": {
+            "title": "Global Locations"
+        },
+        "get_in_touch": {
+            "title": "Get In Touch",
+            "general_inquiries": "General Inquiries"
+        },
+        "form": {
+            "title": "Contact us",
+            "labels": {
+                "first_name": "First Name",
+                "last_name": "Last Name",
+                "company": "Company",
+                "country": "Country",
+                "contact_method": "Preferred Contact Method",
+                "email": "Email",
+                "phone": "Phone",
+                "phone_number": "Phone Number",
+                "email_address": "Email Address",
+                "department": "Department/Inquiry Type",
+                "message": "Message",
+                "receive_updates": "I would like to receive product updates and technical communications from Avid Organics.",
+                "agree": "I agree to the",
+                "privacy_policy": "Privacy Policy"
+            },
+            "placeholders": {
+                "message": "Please provide details about your inquiry"
+            },
+            "buttons": {
+                "submit": "Submit",
+                "submitting": "Submitting..."
+            },
+            "validation": {
+                "first_name_required": "First name is required",
+                "first_name_min": "First name must be at least 3 characters",
+                "last_name_required": "Last name is required",
+                "last_name_min": "Last name must be at least 3 characters",
+                "company_required": "Company is required",
+                "company_min": "Company must be at least 3 characters",
+                "country_required": "Country is required",
+                "contact_method_min": "Preferred contact method is required",
+                "phone_required": "Phone number is required",
+                "phone_digits": "Phone number must contain only digits",
+                "phone_min": "Phone number must be at least 10 digits",
+                "phone_max": "Phone number cannot exceed 15 digits",
+                "email_invalid": "Enter a valid email address",
+                "email_required": "Email address is required",
+                "department_min": "Department/Inquiry type is required",
+                "message_required": "Message is required",
+                "agree_required": "You must agree to the Privacy Policy"
+            },
+            "departments": {
+                "product_technical": "Product & Technical Information",
+                "sales_quotations": "Sales & Quotations",
+                "quality_regulatory": "Quality & Regulatory Documentation",
+                "procurement_supply_chain": "Procurement & Supply Chain",
+                "human_resources": "Human Resources",
+                "hse": "Health, Safety & Environment",
+                "sustainability": "Sustainability",
+                "media_public_relations": "Media & Public Relations",
+                "general_inquiries": "General Inquiries"
+            }
+        }
+    }
+}

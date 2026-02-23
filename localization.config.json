@@ -1,0 +1,29 @@
+{
+  "localization": {
+    "sourceLanguage": "en",
+    "targetLanguages": ["de", "es", "fr"],
+    "localizationPath": "./localization",
+    "checkOnBuild": true,
+    "checkOnCommit": true,
+    "strictMode": false,
+    "languageNames": {
+      "en": "English",
+      "de": "German (Deutsch)",
+      "es": "Spanish (Español)",
+      "fr": "French (Français)"
+    },
+    "filePatterns": [
+      "*.json",
+      "*.mdx"
+    ],
+    "excludeFiles": [
+      "node_modules/**",
+      ".git/**"
+    ],
+    "translationApis": {
+      "enabled": false,
+      "provider": "google-translate",
+      "apiKey": ""
+    }
+  }
+}
