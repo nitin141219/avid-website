@@ -1,15 +1,5 @@
 {
-  "hostinger": {
-    "buildCommand": "npm run build",
-    "startCommand": "npm start",
-    "port": 3000,
-    "environment": {
-      "NODE_ENV": "production"
-    }
-  },
-  "deployment": {
-    "method": "ssh-git",
-    "description": "Use git push to deploy, or build locally and upload .next folder"
-  }
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build"
 }
 
