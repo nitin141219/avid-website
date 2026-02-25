@@ -3,7 +3,9 @@
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
   DropdownMenuPortal,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Link } from "@/i18n/navigation";
@@ -11,7 +13,6 @@ import { ChevronDown } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { useAuth } from "../auth/auth-context";
-import { Button } from "../ui/button";
 
 export default function NavUser() {
   const { user, isLoggedIn, logout } = useAuth();
@@ -38,26 +39,43 @@ export default function NavUser() {
       <DropdownMenuPortal>
         <DropdownMenuContent
           align="end"
-          className="rounded-none min-w-20 p-2 flex flex-col"
+          className="rounded-none min-w-0 w-auto p-2 flex flex-col"
           updatePositionStrategy="always"
           side="bottom"
           sideOffset={4}
         >
-          {user.is_admin ? (
-            <Link href={"/admin/users"} className="text-primary text-sm hover:">
-              Admin
+          <DropdownMenuItem asChild>
+            <Link href="/settings" className="px-2 py-1 text-off-black text-sm cursor-pointer">
+              {t("profile")}
             </Link>
+          </DropdownMenuItem>
+
+          <DropdownMenuItem asChild>
+            <Link href="/history" className="px-2 py-1 text-off-black text-sm cursor-pointer">
+              {t("history")}
+            </Link>
+          </DropdownMenuItem>
+
+          {user.is_admin ? (
+            <DropdownMenuItem asChild>
+              <Link href="/admin/users" className="px-2 py-1 text-off-black text-sm cursor-pointer">
+                Admin
+              </Link>
+            </DropdownMenuItem>
           ) : null}
 
-          <Button
-            variant="link"
-            className="font-medium transition inline-flex h-fit mt-2 gap-2 items- justify-start rounded-md rounded-b-none  hover:no-underline text-sm p-0"
+          <DropdownMenuSeparator />
+          <DropdownMenuItem
+            className="px-2 py-1 text-primary text-sm cursor-pointer"
             onClick={() => logout()}
           >
             {t("logout")}
-          </Button>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenuPortal>
     </DropdownMenu>
   );
 }
+
+
+

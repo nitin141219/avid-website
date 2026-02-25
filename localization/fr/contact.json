@@ -1,71 +1,71 @@
 {
     "contact_us": {
         "hero": {
-            "title": "Diventa Partner di Avid Organics",
-            "subtitle1": "Sia che tu stia cercando intermedi chimici ad alta purezza, specifiche tecniche o opportunità di partnership, il nostro team globale è pronto ad assisterti.",
-            "subtitle2": "Supportiamo i clienti nei settori farmaceutico, della cura personale, nutraceutico, agrochimico e industriale con un servizio tecnico reattivo e una gestione affidabile della catena di fornitura."
+            "title": "Devenez partenaire d'Avid Organics",
+            "subtitle1": "Que vous recherchiez des intermédiaires chimiques de haute pureté, des spécifications techniques ou des opportunités de partenariat, notre équipe mondiale est prête à vous accompagner.",
+            "subtitle2": "Nous accompagnons les clients des secteurs pharmaceutique, soins personnels, nutraceutique, agrochimique et industriel avec un support technique réactif et une gestion fiable de la chaîne d'approvisionnement."
         },
         "global_locations": {
-            "title": "Sedi Globali"
+            "title": "Implantations mondiales"
         },
         "get_in_touch": {
-            "title": "Mettiti in Contatto",
-            "general_inquiries": "Richieste Generali"
+            "title": "Contactez-nous",
+            "general_inquiries": "Demandes générales"
         },
         "form": {
             "title": "Contattaci",
             "labels": {
-                "first_name": "Nome",
-                "last_name": "Cognome",
-                "company": "Azienda",
-                "country": "Paese",
-                "contact_method": "Metodo di Contatto Preferito",
-                "email": "Email",
-                "phone": "Telefono",
-                "phone_number": "Numero di Telefono",
-                "email_address": "Indirizzo Email",
-                "department": "Dipartimento / Tipo di Richiesta",
-                "message": "Messaggio",
-                "receive_updates": "Desidero ricevere aggiornamenti sui prodotti e comunicazioni tecniche da Avid Organics.",
-                "agree": "Accetto la",
-                "privacy_policy": "Informativa sulla Privacy"
+                "first_name": "Prénom",
+                "last_name": "Nom",
+                "company": "Entreprise",
+                "country": "Pays",
+                "contact_method": "Méthode de contact préférée",
+                "email": "E-mail",
+                "phone": "Téléphone",
+                "phone_number": "Numéro de téléphone",
+                "email_address": "Adresse e-mail",
+                "department": "Département / Type de demande",
+                "message": "Votre message",
+                "receive_updates": "Je souhaite recevoir les mises à jour produits et communications techniques d'Avid Organics.",
+                "agree": "J'accepte la",
+                "privacy_policy": "Politique de confidentialité"
             },
             "placeholders": {
-                "message": "Si prega di fornire dettagli sulla richiesta"
+                "message": "Veuillez fournir des détails sur votre demande"
             },
             "buttons": {
-                "submit": "Invia",
-                "submitting": "Invio in corso..."
+                "submit": "Envoyer",
+                "submitting": "Envoi en cours..."
             },
             "validation": {
-                "first_name_required": "Il nome è obbligatorio",
-                "first_name_min": "Il nome deve contenere almeno 3 caratteri",
-                "last_name_required": "Il cognome è obbligatorio",
-                "last_name_min": "Il cognome deve contenere almeno 3 caratteri",
-                "company_required": "L'azienda è obbligatoria",
-                "company_min": "L'azienda deve contenere almeno 3 caratteri",
-                "country_required": "Il paese è obbligatorio",
-                "contact_method_min": "Il metodo di contatto preferito è obbligatorio",
-                "phone_required": "Il numero di telefono è obbligatorio",
-                "phone_digits": "Il numero di telefono deve contenere solo cifre",
-                "phone_min": "Il numero di telefono deve essere di almeno 10 cifre",
-                "phone_max": "Il numero di telefono non può superare le 15 cifre",
-                "email_invalid": "Inserisci un indirizzo email valido",
-                "email_required": "L'indirizzo email è obbligatorio",
-                "department_min": "Il dipartimento / tipo di richiesta è obbligatorio",
-                "message_required": "Il messaggio è obbligatorio",
-                "agree_required": "È necessario accettare l'Informativa sulla Privacy"
+                "first_name_required": "Le prénom est requis",
+                "first_name_min": "Le prénom doit contenir au moins 3 caractères",
+                "last_name_required": "Le nom est requis",
+                "last_name_min": "Le nom doit contenir au moins 3 caractères",
+                "company_required": "L'entreprise est requise",
+                "company_min": "L'entreprise doit contenir au moins 3 caractères",
+                "country_required": "Le pays est requis",
+                "contact_method_min": "La méthode de contact préférée est requise",
+                "phone_required": "Le numéro de téléphone est requis",
+                "phone_digits": "Le numéro de téléphone doit contenir uniquement des chiffres",
+                "phone_min": "Le numéro de téléphone doit contenir au moins 10 chiffres",
+                "phone_max": "Le numéro de téléphone ne peut pas dépasser 15 chiffres",
+                "email_invalid": "Veuillez saisir une adresse e-mail valide",
+                "email_required": "L'adresse e-mail est requise",
+                "department_min": "Le département / type de demande est requis",
+                "message_required": "Le message est requis",
+                "agree_required": "Vous devez accepter la politique de confidentialité"
             },
             "departments": {
-                "product_technical": "Informazioni Tecniche e Prodotti",
-                "sales_quotations": "Vendite e Preventivi",
-                "quality_regulatory": "Documentazione Qualità e Regolatoria",
-                "procurement_supply_chain": "Acquisti e Catena di Fornitura",
-                "human_resources": "Risorse Umane",
-                "hse": "Salute, Sicurezza e Ambiente",
-                "sustainability": "Sostenibilità",
-                "media_public_relations": "Media e Relazioni Pubbliche",
-                "general_inquiries": "Richieste Generali"
+                "product_technical": "Informations techniques et produits",
+                "sales_quotations": "Ventes et devis",
+                "quality_regulatory": "Documentation qualité et réglementaire",
+                "procurement_supply_chain": "Achats et chaîne d'approvisionnement",
+                "human_resources": "Ressources humaines",
+                "hse": "Santé, sécurité et environnement",
+                "sustainability": "Durabilité",
+                "media_public_relations": "Médias et relations publiques",
+                "general_inquiries": "Demandes générales"
             }
         }
     }

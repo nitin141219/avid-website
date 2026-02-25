@@ -11,7 +11,7 @@ import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { RemoveScroll } from "react-remove-scroll";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
 import LangSwitcher from "../lang-switcher/LangSwitcher";
 import MobileNavMenu from "../mobile-menu/MobileNavMenu";
@@ -130,7 +130,7 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
               {mounted ? <NavUser /> : null}
               <Link
                 href="/contact-us"
-                className="inline-flex items-center gap-2 font-medium text-white transition whitespace-nowrap"
+                className="inline-flex items-center gap-2 font-medium text-white transition break-words whitespace-normal text-right sm:text-left"
               >
                 {t("contact_us")}
               </Link>

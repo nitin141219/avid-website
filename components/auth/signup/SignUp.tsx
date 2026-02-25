@@ -14,7 +14,7 @@ import Image from "next/image";
 import { useEffect, useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import countryList from "react-select-country-list";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 
 function SignUp() {
@@ -58,6 +58,8 @@ function SignUp() {
     control,
     handleSubmit,
     reset,
+    clearErrors,
+    trigger,
     formState: { errors, isSubmitting },
   } = useForm({
     resolver: yupResolver(schema),
@@ -127,7 +129,7 @@ function SignUp() {
             width={60}
             height={60}
             preload
-            className="mr-1 mb-1 transition-all duration-300"
+            className="mr-1 transition-all duration-300"
             unoptimized
           />
           <h1 className="font-normal text-medium-dark text-3xl md:text-4xl leading-none">
@@ -388,10 +390,21 @@ function SignUp() {
                     <Checkbox
                       id="agree"
                       checked={field.value}
-                      onCheckedChange={(val) => field.onChange(Boolean(val))}
+                      onCheckedChange={(val) => {
+                        const isChecked = val === true;
+                        field.onChange(isChecked);
+                        if (isChecked) {
+                          clearErrors("agree");
+                        }
+                        void trigger("agree");
+                      }}
                       className="mt-1"
                     />
-                    <Label htmlFor="agree" className="text-medium-dark leading-snug cursor-pointer">
+                    <Label
+                      required
+                      htmlFor="agree"
+                      className="text-medium-dark leading-snug cursor-pointer"
+                    >
                       <span>
                         {t("fields.privacyPolicy.text")}{" "}
                         <Link

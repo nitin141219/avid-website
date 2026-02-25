@@ -1,7 +1,7 @@
 {
   "menu": {
     "about": "Über uns",
-    "about_description": "Ein strategischer Partner in der Spezialchemie, der zwei Jahrzehnte Erfahrung in der Fertigung nutzt, um globale Lieferketten mit Präzision, Integrität und betrieblicher Konsistenz zu bedienen.",
+    "about_description": "Ein strategischer Partner für Spezialchemikalien mit zwei Jahrzehnten Fertigungsexzellenz für globale Lieferketten mit Präzision, Integrität und operativer Zuverlässigkeit.",
     "markets": "Märkte",
     "markets_description": "Wir stärken wichtige globale Industrien mit leistungsstarken chemischen Lösungen, die für geschäftskritische Anwendungen und unterschiedliche Marktanforderungen entwickelt wurden.",
     "products": "Produkte",
@@ -14,7 +14,9 @@
     "careers_description": "Wir fördern eine leistungsstarke Innovationskultur. Wir befähigen außergewöhnliche Talente, professionelle Exzellenz voranzutreiben und zu unserer Vision globaler Marktführerschaft beizutragen.",
     "contact_us": "Kontaktieren Sie uns",
     "privacy_policy": "Datenschutzrichtlinie",
-    "login": "Login",
+    "login": "Anmelden",
+    "profile": "Profil",
+    "history": "Verlauf",
     "logout": "Abmelden",
     "sign_up": "Melden Sie sich an",
     "home": "Heim",
@@ -36,7 +38,7 @@
       "governance": "Governance und Produktverantwortung",
       "news": "Neuigkeiten und Ankündigungen",
       "events": "Veranstaltungen",
-      "blogs": "Blog",
+      "blogs": "Blogs",
       "downloads": "Downloads",
       "life": "Leben",
       "jobs": "Jobs",

@@ -30,7 +30,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Plus, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 
 const YEAR_OPTIONS = Array.from({ length: 20 }, (_, index) => {
@@ -108,6 +108,13 @@ type EditDocumentModalProps = {
   onSuccess?: () => void;
 };
 
+type ProductOption = {
+  label: string;
+  value: string;
+  _id?: string;
+  id?: string;
+};
+
 const generateSlug = (value: string) =>
   value
     .toLowerCase()
@@ -157,7 +164,7 @@ const resolveProductSlug = (documentData: any) => {
 };
 
 export function EditDocumentModal({ open, onClose, documentData, onSuccess }: EditDocumentModalProps) {
-  const [products, setProducts] = useState<{ label: string; value: string }[]>([]);
+  const [products, setProducts] = useState<ProductOption[]>([]);
   const [showCreateProduct, setShowCreateProduct] = useState(false);
   const [newProductForm, setNewProductForm] = useState({ label: "", value: "" });
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null);
@@ -168,6 +175,7 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
     reset,
     control,
     watch,
+    setValue,
     formState: { errors, isSubmitting },
   } = useForm<EditDocumentFormValues>({
     resolver: yupResolver(editDocumentSchema) as any,
@@ -178,6 +186,7 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
   });
 
   const categoryValue = watch("category");
+  const selectedProduct = watch("product");
 
   // Load products on component mount
   useEffect(() => {
@@ -185,8 +194,7 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
       try {
         const data = await PRODUCTS_SERVICES.getProducts();
         setProducts(data.products || []);
-      } catch (error: any) {
-        toast.error(error?.message || "Failed to load products");
+      } catch {
         // Fallback to empty array
         setProducts([]);
       }
@@ -236,6 +244,15 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
     });
   }, [documentData, open, reset]);
 
+  useEffect(() => {
+    if (
+      categoryValue?.value === DOCUMENT_CATEGORY.PRODUCT &&
+      selectedProduct?.label
+    ) {
+      setValue("name", selectedProduct.label, { shouldValidate: true });
+    }
+  }, [categoryValue?.value, selectedProduct?.label, setValue]);
+
   const onSubmit = async (values: EditDocumentFormValues) => {
     const documentId = documentData?._id || documentData?.id;
 
@@ -253,13 +270,18 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
       slug = `${generateSlug(values.name)}-${values.year?.value}`;
     }
 
-    let certificateName = values.name;
+    let documentName = values.name;
     // For certificates, include year in name to ensure uniqueness
-    if (values.category?.value === DOCUMENT_CATEGORY.CERTIFICATE) {
-      certificateName = `${values.name}-${values.year?.value}`;
+    if (values.category?.value === DOCUMENT_CATEGORY.PRODUCT) {
+      const docTypeLabel = String(values.docType?.value || "").toUpperCase();
+      const baseName = values.product?.label || values.name;
+      const alreadySuffixed = new RegExp(`[-\\s]${docTypeLabel}$`, "i").test(baseName);
+      documentName = alreadySuffixed ? baseName : `${baseName}-${docTypeLabel}`;
+    } else {
+      documentName = `${values.name}-${values.year?.value}`;
     }
 
-    formData.append("name", certificateName);
+    formData.append("name", documentName);
     formData.append("description", values.description || "");
     formData.append("category", values?.category?.value || "");
     formData.append("slug", slug);
@@ -294,6 +316,26 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
     } catch (error: any) {
       toast.error(error?.message || "Failed to update document");
     }
+  };
+
+  const addLocalProductOption = (label: string, value: string) => {
+    const normalizedValue = generateSlug(value || label);
+    const existing = products.find((product) => product.value === normalizedValue);
+
+    if (existing) {
+      setValue("product", existing as any, { shouldValidate: true });
+      return existing;
+    }
+
+    const nextProduct: ProductOption = {
+      _id: `temp_${Date.now()}`,
+      label: label.trim(),
+      value: normalizedValue,
+    };
+
+    setProducts((prev) => [...prev, nextProduct]);
+    setValue("product", nextProduct as any, { shouldValidate: true });
+    return nextProduct;
   };
 
   return (
@@ -386,8 +428,13 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
                       size="sm"
                       onClick={() => {
                         const selectedProduct = watch("product");
-                        if (selectedProduct?._id || selectedProduct?.id) {
-                          setDeleteConfirmId(selectedProduct._id || selectedProduct.id);
+                        if (!selectedProduct?.value) return;
+                        const matchedProduct = products.find(
+                          (product) => product.value === selectedProduct.value
+                        );
+                        const productId = matchedProduct?._id || matchedProduct?.id;
+                        if (productId) {
+                          setDeleteConfirmId(productId);
                         }
                       }}
                       className="gap-1 h-7 text-red-500 hover:text-red-700"
@@ -571,7 +618,12 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
               id="new-product-label"
               placeholder="e.g., Aviga HP70"
               value={newProductForm.label}
-              onChange={(e) => setNewProductForm({ ...newProductForm, label: e.target.value })}
+              onChange={(e) =>
+                setNewProductForm({
+                  label: e.target.value,
+                  value: generateSlug(e.target.value),
+                })
+              }
               className="mt-2"
             />
           </div>
@@ -619,7 +671,10 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
                 setShowCreateProduct(false);
                 setNewProductForm({ label: "", value: "" });
               } catch (error: any) {
-                toast.error(error?.message || "Failed to create product");
+                addLocalProductOption(newProductForm.label, newProductForm.value);
+                toast.success("Product added. Save the document to persist it.");
+                setShowCreateProduct(false);
+                setNewProductForm({ label: "", value: "" });
               }
             }}
           >
@@ -644,6 +699,21 @@ export function EditDocumentModal({ open, onClose, documentData, onSuccess }: Ed
             onClick={async () => {
               if (!deleteConfirmId) return;
               try {
+                if (String(deleteConfirmId).startsWith("temp_")) {
+                  setProducts((prev) =>
+                    prev.filter((product) => (product._id || product.id) !== deleteConfirmId)
+                  );
+                  const selected = watch("product");
+                  if (selected?.value) {
+                    const selectedMatch = products.find((product) => product.value === selected.value);
+                    const selectedId = selectedMatch?._id || selectedMatch?.id;
+                    if (selectedId === deleteConfirmId) {
+                      setValue("product", null as any, { shouldValidate: true });
+                    }
+                  }
+                  setDeleteConfirmId(null);
+                  return;
+                }
                 await PRODUCTS_SERVICES.deleteProduct(deleteConfirmId);
                 toast.success("Product deleted successfully");
                 

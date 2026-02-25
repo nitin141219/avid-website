@@ -31,7 +31,7 @@ function ProductInfo({
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="items-center gap-16 grid lg:grid-cols-2 pt-4 lg:pt-0 container-inner"
+        className="items-start lg:items-center gap-8 lg:gap-16 grid lg:grid-cols-2 pt-4 lg:pt-0 container-inner"
       >
         {/* Left Content */}
         <div>
@@ -80,7 +80,7 @@ function ProductInfo({
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full h-120">
+        <div className="relative w-full h-72 sm:h-96 lg:h-120">
           {hasMultipleImages ? (
             <ImageSlideshow images={resolvedImages} />
           ) : hasSingleImage ? (

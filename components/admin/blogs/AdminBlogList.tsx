@@ -11,7 +11,7 @@ import { Pencil, PlusIcon } from "lucide-react";
 import { DateTime } from "luxon";
 import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 
 export type Blog = {
   _id: string;

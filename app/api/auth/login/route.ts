@@ -27,7 +27,8 @@ export async function POST(req: Request) {
 
     response.cookies.set("token", data?.data?.token, {
       httpOnly: true,
-      secure: true,
+      // `secure: true` blocks cookie storage on http://localhost.
+      secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       path: "/",
     });

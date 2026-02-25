@@ -12,7 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 
 type ResetPasswordProps = {

@@ -19,8 +19,9 @@ const config = {
 };
 
 const LOCAL_BUILD_PATH = path.join(__dirname, '.next');
+const LOCAL_PUBLIC_PATH = path.join(__dirname, 'public');
 const LOCAL_ROOT = path.join(__dirname);
-const REMOTE_BASE = '/home/u296044710/public_html';
+const REMOTE_BASE = '/home/u296044710/domains/avidorganics.net/public_html';
 
 console.log('\n✓ AVID Deployment via SFTP');
 console.log('============================\n');
@@ -60,11 +61,19 @@ conn.on('ready', () => {
     // Create remote directories
     const mkdirRecursive = (remotePath, callback) => {
       sftp.mkdir(remotePath, (err) => {
-        if (err && err.code !== 2) {
-          callback(err);
-        } else {
+        if (!err) {
           callback(null);
+          return;
         }
+
+        // Some SFTP servers return generic "Failure" when folder already exists.
+        sftp.stat(remotePath, (statErr, stats) => {
+          if (!statErr && stats) {
+            callback(null);
+            return;
+          }
+          callback(err);
+        });
       });
     };
     
@@ -157,53 +166,82 @@ conn.on('ready', () => {
           }
           
           console.log('\n✓ .next folder uploaded\n');
-          
-          // Upload package.json and package-lock.json
-          const filesToUpload = ['package.json', 'package-lock.json'];
-          let fileCompleted = 0;
-          
-          filesToUpload.forEach((file) => {
-            const localPath = path.join(LOCAL_ROOT, file);
-            const remotePath = REMOTE_BASE + '/' + file;
-            
-            if (fs.existsSync(localPath)) {
-              const readStream = fs.createReadStream(localPath);
-              const writeStream = sftp.createWriteStream(remotePath);
-              
-              writeStream.on('finish', () => {
-                console.log(`  ✓ ${remotePath}`);
+
+          const uploadCoreFiles = () => {
+            // Upload package.json and package-lock.json
+            const filesToUpload = ['package.json', 'package-lock.json'];
+            let fileCompleted = 0;
+
+            filesToUpload.forEach((file) => {
+              const localPath = path.join(LOCAL_ROOT, file);
+              const remotePath = REMOTE_BASE + '/' + file;
+
+              if (fs.existsSync(localPath)) {
+                const readStream = fs.createReadStream(localPath);
+                const writeStream = sftp.createWriteStream(remotePath);
+
+                writeStream.on('finish', () => {
+                  console.log(`  ✓ ${remotePath}`);
+                  fileCompleted++;
+
+                  if (fileCompleted === filesToUpload.length) {
+                    console.log('\n✅ All files uploaded successfully!\n');
+                    console.log('Next steps:');
+                    console.log('1. SSH into server: ssh -p 65002 u296044710@89.116.133.94');
+                    console.log('2. Navigate: cd ~/public_html');
+                    console.log('3. Install deps: npm install --production --omit=dev');
+                    console.log('4. Start app: npm start (or pm2 start)');
+                    console.log();
+
+                    sftp.end();
+                    conn.end();
+                  }
+                });
+
+                writeStream.on('error', (err) => {
+                  console.error(`❌ Failed to upload ${file}:`, err.message);
+                  sftp.end();
+                  conn.end();
+                  process.exit(1);
+                });
+
+                readStream.pipe(writeStream);
+              } else {
                 fileCompleted++;
-                
                 if (fileCompleted === filesToUpload.length) {
-                  console.log('\n✅ All files uploaded successfully!\n');
-                  console.log('Next steps:');
-                  console.log('1. SSH into server: ssh -p 65002 u296044710@89.116.133.94');
-                  console.log('2. Navigate: cd ~/public_html');
-                  console.log('3. Install deps: npm install --production --omit=dev');
-                  console.log('4. Start app: npm start (or pm2 start)');
-                  console.log();
-                  
+                  console.log('\n✅ Core files uploaded!\n');
                   sftp.end();
                   conn.end();
                 }
-              });
-              
-              writeStream.on('error', (err) => {
-                console.error(`❌ Failed to upload ${file}:`, err.message);
+              }
+            });
+          };
+
+          if (!fs.existsSync(LOCAL_PUBLIC_PATH)) {
+            console.warn('⚠️ public folder not found locally, skipping static assets upload');
+            uploadCoreFiles();
+            return;
+          }
+
+          mkdirRecursive(REMOTE_BASE + '/public', (err) => {
+            if (err) {
+              console.error('❌ Failed to create public directory:', err.message);
+              sftp.end();
+              conn.end();
+              process.exit(1);
+            }
+
+            uploadDir(LOCAL_PUBLIC_PATH, REMOTE_BASE + '/public', (err) => {
+              if (err) {
+                console.error('❌ Failed to upload public folder:', err.message);
                 sftp.end();
                 conn.end();
                 process.exit(1);
-              });
-              
-              readStream.pipe(writeStream);
-            } else {
-              fileCompleted++;
-              if (fileCompleted === filesToUpload.length) {
-                console.log('\n✅ Core files uploaded!\n');
-                sftp.end();
-                conn.end();
               }
-            }
+
+              console.log('✓ public folder uploaded\n');
+              uploadCoreFiles();
+            });
           });
         });
       });

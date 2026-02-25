@@ -6,17 +6,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { NavItemType } from "../layout/OldHeader";
 import { SheetClose } from "../ui/sheet";
 
 export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] }) {
   return (
-    <Accordion type="single" className="space-y-1 mt-4 w-full" collapsible>
+    <Accordion type="single" className="space-y-1 mt-4 w-full max-w-full" collapsible>
       {navItems.map((item, idx) => {
         const hasSub = item.submenu && item.submenu.length > 0;
-        // const clickable = item.isMenuClickable || !hasSub;
-        const clickable = false;
+        const clickable = item.isMenuClickable || !hasSub;
 
         return (
           <AccordionItem key={idx} value={`item-${idx}`} className="py-1 border-b w-full">
@@ -32,7 +31,7 @@ export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] })
               </SheetClose>
             ) : (
               <AccordionTrigger
-                className="py-3 w-full font-medium hover:text-secondary text-base hover:no-underline cursor-pointer"
+                className="py-3 w-full font-medium hover:text-secondary text-base hover:no-underline cursor-pointer touch-manipulation"
                 onClick={(e) => e.stopPropagation()}
               >
                 {item.name}
@@ -42,7 +41,7 @@ export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] })
             {/* ---------- SUBMENU ---------- */}
             {hasSub && (
               <AccordionContent>
-                <Accordion type="single" className="w-auto" collapsible>
+                <Accordion type="single" className="w-auto max-w-full" collapsible>
                   <div className="flex flex-col gap-2 mt-2 ml-4 pl-3 border-l">
                     {item.submenu!.map((sub, subIdx) => {
                       const hasChild = sub.children && sub.children.length > 0;

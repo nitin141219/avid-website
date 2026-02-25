@@ -149,12 +149,12 @@ export default function Footer() {
           <div className="flex flex-wrap gap-4">
             <p className="w-max">© {new Date().getFullYear()} Avid Organics Pvt. Ltd.</p>
           </div>
-          <div className="flex gap-4 text-white/90">
-            <Link href="/privacy-policy" className="whitespace-nowrap">
+          <div className="flex flex-wrap gap-2 sm:gap-4 text-white/90">
+            <Link href="/privacy-policy" className="break-words">
               {tMenu("privacy_policy")}
             </Link>
             <span>|</span>
-            <Link href="/terms-and-conditions" className="whitespace-nowrap">
+            <Link href="/terms-and-conditions" className="break-words">
               {tMenu("terms_of_use")}
             </Link>
           </div>

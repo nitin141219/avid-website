@@ -1,13 +1,15 @@
 "use client";
 
 import { useAuth } from "@/components/auth/auth-context";
-import { Button } from "@/components/ui/button";
+import { Link } from "@/i18n/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { User } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 
 export default function Topbar() {
   const { user, logout } = useAuth();
@@ -17,29 +19,36 @@ export default function Topbar() {
       {/* <h1 className="text-3xl font-bold text-off-black">Admin</h1> */}
 
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" className="focus-visible:ring-0 capitalize font-semibold ml-auto">
-            {user?.first_name + " " + user?.last_name} <User className="size-6" />
-          </Button>
+        <DropdownMenuTrigger className="ml-auto flex items-center gap-1 text-sm cursor-pointer outline-none capitalize border border-off-black px-2 py-1">
+          {user?.first_name + " " + user?.last_name}
+          <ChevronDown size={14} />
         </DropdownMenuTrigger>
 
         <DropdownMenuContent
           align="end"
-          className="rounded-none p-2 flex flex-col"
+          className="rounded-none min-w-0 w-auto p-2 flex flex-col"
           updatePositionStrategy="always"
           side="bottom"
           sideOffset={4}
         >
-          {/* <DropdownMenuItem>Profile</DropdownMenuItem> */}
-          <Button
-            variant="link"
-            className="font-medium transition inline-flex h-fit gap-2 items- justify-start rounded-md rounded-b-none hover:no-underline text-sm p-0 text-destructive"
-            onClick={() => logout()}
-          >
+          <DropdownMenuItem asChild>
+            <Link href="/settings" className="px-2 py-1 text-off-black text-sm cursor-pointer">
+              Profile
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link href="/admin/users" className="px-2 py-1 text-off-black text-sm cursor-pointer">
+              Admin
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem className="px-2 py-1 text-primary text-sm cursor-pointer" onClick={() => logout()}>
             Logout
-          </Button>
+          </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>
   );
 }
+
+

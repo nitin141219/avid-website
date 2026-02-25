@@ -21,7 +21,7 @@ function ProductGlobalCompliance({ data, t }: { data: ProductPageData["qualityIn
           className="font-extrabold text-off-black text-2xl md:text-3xl"
         />
         <div className="bg-light-dark mt-3 mb-6 w-12 h-px"></div>
-        <div className="gap-16 grid grid-cols-1 sm:grid-cols-2">
+        <div className="gap-8 sm:gap-16 grid grid-cols-1 sm:grid-cols-2">
           <div>
             <h3 className="mb-5 font-extrabold text-off-black text-xl leading-tight">
               {t(data.subtitle)}
@@ -40,7 +40,7 @@ function ProductGlobalCompliance({ data, t }: { data: ProductPageData["qualityIn
               ))}
             </div>
           </div>
-          <div className="gap-16 grid lg:grid-cols-2">
+          <div className="gap-8 sm:gap-16 grid lg:grid-cols-2">
             {data?.otherStandards?.map((item) => (
               <div key={item.id} className="flex flex-col items-start w-full">
                 <h3 className="mb-5 font-extrabold text-off-black text-xl leading-tight">

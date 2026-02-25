@@ -84,7 +84,7 @@
       ]
     },
     "mainTitle": "ZUGANG – Jetzt anmelden",
-    "title": "Persönliche Daten",
+        "title": "Sign Up",
     "fields": {
       "firstName": "Vor name",
       "lastName": "Nach name",

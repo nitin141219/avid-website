@@ -15,7 +15,7 @@ export function getResponsiveImageSources(
   fallback = "/logo.png"
 ) {
   const desktop = source?.image || fallback
-  const mobile = source?.imageMobile || source?.mobileImage || source?.image_mobile || desktop
+  const mobile = desktop
 
   return { desktop, mobile }
 }

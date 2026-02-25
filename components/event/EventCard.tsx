@@ -6,12 +6,35 @@ import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 import { Button } from "../ui/button";
 
+function buildGoogleCalendarUrl(post: any) {
+  const title = post?.title?.trim();
+  if (!title) return null;
+
+  const startIso = post?.start_date || DateTime.now().toISO();
+  const endIso = post?.end_date || startIso;
+
+  const start = DateTime.fromISO(startIso).toUTC().toFormat("yyyyLLdd'T'HHmmss'Z'");
+  const end = DateTime.fromISO(endIso).toUTC().toFormat("yyyyLLdd'T'HHmmss'Z'");
+
+  const params = new URLSearchParams({
+    action: "TEMPLATE",
+    text: title,
+    dates: `${start}/${end}`,
+  });
+
+  if (post?.location) params.set("location", post.location);
+  if (post?.sub_title || post?.category) params.set("details", post?.sub_title || post?.category);
+
+  return `https://calendar.google.com/calendar/render?${params.toString()}`;
+}
+
 export default function EventCard({ post }: any) {
   const locale = useLocale();
   const tCommon = useTranslations("common");
 
   const rawStart = post.start_date || DateTime.now().toISO();
   const rawEnd = post.end_date || DateTime.now().toISO();
+  const addToCalendarUrl = post?.ics || buildGoogleCalendarUrl(post);
 
   const displayStart = DateTime.fromISO(rawStart).setLocale(locale).toFormat("LLL dd, yyyy");
   const displayEnd = DateTime.fromISO(rawEnd).setLocale(locale).toFormat("LLL dd, yyyy");
@@ -39,7 +62,9 @@ export default function EventCard({ post }: any) {
           </div>
         )}
 
-        {post?.ics && <AddToGoogleCalendar url={post?.ics} label={tCommon("add_to_calendar")} />}
+        {addToCalendarUrl && (
+          <AddToGoogleCalendar url={addToCalendarUrl} label={tCommon("add_to_calendar")} />
+        )}
       </div>
       {post?.hyper_link && (
         <div className="mt-10">
@@ -56,6 +81,8 @@ const AddToGoogleCalendar = ({ url, label }: { url: string; label: string }) => 
   const handleOnClick = () => {
     const link = document.createElement("a");
     link.href = url;
+    link.target = "_blank";
+    link.rel = "noopener noreferrer";
     document.body.appendChild(link);
     link.click();
     link.remove();

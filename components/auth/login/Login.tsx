@@ -16,7 +16,7 @@ import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 import { useAuth } from "../auth-context";
 
@@ -66,11 +66,28 @@ function Login() {
 
       const pendingDownloadSlug =
         typeof window !== "undefined" ? window.sessionStorage.getItem("pendingDownloadSlug") : null;
+      const pendingDownloadMetaRaw =
+        typeof window !== "undefined" ? window.sessionStorage.getItem("pendingDownloadMeta") : null;
 
       if (pendingDownloadSlug) {
-        downloadFn(pendingDownloadSlug);
+        let pendingDownloadMeta: { title?: string; productTitle?: string; pagePath?: string } = {};
+        if (pendingDownloadMetaRaw) {
+          try {
+            pendingDownloadMeta = JSON.parse(pendingDownloadMetaRaw);
+          } catch {
+            pendingDownloadMeta = {};
+          }
+        }
+
+        downloadFn(pendingDownloadSlug, {
+          userKey: String(values?.email || "").trim().toLowerCase(),
+          title: pendingDownloadMeta.title,
+          productTitle: pendingDownloadMeta.productTitle,
+          pagePath: pendingDownloadMeta.pagePath,
+        });
         if (typeof window !== "undefined") {
           window.sessionStorage.removeItem("pendingDownloadSlug");
+          window.sessionStorage.removeItem("pendingDownloadMeta");
         }
       }
 
@@ -91,7 +108,7 @@ function Login() {
             width={60}
             height={60}
             preload
-            className="mr-1 mb-1 transition-all duration-300"
+            className="mr-1 transition-all duration-300"
             unoptimized
           />
           <h1 className="font-normal text-medium-dark text-3xl md:text-4xl leading-none">

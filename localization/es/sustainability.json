@@ -107,7 +107,7 @@
                     }
                 },
                 "miyawaki": {
-                    "title": "Iniciativa de Bosque Miyawaki",
+                        "title": "Iniciativa forestal Miyawaki",
                     "description_part1": "Avid Organics ha plantado más de",
                     "count": "10.000",
                     "description_part2": "árboles nativos durante dos años usando el método Miyawaki, incluidos 5.080 en 2025. Cada plantación se mantiene durante cuatro años para garantizar un beneficio ecológico sostenido, apoyando la biodiversidad local y mejorando la calidad del aire cerca de nuestras operaciones de Vadodara."
@@ -145,7 +145,7 @@
                     "text": "Apoyando los objetivos climáticos globales a través de reducciones de emisiones mensurables"
                 },
                 "registry": {
-                    "label": "The Climate Registry: ",
+                    "label": "Registro Climático: ",
                     "text": "Garantizando una contabilidad de carbono precisa y verificable"
                 }
             }

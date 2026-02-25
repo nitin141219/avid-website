@@ -14,6 +14,42 @@ const LOCALIZATION_DIR = path.join(__dirname, '../localization');
 const LANGUAGES = ['de', 'es', 'fr'];
 const EN_LANG = 'en';
 
+// Keys/values intentionally allowed to remain identical across locales.
+const SAME_AS_ENGLISH_VALUE_ALLOWLIST = new Set([
+  'kg',
+  'Net Zero',
+  'MEHQ',
+  'Guaiacol',
+  'Chlorhexidine',
+  'Vanillin',
+  'Glycine USP',
+  'Taurine',
+  'Glycolic Acid',
+  'AviGa™ HP70',
+  'AviGa™ T',
+  'AviGly™ HP',
+  'AviGly™ T',
+  'AviTau™',
+  'AviVan™',
+  'Blog',
+  'Downloads',
+  'Jobs',
+  'Contact',
+  'Mission',
+  'Vision',
+  'Innovation',
+  'Certifications',
+]);
+
+const SAME_AS_ENGLISH_PATH_ALLOWLIST = [
+  /^menu\.(aviga_hp|aviga_t|avigly_hp|avigly_t|avitau|avivan)$/,
+  /^menu\.submenu\.(blogs|downloads|jobs)$/,
+  /^menu\.side_popup\.title$/,
+  /^product\..+\.supplyChain\.packagingOptions\.\d+\.(unit|texts)$/,
+  /^product\..+\.information\.subText$/,
+  /^Sustainability\..+\.target\d+\.value$/,
+];
+
 // Color codes for terminal output
 const colors = {
   reset: '\x1b[0m',
@@ -25,6 +61,19 @@ const colors = {
 
 function log(message, color = 'reset') {
   console.log(`${colors[color]}${message}${colors.reset}`);
+}
+
+function isObject(value) {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+function isTranslatableString(value) {
+  return typeof value === 'string' && /[A-Za-z]/.test(value.trim());
+}
+
+function shouldAllowSameAsEnglish(keyPath, value) {
+  if (SAME_AS_ENGLISH_VALUE_ALLOWLIST.has(String(value).trim())) return true;
+  return SAME_AS_ENGLISH_PATH_ALLOWLIST.some((pattern) => pattern.test(keyPath));
 }
 
 /**
@@ -150,6 +199,48 @@ function getMissingKeys(enFile, langFile) {
 }
 
 /**
+ * Compare English vs locale values and detect untranslated same-as-English strings
+ */
+function getUntranslatedSameAsEnglishKeys(enFile, langFile) {
+  try {
+    const enJson = JSON.parse(fs.readFileSync(enFile, 'utf-8'));
+    const langJson = JSON.parse(fs.readFileSync(langFile, 'utf-8'));
+
+    function findSameAsEnglish(enObj, langObj, path = '') {
+      const same = [];
+
+      for (const key in enObj) {
+        const currentPath = path ? `${path}.${key}` : key;
+        const enValue = enObj[key];
+
+        if (!(key in langObj)) continue;
+        const langValue = langObj[key];
+
+        if (isObject(enValue) && isObject(langValue)) {
+          same.push(...findSameAsEnglish(enValue, langValue, currentPath));
+          continue;
+        }
+
+        if (
+          isTranslatableString(enValue) &&
+          typeof langValue === 'string' &&
+          enValue.trim() === langValue.trim() &&
+          !shouldAllowSameAsEnglish(currentPath, enValue)
+        ) {
+          same.push(currentPath);
+        }
+      }
+
+      return same;
+    }
+
+    return findSameAsEnglish(enJson, langJson);
+  } catch (e) {
+    return [];
+  }
+}
+
+/**
  * Generate a detailed sync report
  */
 function generateSyncReport() {
@@ -160,7 +251,13 @@ function generateSyncReport() {
 
   const report = {
     timestamp: new Date().toISOString(),
-    files: {}
+    files: {},
+    summary: {
+      totalIssues: 0,
+      byLanguage: {},
+      untranslatedSameAsEnglish: 0,
+      untranslatedByLanguage: {}
+    }
   };
 
   files.forEach(file => {
@@ -170,10 +267,22 @@ function generateSyncReport() {
     LANGUAGES.forEach(lang => {
       const langPath = path.join(LOCALIZATION_DIR, lang, file);
       const missing = getMissingKeys(enPath, langPath);
+      const untranslated = getUntranslatedSameAsEnglishKeys(enPath, langPath);
+      const issueCount = missing.length;
+      const untranslatedCount = untranslated.length;
+
+      report.summary.totalIssues += issueCount;
+      report.summary.byLanguage[lang] = (report.summary.byLanguage[lang] || 0) + issueCount;
+      report.summary.untranslatedSameAsEnglish += untranslatedCount;
+      report.summary.untranslatedByLanguage[lang] =
+        (report.summary.untranslatedByLanguage[lang] || 0) + untranslatedCount;
       
       report.files[file][lang] = {
         exists: fs.existsSync(langPath),
-        missingKeys: missing.length > 0 ? missing : 'None'
+        missingKeys: issueCount > 0 ? missing : 'None',
+        issueCount,
+        untranslatedSameAsEnglish: untranslatedCount > 0 ? untranslated : 'None',
+        untranslatedIssueCount: untranslatedCount
       };
     });
   });
@@ -196,15 +305,23 @@ function main() {
   const { allInSync, errors } = validateLocalizationStructure();
   
   const report = generateSyncReport();
+  const hasNestedMissingKeys = (report.summary?.totalIssues || 0) > 0;
+  const hasUntranslatedValues = (report.summary?.untranslatedSameAsEnglish || 0) > 0;
 
-  if (allInSync) {
+  if (allInSync && !hasNestedMissingKeys && !hasUntranslatedValues) {
     log('\n✅ All localization files are properly synced!', 'green');
     process.exit(0);
   } else {
-    log(`\n❌ Found ${errors.length} sync issues that need attention`, 'red');
+    const structureIssues = errors.length;
+    const nestedIssues = report.summary?.totalIssues || 0;
+    const untranslatedIssues = report.summary?.untranslatedSameAsEnglish || 0;
+    log(
+      `\n❌ Found ${structureIssues + nestedIssues + untranslatedIssues} sync issues (structure: ${structureIssues}, missing nested keys: ${nestedIssues}, untranslated values: ${untranslatedIssues})`,
+      'red'
+    );
     log('\n⚠️  Action required:', 'yellow');
     log('1. Review the differences above', 'yellow');
-    log('2. Update missing translations in other languages', 'yellow');
+    log('2. Update missing/untranslated translations in other languages', 'yellow');
     log('3. Run this script again to verify', 'yellow');
     log('\n📄 Detailed report saved to: localization-sync-report.json\n', 'yellow');
     process.exit(1);
@@ -216,4 +333,8 @@ if (require.main === module) {
   main();
 }
 
-module.exports = { validateLocalizationStructure, getMissingKeys };
+module.exports = {
+  validateLocalizationStructure,
+  getMissingKeys,
+  getUntranslatedSameAsEnglishKeys,
+};

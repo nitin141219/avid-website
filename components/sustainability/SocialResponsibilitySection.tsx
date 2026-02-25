@@ -24,7 +24,7 @@ export default function SocialResponsibilitySection() {
             })}
           </h2>
         </div>
-        <div className="relative w-full h-120 overflow-hidden">
+        <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
           <Image
             src="/images/sustainability/social-responsibility.jpg"
             alt="Social Responsibility"

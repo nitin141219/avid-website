@@ -47,6 +47,7 @@
     "@tiptap/react": "^3.14.0",
     "@tiptap/starter-kit": "^3.14.0",
     "@types/mdx": "^2.0.13",
+    "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "2.1.1",
     "embla-carousel-autoplay": "8.6.0",
@@ -57,6 +58,7 @@
     "lightningcss": "1.25.0",
     "lucide-react": "^0.548.0",
     "luxon": "^3.7.2",
+    "mongodb": "^7.1.0",
     "next": "^16.1.6",
     "next-intl": "^4.8.3",
     "next-share": "^0.27.0",
@@ -73,6 +75,7 @@
     "react-select-country-list": "^2.2.3",
     "react-zoom-pan-pinch": "^3.7.0",
     "sonner": "^2.0.7",
+    "ssh2": "^1.17.0",
     "tailwind-merge": "3.3.1",
     "yup": "^1.7.1"
   },

@@ -11,7 +11,7 @@ import { useLocale } from "next-intl";
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 
 export type ContactUsType = {
   _id: string;

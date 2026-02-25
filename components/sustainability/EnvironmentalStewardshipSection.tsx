@@ -3,12 +3,16 @@
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 
 export default function EnvironmentalStewardshipSection() {
   const t = useTranslations("Sustainability.EnvironmentalStewardship");
   const features = t.raw("features");
+  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
   return (
     <section
+      ref={ref}
       className="z-0 relative bg-gray-section py-8 overflow-x-hidden"
       id="environmental-stewardship"
     >
@@ -24,7 +28,7 @@ export default function EnvironmentalStewardshipSection() {
       >
         {/* Top section */}
         <div className="items-end lg:gap-16 grid grid-cols-1 lg:grid-cols-2">
-          <div className="relative w-full h-120 overflow-hidden">
+          <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
             <Image
               src="/images/sustainability/enviormental.jpg"
               alt="Environmental Stewardship"
@@ -58,7 +62,25 @@ export default function EnvironmentalStewardshipSection() {
                   {item.title}
                 </h3>
               </div>
-              <p className="font-medium text-medium-dark leading-relaxed">{item.desc}</p>
+              {/* Animated counter for Miyawaki Forest Initiative and vision numbers */}
+              {item.count ? (
+                <p className="font-medium text-medium-dark leading-relaxed">
+                  {item.description_part1}{" "}
+                  {inView ? (
+                    <CountUp
+                      end={parseInt(item.count.replace(/,/g, ""))}
+                      duration={4}
+                      separator="," 
+                      className="font-bold text-primary text-2xl"
+                    />
+                  ) : (
+                    <span className="font-bold text-primary text-2xl">0</span>
+                  )}
+                  {" "}{item.description_part2}
+                </p>
+              ) : (
+                <p className="font-medium text-medium-dark leading-relaxed">{item.desc}</p>
+              )}
             </div>
           ))}
         </div>
@@ -71,17 +93,40 @@ export default function EnvironmentalStewardshipSection() {
           <div className="flex md:flex-row flex-col items-start md:items-center gap-10">
             <div className="flex items-center gap-3 w-full max-w-64">
               <p className="font-light text-off-black text-6xl">
-                {t("future_targets.target1.value")}
+                {inView ? (
+                  <CountUp
+                    end={50}
+                    duration={4}
+                    suffix="%"
+                    className="font-light text-off-black text-6xl"
+                  />
+                ) : (
+                  <span className="font-light text-off-black text-6xl">0%</span>
+                )}
               </p>
               <p className="font-medium text-medium-dark text-xs">
-                {t("future_targets.target1.text")}{" "}
+                {t("future_targets.target1.text")} {" "}
                 <span className="font-extrabold text-black/80">2030</span>
               </p>
             </div>
             <div className="max-md:hidden bg-gray-400 w-0.5 h-10" />
             <div className="flex items-center gap-3 w-full">
               <p className="font-light text-off-black text-6xl">
-                {t("future_targets.target2.value")}
+                {/* If Net Zero is not a number, skip animation */}
+                {t("future_targets.target2.value") === "Net Zero" ? (
+                  t("future_targets.target2.value")
+                ) : (
+                  inView ? (
+                    <CountUp
+                      end={parseInt(t("future_targets.target2.value").replace(/%/g, ""))}
+                      duration={4}
+                      suffix="%"
+                      className="font-light text-off-black text-6xl"
+                    />
+                  ) : (
+                    <span className="font-light text-off-black text-6xl">0%</span>
+                  )
+                )}
               </p>
               <p className="mt-auto mb-1 font-medium text-medium-dark text-xs">
                 {t("future_targets.target2.text")}
@@ -102,6 +147,7 @@ export default function EnvironmentalStewardshipSection() {
               unoptimized
             />
             <p className="font-medium text-medium-dark leading-relaxed">{t("reporting.text2")}</p>
+            {/* No animated counters here, just static text */}
           </div>
           <div>
             <h3 className="font-bold text-off-black">{t("reporting.validation_title")}</h3>

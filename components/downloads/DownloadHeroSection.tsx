@@ -1,7 +1,6 @@
 "use client";
 
 import downloadsImage from "@/public/images/downloads/downloads.jpg";
-import downloadsMobile from "@/public/mobile/news/Downloads.jpg";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
@@ -20,7 +19,7 @@ export default function DownloadHeroSection() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-150"
+        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150"
       >
         {/* Desktop Background Image */}
         <div
@@ -33,7 +32,7 @@ export default function DownloadHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: `url(${downloadsMobile.src})`,
+            backgroundImage: `url(${downloadsImage.src})`,
           }}
         />
         <DotsOverlay className="z-1" />
@@ -42,7 +41,7 @@ export default function DownloadHeroSection() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="z-1 absolute inset-0 flex flex-col py-16 text-left container-inner"
+        className="z-1 absolute inset-0 flex flex-col py-10 sm:py-16 text-left container-inner"
       >
         <div className="mt-auto mb-5">
           <h1 className="font-extrabold text-primary text-3xl">{t("downloads")}</h1>

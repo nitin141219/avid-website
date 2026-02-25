@@ -1,7 +1,7 @@
 {
   "menu": {
-    "about": "À Propos de Nous",
-    "about_description": "Un partenaire stratégique dans les produits chimiques de spécialité, s'appuyant sur deux décennies d'excellence manufacturière pour servir les chaînes d'approvisionnement mondiales avec précision, intégrité et cohérence opérationnelle.",
+    "about": "À propos",
+    "about_description": "Un partenaire stratégique en chimie de spécialité, s'appuyant sur deux décennies d'excellence manufacturière pour servir les chaînes d'approvisionnement mondiales avec précision, intégrité et constance opérationnelle.",
     "markets": "Marchés",
     "markets_description": "Autonomiser les industries mondiales pivots avec des solutions chimiques de haute performance, conçues pour des applications critiques et des exigences de marché diverses.",
     "products": "Produits",
@@ -17,6 +17,8 @@
     "home": "Accueil",
     "forgot_password": "Mot de passe oublié",
     "login": "Connexion",
+    "profile": "Profil",
+    "history": "Historique",
     "logout": "Déconnexion",
     "reset_password": "Réinitialiser le mot de passe",
     "sign_up": "S'inscrire",
@@ -55,7 +57,7 @@
     "avitau": "AviTau™",
     "avivan": "AviVan™",
     "guaiacol": "Gaïacol",
-    "chlorhexidine": "Chlorhexidine Base",
+    "chlorhexidine": "Base de chlorhexidine",
     "mehq": "MEHQ",
     "spotlight": {
       "title": "EN LUMIÈRE",

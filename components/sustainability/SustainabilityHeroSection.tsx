@@ -1,7 +1,6 @@
 "use client";
 
 import sustainabilityImage from "@/public/images/sustainability/sustainability_hero.jpg";
-import sustainabilityMobile from "@/public/mobile/sustainability/sustainability-hero.jpg";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 // import Image from "next/image";
@@ -17,7 +16,7 @@ export default function SustainabilityHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-150 overflow-hidden"
+        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150 overflow-hidden"
       >
         {/* Desktop Background Image */}
         <div
@@ -30,7 +29,7 @@ export default function SustainabilityHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: `url(${sustainabilityMobile.src})`,
+            backgroundImage: `url(${sustainabilityImage.src})`,
           }}
         />
         <DotsOverlay className="z-1 opacity-70" />
@@ -40,7 +39,7 @@ export default function SustainabilityHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="z-20 absolute inset-0 flex flex-col py-16 text-left container-inner"
+        className="z-20 absolute inset-0 flex flex-col py-10 sm:py-16 text-left container-inner"
       >
         <div className="mt-auto">
           <h1 className="font-extrabold text-white text-3xl leading-relaxed">{t("title")}</h1>

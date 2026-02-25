@@ -15,9 +15,11 @@ import * as yup from "yup";
 type ForgotPasswordModalProps = {
   open: boolean;
   onOpenChange: (open: boolean) => void;
+  email?: string;
+  titleOverride?: string;
 };
 
-export function ForgotPasswordModal({ open, onOpenChange }: ForgotPasswordModalProps) {
+export function ForgotPasswordModal({ open, onOpenChange, email, titleOverride }: ForgotPasswordModalProps) {
   const t = useTranslations("forgot_password");
   const [isSuccess, setIsSuccess] = useState(false);
   const schema = yup.object({
@@ -30,12 +32,20 @@ export function ForgotPasswordModal({ open, onOpenChange }: ForgotPasswordModalP
   const {
     register,
     reset,
+    setValue,
     handleSubmit,
     formState: { errors, isSubmitting, isSubmitSuccessful },
   } = useForm({
     resolver: yupResolver(schema),
     mode: "onChange",
   });
+
+  useEffect(() => {
+    reset();
+    if (email) {
+      setValue("email", email);
+    }
+  }, [open, email, reset, setValue]);
 
   useEffect(() => {
     reset();
@@ -70,10 +80,13 @@ export function ForgotPasswordModal({ open, onOpenChange }: ForgotPasswordModalP
         setIsSuccess(false);
       }}
     >
+      {/* Custom overlay style for lighter background */}
+      <style>{`.dialog-overlay[data-slot="dialog-overlay"] { background: rgba(255,255,255,0.7) !important; }`}</style>
       <DialogContent
         onPointerDownOutside={(e) => e.preventDefault()}
-        className="sm:max-w-md"
+        className="sm-max-w-md bg-white shadow-lg"
         style={{ padding: 0 }}
+        overlayClassName="bg-white bg-opacity-80 !bg-black/0"
       >
         {isSubmitSuccessful && isSuccess ? (
           <div className="relative flex flex-col items-center gap-3 px-4 py-10 rounded-lg">
@@ -87,7 +100,7 @@ export function ForgotPasswordModal({ open, onOpenChange }: ForgotPasswordModalP
         ) : (
           <div className="p-6">
             <DialogHeader>
-              <DialogTitle className="font-bold"> {t("title")}</DialogTitle>
+              <DialogTitle className="font-bold"> {titleOverride || t("title")}</DialogTitle>
             </DialogHeader>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mt-4 mb-6">

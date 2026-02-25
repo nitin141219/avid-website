@@ -9,7 +9,7 @@ import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
 import { useCallback, useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import { getResponsiveImageSources } from "@/lib/utils";
 import styles from "../styles/press-release.module.css"; // ✅ Module import
 

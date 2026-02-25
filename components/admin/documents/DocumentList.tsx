@@ -7,7 +7,7 @@ import { DOCUMENTS_SERVICES } from "@/services/admin/documents/documents.service
 import { ColumnDef } from "@tanstack/react-table";
 import { Pencil, Upload } from "lucide-react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import { CreateDocumentModal } from "./create-document-modal";
 import { EditDocumentModal } from "./edit-document-modal";
 

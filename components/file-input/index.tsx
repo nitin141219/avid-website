@@ -43,14 +43,17 @@ const FileInput = React.forwardRef<HTMLInputElement, FileInputProps>(
     const displayText = fileName && afterText ? afterText : beforeText;
 
     return (
-      <div className="group relative flex items-center border border-border w-full min-w-0 overflow-hidden">
+      <div className="group relative flex items-stretch border border-border w-full min-w-0 overflow-hidden">
         {/* LEFT SECTION — bg primary */}
-        <div className="bg-primary px-4 py-2 text-white text-sm whitespace-nowrap">
+        <div className="bg-primary shrink-0 px-4 py-2 text-white text-sm whitespace-nowrap flex items-center">
           {displayText}
         </div>
 
         {/* RIGHT SECTION — file name */}
-        <div className="flex-1 min-w-0 px-3 py-2 font-semibold text-gray-900 text-sm text-left truncate" title={fileName}>
+        <div
+          className="flex-1 min-w-0 px-3 py-2 font-semibold text-gray-900 text-sm text-left whitespace-normal break-words"
+          title={fileName}
+        >
           {fileName}
         </div>
 

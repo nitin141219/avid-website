@@ -1,7 +1,6 @@
 "use client";
 
 import blogsImage from "@/public/images/blog/Blogs.jpg";
-import blogsMobile from "@/public/mobile/news/blogs.jpg";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
@@ -16,7 +15,7 @@ export default function BlogsHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-150 overflow-hidden"
+        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150 overflow-hidden"
       >
         {/* Desktop Background Image */}
         <div
@@ -29,7 +28,7 @@ export default function BlogsHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: `url(${blogsMobile.src})`,
+            backgroundImage: `url(${blogsImage.src})`,
           }}
         />
         <DotsOverlay className="z-1 opacity-70" />
@@ -40,7 +39,7 @@ export default function BlogsHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="z-20 absolute inset-0 flex flex-col py-16 text-left container-inner"
+        className="z-20 absolute inset-0 flex flex-col py-10 sm:py-16 text-left container-inner"
       >
         <div className="mt-auto">
           <h1 className="font-extrabold text-white text-3xl">{t("title")}</h1>

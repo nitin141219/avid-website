@@ -3,7 +3,7 @@
     "mainTitle": "ACCESO",
     "loginTitle": "Inicie sesión en su cuenta",
     "fields": {
-      "email": {
+        "email": {
         "label": "Dirección de correo electrónico"
       },
       "password": {
@@ -12,7 +12,7 @@
     },
     "buttons": {
       "login": {
-        "text": "Iniciar sesión",
+          "text": "Login",
         "loadingText": "Iniciando sesión..."
       },
       "forgotPassword": "¿Olvidó su contraseña?",

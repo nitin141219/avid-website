@@ -20,6 +20,7 @@ type Props = {
 const segmentToTranslationKey: Record<string, string> = {
   "about-us": "about",
   "login": "login",
+  "settings": "profile",
   "signup": "sign_up",
   "reset-password": "reset_password",
   history: "submenu.history",

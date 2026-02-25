@@ -1,12 +1,20 @@
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
+import { addDownloadHistory } from "./downloadHistory";
 
 const inFlightDownloads = new Set<string>();
 
-export const downloadFn = async (slug: string) => {
+type DownloadHistoryMeta = {
+  userKey?: string | null;
+  title?: string;
+  productTitle?: string;
+  pagePath?: string;
+};
+
+export const downloadFn = async (slug: string, historyMeta?: DownloadHistoryMeta) => {
   if (!slug) return;
 
   if (inFlightDownloads.has(slug)) {
-    toast.message("Download is already in progress...");
+    toast.info("Download is already in progress...");
     return;
   }
 
@@ -42,6 +50,16 @@ export const downloadFn = async (slug: string) => {
     document.body.appendChild(a);
     a.click();
     toast.success("File downloaded successfully.");
+
+    if (historyMeta?.userKey) {
+      addDownloadHistory(historyMeta.userKey, {
+        slug,
+        fileName,
+        title: historyMeta.title || fileName,
+        productTitle: historyMeta.productTitle,
+        pagePath: historyMeta.pagePath,
+      });
+    }
 
     // 🧹 Cleanup
     a.remove();

@@ -37,4 +37,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
   );
 };
 
-export { Toaster };
+// Sonner Toaster is now deprecated and replaced by AvidToast.

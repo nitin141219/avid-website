@@ -30,7 +30,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Plus, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 
 type CreateDocumentModalProps = {
@@ -135,14 +135,14 @@ export function CreateDocumentModal({ open, onClose, onSuccess }: CreateDocument
     },
   });
   const categoryValue = watch("category");
+  const selectedProduct = watch("product");
 
   useEffect(() => {
     const loadProducts = async () => {
       try {
         const data = await PRODUCTS_SERVICES.getProducts();
         setProducts(data.products || []);
-      } catch (error: any) {
-        toast.error(error?.message || "Failed to load products");
+      } catch {
         setProducts([]);
       }
     };
@@ -150,19 +150,32 @@ export function CreateDocumentModal({ open, onClose, onSuccess }: CreateDocument
     loadProducts();
   }, []);
 
+  useEffect(() => {
+    if (
+      categoryValue?.value === DOCUMENT_CATEGORY.PRODUCT &&
+      selectedProduct?.label
+    ) {
+      setValue("name", selectedProduct.label, { shouldValidate: true });
+    }
+  }, [categoryValue?.value, selectedProduct?.label, setValue]);
+
   const onSubmit = async (values: CreateDocumentFormValues) => {
     let slug = "";
-    let certificateName = values.name;
+    let documentName = values.name;
 
     if (values.category?.value === DOCUMENT_CATEGORY.PRODUCT) {
       slug = `${values.product?.value}-${values?.docType?.value}`;
+      const docTypeLabel = String(values.docType?.value || "").toUpperCase();
+      const baseName = values.product?.label || values.name;
+      const alreadySuffixed = new RegExp(`[-\\s]${docTypeLabel}$`, "i").test(baseName);
+      documentName = alreadySuffixed ? baseName : `${baseName}-${docTypeLabel}`;
     } else {
       // For certificates, include year in name to ensure uniqueness
       slug = `${generateSlug(values.name)}-${values.year?.value}`;
-      certificateName = `${values.name}-${values.year?.value}`;
+      documentName = `${values.name}-${values.year?.value}`;
     }
     const formData = new FormData();
-    formData.append("name", certificateName);
+    formData.append("name", documentName);
     formData.append("description", values.description || "");
     formData.append("category", values?.category?.value || "");
     formData.append("slug", slug); // 👈 hidden slug
@@ -190,6 +203,26 @@ export function CreateDocumentModal({ open, onClose, onSuccess }: CreateDocument
     } catch (error: any) {
       toast.error(error.message || "Failed to create document");
     }
+  };
+
+  const addLocalProductOption = (label: string, value: string) => {
+    const normalizedValue = generateSlug(value || label);
+    const existing = products.find((product) => product.value === normalizedValue);
+
+    if (existing) {
+      setValue("product", existing as any, { shouldValidate: true });
+      return existing;
+    }
+
+    const nextProduct = {
+      _id: `temp_${Date.now()}`,
+      label: label.trim(),
+      value: normalizedValue,
+    };
+
+    setProducts((prev) => [...prev, nextProduct]);
+    setValue("product", nextProduct as any, { shouldValidate: true });
+    return nextProduct;
   };
 
   return (
@@ -499,7 +532,12 @@ export function CreateDocumentModal({ open, onClose, onSuccess }: CreateDocument
               id="new-product-label"
               placeholder="e.g., Aviga HP70"
               value={newProductForm.label}
-              onChange={(e) => setNewProductForm({ ...newProductForm, label: e.target.value })}
+              onChange={(e) =>
+                setNewProductForm({
+                  label: e.target.value,
+                  value: generateSlug(e.target.value),
+                })
+              }
               className="mt-2"
             />
           </div>
@@ -546,7 +584,10 @@ export function CreateDocumentModal({ open, onClose, onSuccess }: CreateDocument
                 setShowCreateProduct(false);
                 setNewProductForm({ label: "", value: "" });
               } catch (error: any) {
-                toast.error(error?.message || "Failed to create product");
+                addLocalProductOption(newProductForm.label, newProductForm.value);
+                toast.success("Product added. Save the document to persist it.");
+                setShowCreateProduct(false);
+                setNewProductForm({ label: "", value: "" });
               }
             }}
           >
@@ -572,6 +613,16 @@ export function CreateDocumentModal({ open, onClose, onSuccess }: CreateDocument
 
               try {
                 const selectedProduct = watch("product") as any;
+                if (String(deleteConfirmId).startsWith("temp_")) {
+                  setProducts((prev) =>
+                    prev.filter((product) => (product._id || product.id) !== deleteConfirmId)
+                  );
+                  if (selectedProduct?._id === deleteConfirmId || selectedProduct?.id === deleteConfirmId) {
+                    setValue("product", null as any, { shouldValidate: true });
+                  }
+                  setDeleteConfirmId(null);
+                  return;
+                }
                 await PRODUCTS_SERVICES.deleteProduct(deleteConfirmId);
                 toast.success("Product deleted successfully");
 

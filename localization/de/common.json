@@ -1,13 +1,13 @@
 {
   "common": {
-    "learn_more": "Erfahren Sie mehr",
-    "more_details": "Weitere Details",
+    "learn_more": "Mehr erfahren",
+    "more_details": "Mehr Details",
     "add_to_calendar": "Zum Kalender hinzufügen",
-    "related_posts": "Verwandte Beiträge",
+    "related_posts": "Ähnliche Beiträge",
     "search": "Suchen",
     "year": "Jahr",
-    "previous": "Vorherige",
-    "next": "Nächste",
-    "share_post": "Teile den Beitrag"
+    "previous": "Zurück",
+    "next": "Weiter",
+    "share_post": "Beitrag teilen"
   }
 }

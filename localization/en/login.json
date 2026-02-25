@@ -16,7 +16,7 @@
         "loadingText": "Logging in..."
       },
       "forgotPassword": "Forgot password?",
-      "signUp": "Sign up request"
+      "signUp": "Sign up"
     },
     "information": {
       "title": "Welcome to AVID ACCESS!",
@@ -32,8 +32,8 @@
         ]
       }
     },
-    "emailRequired": "Email is a required",
-    "passwordRequired": "Password is a required",
+    "emailRequired": "Email is a required field",
+    "passwordRequired": "Password is a required field",
     "emailInvalid": "Please enter a valid email address",
     "toast": {
       "invalidCredentials": "Invalid email or password",

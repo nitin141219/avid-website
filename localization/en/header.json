@@ -17,6 +17,8 @@
     "home": "Home",
     "forgot_password": "Forgot Password",
     "login": "Login",
+    "profile": "Profile",
+    "history": "Download History",
     "logout": "Logout",
     "reset_password": "Reset Password",
     "sign_up": "Sign Up",

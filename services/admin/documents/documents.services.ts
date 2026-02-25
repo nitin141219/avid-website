@@ -146,7 +146,7 @@ export const DOCUMENTS_SERVICES = {
     let hasFile = false;
     try {
       const fileEntry = formData.get("file");
-      hasFile = fileEntry instanceof File || (fileEntry && typeof fileEntry === "object");
+      hasFile = fileEntry instanceof File || Boolean(fileEntry && typeof fileEntry === "object");
     } catch {
       hasFile = false;
     }

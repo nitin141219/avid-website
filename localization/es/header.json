@@ -1,7 +1,7 @@
 {
   "menu": {
-    "about": "Sobre Nosotros",
-    "about_description": "Un socio estratégico en productos químicos especializados, que aprovecha dos décadas de excelencia en la fabricación para servir a las cadenas de suministro globales con precisión, integridad y consistencia operativa.",
+    "about": "Sobre nosotros",
+    "about_description": "Un socio estratégico en químicos especializados, con dos décadas de excelencia en fabricación para servir a cadenas de suministro globales con precisión, integridad y consistencia operativa.",
     "markets": "Mercados",
     "markets_description": "Empoderando a industrias globales fundamentales con soluciones químicas de alto rendimiento, diseñadas para aplicaciones críticas y diversos requisitos del mercado.",
     "products": "Productos",
@@ -17,6 +17,8 @@
     "home": "Inicio",
     "forgot_password": "Olvidé mi contraseña",
     "login": "Iniciar Sesión",
+    "profile": "Perfil",
+    "history": "Historial",
     "logout": "Cerrar Sesión",
     "reset_password": "Restablecer Contraseña",
     "sign_up": "Registrarse",
@@ -36,7 +38,7 @@
       "governance": "Gobernanza y Gestión de Productos",
       "news": "Noticias y Anuncios",
       "events": "Eventos",
-      "blogs": "Blog",
+      "blogs": "Blogs",
       "downloads": "Descargas",
       "life": "Vida",
       "jobs": "Trabajos",

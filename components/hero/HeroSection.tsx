@@ -9,9 +9,6 @@ import { Link } from "@/i18n/navigation";
 import SlideImage1 from "@/public/images/hero/banner_1.jpg";
 import SlideImage2 from "@/public/images/hero/banner_2.jpg";
 import SlideImage3 from "@/public/images/hero/banner_3.jpg";
-import SlideMobileImage1 from "@/public/mobile/main-banner/1.jpg";
-import SlideMobileImage2 from "@/public/mobile/main-banner/2.jpg";
-import SlideMobileImage3 from "@/public/mobile/main-banner/3.jpg";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
 
@@ -19,7 +16,6 @@ const slides = [
   {
     id: 3,
     img: SlideImage3,
-    imgMobile: SlideMobileImage3,
     titleKey: "slide_1_title",
     subtitleKey: null,
     buttonKey: "slide_1_button",
@@ -29,7 +25,6 @@ const slides = [
   {
     id: 2,
     img: SlideImage2,
-    imgMobile: SlideMobileImage2,
     titleKey: "slide_2_title",
     subtitleKey: null,
     buttonKey: "slide_2_button",
@@ -39,7 +34,6 @@ const slides = [
   {
     id: 1,
     img: SlideImage1,
-    imgMobile: SlideMobileImage1,
     titleKey: "slide_3_title",
     subtitleKey: null,
     buttonKey: "slide_3_button",
@@ -62,14 +56,14 @@ export default function HeroSection() {
     );
 
     timers.push(
-      setTimeout(() => setPhase("fadeout"), 2700) // start fade-out
+      setTimeout(() => setPhase("fadeout"), 3700) // start fade-out
     );
 
     timers.push(
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % slides.length);
         setPhase("image"); // next image phase
-      }, 3000)
+      }, 4000)
     );
     timeoutRef.current = timers;
 
@@ -79,11 +73,11 @@ export default function HeroSection() {
   const current = slides[index];
 
   return (
-    <section className="relative bg-white w-full h-screen min-h-162.5 overflow-hidden">
+    <section className="relative bg-white w-full h-screen min-h-162.5 overflow-hidden max-w-full">
       <AnimatePresence mode="wait">
         <motion.div
           key={current.id}
-          className="absolute inset-0"
+          className="absolute inset-0 max-w-full"
           variants={{
             initial: { opacity: 0, scale: 1.1 },
             animate: { opacity: 1, scale: 1 },
@@ -101,21 +95,13 @@ export default function HeroSection() {
             fill
             priority
             placeholder="blur"
-            className="hidden md:block object-cover"
-          />
-          <Image
-            src={current.imgMobile}
-            alt={t(current.titleKey)}
-            fill
-            priority
-            placeholder="blur"
-            className="md:hidden block object-cover"
+            className="object-cover max-w-full"
           />
         </motion.div>
       </AnimatePresence>
 
       {/* Text container */}
-      <div className={`relative z-10 container-inner flex h-full items-center ${current.position}`}>
+      <div className={`relative z-10 container-inner flex h-full items-center ${current.position} max-w-full`}>
         <AnimatePresence mode="wait">
           {phase === "text" && (
             <motion.div

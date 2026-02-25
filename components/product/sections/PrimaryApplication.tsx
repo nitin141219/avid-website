@@ -17,7 +17,7 @@ export default function ProductPrimaryApplication({
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="py-16 container-inner"
+      className="py-10 sm:py-16 container-inner"
     >
       <div className="w-full">
         <MultilineText
@@ -28,7 +28,7 @@ export default function ProductPrimaryApplication({
         <div className="bg-light-dark my-3 w-12 h-px"></div>
       </div>
       {/* Features */}
-      <div className="gap-16 grid grid-cols-1 sm:grid-cols-2 mt-16">
+      <div className="gap-8 sm:gap-16 grid grid-cols-1 sm:grid-cols-2 mt-8 sm:mt-16">
         {data?.items?.map((app) => (
           <div className="flex flex-col items-start w-full max-w-100" key={app?.id}>
             <div className="flex items-center gap-2">

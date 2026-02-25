@@ -1,6 +1,6 @@
 import { AuthProvider } from "@/components/auth/auth-context";
 import TopLoader from "@/components/top-loader/Toploader";
-import { Toaster } from "@/components/ui/sonner";
+import { Toaster } from "@/components/AvidToast";
 import { routing } from "@/i18n/routing";
 import { getAuthUser } from "@/lib/auth";
 import { redHatDisplay } from "@/lib/fonts";
@@ -150,7 +150,7 @@ export default async function RootLayout({
         <NextIntlClientProvider>
           <AuthProvider user={loggedInUser?.data || null}>{children}</AuthProvider>
         </NextIntlClientProvider>
-        <Toaster duration={3000} position="top-center" richColors closeButton />
+        <Toaster />
         <ThirdPartyCookie />
       </body>
     </html>

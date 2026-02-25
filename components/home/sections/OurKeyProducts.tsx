@@ -126,7 +126,7 @@ export default function OurKeyProducts() {
                   {/* textual block on the right inside cyan panel */}
                   <div
                     className={
-                      "absolute justify-end w-fit flex flex-col pr-4 origin-bottom-left transition-transform duration-500 " +
+                      "absolute justify-end items-end w-fit flex flex-col pr-4 origin-bottom-left text-right transition-transform duration-500 " +
                       sizeClassNames.imageTextPosition +
                       ` ${activeIndex === p.id ? " lg:scale-110" : ""}`
                     }
@@ -151,7 +151,7 @@ export default function OurKeyProducts() {
                       ) : null}
                     </div>
                     <div className="bg-white/60 my-1 w-10 h-px"></div>
-                    <div className="text-[10px] text-white sm:text-xs xl:text-sm 2xl:text-base">
+                    <div className="text-[10px] text-white text-right sm:text-xs xl:text-sm 2xl:text-base">
                       {t(p.subtitle)}
                     </div>
                   </div>

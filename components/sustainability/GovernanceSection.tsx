@@ -23,7 +23,7 @@ export default function GovernanceSection() {
       >
         {/* Top section */}
         <div className="items-end lg:gap-16 grid grid-cols-1 lg:grid-cols-2">
-          <div className="relative w-full h-120 overflow-hidden">
+          <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
             <Image
               src="/images/sustainability/governal.jpg"
               alt="Governance & Product Stewardship"

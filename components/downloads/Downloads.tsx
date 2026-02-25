@@ -2,12 +2,13 @@
 
 import { DOCUMENT_CATEGORY } from "@/constants";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { getUserHistoryKey } from "@/lib/downloadHistory";
 import { downloadFn } from "@/lib/downloadFn";
 import { PRODUCTS_SERVICES } from "@/services/admin/products/products.services";
 import { Accordion } from "@radix-ui/react-accordion";
 import { useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "../AvidToast";
 import { useAuth } from "../auth/auth-context";
 import { DownloadCard } from "./DownloadCard";
 import DownloadHeroSection from "./DownloadHeroSection";
@@ -69,14 +70,76 @@ const getProductSlug = (document: any) => {
   return slug;
 };
 
-const formatProductNameFromSlug = (slug: string) =>
-  slug
-    .split("-")
-    .filter(Boolean)
-    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
-    .join(" ");
+const toTimestamp = (value: any) => {
+  if (!value) return 0;
+  const parsed = new Date(value).getTime();
+  return Number.isFinite(parsed) ? parsed : 0;
+};
 
-const getProductName = (document: any, productSlug: string) => {
+const getDocumentTimestamp = (document: any) =>
+  Math.max(
+    toTimestamp(document?.updated_at),
+    toTimestamp(document?.updatedAt),
+    toTimestamp(document?.created_at),
+    toTimestamp(document?.createdAt)
+  );
+
+const formatProductSegment = (segment: string) => {
+  if (!segment) return "";
+  if (/^\d+$/.test(segment)) return segment;
+  if (/^[a-z]{1,2}$/i.test(segment)) return segment.toUpperCase();
+
+  const compactAlphaNumeric = segment.match(/^([a-z]{1,3})(\d+)$/i);
+  if (compactAlphaNumeric) {
+    return `${compactAlphaNumeric[1].toUpperCase()}${compactAlphaNumeric[2]}`;
+  }
+
+  return segment.charAt(0).toUpperCase() + segment.slice(1).toLowerCase();
+};
+
+const formatProductNameFromSlug = (slug: string) => {
+  const segments = slug.split("-").filter(Boolean);
+  const parts: string[] = [];
+
+  for (let index = 0; index < segments.length; index += 1) {
+    const segment = segments[index];
+    const nextSegment = segments[index + 1];
+
+    if (/^[a-z]{1,3}$/i.test(segment) && /^\d+$/.test(nextSegment || "")) {
+      parts.push(`${segment.toUpperCase()}${nextSegment}`);
+      index += 1;
+      continue;
+    }
+
+    parts.push(formatProductSegment(segment));
+  }
+
+  return parts.join(" ");
+};
+
+const getProductNameFromDocumentName = (document: any, docType: string) => {
+  const rawName = String(document?.name || "").trim();
+  if (!rawName) return "";
+
+  if (docType === "pds" || docType === "sds") {
+    const cleaned = rawName
+      .replace(
+        /\s*[-–(]*\b(?:pds|sds|product data sheet|safety data sheet)\b\)?\s*$/i,
+        ""
+      )
+      .trim();
+    return cleaned || rawName;
+  }
+
+  return rawName;
+};
+
+const getProductName = (document: any, productSlug: string, docType: string) => {
+  const documentName = getProductNameFromDocumentName(document, docType);
+  if (documentName) {
+    return documentName;
+  }
+
   const productName =
     document?.product_name || document?.productName || document?.product?.label || "";
 
@@ -95,7 +158,7 @@ function Downloads({ downloads }: any) {
   
   const t = useTranslations("downloads");
   const commonT = useTranslations("common");
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, user } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
 
@@ -109,9 +172,9 @@ function Downloads({ downloads }: any) {
           // Map the product data structure to match what we need
           setProducts(data.products);
         }
-      } catch (error: any) {
-        // If API fails, use the initial products from props
-        console.error("Failed to load products:", error);
+      } catch {
+        // If API fails (for example 404 in environments without product APIs),
+        // keep using products derived from downloads payload.
       } finally {
         setIsLoading(false);
       }
@@ -127,7 +190,7 @@ function Downloads({ downloads }: any) {
         id: string;
         name: string;
         description: string;
-        documents: { id: string; label: string; slug: string }[];
+        documents: { id: string; label: string; slug: string; timestamp: number }[];
       }
     >();
 
@@ -154,8 +217,11 @@ function Downloads({ downloads }: any) {
       const existing = productMap.get(productSlug);
 
       if (!existing) {
-        // Use the latest name from PRODUCTS_SERVICES if available, otherwise use from document
-        const latestProductName = productNameMap.get(productSlug) || getProductName(productDoc, productSlug);
+        // Prefer document name saved from admin form; fallback to product service, then slug.
+        const latestProductName =
+          getProductName(productDoc, productSlug, docType) ||
+          productNameMap.get(productSlug) ||
+          formatProductNameFromSlug(productSlug);
         
         productMap.set(productSlug, {
           id: String(productDoc?._id || productSlug),
@@ -166,6 +232,7 @@ function Downloads({ downloads }: any) {
               id: String(productDoc?._id || `${productSlug}-${label}`),
               label,
               slug: String(productDoc?.slug || ""),
+              timestamp: getDocumentTimestamp(productDoc),
             },
           ],
         });
@@ -176,6 +243,7 @@ function Downloads({ downloads }: any) {
         id: String(productDoc?._id || `${productSlug}-${label}-${existing.documents.length}`),
         label,
         slug: String(productDoc?.slug || ""),
+        timestamp: getDocumentTimestamp(productDoc),
       });
 
       if (!existing.description && productDoc?.description) {
@@ -186,13 +254,17 @@ function Downloads({ downloads }: any) {
     return Array.from(productMap.values()).map((product) => ({
       ...product,
       documents: product.documents.sort((a, b) => {
-        const priority = (value: string) => {
-          if (value.includes("PDS")) return 1;
-          if (value.includes("SDS")) return 2;
+        const typePriority = (label: string) => {
+          const normalized = label.toUpperCase();
+          if (normalized.includes("PDS")) return 1;
+          if (normalized.includes("SDS")) return 2;
           return 3;
         };
 
-        return priority(a.label) - priority(b.label);
+        const typeDiff = typePriority(a.label) - typePriority(b.label);
+        if (typeDiff !== 0) return typeDiff;
+        if (b.timestamp !== a.timestamp) return b.timestamp - a.timestamp;
+        return a.label.localeCompare(b.label);
       }),
     }));
   }, [products, initialProducts]);
@@ -248,15 +320,31 @@ function Downloads({ downloads }: any) {
     }));
   }, [certificates]);
 
-  const checkAndDownload = async (slug: string) => {
+  const checkAndDownload = async (
+    slug: string,
+    historyMeta?: { title?: string; productTitle?: string }
+  ) => {
     if (!slug) return;
 
     if (isLoggedIn) {
-      await downloadFn(slug);
+      await downloadFn(slug, {
+        userKey: getUserHistoryKey(user),
+        title: historyMeta?.title,
+        productTitle: historyMeta?.productTitle,
+        pagePath: pathname || "/media/downloads",
+      });
     } else {
-      toast.error("Please login to download documents");
+      toast.info("Please login to access documents");
       if (typeof window !== "undefined") {
         window.sessionStorage.setItem("pendingDownloadSlug", slug);
+        window.sessionStorage.setItem(
+          "pendingDownloadMeta",
+          JSON.stringify({
+            title: historyMeta?.title,
+            productTitle: historyMeta?.productTitle,
+            pagePath: pathname || "/media/downloads",
+          })
+        );
       }
       const returnTo = pathname || "/media/downloads";
       router.push(`/login?returnTo=${encodeURIComponent(returnTo)}`);
@@ -290,7 +378,10 @@ function Downloads({ downloads }: any) {
                   onDownload={() => {
                     const defaultDocument = product.documents[0];
                     if (defaultDocument?.slug) {
-                      checkAndDownload(defaultDocument.slug);
+                      checkAndDownload(defaultDocument.slug, {
+                        title: defaultDocument.label,
+                        productTitle: product.name,
+                      });
                     }
                   }}
                   downloadLinks={product.documents
@@ -298,7 +389,11 @@ function Downloads({ downloads }: any) {
                     .map((document: any) => ({
                       id: document.id,
                       label: document.label,
-                      onDownload: () => checkAndDownload(document.slug),
+                      onDownload: () =>
+                        checkAndDownload(document.slug, {
+                          title: document.label,
+                          productTitle: product.name,
+                        }),
                     }))}
                 />
               ))
@@ -327,15 +422,22 @@ function Downloads({ downloads }: any) {
                     // Download the latest version by default
                     const latestVersion = certGroup.versions[0];
                     if (latestVersion?.slug) {
-                      checkAndDownload(latestVersion.slug);
+                      checkAndDownload(latestVersion.slug, {
+                        title: `${certGroup.name} - ${latestVersion.year}`,
+                        productTitle: certGroup.name,
+                      });
                     }
                   }}
                   downloadLinks={certGroup.versions
                     .filter((version: any) => version.slug)
                     .map((version: any) => ({
                       id: version.id,
-                      label: `${version.year}`,
-                      onDownload: () => checkAndDownload(version.slug),
+                      label: `${certGroup.name} - ${version.year}`,
+                      onDownload: () =>
+                        checkAndDownload(version.slug, {
+                          title: `${certGroup.name} - ${version.year}`,
+                          productTitle: certGroup.name,
+                        }),
                     }))}
                 />
               ))

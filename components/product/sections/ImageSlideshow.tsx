@@ -20,13 +20,13 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
       setTimeout(() => setPhase("text"), 300)
     );
     timers.push(
-      setTimeout(() => setPhase("fadeout"), 2700)
+      setTimeout(() => setPhase("fadeout"), 3700)
     );
     timers.push(
       setTimeout(() => {
         setIndex((prev) => (prev + 1) % images.length);
         setPhase("image");
-      }, 3000)
+      }, 4000)
     );
     timeoutRef.current = timers;
     return () => timers.forEach(clearTimeout);

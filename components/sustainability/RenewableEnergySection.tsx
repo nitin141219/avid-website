@@ -31,7 +31,7 @@ export default function RenewableEnergySection() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.5, ease: "easeInOut" }}
-          className="relative w-full h-120"
+          className="relative w-full h-72 sm:h-96 lg:h-120"
         >
           <Image
             src="/images/sustainability/energy.jpg"

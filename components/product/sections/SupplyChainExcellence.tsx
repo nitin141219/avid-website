@@ -4,12 +4,13 @@ import DotsOverlay from "@/components/dots-overlay/DotsOverlay";
 import { MultilineText } from "@/components/MultilineText";
 import { Button } from "@/components/ui/button";
 import { usePathname, useRouter } from "@/i18n/navigation";
+import { getUserHistoryKey } from "@/lib/downloadHistory";
 import { downloadFn } from "@/lib/downloadFn";
 import { Loader2 } from "lucide-react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 import { ProductPageData } from "../data";
 
 const getDocTypeFromSlug = (slug: string) => {
@@ -38,7 +39,7 @@ function ProductSupplyChainExcellence({
   data: ProductPageData["supplyChain"];
   t: any;
 }) {
-  const { isLoggedIn } = useAuth();
+  const { isLoggedIn, user } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
   const [productDocuments, setProductDocuments] = useState<any[]>([]);
@@ -106,15 +107,32 @@ function ProductSupplyChainExcellence({
     setActiveDownloadSlug(slug);
 
     try {
+      const buttonTitle = data?.buttons?.find((btn) => btn.slug === slug)?.label;
+      const resolvedTitle = buttonTitle ? t(buttonTitle) : "Document";
+      const resolvedProductTitle = data?.title ? t(data.title) : undefined;
+
       if (!isLoggedIn) {
-        toast.error("Please login to download documents");
+        toast.info("Please login to access documents");
         if (typeof window !== "undefined") {
           window.sessionStorage.setItem("pendingDownloadSlug", resolvedSlug);
+          window.sessionStorage.setItem(
+            "pendingDownloadMeta",
+            JSON.stringify({
+              title: resolvedTitle,
+              productTitle: resolvedProductTitle,
+              pagePath: pathname || "/",
+            })
+          );
         }
         const returnTo = pathname || "/";
         router.push(`/login?returnTo=${encodeURIComponent(returnTo)}`);
       } else {
-        await downloadFn(resolvedSlug);
+        await downloadFn(resolvedSlug, {
+          userKey: getUserHistoryKey(user),
+          title: resolvedTitle,
+          productTitle: resolvedProductTitle,
+          pagePath: pathname || "/",
+        });
       }
     } finally {
       setActiveDownloadSlug(null);

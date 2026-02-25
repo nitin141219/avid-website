@@ -5,7 +5,7 @@
     "slide_1_button": "Learn More",
     "slide_2_title": "Fueling Innovation Through an Advanced R&D Ecosystem",
     "slide_2_subtitle": "Advanced research, continuous improvement, and a commitment to breakthroughs in scalable, high-performance solutions.",
-    "slide_2_button": "Explore Our R&D",
+    "slide_2_button": "Learn More",
     "slide_3_title": "Leading Manufacturer of Glycine and Glycolic Acid",
     "slide_3_subtitle": "From healthcare to home care, driving self-reliance and industry standards through top-tier specialty chemicals.",
     "slide_3_button": "Contact Us"
@@ -21,7 +21,7 @@
   "key-products": {
     "title": "Our Key Products",
     "tagline": "A Focus on High-Performance Chemistries.",
-    "description": "As the manufacturer, we offer unparalleled expertise in our core technologies.\n Our product series are engineered to provide a spectrum of grades, giving our partners tailored solutions for their specific applications.",
+      "description": "",
     "series": "Series",
     "aviga": {
       "subtitle": "Glycolic Acid",

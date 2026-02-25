@@ -1,7 +1,7 @@
 {
   "login": {
     "mainTitle": "ZUGANG",
-    "loginTitle": "Melden Sie sich in Ihrem Konto an",
+    "loginTitle": "Login",
     "fields": {
       "email": {
         "label": "E-Mail-Adresse"
@@ -13,7 +13,7 @@
     "buttons": {
       "login": {
         "text": "Einloggen",
-        "loadingText": "Logging in..."
+        "loadingText": "Anmeldung läuft..."
       },
       "forgotPassword": "Passwort vergessen?",
       "signUp": "Anmeldeanfrage"

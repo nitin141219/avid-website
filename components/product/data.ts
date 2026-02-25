@@ -11,6 +11,9 @@ export interface ProductPageData {
     tag?: string;
     subText?: string;
     description: string;
+    casNumber?: string;
+    molecularFormula?: string;
+    molecularWeight?: string;
   };
 
   applications: {

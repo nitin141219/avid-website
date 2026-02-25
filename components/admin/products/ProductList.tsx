@@ -10,11 +10,20 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+} from "@/components/ui/alert-dialog";
 import { PRODUCTS_SERVICES } from "@/services/admin/products/products.services";
 import { Pencil, Plus, Trash2 } from "lucide-react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
-import { ConfirmDialog } from "@/components/confirm-dialog/confirm-dialog";
+import { toast } from "@/components/AvidToast";
 
 interface Product {
   _id?: string;
@@ -22,6 +31,13 @@ interface Product {
   label: string;
   value: string;
 }
+
+const generateSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
 
 export default function ProductList() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -170,7 +186,10 @@ export default function ProductList() {
                 placeholder="e.g., Aviga HP"
                 value={formData.label}
                 onChange={(e) =>
-                  setFormData({ ...formData, label: e.target.value })
+                  setFormData({
+                    label: e.target.value,
+                    value: generateSlug(e.target.value),
+                  })
                 }
                 className="mt-2"
               />
@@ -206,15 +225,29 @@ export default function ProductList() {
         </DialogContent>
       </Dialog>
 
-      <ConfirmDialog
-        isOpen={!!deleteConfirmId}
-        title="Delete Product"
-        message="Are you sure you want to delete this product? Documents using this product will not be affected."
-        onConfirm={() =>
-          deleteConfirmId && handleDelete(deleteConfirmId)
-        }
-        onCancel={() => setDeleteConfirmId(null)}
-      />
+      <AlertDialog open={!!deleteConfirmId} onOpenChange={(open) => { if (!open) setDeleteConfirmId(null); }}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Delete Product</AlertDialogTitle>
+            <AlertDialogDescription>
+              Are you sure you want to delete this product? Documents using this product will not be affected.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                if (deleteConfirmId) {
+                  handleDelete(deleteConfirmId);
+                }
+              }}
+              className="bg-destructive hover:bg-destructive/70"
+            >
+              Delete
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 }

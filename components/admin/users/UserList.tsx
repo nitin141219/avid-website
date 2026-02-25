@@ -9,7 +9,7 @@ import { USER_SERVICES } from "@/services/admin/users/users.services";
 import { ColumnDef } from "@tanstack/react-table";
 import { Download } from "lucide-react";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
+import { toast } from "@/components/AvidToast";
 
 export type User = {
   _id: string;

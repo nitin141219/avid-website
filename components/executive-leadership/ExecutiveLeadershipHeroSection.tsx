@@ -1,7 +1,6 @@
 "use client";
 
 import leadershipImage from "@/public/images/leadership/leadership-bg.jpg";
-import leadershipMobile from "@/public/mobile/about-us/executive-leadership.jpg";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
@@ -20,7 +19,7 @@ export default function ExecutiveLeadershipHeroSection() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-150"
+        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150"
       >
         {/* Desktop Background Image */}
         <div
@@ -33,7 +32,7 @@ export default function ExecutiveLeadershipHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: `url(${leadershipMobile.src})`,
+            backgroundImage: `url(${leadershipImage.src})`,
           }}
         />
         <DotsOverlay className="z-1" />
@@ -43,9 +42,9 @@ export default function ExecutiveLeadershipHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="z-1 absolute inset-0 flex flex-col py-16 text-left container-inner"
+        className="z-1 absolute inset-0 flex flex-col py-10 sm:py-16 text-left container-inner"
       >
-        <div className="mt-auto mb-20">
+        <div className="mt-auto mb-8 sm:mb-20">
           <h1 className="font-extrabold text-white text-3xl">{t("submenu.leadership")}</h1>
         </div>
       </motion.div>{" "}
