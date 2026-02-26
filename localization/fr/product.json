@@ -1,744 +1,830 @@
 {
-    "product": {
-        "chemicalInfo": {
-            "casNumber": "Numéro CAS",
-            "molecularFormula": "Formule moléculaire",
-            "molecularWeight": "Poids moléculaire",
-            "bioBasedContent": "Teneur biosourcee"
+  "product": {
+    "chemicalInfo": {
+      "casNumber": "Numéro CAS",
+      "molecularFormula": "Formule moléculaire",
+      "molecularWeight": "Poids moléculaire",
+      "bioBasedContent": "Teneur biosourcee"
+    },
+    "alpha-hydroxy-acids": {
+      "aviga-hp": {
+        "hero": {
+          "title": "ACIDE\nALPHA\nHYDROXY",
+          "subtitle": "Solutions de pointe pour des applications avancées"
         },
-        "alpha-hydroxy-acids": {
-            "aviga-hp": {
-                "hero": {
-                    "title": "ACIDE\nALPHA\nHYDROXY",
-                    "subtitle": "Solutions de pointe pour des applications avancées"
-                },
-                "information": {
-                    "subText": "Acide Glycolique 70% Grade Cosmétique",
-                    "description": "AviGa™ HP70 représente la référence en acide glycolique de haute pureté pour les industries réglementées. Fabriqué via notre procédé exclusif MCA (acide monochloroacétique), AviGa™ HP70 offre des profils de pureté supérieurs, une consistance de pH stable et un minimum d'impuretés."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Dermatologie\nAvancée",
-                            "description": "Peelings chimiques professionnels et traitements de qualité dermatologique."
-                        },
-                        "1": {
-                            "title": "Formulations\nAnti-Âge Premium",
-                            "description": "Sérums et crèmes exploitant l'efficacité de l'acide glycolique."
-                        },
-                        "2": {
-                            "title": "Synthèse\nPharmaceutique",
-                            "description": "Intermédiaire pour les IPA et les excipients nécessitant des acides carboxyliques de haute pureté."
-                        },
-                        "3": {
-                            "title": "Spécialités\nIndustrielles",
-                            "description": "Électronique, nettoyage de précision et auxiliaires pour semi-conducteurs, nettoyage précis de composants aérospatiaux. Fait partie des produits de rinçage industriels haut de gamme (non moussants)."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale &\nAssurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Sécurité",
-                            "description": "FDS complète, certifications de transport pour expédition mondiale."
-                        },
-                        "1": {
-                            "title": "Contrôle Qualité",
-                            "description": "CdA spécifique par lot, surveillance de la production en temps réel, validation par des tiers disponible."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Dames-jeannes"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Conteneurs (IBC)"
-                        }
-                    },
-                    "packagingText": "Citernes ISO en vrac",
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
-            },
-            "aviga-bio-hp-70": {
-                "hero": {
-                    "title": "ACIDE\nALPHA\nHYDROXY",
-                    "subtitle": "Solutions de pointe pour des applications avancées"
-                },
-                "information": {
-                    "subText": "Acide Glycolique 70% Grade Cosmétique Biosourcé",
-                    "description": "AviGa™ Bio HP70 est l'acide glycolique biosource d'Avid Organics, conçu pour les marques et fabricants qui exigent a la fois performance et provenance. Issu de ressources renouvelables via notre procede de synthese verte proprietaire, il offre la meme purete de reference et le meme profil d'impuretes ultra-faible que notre HP70 de reference, avec l'avantage supplementaire d'une origine biosourcee verifiee. Pour les formulateurs confrontes a la demande croissante d'ingredients durables et tracables, AviGa™ Bio HP70 est la reponse sans compromis.",
-                    "bioBasedContent": "99% (verifie selon ASTM D6866)"
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Dermatologie Avancee",
-                            "description": "Peelings chimiques professionnels et traitements dermatologiques de grade eleve, adaptes a l’ere de la clean beauty."
-                        },
-                        "1": {
-                            "title": "Formulations Anti-Age Premium",
-                            "description": "Serums et cremes exploitant l'efficacite de l'acide glycolique avec une histoire d'ingredient durable certifiee."
-                        },
-                        "2": {
-                            "title": "Synthese Pharmaceutique",
-                            "description": "Intermediaire pour les IPA et excipients necessitant des acides carboxyliques de haute purete issus d’une source biosourcee tracable."
-                        },
-                        "3": {
-                            "title": "Specialites Industrielles",
-                            "description": "Electronique, nettoyage de precision et auxiliaires pour semi-conducteurs, ou la chimie verte repond a des exigences de performance elevees."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Durabilite & Assurance Qualite",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "References Vertes",
-                            "description": "99% de carbone biosource, verifie par analyse radiocarbone AMS (ASTM D6866-24a / NF EN 16640:2017) par CIRAM, laboratoire accrédité Cofrac ISO/IEC 17025."
-                        },
-                        "1": {
-                            "title": "Securite",
-                            "description": "FDS complete, certifications de transport pour expeditions mondiales"
-                        },
-                        "2": {
-                            "title": "Controle Qualite",
-                            "description": "CoA specifique par lot, suivi de production en temps reel, validation tierce disponible"
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Dames-jeannes"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Conteneurs (IBC)"
-                        }
-                    },
-                    "packagingText": "Citernes ISO en vrac",
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
-            },
-            "aviga-t": {
-                "hero": {
-                    "title": "ACIDE\nALPHA\nHYDROXY",
-                    "subtitle": "Solutions de pointe pour des applications avancées"
-                },
-                "information": {
-                    "subText": "Acide Glycolique 70% Grade Technique",
-                    "description": "AviGa™ T est notre acide glycolique de spécification industrielle conçu pour des applications de haute performance dans la fabrication, le traitement, les formulations et la synthèse de produits chimiques de spécialité. Fabriqué via le même procédé avancé MCA sans formaldéhyde que nos produits de qualité pharmaceutique, AviGa™ T offre une pureté et une consistance exceptionnelles à des prix industriels compétitifs. Cette solution de qualité technique sert d'intrant critique pour la synthèse chimique, les systèmes de nettoyage industriel et les processus de fabrication spécialisés où la performance et la fiabilité sont primordiales."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Synthèse\nChimique",
-                            "description": "Intermédiaire pour les esters de spécialité, les précurseurs de polymères et les matériaux avancés."
-                        },
-                        "1": {
-                            "title": "Détartrage &\nNettoyage Industriel",
-                            "description": "Formulations haute performance pour le traitement des métaux, les équipements laitiers, les échangeurs de chaleur, les systèmes de chaudières."
-                        },
-                        "2": {
-                            "title": "Champ\nPétrolifère",
-                            "description": "Intermédiaire pour les IPA et les excipients nécessitant des acides carboxyliques de haute pureté."
-                        },
-                        "3": {
-                            "title": "Traitement\nTextile",
-                            "description": "Contrôle du pH, opérations de teinture, traitements de finition."
-                        },
-                        "4": {
-                            "title": "Fabrication\ndu Cuir",
-                            "description": "Processus de tannage, ajustement du pH, traitement chimique."
-                        },
-                        "5": {
-                            "title": "Adhésifs &\nRevêtements de Spécialité",
-                            "description": "Modification de polymères, contrôle du pH dans les formulations."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Sécurité",
-                            "description": "FDS complète, certifications de transport pour expédition mondiale."
-                        },
-                        "1": {
-                            "title": "Contrôle Qualité",
-                            "description": "CdA spécifique par lot, surveillance de la production en temps réel, validation par des tiers disponible."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Dames-jeannes"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Conteneurs (IBC)"
-                        }
-                    },
-                    "packagingText": "Citernes ISO en vrac",
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
-            }
+        "information": {
+          "subText": "Acide Glycolique 70% Grade Cosmétique",
+          "description": "AviGa™ HP70 représente la référence en acide glycolique de haute pureté pour les industries réglementées. Fabriqué via notre procédé exclusif MCA (acide monochloroacétique), AviGa™ HP70 offre des profils de pureté supérieurs, une consistance de pH stable et un minimum d'impuretés."
         },
-        "amino-acids": {
-            "avigly-hp": {
-                "hero": {
-                    "title": "ACIDES\nAMINÉS",
-                    "subtitle": "Blocs de construction de qualité pharmaceutique pour les sciences de la vie et la nutrition"
-                },
-                "information": {
-                    "subText": "Glycine USP",
-                    "description": "La glycine est un ingrédient fondamental dans plusieurs secteurs réglementés. AviGly™ HP relève ce défi directement : un titrage de 98,5 à 101,5 % et un profil d'impureté ultra-faible, vérifiés par rapport aux principales normes pharmacopéiales internationales.\nFabriqué dans une installation fonctionnant à 100 % en électricité renouvelable, il répond également aux critères d'approvisionnement des partenaires stratégiques ayant des engagements actifs en matière de durabilité."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Ingrédients Pharmaceutiques\nActifs (IPA)",
-                            "description": "Composant structurel dans la synthèse d'antibiotiques, de médicaments antipsychotiques, de traitements contre le diabète."
-                        },
-                        "1": {
-                            "title": "Cosmétiques & Soins\nPersonnels",
-                            "description": "Stabilisant pour les formulations de vitamine C, enrichissement en acides aminés dans les soins de la peau et des cheveux."
-                        },
-                        "2": {
-                            "title": "Excipients\nPharmaceutiques",
-                            "description": "Fabrication de comprimés, formulations à libération contrôlée, applications de masquage du goût."
-                        },
-                        "3": {
-                            "title": "Nutraceutiques",
-                            "description": "Supplémentation en acides aminés de haute pureté, nutrition sportive, produits de nutrition thérapeutique."
-                        },
-                        "4": {
-                            "title": "Aliments &\nBoissons",
-                            "description": "Exhausteur de goût, édulcorant, conservateur, applications alimentaires de spécialité."
-                        },
-                        "5": {
-                            "title": "Nutrition\nAnimale",
-                            "description": "Supplémentation en acides aminés essentiels dans les formulations d'aliments pour la volaille, le porc et l'aquaculture."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Normes Pharmacopées",
-                            "description": "USP/NF, Pharmacopée Européenne (EP), Pharmacopée Japonaise (JP)"
-                        },
-                        "1": {
-                            "title": "Documentation Qualité",
-                            "description": "Dossiers de lot complets, données de stabilité (directives ICH), analyse des impuretés élémentaires (USP <232>)."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Fûts en carton"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Sacs Jumbo"
-                        }
-                    },
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Dermatologie\nAvancée",
+              "description": "Peelings chimiques professionnels et traitements de qualité dermatologique."
             },
-            "avigly-t": {
-                "hero": {
-                    "title": "ACIDES\nAMINÉS",
-                    "subtitle": "Blocs de construction de qualité pharmaceutique pour les sciences de la vie et la nutrition"
-                },
-                "information": {
-                    "subText": "Glycine Grade Technique",
-                    "description": "AviGly™ T est notre glycine de qualité technique et alimentaire, conçue pour les applications industrielles et les marchés de la nutrition animale. En exploitant notre position de plus gros producteur de glycine en Inde, nous offrons une qualité constante à des prix compétitifs pour les clients à gros volume dans les secteurs de l'agriculture, de l'alimentation animale et de l'industrie. Cet acide aminé polyvalent remplit des fonctions critiques dans le métabolisme animal, la synthèse chimique et les applications spécialisées nécessitant un approvisionnement fiable en glycine."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Intermédiaires\nChimiques",
-                            "description": "Synthèse d'herbicides (glyphosate), agents chélatants, polymères de spécialité, tensioactifs."
-                        },
-                        "1": {
-                            "title": "Traitement\nIndustriel",
-                            "description": "Traitement des métaux, galvanoplastie, formulations de traitement de l'eau."
-                        },
-                        "2": {
-                            "title": "Synthèse de\nSpécialité",
-                            "description": "Recherche et développement, réactif de laboratoire, fabrication chimique sur mesure."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Contrôle Qualité",
-                            "description": "CdA spécifique par lot, tests de métaux lourds, analyse microbiologique, analyse nutritionnelle."
-                        },
-                        "1": {
-                            "title": "Sécurité",
-                            "description": "FDS complète, conformité au transport mondial."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Sacs en papier multicouches"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Sacs en vrac (GRVS)"
-                        }
-                    },
-                    "packagingText": "Conteneurs en vrac, emballage personnalisé disponible",
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
+            "1": {
+              "title": "Formulations\nAnti-Âge Premium",
+              "description": "Sérums et crèmes exploitant l'efficacité de l'acide glycolique."
             },
-            "avitau": {
-                "hero": {
-                    "title": "ACIDES\nAMINÉS",
-                    "subtitle": "Blocs de construction de qualité pharmaceutique pour les sciences de la vie et la nutrition"
-                },
-                "information": {
-                    "subText": "Taurine",
-                    "description": "AviTau™ est notre taurine à haute biodisponibilité, fabriquée selon des normes pharmaceutiques pour les aliments fonctionnels, les boissons, les nutraceutiques et les applications pharmaceutiques. En exploitant notre expertise dans la production d'acides aminés, nous fournissons de la taurine avec une pureté exceptionnelle (99,5% min), une faible teneur en humidité et une structure cristalline constante pour une dissolution et une biodisponibilité optimales. Alors que la demande mondiale pour les boissons énergisantes et les compléments fonctionnels continue de croître, AviTau™ offre une solution de chaîne d'approvisionnement fiable et de haute qualité aux fabricants du monde entier."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Boissons\nFonctionnelles",
-                            "description": "Boissons énergisantes, boissons pour sportifs, eaux fonctionnelles, produits nutritionnels prêts à boire."
-                        },
-                        "1": {
-                            "title": "Nutraceutiques &\nCompléments Alimentaires",
-                            "description": "Formulations pour la santé cardiovasculaire, support neurologique, produits pour la performance physique."
-                        },
-                        "2": {
-                            "title": "Formulations\nPharmaceutiques",
-                            "description": "Applications thérapeutiques pour les conditions cardiovasculaires, le support du diabète, la santé neurologique."
-                        },
-                        "3": {
-                            "title": "Nutrition\nAnimale",
-                            "description": "Fortification des aliments pour chiens et chats (nutriment essentiel pour les félins), aliments pour l'aquaculture, nutrition spécialisée pour animaux de compagnie."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Normes Pharmacopées",
-                            "description": "USP/NF, Pharmacopée Européenne (EP), Pharmacopée Japonaise (JP)"
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Sacs"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        }
-                    },
-                    "packagingText": "Conteneurs en vrac, emballage personnalisé disponible",
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
+            "2": {
+              "title": "Synthèse\nPharmaceutique",
+              "description": "Intermédiaire pour les IPA et les excipients nécessitant des acides carboxyliques de haute pureté."
+            },
+            "3": {
+              "title": "Spécialités\nIndustrielles",
+              "description": "Électronique, nettoyage de précision et auxiliaires pour semi-conducteurs, nettoyage précis de composants aérospatiaux. Fait partie des produits de rinçage industriels haut de gamme (non moussants)."
             }
+          }
         },
-        "aromatic-and-fine-chemicals": {
-            "avivan": {
-                "hero": {
-                    "title": "Produits Chimiques\nAromatiques & Fins",
-                    "subtitle": "Ingrédients de haute pureté pour les saveurs, les parfums et les applications industrielles"
-                },
-                "information": {
-                    "subText": "Vanilline",
-                    "description": "AviVan™ est notre vanilline de qualité supérieure, conçue pour une performance olfactive constante, une stabilité thermique et une large compatibilité de formulation dans les applications alimentaires, de boissons, de parfumerie et pharmaceutiques. Avec une pureté dépassant 99,5% et un profil sensoriel caractéristique de véritable vanille, AviVan™ offre la fiabilité exigée par les maisons de saveurs mondiales, les fabricants de parfums et les producteurs alimentaires. Nos processus avancés de synthèse et de purification garantissent la consistance d'un lot à l'autre et éliminent les notes parasites qui compromettent la qualité du produit."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Arômes pour\nAliments & Boissons",
-                            "description": "Produits de boulangerie, confiserie, produits laitiers, boissons, desserts, crèmes glacées, produits chocolatés."
-                        },
-                        "1": {
-                            "title": "Formulations de\nParfums",
-                            "description": "Parfumerie fine, produits de soins personnels, parfums d'ambiance, parfums fonctionnels."
-                        },
-                        "2": {
-                            "title": "Applications\nPharmaceutiques",
-                            "description": "Masquage du goût dans les formulations orales, agent aromatisant pour les médicaments pédiatriques et gériatriques."
-                        },
-                        "3": {
-                            "title": "Parfumage\nIndustriel",
-                            "description": "Désodorisants, produits de nettoyage, applications industrielles parfumées."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Certifications",
-                            "description": "Casher, Halal, sans OGM, sans allergènes (selon les réglementations de l'UE et des États-Unis)."
-                        },
-                        "1": {
-                            "title": "Contrôle Qualité",
-                            "description": "Vérification de la pureté par GC-MS, évaluation sensorielle par un panel formé, tests de métaux lourds et de microbiologie."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Fûts en carton avec\ndoublure protectrice"
-                        }
-                    },
-                    "packagingText": "Emballage personnalisé pour les maisons de saveurs",
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
+        "qualityInfo": {
+          "title": "Conformité Mondiale &\nAssurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Sécurité",
+              "description": "FDS complète, certifications de transport pour expédition mondiale."
             },
-            "guaiacol": {
-                "hero": {
-                    "title": "Produits Chimiques\nAromatiques & Fins",
-                    "subtitle": "Ingrédients de haute pureté pour les saveurs, les parfums et les applications industrielles"
-                },
-                "information": {
-                    "subText": "",
-                    "description": "Le Gaïacol est un composé aromatique de spécialité servant d'intermédiaire critique dans la synthèse de parfums, la fabrication pharmaceutique et la production de chimie fine. Notre Gaïacol de haute pureté (titre de 98%+) offre une réactivité et une performance constantes pour des applications spécialisées nécessitant une chimie phénolique contrôlée. Avec une conformité réglementaire établie et une documentation qualité complète, Avid Organics fournit cet intermédiaire essentiel aux innovateurs dans les secteurs de la parfumerie, de la pharmacie et de la chimie de spécialité dans le monde entier."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Intermédiaires de\nParfums & Arômes",
-                            "description": "Synthèse de vanilline, dérivés de l'eugénol, produits chimiques aromatiques de spécialité."
-                        },
-                        "1": {
-                            "title": "Synthèse\nPharmaceutique",
-                            "description": "Intermédiaire pour les IPA, les expectorants et les produits thérapeutiques de spécialité."
-                        },
-                        "2": {
-                            "title": "Produits Chimiques\nde Spécialité",
-                            "description": "Synthèse à façon, applications de recherche, fabrication de chimie fine."
-                        },
-                        "3": {
-                            "title": "Recherche &\nDéveloppement",
-                            "description": "Réactif de laboratoire, recherche académique, projets d'innovation."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Sécurité",
-                            "description": "FDS complète avec protocoles de manipulation, de stockage et d'intervention d'urgence."
-                        },
-                        "1": {
-                            "title": "Contrôle Qualité",
-                            "description": "Analyse de pureté par GC, caractérisation des impuretés à l'état de traces, CdA spécifique par lot."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        }
-                    },
-                    "packagingText": "Emballage personnalisé disponible",
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
+            "1": {
+              "title": "Contrôle Qualité",
+              "description": "CdA spécifique par lot, surveillance de la production en temps réel, validation par des tiers disponible."
             }
+          }
         },
-        "specialty-chemicals-and-intermediates": {
-            "chlorhexidine-base": {
-                "hero": {
-                    "title": "PRODUITS CHIMIQUES DE SPÉCIALITÉ\n& INTERMÉDIAIRES",
-                    "subtitle": "Intermédiaires avancés pour l'innovation pharmaceutique et industrielle"
-                },
-                "information": {
-                    "subText": "",
-                    "description": "La Chlorhexidine Base est un intermédiaire antimicrobien de haute pureté conçu pour la synthèse pharmaceutique et industrielle. Cet intermédiaire critique sert de base à la fabrication des sels de chlorhexidine (digluconate, diacétate, dichlorhydrate) utilisés intensivement dans les antiseptiques de soins de santé, les produits de soins bucco-dentaires et les formulations pharmaceutiques. Notre processus de fabrication avancé offre une pureté constante, une taille de particule contrôlée et une documentation réglementaire complète soutenant l'enregistrement des produits en aval à l'échelle mondiale."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Antiseptiques &\nDésinfectants",
-                            "description": "Intermédiaire pour les gommages chirurgicaux, les produits de soin des plaies, les antiseptiques de soins de santé."
-                        },
-                        "1": {
-                            "title": "Produits de Soins\nBucco-Dentaires",
-                            "description": "Base pour les bains de bouche, les rinçages buccaux, les formulations antiseptiques dentaires."
-                        },
-                        "2": {
-                            "title": "Synthèse\nPharmaceutique",
-                            "description": "Production de sels de gluconate, d'acétate et de chlorhydrate de chlorhexidine pour des applications réglementées."
-                        },
-                        "3": {
-                            "title": "Antimicrobiens\nIndustriels",
-                            "description": "Formulations de spécialité nécessitant une activité antimicrobienne contrôlée."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Sécurité",
-                            "description": "FDS complète avec protocoles de manipulation pour les intermédiaires pharmaceutiques actifs."
-                        },
-                        "1": {
-                            "title": "Contrôle Qualité",
-                            "description": "Analyse de pureté par HPLC, profilage des impuretés à l'état de traces, distribution de la taille des particules, CdA spécifique par lot."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        }
-                    },
-                    "packagingText": "avec emballage protecteur pour les matériaux sensibles à l'humidité",
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Dames-jeannes"
             },
-            "mehq": {
-                "hero": {
-                    "title": "PRODUITS CHIMIQUES DE SPÉCIALITÉ\n& INTERMÉDIAIRES",
-                    "subtitle": "Intermédiaires avancés pour l'innovation pharmaceutique et industrielle"
-                },
-                "information": {
-                    "subText": "Monométhyléther d'hydroquinone",
-                    "description": "Le MEHQ (Monométhyléther d'hydroquinone) est un inhibiteur de polymérisation et un stabilisant de haute performance conçu pour le contrôle précis des réactions radicalaires dans la production de polymères, le stockage de monomères et la fabrication de produits chimiques de spécialité. Notre MEHQ de haute pureté (titre de 99%+) offre une performance d'inhibition constante, une stabilité thermique et une compatibilité à travers divers systèmes de polymères et processus chimiques. Ce produit chimique de spécialité essentiel permet une manipulation et un stockage sûrs des monomères réactifs tout en optimisant le contrôle de la polymérisation dans la production commerciale."
-                },
-                "applications": {
-                    "title": "Applications\nPrincipales",
-                    "items": {
-                        "0": {
-                            "title": "Inhibiteur de\nPolymérisation",
-                            "description": "Acrylates, méthacrylates, styrène, acétate de vinyle et autres monomères polymérisables par voie radicalaire."
-                        },
-                        "1": {
-                            "title": "Stabilisation de Résines\n& de Monomères",
-                            "description": "Stabilisant de stockage empêchant la polymérisation prématurée pendant le transport et le stockage."
-                        },
-                        "2": {
-                            "title": "Synthèse de Produits\nChimiques de Spécialité",
-                            "description": "Réactions de polymérisation contrôlées, recherche en laboratoire, fabrication de chimie fine."
-                        },
-                        "3": {
-                            "title": "Stabilisation de Processus\nIndustriels",
-                            "description": "Prévention de l'encrassement polymère dans les réacteurs chimiques et les échangeurs de chaleur."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Conformité Mondiale & Assurance Qualité",
-                    "subtitle": "Normes de Fabrication",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Sécurité",
-                            "description": "FDS détaillée, conformité au transport, protocoles de manipulation pour les produits chimiques industriels."
-                        },
-                        "1": {
-                            "title": "Contrôle Qualité",
-                            "description": "Vérification de la pureté par GC/HPLC, analyse des impuretés à l'état de traces, tests de performance dans des systèmes de polymères standards."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excellence de la Chaîne d'Approvisionnement",
-                    "subtitle": "Options de Conditionnement",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Fûts"
-                        }
-                    },
-                    "packagingText": "Emballage personnalisé disponible pour les fabricants de polymères",
-                    "buttons": {
-                        "0": {
-                            "label": "Télécharger la FT"
-                        },
-                        "1": {
-                            "label": "Télécharger la FDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contacter les Ventes"
-                        }
-                    }
-                }
+            "1": {
+              "unit": "kg",
+              "texts": "Fûts"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Conteneurs (IBC)"
             }
+          },
+          "packagingText": "Citernes ISO en vrac",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
         }
+      },
+      "aviga-bio-hp-70": {
+        "hero": {
+          "title": "ACIDE\nALPHA\nHYDROXY",
+          "subtitle": "Solutions de pointe pour des applications avancées"
+        },
+        "information": {
+          "subText": "Acide Glycolique 70% Grade Cosmétique Biosourcé",
+          "description": "AviGa™ Bio HP70 est l'acide glycolique biosource d'Avid Organics, conçu pour les marques et fabricants qui exigent a la fois performance et provenance. Issu de ressources renouvelables via notre procede de synthese verte proprietaire, il offre la meme purete de reference et le meme profil d'impuretes ultra-faible que notre HP70 de reference, avec l'avantage supplementaire d'une origine biosourcee verifiee. Pour les formulateurs confrontes a la demande croissante d'ingredients durables et tracables, AviGa™ Bio HP70 est la reponse sans compromis.",
+          "bioBasedContent": "99% (verifie selon ASTM D6866)"
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Dermatologie Avancee",
+              "description": "Peelings chimiques professionnels et traitements dermatologiques de grade eleve, adaptes a l’ere de la clean beauty."
+            },
+            "1": {
+              "title": "Formulations Anti-Age Premium",
+              "description": "Serums et cremes exploitant l'efficacite de l'acide glycolique avec une histoire d'ingredient durable certifiee."
+            },
+            "2": {
+              "title": "Synthese Pharmaceutique",
+              "description": "Intermediaire pour les IPA et excipients necessitant des acides carboxyliques de haute purete issus d’une source biosourcee tracable."
+            },
+            "3": {
+              "title": "Specialites Industrielles",
+              "description": "Electronique, nettoyage de precision et auxiliaires pour semi-conducteurs, ou la chimie verte repond a des exigences de performance elevees."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Durabilite & Assurance Qualite",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "References Vertes",
+              "description": "99% de carbone biosource, verifie par analyse radiocarbone AMS (ASTM D6866-24a / NF EN 16640:2017) par CIRAM, laboratoire accrédité Cofrac ISO/IEC 17025."
+            },
+            "1": {
+              "title": "Securite",
+              "description": "FDS complete, certifications de transport pour expeditions mondiales"
+            },
+            "2": {
+              "title": "Controle Qualite",
+              "description": "CoA specifique par lot, suivi de production en temps reel, validation tierce disponible"
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Dames-jeannes"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Fûts"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Conteneurs (IBC)"
+            }
+          },
+          "packagingText": "Citernes ISO en vrac",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      },
+      "aviga-bio-t": {
+        "hero": {
+          "title": "ACIDE\nALPHA\nHYDROXY",
+          "subtitle": "Solutions de pointe pour des applications avancées"
+        },
+        "information": {
+          "subText": "Acide Glycolique 70% Grade Technique Biosource",
+          "description": "AviGa™ Bio T est notre acide glycolique biosource de grade technique, conçu pour les fabricants industriels et les producteurs de chimie de spécialité qui exigent à la fois performance procédé et origine renouvelable verifiee. Fabrique via le meme procede MCA avance sans formaldehyde que notre AviGa™ T conventionnel, il offre la meme purete et la meme constance exceptionnelles - desormais avec une teneur en carbone biosource de 99% verifiee par un tiers.",
+          "bioBasedContent": "99% (verifie selon ASTM D6866)"
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Synthèse\nChimique",
+              "description": "Intermediaire biosource pour les esters de specialite, les precurseurs de polymeres et les materiaux avances."
+            },
+            "1": {
+              "title": "Détartrage &\nNettoyage Industriel",
+              "description": "Formulations haute performance d'origine renouvelable pour le traitement des metaux, les equipements laitiers, les echangeurs de chaleur et les systemes de chaudieres."
+            },
+            "2": {
+              "title": "Champ\nPétrolifère",
+              "description": "Intermediaire d'acide carboxylique de haute purete avec provenance biosource documentee."
+            },
+            "3": {
+              "title": "Traitement\nTextile",
+              "description": "Controle du pH, operations de teinture et traitements de finition - issus d'une source durable verifiee."
+            },
+            "4": {
+              "title": "Fabrication\ndu Cuir",
+              "description": "Processus de tannage, ajustement du pH et traitement chimique avec une empreinte carbone fossile reduite."
+            },
+            "5": {
+              "title": "Adhésifs &\nRevêtements de Spécialité",
+              "description": "Modification des polymeres et controle du pH dans les formulations pour la conformite a la chimie verte."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Sécurité",
+              "description": "FDS complète, certifications de transport pour expédition mondiale."
+            },
+            "1": {
+              "title": "Contrôle Qualité",
+              "description": "CdA spécifique par lot, surveillance de la production en temps réel, validation par des tiers disponible."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Dames-jeannes"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Fûts"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Conteneurs (IBC)"
+            }
+          },
+          "packagingText": "Citernes ISO en vrac",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      },
+      "aviga-t": {
+        "hero": {
+          "title": "ACIDE\nALPHA\nHYDROXY",
+          "subtitle": "Solutions de pointe pour des applications avancées"
+        },
+        "information": {
+          "subText": "Acide Glycolique 70% Grade Technique",
+          "description": "AviGa™ T est notre acide glycolique de spécification industrielle conçu pour des applications de haute performance dans la fabrication, le traitement, les formulations et la synthèse de produits chimiques de spécialité. Fabriqué via le même procédé avancé MCA sans formaldéhyde que nos produits de qualité pharmaceutique, AviGa™ T offre une pureté et une consistance exceptionnelles à des prix industriels compétitifs. Cette solution de qualité technique sert d'intrant critique pour la synthèse chimique, les systèmes de nettoyage industriel et les processus de fabrication spécialisés où la performance et la fiabilité sont primordiales."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Synthèse\nChimique",
+              "description": "Intermédiaire pour les esters de spécialité, les précurseurs de polymères et les matériaux avancés."
+            },
+            "1": {
+              "title": "Détartrage &\nNettoyage Industriel",
+              "description": "Formulations haute performance pour le traitement des métaux, les équipements laitiers, les échangeurs de chaleur, les systèmes de chaudières."
+            },
+            "2": {
+              "title": "Champ\nPétrolifère",
+              "description": "Intermédiaire pour les IPA et les excipients nécessitant des acides carboxyliques de haute pureté."
+            },
+            "3": {
+              "title": "Traitement\nTextile",
+              "description": "Contrôle du pH, opérations de teinture, traitements de finition."
+            },
+            "4": {
+              "title": "Fabrication\ndu Cuir",
+              "description": "Processus de tannage, ajustement du pH, traitement chimique."
+            },
+            "5": {
+              "title": "Adhésifs &\nRevêtements de Spécialité",
+              "description": "Modification de polymères, contrôle du pH dans les formulations."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Sécurité",
+              "description": "FDS complète, certifications de transport pour expédition mondiale."
+            },
+            "1": {
+              "title": "Contrôle Qualité",
+              "description": "CdA spécifique par lot, surveillance de la production en temps réel, validation par des tiers disponible."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Dames-jeannes"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Fûts"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Conteneurs (IBC)"
+            }
+          },
+          "packagingText": "Citernes ISO en vrac",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      }
+    },
+    "amino-acids": {
+      "avigly-hp": {
+        "hero": {
+          "title": "ACIDES\nAMINÉS",
+          "subtitle": "Blocs de construction de qualité pharmaceutique pour les sciences de la vie et la nutrition"
+        },
+        "information": {
+          "subText": "Glycine USP",
+          "description": "La glycine est un ingrédient fondamental dans plusieurs secteurs réglementés. AviGly™ HP relève ce défi directement : un titrage de 98,5 à 101,5 % et un profil d'impureté ultra-faible, vérifiés par rapport aux principales normes pharmacopéiales internationales.\nFabriqué dans une installation fonctionnant à 100 % en électricité renouvelable, il répond également aux critères d'approvisionnement des partenaires stratégiques ayant des engagements actifs en matière de durabilité."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Ingrédients Pharmaceutiques\nActifs (IPA)",
+              "description": "Composant structurel dans la synthèse d'antibiotiques, de médicaments antipsychotiques, de traitements contre le diabète."
+            },
+            "1": {
+              "title": "Cosmétiques & Soins\nPersonnels",
+              "description": "Stabilisant pour les formulations de vitamine C, enrichissement en acides aminés dans les soins de la peau et des cheveux."
+            },
+            "2": {
+              "title": "Excipients\nPharmaceutiques",
+              "description": "Fabrication de comprimés, formulations à libération contrôlée, applications de masquage du goût."
+            },
+            "3": {
+              "title": "Nutraceutiques",
+              "description": "Supplémentation en acides aminés de haute pureté, nutrition sportive, produits de nutrition thérapeutique."
+            },
+            "4": {
+              "title": "Aliments &\nBoissons",
+              "description": "Exhausteur de goût, édulcorant, conservateur, applications alimentaires de spécialité."
+            },
+            "5": {
+              "title": "Nutrition\nAnimale",
+              "description": "Supplémentation en acides aminés essentiels dans les formulations d'aliments pour la volaille, le porc et l'aquaculture."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Normes Pharmacopées",
+              "description": "USP/NF, Pharmacopée Européenne (EP), Pharmacopée Japonaise (JP)"
+            },
+            "1": {
+              "title": "Documentation Qualité",
+              "description": "Dossiers de lot complets, données de stabilité (directives ICH), analyse des impuretés élémentaires (USP <232>)."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Fûts en carton"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Fûts"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Sacs Jumbo"
+            }
+          },
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      },
+      "avigly-t": {
+        "hero": {
+          "title": "ACIDES\nAMINÉS",
+          "subtitle": "Blocs de construction de qualité pharmaceutique pour les sciences de la vie et la nutrition"
+        },
+        "information": {
+          "subText": "Glycine Grade Technique",
+          "description": "AviGly™ T est notre glycine de qualité technique et alimentaire, conçue pour les applications industrielles et les marchés de la nutrition animale. En exploitant notre position de plus gros producteur de glycine en Inde, nous offrons une qualité constante à des prix compétitifs pour les clients à gros volume dans les secteurs de l'agriculture, de l'alimentation animale et de l'industrie. Cet acide aminé polyvalent remplit des fonctions critiques dans le métabolisme animal, la synthèse chimique et les applications spécialisées nécessitant un approvisionnement fiable en glycine."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Intermédiaires\nChimiques",
+              "description": "Synthèse d'herbicides (glyphosate), agents chélatants, polymères de spécialité, tensioactifs."
+            },
+            "1": {
+              "title": "Traitement\nIndustriel",
+              "description": "Traitement des métaux, galvanoplastie, formulations de traitement de l'eau."
+            },
+            "2": {
+              "title": "Synthèse de\nSpécialité",
+              "description": "Recherche et développement, réactif de laboratoire, fabrication chimique sur mesure."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Contrôle Qualité",
+              "description": "CdA spécifique par lot, tests de métaux lourds, analyse microbiologique, analyse nutritionnelle."
+            },
+            "1": {
+              "title": "Sécurité",
+              "description": "FDS complète, conformité au transport mondial."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Sacs en papier multicouches"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Sacs en vrac (GRVS)"
+            }
+          },
+          "packagingText": "Conteneurs en vrac, emballage personnalisé disponible",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      },
+      "avitau": {
+        "hero": {
+          "title": "ACIDES\nAMINÉS",
+          "subtitle": "Blocs de construction de qualité pharmaceutique pour les sciences de la vie et la nutrition"
+        },
+        "information": {
+          "subText": "Taurine",
+          "description": "AviTau™ est notre taurine à haute biodisponibilité, fabriquée selon des normes pharmaceutiques pour les aliments fonctionnels, les boissons, les nutraceutiques et les applications pharmaceutiques. En exploitant notre expertise dans la production d'acides aminés, nous fournissons de la taurine avec une pureté exceptionnelle (99,5% min), une faible teneur en humidité et une structure cristalline constante pour une dissolution et une biodisponibilité optimales. Alors que la demande mondiale pour les boissons énergisantes et les compléments fonctionnels continue de croître, AviTau™ offre une solution de chaîne d'approvisionnement fiable et de haute qualité aux fabricants du monde entier."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Boissons\nFonctionnelles",
+              "description": "Boissons énergisantes, boissons pour sportifs, eaux fonctionnelles, produits nutritionnels prêts à boire."
+            },
+            "1": {
+              "title": "Nutraceutiques &\nCompléments Alimentaires",
+              "description": "Formulations pour la santé cardiovasculaire, support neurologique, produits pour la performance physique."
+            },
+            "2": {
+              "title": "Formulations\nPharmaceutiques",
+              "description": "Applications thérapeutiques pour les conditions cardiovasculaires, le support du diabète, la santé neurologique."
+            },
+            "3": {
+              "title": "Nutrition\nAnimale",
+              "description": "Fortification des aliments pour chiens et chats (nutriment essentiel pour les félins), aliments pour l'aquaculture, nutrition spécialisée pour animaux de compagnie."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Normes Pharmacopées",
+              "description": "USP/NF, Pharmacopée Européenne (EP), Pharmacopée Japonaise (JP)"
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Sacs"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Fûts"
+            }
+          },
+          "packagingText": "Conteneurs en vrac, emballage personnalisé disponible",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      }
+    },
+    "aromatic-and-fine-chemicals": {
+      "avivan": {
+        "hero": {
+          "title": "Produits Chimiques\nAromatiques & Fins",
+          "subtitle": "Ingrédients de haute pureté pour les saveurs, les parfums et les applications industrielles"
+        },
+        "information": {
+          "subText": "Vanilline",
+          "description": "AviVan™ est notre vanilline de qualité supérieure, conçue pour une performance olfactive constante, une stabilité thermique et une large compatibilité de formulation dans les applications alimentaires, de boissons, de parfumerie et pharmaceutiques. Avec une pureté dépassant 99,5% et un profil sensoriel caractéristique de véritable vanille, AviVan™ offre la fiabilité exigée par les maisons de saveurs mondiales, les fabricants de parfums et les producteurs alimentaires. Nos processus avancés de synthèse et de purification garantissent la consistance d'un lot à l'autre et éliminent les notes parasites qui compromettent la qualité du produit."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Arômes pour\nAliments & Boissons",
+              "description": "Produits de boulangerie, confiserie, produits laitiers, boissons, desserts, crèmes glacées, produits chocolatés."
+            },
+            "1": {
+              "title": "Formulations de\nParfums",
+              "description": "Parfumerie fine, produits de soins personnels, parfums d'ambiance, parfums fonctionnels."
+            },
+            "2": {
+              "title": "Applications\nPharmaceutiques",
+              "description": "Masquage du goût dans les formulations orales, agent aromatisant pour les médicaments pédiatriques et gériatriques."
+            },
+            "3": {
+              "title": "Parfumage\nIndustriel",
+              "description": "Désodorisants, produits de nettoyage, applications industrielles parfumées."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Certifications",
+              "description": "Casher, Halal, sans OGM, sans allergènes (selon les réglementations de l'UE et des États-Unis)."
+            },
+            "1": {
+              "title": "Contrôle Qualité",
+              "description": "Vérification de la pureté par GC-MS, évaluation sensorielle par un panel formé, tests de métaux lourds et de microbiologie."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Fûts en carton avec\ndoublure protectrice"
+            }
+          },
+          "packagingText": "Emballage personnalisé pour les maisons de saveurs",
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      },
+      "guaiacol": {
+        "hero": {
+          "title": "Produits Chimiques\nAromatiques & Fins",
+          "subtitle": "Ingrédients de haute pureté pour les saveurs, les parfums et les applications industrielles"
+        },
+        "information": {
+          "subText": "",
+          "description": "Le Gaïacol est un composé aromatique de spécialité servant d'intermédiaire critique dans la synthèse de parfums, la fabrication pharmaceutique et la production de chimie fine. Notre Gaïacol de haute pureté (titre de 98%+) offre une réactivité et une performance constantes pour des applications spécialisées nécessitant une chimie phénolique contrôlée. Avec une conformité réglementaire établie et une documentation qualité complète, Avid Organics fournit cet intermédiaire essentiel aux innovateurs dans les secteurs de la parfumerie, de la pharmacie et de la chimie de spécialité dans le monde entier."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Intermédiaires de\nParfums & Arômes",
+              "description": "Synthèse de vanilline, dérivés de l'eugénol, produits chimiques aromatiques de spécialité."
+            },
+            "1": {
+              "title": "Synthèse\nPharmaceutique",
+              "description": "Intermédiaire pour les IPA, les expectorants et les produits thérapeutiques de spécialité."
+            },
+            "2": {
+              "title": "Produits Chimiques\nde Spécialité",
+              "description": "Synthèse à façon, applications de recherche, fabrication de chimie fine."
+            },
+            "3": {
+              "title": "Recherche &\nDéveloppement",
+              "description": "Réactif de laboratoire, recherche académique, projets d'innovation."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Sécurité",
+              "description": "FDS complète avec protocoles de manipulation, de stockage et d'intervention d'urgence."
+            },
+            "1": {
+              "title": "Contrôle Qualité",
+              "description": "Analyse de pureté par GC, caractérisation des impuretés à l'état de traces, CdA spécifique par lot."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Fûts"
+            }
+          },
+          "packagingText": "Emballage personnalisé disponible",
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      }
+    },
+    "specialty-chemicals-and-intermediates": {
+      "chlorhexidine-base": {
+        "hero": {
+          "title": "PRODUITS CHIMIQUES DE SPÉCIALITÉ\n& INTERMÉDIAIRES",
+          "subtitle": "Intermédiaires avancés pour l'innovation pharmaceutique et industrielle"
+        },
+        "information": {
+          "subText": "",
+          "description": "La Chlorhexidine Base est un intermédiaire antimicrobien de haute pureté conçu pour la synthèse pharmaceutique et industrielle. Cet intermédiaire critique sert de base à la fabrication des sels de chlorhexidine (digluconate, diacétate, dichlorhydrate) utilisés intensivement dans les antiseptiques de soins de santé, les produits de soins bucco-dentaires et les formulations pharmaceutiques. Notre processus de fabrication avancé offre une pureté constante, une taille de particule contrôlée et une documentation réglementaire complète soutenant l'enregistrement des produits en aval à l'échelle mondiale."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Antiseptiques &\nDésinfectants",
+              "description": "Intermédiaire pour les gommages chirurgicaux, les produits de soin des plaies, les antiseptiques de soins de santé."
+            },
+            "1": {
+              "title": "Produits de Soins\nBucco-Dentaires",
+              "description": "Base pour les bains de bouche, les rinçages buccaux, les formulations antiseptiques dentaires."
+            },
+            "2": {
+              "title": "Synthèse\nPharmaceutique",
+              "description": "Production de sels de gluconate, d'acétate et de chlorhydrate de chlorhexidine pour des applications réglementées."
+            },
+            "3": {
+              "title": "Antimicrobiens\nIndustriels",
+              "description": "Formulations de spécialité nécessitant une activité antimicrobienne contrôlée."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Sécurité",
+              "description": "FDS complète avec protocoles de manipulation pour les intermédiaires pharmaceutiques actifs."
+            },
+            "1": {
+              "title": "Contrôle Qualité",
+              "description": "Analyse de pureté par HPLC, profilage des impuretés à l'état de traces, distribution de la taille des particules, CdA spécifique par lot."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Fûts"
+            }
+          },
+          "packagingText": "avec emballage protecteur pour les matériaux sensibles à l'humidité",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      },
+      "mehq": {
+        "hero": {
+          "title": "PRODUITS CHIMIQUES DE SPÉCIALITÉ\n& INTERMÉDIAIRES",
+          "subtitle": "Intermédiaires avancés pour l'innovation pharmaceutique et industrielle"
+        },
+        "information": {
+          "subText": "Monométhyléther d'hydroquinone",
+          "description": "Le MEHQ (Monométhyléther d'hydroquinone) est un inhibiteur de polymérisation et un stabilisant de haute performance conçu pour le contrôle précis des réactions radicalaires dans la production de polymères, le stockage de monomères et la fabrication de produits chimiques de spécialité. Notre MEHQ de haute pureté (titre de 99%+) offre une performance d'inhibition constante, une stabilité thermique et une compatibilité à travers divers systèmes de polymères et processus chimiques. Ce produit chimique de spécialité essentiel permet une manipulation et un stockage sûrs des monomères réactifs tout en optimisant le contrôle de la polymérisation dans la production commerciale."
+        },
+        "applications": {
+          "title": "Applications\nPrincipales",
+          "items": {
+            "0": {
+              "title": "Inhibiteur de\nPolymérisation",
+              "description": "Acrylates, méthacrylates, styrène, acétate de vinyle et autres monomères polymérisables par voie radicalaire."
+            },
+            "1": {
+              "title": "Stabilisation de Résines\n& de Monomères",
+              "description": "Stabilisant de stockage empêchant la polymérisation prématurée pendant le transport et le stockage."
+            },
+            "2": {
+              "title": "Synthèse de Produits\nChimiques de Spécialité",
+              "description": "Réactions de polymérisation contrôlées, recherche en laboratoire, fabrication de chimie fine."
+            },
+            "3": {
+              "title": "Stabilisation de Processus\nIndustriels",
+              "description": "Prévention de l'encrassement polymère dans les réacteurs chimiques et les échangeurs de chaleur."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Conformité Mondiale & Assurance Qualité",
+          "subtitle": "Normes de Fabrication",
+          "otherStandards": {
+            "0": {
+              "title": "Sécurité",
+              "description": "FDS détaillée, conformité au transport, protocoles de manipulation pour les produits chimiques industriels."
+            },
+            "1": {
+              "title": "Contrôle Qualité",
+              "description": "Vérification de la pureté par GC/HPLC, analyse des impuretés à l'état de traces, tests de performance dans des systèmes de polymères standards."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excellence de la Chaîne d'Approvisionnement",
+          "subtitle": "Options de Conditionnement",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Fûts"
+            }
+          },
+          "packagingText": "Emballage personnalisé disponible pour les fabricants de polymères",
+          "buttons": {
+            "0": {
+              "label": "Télécharger la FT"
+            },
+            "1": {
+              "label": "Télécharger la FDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contacter les Ventes"
+            }
+          }
+        }
+      }
     }
+  }
 }

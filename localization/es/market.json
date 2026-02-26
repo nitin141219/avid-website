@@ -25,9 +25,11 @@
       "productsTitle": "Productos destacados",
       "products": {
         "avigly_hp": {
+          "subtitle": "Glicina USP",
           "desc": "Un aminoácido fundamental para los procesos metabólicos."
         },
         "avitau": {
+          "subtitle": "Taurina",
           "desc": "Un aditivo funcional clave para la salud y el desarrollo."
         }
       }
@@ -57,9 +59,11 @@
           "desc": "Un aromático de alta pureza para perfiles de sabor constantes y de alto impacto."
         },
         "avigly_hp": {
+          "subtitle": "Glicina USP",
           "desc": "Un aminoácido fundamental para los procesos metabólicos."
         },
         "avitau": {
+          "subtitle": "Taurina",
           "desc": "Aminoácido de grado alimenticio para el enriquecimiento nutricional en bebidas energéticas y aplicaciones de alimentos funcionales."
         }
       }
@@ -85,13 +89,19 @@
         }
       },
       "products": {
+        "aviga_bio_t": {
+          "subtitle": "Ácido Glicólico 70% Grado Técnico\nBiobasado",
+          "desc": "Un ácido versátil biobasado para limpieza, descalcificación y síntesis química."
+        },
         "aviga_t": {
+          "subtitle": "Ácido Glicólico 70% Grado Técnico",
           "desc": "Un ácido versátil para limpieza, descalcificación y síntesis química."
         },
         "mehq": {
           "desc": "Un inhibidor de polimerización de alta pureza para el control del proceso."
         },
         "chlorhexidine": {
+          "subtitle": "Base CHX",
           "desc": "Un intermediario especializado para aplicaciones de alto rendimiento."
         }
       }
@@ -118,18 +128,23 @@
       },
       "products": {
         "aviga_bio_hp": {
+          "subtitle": "Ácido Glicólico 70% Grado Cosmético Biobasado",
           "desc": "Fabricado a partir de origenes biobasados para una pureza cosmetica sin concesiones."
         },
         "aviga_hp": {
+          "subtitle": "Ácido Glicólico 70% Grado Cosmético",
           "desc": "El referente de la industria para la exfoliación y el rejuvenecimiento de alta pureza."
         },
         "chlorhexidine_base": {
+          "subtitle": "Base CHX",
           "desc": "Una base antimicrobiana de alta pureza para sistemas conservantes de cuidado personal."
         },
         "avigly_hp": {
+          "subtitle": "Glicina USP",
           "desc": "Aminoácido de alta pureza para el acondicionamiento de la piel, amortiguación del pH y estabilización de formulaciones en sistemas cosméticos."
         },
         "avitau": {
+          "subtitle": "Taurina",
           "desc": "Aminoácido antioxidante para formulaciones de cuidado de la piel antienvejecimiento y protectoras."
         },
         "avivan": {
@@ -159,12 +174,15 @@
       },
       "products": {
         "avigly_hp": {
+          "subtitle": "Glicina USP",
           "desc": "Glicina de grado USP de alta pureza para API y formulaciones críticas."
         },
         "avitau": {
+          "subtitle": "Taurina",
           "desc": "Un aminoácido estable y de alta pureza para aplicaciones farmacéuticas y nutracéuticas."
         },
         "chlorhexidine_base": {
+          "subtitle": "Base CHX",
           "desc": "Un intermediario de alta pureza para la síntesis de ingredientes activos."
         },
         "guaiacol": {

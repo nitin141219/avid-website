@@ -1,744 +1,830 @@
 {
-    "product": {
-        "chemicalInfo": {
-            "casNumber": "N.º CAS",
-            "molecularFormula": "Fórmula molecular",
-            "molecularWeight": "Peso molecular",
-            "bioBasedContent": "Contenido biobasado"
+  "product": {
+    "chemicalInfo": {
+      "casNumber": "N.º CAS",
+      "molecularFormula": "Fórmula molecular",
+      "molecularWeight": "Peso molecular",
+      "bioBasedContent": "Contenido biobasado"
+    },
+    "alpha-hydroxy-acids": {
+      "aviga-hp": {
+        "hero": {
+          "title": "ALFA\nHIDROXI\nÁCIDO",
+          "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
         },
-        "alpha-hydroxy-acids": {
-            "aviga-hp": {
-                "hero": {
-                    "title": "ALFA\nHIDROXI\nÁCIDO",
-                    "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
-                },
-                "information": {
-                    "subText": "Ácido Glicólico 70% Grado Cosmético",
-                    "description": "AviGa™ HP70 representa el estándar de oro en ácido glicólico de alta pureza para industrias reguladas. Fabricado a través de nuestra ruta patentada MCA (ácido monocloroacético), AviGa™ HP70 ofrece perfiles de pureza superiores, consistencia de pH estable e impurezas mínimas."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Dermatología\nAvanzada",
-                            "description": "Peelings químicos profesionales y tratamientos de grado dermatológico."
-                        },
-                        "1": {
-                            "title": "Formulaciones Antienvejecimiento\nPremium",
-                            "description": "Sueros y cremas que aprovechan la eficacia del ácido glicólico."
-                        },
-                        "2": {
-                            "title": "Síntesis\nFarmacéutica",
-                            "description": "Intermediario para API y excipientes que requieren ácidos carboxílicos de alta pureza."
-                        },
-                        "3": {
-                            "title": "Especialidades\nIndustriales",
-                            "description": "Electrónica, limpieza de precisión y auxiliares de semiconductores, limpieza precisa de componentes aeroespaciales. Parte de productos de purga industrial de alta gama (no espumantes)."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y\nGarantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Seguridad",
-                            "description": "SDS integral, certificaciones de transporte para envío global."
-                        },
-                        "1": {
-                            "title": "Control de Calidad",
-                            "description": "CoA específico por lote, monitoreo de producción en tiempo real, validación por terceros disponible."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Garrafas"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Totes"
-                        }
-                    },
-                    "packagingText": "Tanques ISO a granel",
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
-            },
-            "aviga-bio-hp-70": {
-                "hero": {
-                    "title": "ALFA\nHIDROXI\nÁCIDO",
-                    "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
-                },
-                "information": {
-                    "subText": "Acido Glicolico 70% Grado Cosmetico de Origen Biobasado",
-                    "description": "AviGa™ Bio HP70 es el acido glicolico biobasado de Avid Organics, disenado para marcas y fabricantes que exigen rendimiento y procedencia. Derivado de materias primas renovables mediante nuestro proceso propietario de sintesis verde, ofrece la misma pureza lider y el mismo perfil de impurezas ultrabajo que nuestro HP70 de referencia, con el beneficio adicional de un origen biobasado verificado. Para formuladores que enfrentan la creciente demanda de ingredientes sostenibles y trazables, AviGa™ Bio HP70 es la respuesta sin compromisos.",
-                    "bioBasedContent": "99% (verificado segun ASTM D6866)"
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Dermatologia Avanzada",
-                            "description": "Peelings quimicos profesionales y tratamientos dermatologicos de grado superior para la era clean beauty."
-                        },
-                        "1": {
-                            "title": "Formulaciones Antiedad Premium",
-                            "description": "Sueros y cremas que aprovechan la eficacia del acido glicolico con una historia de ingrediente sostenible certificada."
-                        },
-                        "2": {
-                            "title": "Sintesis Farmaceutica",
-                            "description": "Intermedio para API y excipientes que requieren acidos carboxilicos de alta pureza provenientes de una fuente biobasada trazable."
-                        },
-                        "3": {
-                            "title": "Especialidades Industriales",
-                            "description": "Electronica, limpieza de precision y auxiliares de semiconductores, donde la quimica verde cumple con exigentes estandares de rendimiento."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Sostenibilidad y Garantia de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Credenciales Verdes",
-                            "description": "99% de carbono biobasado, verificado mediante analisis radiocarbonico AMS (ASTM D6866-24a / NF EN 16640:2017) por CIRAM, laboratorio acreditado Cofrac ISO/IEC 17025."
-                        },
-                        "1": {
-                            "title": "Seguridad",
-                            "description": "SDS integral, certificaciones de transporte para envios globales"
-                        },
-                        "2": {
-                            "title": "Control de Calidad",
-                            "description": "CoA especifico por lote, monitoreo de produccion en tiempo real, validacion de terceros disponible"
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Garrafas"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Totes"
-                        }
-                    },
-                    "packagingText": "Tanques ISO a granel",
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
-            },
-            "aviga-t": {
-                "hero": {
-                    "title": "ALFA\nHIDROXI\nÁCIDO",
-                    "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
-                },
-                "information": {
-                    "subText": "Ácido Glicólico 70% Grado Técnico",
-                    "description": "AviGa™ T es nuestro ácido glicólico de especificación industrial diseñado para aplicaciones de alto rendimiento en fabricación, procesamiento, formulaciones y síntesis química especializada. Fabricado a través de la misma ruta MCA avanzada libre de formaldehído que nuestros productos de grado farmacéutico, AviGa™ T ofrece una pureza y consistencia excepcionales a precios industriales competitivos. Esta solución de grado técnico sirve como un insumo crítico para la síntesis química, sistemas de limpieza industrial y procesos de fabricación especializados donde el rendimiento y la confiabilidad son primordiales."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Síntesis\nQuímica",
-                            "description": "Intermediario para ésteres especializados, precursores de polímeros y materiales avanzados."
-                        },
-                        "1": {
-                            "title": "Descalcificación y Limpieza\nIndustrial",
-                            "description": "Formulaciones de alto rendimiento para tratamiento de metales, equipos lácteos, intercambiadores de calor, sistemas de calderas."
-                        },
-                        "2": {
-                            "title": "Campo\nPetrolero",
-                            "description": "Intermediario para API y excipientes que requieren ácidos carboxílicos de alta pureza."
-                        },
-                        "3": {
-                            "title": "Procesamiento\nTextil",
-                            "description": "Control de pH, operaciones de teñido, tratamientos de acabado."
-                        },
-                        "4": {
-                            "title": "Fabricación de\nCuero",
-                            "description": "Procesos de curtido, ajuste de pH, procesamiento químico."
-                        },
-                        "5": {
-                            "title": "Adhesivos y Recubrimientos\nEspecializados",
-                            "description": "Modificación de polímeros, control de pH en formulaciones."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Seguridad",
-                            "description": "SDS integral, certificaciones de transporte para envío global."
-                        },
-                        "1": {
-                            "title": "Control de Calidad",
-                            "description": "CoA específico por lote, monitoreo de producción en tiempo real, validación por terceros disponible."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Garrafas"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Totes"
-                        }
-                    },
-                    "packagingText": "Tanques ISO a granel",
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
-            }
+        "information": {
+          "subText": "Ácido Glicólico 70% Grado Cosmético",
+          "description": "AviGa™ HP70 representa el estándar de oro en ácido glicólico de alta pureza para industrias reguladas. Fabricado a través de nuestra ruta patentada MCA (ácido monocloroacético), AviGa™ HP70 ofrece perfiles de pureza superiores, consistencia de pH estable e impurezas mínimas."
         },
-        "amino-acids": {
-            "avigly-hp": {
-                "hero": {
-                    "title": "AMINO\nÁCIDOS",
-                    "subtitle": "Componentes de Grado Farmacéutico para Ciencias de la Vida y Nutrición"
-                },
-                "information": {
-                    "subText": "Glicina USP",
-                    "description": "La glicina es un ingrediente fundamental en múltiples industrias reguladas. AviGly™ HP aborda esto directamente: un ensayo de 98,5–101,5% y un perfil de impurezas ultra bajo, verificado contra los principales estándares farmacopeicos internacionales.\nFabricado en una instalación que funciona con electricidad 100% renovable, también cumple con los criterios de abastecimiento de socios estratégicos con compromisos activos de sostenibilidad."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Ingredientes Farmacéuticos\nActivos (APIs)",
-                            "description": "Componente estructural en la síntesis de antibióticos, fármacos antipsicóticos, tratamientos para la diabetes."
-                        },
-                        "1": {
-                            "title": "Cosméticos y Cuidado\nPersonal",
-                            "description": "Estabilizador para formulaciones de vitamina C, enriquecimiento con aminoácidos en cuidado de piel y cabello."
-                        },
-                        "2": {
-                            "title": "Excipientes\nFarmacéuticos",
-                            "description": "Fabricación de tabletas, formulaciones de liberación controlada, aplicaciones de enmascaramiento de sabor."
-                        },
-                        "3": {
-                            "title": "Nutracéuticos",
-                            "description": "Suplementación de aminoácidos de alta pureza, nutrición deportiva, productos de nutrición terapéutica."
-                        },
-                        "4": {
-                            "title": "Alimentos y\nBebidas",
-                            "description": "Potenciador del sabor, edulcorante, conservante, aplicaciones alimentarias especializadas."
-                        },
-                        "5": {
-                            "title": "Nutrición\nAnimal",
-                            "description": "Suplementación de aminoácidos esenciales en formulaciones de alimentos para aves, cerdos y acuicultura."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Estándares de Farmacopea",
-                            "description": "USP/NF, Farmacopea Europea (EP), Farmacopea Japonesa (JP)"
-                        },
-                        "1": {
-                            "title": "Documentación de Calidad",
-                            "description": "Registros de lote completos, datos de estabilidad (guías ICH), análisis de impurezas elementales (USP <232>)"
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Tambores de Fibra"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        },
-                        "2": {
-                            "unit": "kg",
-                            "texts": "Sacos Jumbo"
-                        }
-                    },
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Dermatología\nAvanzada",
+              "description": "Peelings químicos profesionales y tratamientos de grado dermatológico."
             },
-            "avigly-t": {
-                "hero": {
-                    "title": "AMINO\nÁCIDOS",
-                    "subtitle": "Componentes de Grado Farmacéutico para Ciencias de la Vida y Nutrición"
-                },
-                "information": {
-                    "subText": "Glicina Grado Técnico",
-                    "description": "AviGly™ T es nuestra glicina de grado técnico y para alimentación animal, diseñada para aplicaciones industriales y mercados de nutrición animal. Aprovechando nuestra posición como el mayor productor de glicina de la India, ofrecemos calidad constante a precios competitivos para clientes de alto volumen en los sectores de agricultura, alimentación animal e industria. Este aminoácido versátil cumple funciones críticas en el metabolismo animal, la síntesis química y aplicaciones especializadas que requieren un suministro confiable de glicina."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Intermediarios\nQuímicos",
-                            "description": "Síntesis de herbicidas (glifosato), agentes quelantes, polímeros especializados, tensioactivos."
-                        },
-                        "1": {
-                            "title": "Procesamiento\nIndustrial",
-                            "description": "Tratamiento de metales, galvanoplastia, formulaciones de tratamiento de agua."
-                        },
-                        "2": {
-                            "title": "Síntesis\nEspecializada",
-                            "description": "Investigación y desarrollo, reactivo de laboratorio, fabricación de productos químicos personalizados."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Control de Calidad",
-                            "description": "CoA específico por lote, pruebas de metales pesados, análisis microbiológico, análisis nutricional."
-                        },
-                        "1": {
-                            "title": "Seguridad",
-                            "description": "SDS integral, cumplimiento de transporte a nivel mundial."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Bolsas de papel\nde paredes múltiples"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Bolsas a granel (FIBC),"
-                        }
-                    },
-                    "packagingText": "Contenedores a granel, empaque personalizado disponible",
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
+            "1": {
+              "title": "Formulaciones Antienvejecimiento\nPremium",
+              "description": "Sueros y cremas que aprovechan la eficacia del ácido glicólico."
             },
-            "avitau": {
-                "hero": {
-                    "title": "AMINO\nÁCIDOS",
-                    "subtitle": "Componentes de Grado Farmacéutico para Ciencias de la Vida y Nutrición"
-                },
-                "information": {
-                    "subText": "Taurina",
-                    "description": "AviTau™ es nuestra taurina de alta biodisponibilidad, fabricada según estándares farmacéuticos para aplicaciones en alimentos funcionales, bebidas, nutracéuticos y farmacéuticos. Aprovechando nuestra experiencia en la producción de aminoácidos, entregamos taurina con una pureza excepcional (99.5% mín.), bajo contenido de humedad y una estructura cristalina constante para una disolución y biodisponibilidad óptimas. A medida que la demanda mundial de bebidas energéticas y suplementos funcionales continúa expandiéndose, AviTau™ proporciona una solución de cadena de suministro confiable y de alta calidad para fabricantes de todo el mundo."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Bebidas\nFuncionales",
-                            "description": "Bebidas energéticas, bebidas deportivas, aguas funcionales, productos nutricionales listos para beber."
-                        },
-                        "1": {
-                            "title": "Nutracéuticos y\nSuplementos Dietéticos",
-                            "description": "Formulaciones para la salud cardiovascular, soporte neurológico, productos para el rendimiento en el ejercicio."
-                        },
-                        "2": {
-                            "title": "Formulaciones\nFarmacéuticas",
-                            "description": "Aplicaciones terapéuticas para condiciones cardiovasculares, soporte para la diabetes, salud neurológica."
-                        },
-                        "3": {
-                            "title": "Nutrición\nAnimal",
-                            "description": "Fortificación de alimentos para gatos y perros (nutriente esencial para felinos), alimentos para acuicultura, nutrición especializada para mascotas."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Estándares de Farmacopea",
-                            "description": "USP/NF, Farmacopea Europea (EP), Farmacopea Japonesa (JP)"
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Bolsas"
-                        },
-                        "1": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        }
-                    },
-                    "packagingText": "Contenedores a granel, empaque personalizado disponible",
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
+            "2": {
+              "title": "Síntesis\nFarmacéutica",
+              "description": "Intermediario para API y excipientes que requieren ácidos carboxílicos de alta pureza."
+            },
+            "3": {
+              "title": "Especialidades\nIndustriales",
+              "description": "Electrónica, limpieza de precisión y auxiliares de semiconductores, limpieza precisa de componentes aeroespaciales. Parte de productos de purga industrial de alta gama (no espumantes)."
             }
+          }
         },
-        "aromatic-and-fine-chemicals": {
-            "avivan": {
-                "hero": {
-                    "title": "Químicos Aromáticos\ny Finos",
-                    "subtitle": "Ingredientes de alta pureza para sabores, fragancias y aplicaciones industriales"
-                },
-                "information": {
-                    "subText": "Vainillina",
-                    "description": "AviVan™ es nuestra vainillina premium, diseñada para un rendimiento olfativo constante, estabilidad térmica y amplia compatibilidad de formulación en aplicaciones de alimentos, bebidas, fragancias y farmacéuticas. Con una pureza que supera el 99.5% y un perfil sensorial característico de vainilla real, AviVan™ ofrece la confiabilidad exigida por las casas de sabores globales, los fabricantes de fragancias y los productores de alimentos. Nuestros procesos avanzados de síntesis y purificación aseguran la consistencia lote a lote y eliminan notas extrañas que comprometen la calidad del producto."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Saborizante para\nAlimentos y Bebidas",
-                            "description": "Productos de panadería, confitería, lácteos, bebidas, postres, helados, productos de chocolate."
-                        },
-                        "1": {
-                            "title": "Formulaciones de\nFragancias",
-                            "description": "Fragancias finas, productos de cuidado personal, fragancias para el hogar, fragancias funcionales."
-                        },
-                        "2": {
-                            "title": "Aplicaciones\nFarmacéuticas",
-                            "description": "Enmascaramiento del sabor en formulaciones orales, agente saborizante para medicamentos pediátricos y geriátricos."
-                        },
-                        "3": {
-                            "title": "Aromatización\nIndustrial",
-                            "description": "Ambientadores, productos de limpieza, aplicaciones industriales perfumadas."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Certificaciones",
-                            "description": "Kosher, Halal, no OMG, libre de alérgenos (según regulaciones de la UE y EE. UU.)"
-                        },
-                        "1": {
-                            "title": "Control de Calidad",
-                            "description": "Verificación de pureza por GC-MS, evaluación sensorial por panel capacitado, pruebas de metales pesados y microbiología."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Tambores de fibra con\nrevestimiento protector"
-                        }
-                    },
-                    "packagingText": "Empaque personalizado para casas de sabores",
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
+        "qualityInfo": {
+          "title": "Cumplimiento Global y\nGarantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Seguridad",
+              "description": "SDS integral, certificaciones de transporte para envío global."
             },
-            "guaiacol": {
-                "hero": {
-                    "title": "Químicos Aromáticos\ny Finos",
-                    "subtitle": "Ingredientes de alta pureza para sabores, fragancias y aplicaciones industriales"
-                },
-                "information": {
-                    "subText": "",
-                    "description": "El guayacol es un compuesto aromático especializado que sirve como intermediario crítico en la síntesis de fragancias, fabricación farmacéutica y producción de químicos finos. Nuestro guayacol de alta pureza (ensayo de 98%+) ofrece una reactividad y un rendimiento constantes para aplicaciones especializadas que requieren química fenólica controlada. Con cumplimiento normativo establecido y documentación de calidad exhaustiva, Avid Organics suministra este intermediario esencial a innovadores en fragancias, farmacia y productos químicos especializados a nivel mundial."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Intermediarios de\nFragancias y Sabores",
-                            "description": "Síntesis de vainillina, derivados de eugenol, químicos aromáticos especializados."
-                        },
-                        "1": {
-                            "title": "Síntesis\nFarmacéutica",
-                            "description": "Intermediario para API, expectorantes y terapias especializadas."
-                        },
-                        "2": {
-                            "title": "Productos Químicos\nEspecializados",
-                            "description": "Síntesis personalizada, aplicaciones de investigación, fabricación de químicos finos."
-                        },
-                        "3": {
-                            "title": "Investigación y\nDesarrollo",
-                            "description": "Reactivo de laboratorio, investigación académica, proyectos de innovación."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Seguridad",
-                            "description": "SDS integral con protocolos de manejo, almacenamiento y respuesta a emergencias."
-                        },
-                        "1": {
-                            "title": "Control de Calidad",
-                            "description": "Análisis de pureza por GC, caracterización de trazas de impurezas, CoA específico por lote."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        }
-                    },
-                    "packagingText": "Empaque personalizado disponible",
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
+            "1": {
+              "title": "Control de Calidad",
+              "description": "CoA específico por lote, monitoreo de producción en tiempo real, validación por terceros disponible."
             }
+          }
         },
-        "specialty-chemicals-and-intermediates": {
-            "chlorhexidine-base": {
-                "hero": {
-                    "title": "QUÍMICOS ESPECIALIZADOS\nE INTERMEDIARIOS",
-                    "subtitle": "Intermediarios avanzados para la innovación farmacéutica e industrial"
-                },
-                "information": {
-                    "subText": "",
-                    "description": "La clorhexidina base es un intermediario antimicrobiano de alta pureza diseñado para la síntesis farmacéutica e industrial. Este intermediario crítico sirve como base para la fabricación de sales de clorhexidina (digluconato, diacetato, diclorhidrato) utilizadas ampliamente en antisépticos para el cuidado de la salud, productos de cuidado bucal y formulaciones farmacéuticas. Nuestro proceso de fabricación avanzado ofrece una pureza constante, tamaño de partícula controlado y documentación regulatoria exhaustiva que respalda los registros de productos derivados a nivel mundial."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Antisépticos y\nDesinfectantes",
-                            "description": "Intermediario para exfoliantes quirúrgicos, productos para el cuidado de heridas, antisépticos para el cuidado de la salud."
-                        },
-                        "1": {
-                            "title": "Productos de\nCuidado Bucal",
-                            "description": "Base para enjuagues bucales, soluciones de limpieza bucal, formulaciones antisépticas dentales."
-                        },
-                        "2": {
-                            "title": "Síntesis\nFarmacéutica",
-                            "description": "Producción de sales de gluconato, acetato e hidrocloruro de clorhexidina para aplicaciones reguladas."
-                        },
-                        "3": {
-                            "title": "Antimicrobianos\nIndustriales",
-                            "description": "Formulaciones especializadas que requieren actividad antimicrobiana controlada."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Seguridad",
-                            "description": "SDS integral con protocolos de manejo para intermediarios farmacéuticos activos."
-                        },
-                        "1": {
-                            "title": "Control de Calidad",
-                            "description": "Análisis de pureza por HPLC, perfilado de trazas de impurezas, distribución de tamaño de partícula, CoA específico por lote."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        }
-                    },
-                    "packagingText": "con empaque protector para materiales sensibles a la humedad",
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Garrafas"
             },
-            "mehq": {
-                "hero": {
-                    "title": "QUÍMICOS ESPECIALIZADOS\nE INTERMEDIARIOS",
-                    "subtitle": "Intermediarios avanzados para la innovación farmacéutica e industrial"
-                },
-                "information": {
-                    "subText": "Éter Monometílico de Hidroquinona",
-                    "description": "MEHQ (Éter Monometílico de Hidroquinona) es un inhibidor y estabilizador de polimerización de alto rendimiento diseñado para el control preciso de reacciones de radicales en la producción de polímeros, almacenamiento de monómeros y fabricación de químicos especializados. Nuestro MEHQ de alta pureza (ensayo de 99%+) ofrece un rendimiento de inhibición constante, estabilidad térmica y compatibilidad en diversos sistemas de polímeros y procesos químicos. Este químico especializado esencial permite el manejo y almacenamiento seguro de monómeros reactivos mientras optimiza el control de la polimerización en la producción comercial."
-                },
-                "applications": {
-                    "title": "Aplicaciones\nPrimarias",
-                    "items": {
-                        "0": {
-                            "title": "Inhibidor de\nPolimerización",
-                            "description": "Acrilatos, metacrilatos, estireno, acetato de vinilo y otros monómeros polimerizables por radicales."
-                        },
-                        "1": {
-                            "title": "Estabilización de Resinas\ny Monómeros",
-                            "description": "Estabilizador de almacenamiento que evita la polimerización prematura durante el transporte y almacenamiento."
-                        },
-                        "2": {
-                            "title": "Síntesis Química\nEspecializada",
-                            "description": "Reacciones de polimerización controladas, investigación de laboratorio, producción de químicos finos."
-                        },
-                        "3": {
-                            "title": "Estabilización de\nProcesos Industriales",
-                            "description": "Prevención del ensuciamiento por polímeros en reactores químicos e intercambiadores de calor."
-                        }
-                    }
-                },
-                "qualityInfo": {
-                    "title": "Cumplimiento Global y Garantía de Calidad",
-                    "subtitle": "Estándares de Fabricación",
-                    "otherStandards": {
-                        "0": {
-                            "title": "Seguridad",
-                            "description": "SDS detallada, cumplimiento de transporte, protocolos de manejo para químicos industriales."
-                        },
-                        "1": {
-                            "title": "Control de Calidad",
-                            "description": "Verificación de pureza por GC/HPLC, análisis de trazas de impurezas, pruebas de rendimiento en sistemas de polímeros estándar."
-                        }
-                    }
-                },
-                "supplyChain": {
-                    "title": "Excelencia en la Cadena de Suministro",
-                    "subtitle": "Opciones de Empaque",
-                    "packagingOptions": {
-                        "0": {
-                            "unit": "kg",
-                            "texts": "Tambores"
-                        }
-                    },
-                    "packagingText": "Empaque personalizado disponible para fabricantes de polímeros",
-                    "buttons": {
-                        "0": {
-                            "label": "Descargar PDS"
-                        },
-                        "1": {
-                            "label": "Descargar SDS"
-                        }
-                    },
-                    "linkButtons": {
-                        "0": {
-                            "label": "Contactar Ventas"
-                        }
-                    }
-                }
+            "1": {
+              "unit": "kg",
+              "texts": "Tambores"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Totes"
             }
+          },
+          "packagingText": "Tanques ISO a granel",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
         }
+      },
+      "aviga-bio-hp-70": {
+        "hero": {
+          "title": "ALFA\nHIDROXI\nÁCIDO",
+          "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
+        },
+        "information": {
+          "subText": "Acido Glicolico 70% Grado Cosmetico de Origen Biobasado",
+          "description": "AviGa™ Bio HP70 es el acido glicolico biobasado de Avid Organics, disenado para marcas y fabricantes que exigen rendimiento y procedencia. Derivado de materias primas renovables mediante nuestro proceso propietario de sintesis verde, ofrece la misma pureza lider y el mismo perfil de impurezas ultrabajo que nuestro HP70 de referencia, con el beneficio adicional de un origen biobasado verificado. Para formuladores que enfrentan la creciente demanda de ingredientes sostenibles y trazables, AviGa™ Bio HP70 es la respuesta sin compromisos.",
+          "bioBasedContent": "99% (verificado segun ASTM D6866)"
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Dermatologia Avanzada",
+              "description": "Peelings quimicos profesionales y tratamientos dermatologicos de grado superior para la era clean beauty."
+            },
+            "1": {
+              "title": "Formulaciones Antiedad Premium",
+              "description": "Sueros y cremas que aprovechan la eficacia del acido glicolico con una historia de ingrediente sostenible certificada."
+            },
+            "2": {
+              "title": "Sintesis Farmaceutica",
+              "description": "Intermedio para API y excipientes que requieren acidos carboxilicos de alta pureza provenientes de una fuente biobasada trazable."
+            },
+            "3": {
+              "title": "Especialidades Industriales",
+              "description": "Electronica, limpieza de precision y auxiliares de semiconductores, donde la quimica verde cumple con exigentes estandares de rendimiento."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Sostenibilidad y Garantia de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Credenciales Verdes",
+              "description": "99% de carbono biobasado, verificado mediante analisis radiocarbonico AMS (ASTM D6866-24a / NF EN 16640:2017) por CIRAM, laboratorio acreditado Cofrac ISO/IEC 17025."
+            },
+            "1": {
+              "title": "Seguridad",
+              "description": "SDS integral, certificaciones de transporte para envios globales"
+            },
+            "2": {
+              "title": "Control de Calidad",
+              "description": "CoA especifico por lote, monitoreo de produccion en tiempo real, validacion de terceros disponible"
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Garrafas"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Tambores"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Totes"
+            }
+          },
+          "packagingText": "Tanques ISO a granel",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      },
+      "aviga-bio-t": {
+        "hero": {
+          "title": "ALFA\nHIDROXI\nÁCIDO",
+          "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
+        },
+        "information": {
+          "subText": "Ácido Glicólico 70% Grado Técnico Biobasado",
+          "description": "AviGa™ Bio T es nuestro Ácido Glicólico biobasado de grado técnico, diseñado para fabricantes industriales y productores de químicos especializados que exigen tanto rendimiento de proceso como origen renovable verificado. Fabricado mediante la misma ruta MCA avanzada libre de formaldehído que nuestro AviGa™ T convencional, ofrece la misma pureza y consistencia excepcionales - ahora con un contenido de carbono biobasado del 99% verificado por terceros.",
+          "bioBasedContent": "99% (verificado segun ASTM D6866)"
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Síntesis\nQuímica",
+              "description": "Intermediario biobasado para ésteres especializados, precursores de polímeros y materiales avanzados."
+            },
+            "1": {
+              "title": "Descalcificación y Limpieza\nIndustrial",
+              "description": "Formulaciones de alto rendimiento, de origen renovable, para tratamiento de metales, equipos lácteos, intercambiadores de calor y sistemas de calderas."
+            },
+            "2": {
+              "title": "Campo\nPetrolero",
+              "description": "Intermediario de ácido carboxílico de alta pureza con procedencia biobasada documentada."
+            },
+            "3": {
+              "title": "Procesamiento\nTextil",
+              "description": "Control de pH, operaciones de teñido y tratamientos de acabado - desde una fuente sostenible verificada."
+            },
+            "4": {
+              "title": "Fabricación de\nCuero",
+              "description": "Procesos de curtido, ajuste de pH y procesamiento químico con menor huella de carbono fósil."
+            },
+            "5": {
+              "title": "Adhesivos y Recubrimientos\nEspecializados",
+              "description": "Modificación de polímeros y control de pH en formulaciones para cumplimiento de química verde."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Seguridad",
+              "description": "SDS integral, certificaciones de transporte para envío global."
+            },
+            "1": {
+              "title": "Control de Calidad",
+              "description": "CoA específico por lote, monitoreo de producción en tiempo real, validación por terceros disponible."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Garrafas"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Tambores"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Totes"
+            }
+          },
+          "packagingText": "Tanques ISO a granel",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      },
+      "aviga-t": {
+        "hero": {
+          "title": "ALFA\nHIDROXI\nÁCIDO",
+          "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
+        },
+        "information": {
+          "subText": "Ácido Glicólico 70% Grado Técnico",
+          "description": "AviGa™ T es nuestro ácido glicólico de especificación industrial diseñado para aplicaciones de alto rendimiento en fabricación, procesamiento, formulaciones y síntesis química especializada. Fabricado a través de la misma ruta MCA avanzada libre de formaldehído que nuestros productos de grado farmacéutico, AviGa™ T ofrece una pureza y consistencia excepcionales a precios industriales competitivos. Esta solución de grado técnico sirve como un insumo crítico para la síntesis química, sistemas de limpieza industrial y procesos de fabricación especializados donde el rendimiento y la confiabilidad son primordiales."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Síntesis\nQuímica",
+              "description": "Intermediario para ésteres especializados, precursores de polímeros y materiales avanzados."
+            },
+            "1": {
+              "title": "Descalcificación y Limpieza\nIndustrial",
+              "description": "Formulaciones de alto rendimiento para tratamiento de metales, equipos lácteos, intercambiadores de calor, sistemas de calderas."
+            },
+            "2": {
+              "title": "Campo\nPetrolero",
+              "description": "Intermediario para API y excipientes que requieren ácidos carboxílicos de alta pureza."
+            },
+            "3": {
+              "title": "Procesamiento\nTextil",
+              "description": "Control de pH, operaciones de teñido, tratamientos de acabado."
+            },
+            "4": {
+              "title": "Fabricación de\nCuero",
+              "description": "Procesos de curtido, ajuste de pH, procesamiento químico."
+            },
+            "5": {
+              "title": "Adhesivos y Recubrimientos\nEspecializados",
+              "description": "Modificación de polímeros, control de pH en formulaciones."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Seguridad",
+              "description": "SDS integral, certificaciones de transporte para envío global."
+            },
+            "1": {
+              "title": "Control de Calidad",
+              "description": "CoA específico por lote, monitoreo de producción en tiempo real, validación por terceros disponible."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Garrafas"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Tambores"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Totes"
+            }
+          },
+          "packagingText": "Tanques ISO a granel",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      }
+    },
+    "amino-acids": {
+      "avigly-hp": {
+        "hero": {
+          "title": "AMINO\nÁCIDOS",
+          "subtitle": "Componentes de Grado Farmacéutico para Ciencias de la Vida y Nutrición"
+        },
+        "information": {
+          "subText": "Glicina USP",
+          "description": "La glicina es un ingrediente fundamental en múltiples industrias reguladas. AviGly™ HP aborda esto directamente: un ensayo de 98,5–101,5% y un perfil de impurezas ultra bajo, verificado contra los principales estándares farmacopeicos internacionales.\nFabricado en una instalación que funciona con electricidad 100% renovable, también cumple con los criterios de abastecimiento de socios estratégicos con compromisos activos de sostenibilidad."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Ingredientes Farmacéuticos\nActivos (APIs)",
+              "description": "Componente estructural en la síntesis de antibióticos, fármacos antipsicóticos, tratamientos para la diabetes."
+            },
+            "1": {
+              "title": "Cosméticos y Cuidado\nPersonal",
+              "description": "Estabilizador para formulaciones de vitamina C, enriquecimiento con aminoácidos en cuidado de piel y cabello."
+            },
+            "2": {
+              "title": "Excipientes\nFarmacéuticos",
+              "description": "Fabricación de tabletas, formulaciones de liberación controlada, aplicaciones de enmascaramiento de sabor."
+            },
+            "3": {
+              "title": "Nutracéuticos",
+              "description": "Suplementación de aminoácidos de alta pureza, nutrición deportiva, productos de nutrición terapéutica."
+            },
+            "4": {
+              "title": "Alimentos y\nBebidas",
+              "description": "Potenciador del sabor, edulcorante, conservante, aplicaciones alimentarias especializadas."
+            },
+            "5": {
+              "title": "Nutrición\nAnimal",
+              "description": "Suplementación de aminoácidos esenciales en formulaciones de alimentos para aves, cerdos y acuicultura."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Estándares de Farmacopea",
+              "description": "USP/NF, Farmacopea Europea (EP), Farmacopea Japonesa (JP)"
+            },
+            "1": {
+              "title": "Documentación de Calidad",
+              "description": "Registros de lote completos, datos de estabilidad (guías ICH), análisis de impurezas elementales (USP <232>)"
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Tambores de Fibra"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Tambores"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Sacos Jumbo"
+            }
+          },
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      },
+      "avigly-t": {
+        "hero": {
+          "title": "AMINO\nÁCIDOS",
+          "subtitle": "Componentes de Grado Farmacéutico para Ciencias de la Vida y Nutrición"
+        },
+        "information": {
+          "subText": "Glicina Grado Técnico",
+          "description": "AviGly™ T es nuestra glicina de grado técnico y para alimentación animal, diseñada para aplicaciones industriales y mercados de nutrición animal. Aprovechando nuestra posición como el mayor productor de glicina de la India, ofrecemos calidad constante a precios competitivos para clientes de alto volumen en los sectores de agricultura, alimentación animal e industria. Este aminoácido versátil cumple funciones críticas en el metabolismo animal, la síntesis química y aplicaciones especializadas que requieren un suministro confiable de glicina."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Intermediarios\nQuímicos",
+              "description": "Síntesis de herbicidas (glifosato), agentes quelantes, polímeros especializados, tensioactivos."
+            },
+            "1": {
+              "title": "Procesamiento\nIndustrial",
+              "description": "Tratamiento de metales, galvanoplastia, formulaciones de tratamiento de agua."
+            },
+            "2": {
+              "title": "Síntesis\nEspecializada",
+              "description": "Investigación y desarrollo, reactivo de laboratorio, fabricación de productos químicos personalizados."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Control de Calidad",
+              "description": "CoA específico por lote, pruebas de metales pesados, análisis microbiológico, análisis nutricional."
+            },
+            "1": {
+              "title": "Seguridad",
+              "description": "SDS integral, cumplimiento de transporte a nivel mundial."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Bolsas de papel\nde paredes múltiples"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Bolsas a granel (FIBC),"
+            }
+          },
+          "packagingText": "Contenedores a granel, empaque personalizado disponible",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      },
+      "avitau": {
+        "hero": {
+          "title": "AMINO\nÁCIDOS",
+          "subtitle": "Componentes de Grado Farmacéutico para Ciencias de la Vida y Nutrición"
+        },
+        "information": {
+          "subText": "Taurina",
+          "description": "AviTau™ es nuestra taurina de alta biodisponibilidad, fabricada según estándares farmacéuticos para aplicaciones en alimentos funcionales, bebidas, nutracéuticos y farmacéuticos. Aprovechando nuestra experiencia en la producción de aminoácidos, entregamos taurina con una pureza excepcional (99.5% mín.), bajo contenido de humedad y una estructura cristalina constante para una disolución y biodisponibilidad óptimas. A medida que la demanda mundial de bebidas energéticas y suplementos funcionales continúa expandiéndose, AviTau™ proporciona una solución de cadena de suministro confiable y de alta calidad para fabricantes de todo el mundo."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Bebidas\nFuncionales",
+              "description": "Bebidas energéticas, bebidas deportivas, aguas funcionales, productos nutricionales listos para beber."
+            },
+            "1": {
+              "title": "Nutracéuticos y\nSuplementos Dietéticos",
+              "description": "Formulaciones para la salud cardiovascular, soporte neurológico, productos para el rendimiento en el ejercicio."
+            },
+            "2": {
+              "title": "Formulaciones\nFarmacéuticas",
+              "description": "Aplicaciones terapéuticas para condiciones cardiovasculares, soporte para la diabetes, salud neurológica."
+            },
+            "3": {
+              "title": "Nutrición\nAnimal",
+              "description": "Fortificación de alimentos para gatos y perros (nutriente esencial para felinos), alimentos para acuicultura, nutrición especializada para mascotas."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Estándares de Farmacopea",
+              "description": "USP/NF, Farmacopea Europea (EP), Farmacopea Japonesa (JP)"
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Bolsas"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Tambores"
+            }
+          },
+          "packagingText": "Contenedores a granel, empaque personalizado disponible",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      }
+    },
+    "aromatic-and-fine-chemicals": {
+      "avivan": {
+        "hero": {
+          "title": "Químicos Aromáticos\ny Finos",
+          "subtitle": "Ingredientes de alta pureza para sabores, fragancias y aplicaciones industriales"
+        },
+        "information": {
+          "subText": "Vainillina",
+          "description": "AviVan™ es nuestra vainillina premium, diseñada para un rendimiento olfativo constante, estabilidad térmica y amplia compatibilidad de formulación en aplicaciones de alimentos, bebidas, fragancias y farmacéuticas. Con una pureza que supera el 99.5% y un perfil sensorial característico de vainilla real, AviVan™ ofrece la confiabilidad exigida por las casas de sabores globales, los fabricantes de fragancias y los productores de alimentos. Nuestros procesos avanzados de síntesis y purificación aseguran la consistencia lote a lote y eliminan notas extrañas que comprometen la calidad del producto."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Saborizante para\nAlimentos y Bebidas",
+              "description": "Productos de panadería, confitería, lácteos, bebidas, postres, helados, productos de chocolate."
+            },
+            "1": {
+              "title": "Formulaciones de\nFragancias",
+              "description": "Fragancias finas, productos de cuidado personal, fragancias para el hogar, fragancias funcionales."
+            },
+            "2": {
+              "title": "Aplicaciones\nFarmacéuticas",
+              "description": "Enmascaramiento del sabor en formulaciones orales, agente saborizante para medicamentos pediátricos y geriátricos."
+            },
+            "3": {
+              "title": "Aromatización\nIndustrial",
+              "description": "Ambientadores, productos de limpieza, aplicaciones industriales perfumadas."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Certificaciones",
+              "description": "Kosher, Halal, no OMG, libre de alérgenos (según regulaciones de la UE y EE. UU.)"
+            },
+            "1": {
+              "title": "Control de Calidad",
+              "description": "Verificación de pureza por GC-MS, evaluación sensorial por panel capacitado, pruebas de metales pesados y microbiología."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Tambores de fibra con\nrevestimiento protector"
+            }
+          },
+          "packagingText": "Empaque personalizado para casas de sabores",
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      },
+      "guaiacol": {
+        "hero": {
+          "title": "Químicos Aromáticos\ny Finos",
+          "subtitle": "Ingredientes de alta pureza para sabores, fragancias y aplicaciones industriales"
+        },
+        "information": {
+          "subText": "",
+          "description": "El guayacol es un compuesto aromático especializado que sirve como intermediario crítico en la síntesis de fragancias, fabricación farmacéutica y producción de químicos finos. Nuestro guayacol de alta pureza (ensayo de 98%+) ofrece una reactividad y un rendimiento constantes para aplicaciones especializadas que requieren química fenólica controlada. Con cumplimiento normativo establecido y documentación de calidad exhaustiva, Avid Organics suministra este intermediario esencial a innovadores en fragancias, farmacia y productos químicos especializados a nivel mundial."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Intermediarios de\nFragancias y Sabores",
+              "description": "Síntesis de vainillina, derivados de eugenol, químicos aromáticos especializados."
+            },
+            "1": {
+              "title": "Síntesis\nFarmacéutica",
+              "description": "Intermediario para API, expectorantes y terapias especializadas."
+            },
+            "2": {
+              "title": "Productos Químicos\nEspecializados",
+              "description": "Síntesis personalizada, aplicaciones de investigación, fabricación de químicos finos."
+            },
+            "3": {
+              "title": "Investigación y\nDesarrollo",
+              "description": "Reactivo de laboratorio, investigación académica, proyectos de innovación."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Seguridad",
+              "description": "SDS integral con protocolos de manejo, almacenamiento y respuesta a emergencias."
+            },
+            "1": {
+              "title": "Control de Calidad",
+              "description": "Análisis de pureza por GC, caracterización de trazas de impurezas, CoA específico por lote."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Tambores"
+            }
+          },
+          "packagingText": "Empaque personalizado disponible",
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      }
+    },
+    "specialty-chemicals-and-intermediates": {
+      "chlorhexidine-base": {
+        "hero": {
+          "title": "QUÍMICOS ESPECIALIZADOS\nE INTERMEDIARIOS",
+          "subtitle": "Intermediarios avanzados para la innovación farmacéutica e industrial"
+        },
+        "information": {
+          "subText": "",
+          "description": "La clorhexidina base es un intermediario antimicrobiano de alta pureza diseñado para la síntesis farmacéutica e industrial. Este intermediario crítico sirve como base para la fabricación de sales de clorhexidina (digluconato, diacetato, diclorhidrato) utilizadas ampliamente en antisépticos para el cuidado de la salud, productos de cuidado bucal y formulaciones farmacéuticas. Nuestro proceso de fabricación avanzado ofrece una pureza constante, tamaño de partícula controlado y documentación regulatoria exhaustiva que respalda los registros de productos derivados a nivel mundial."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Antisépticos y\nDesinfectantes",
+              "description": "Intermediario para exfoliantes quirúrgicos, productos para el cuidado de heridas, antisépticos para el cuidado de la salud."
+            },
+            "1": {
+              "title": "Productos de\nCuidado Bucal",
+              "description": "Base para enjuagues bucales, soluciones de limpieza bucal, formulaciones antisépticas dentales."
+            },
+            "2": {
+              "title": "Síntesis\nFarmacéutica",
+              "description": "Producción de sales de gluconato, acetato e hidrocloruro de clorhexidina para aplicaciones reguladas."
+            },
+            "3": {
+              "title": "Antimicrobianos\nIndustriales",
+              "description": "Formulaciones especializadas que requieren actividad antimicrobiana controlada."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Seguridad",
+              "description": "SDS integral con protocolos de manejo para intermediarios farmacéuticos activos."
+            },
+            "1": {
+              "title": "Control de Calidad",
+              "description": "Análisis de pureza por HPLC, perfilado de trazas de impurezas, distribución de tamaño de partícula, CoA específico por lote."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Tambores"
+            }
+          },
+          "packagingText": "con empaque protector para materiales sensibles a la humedad",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      },
+      "mehq": {
+        "hero": {
+          "title": "QUÍMICOS ESPECIALIZADOS\nE INTERMEDIARIOS",
+          "subtitle": "Intermediarios avanzados para la innovación farmacéutica e industrial"
+        },
+        "information": {
+          "subText": "Éter Monometílico de Hidroquinona",
+          "description": "MEHQ (Éter Monometílico de Hidroquinona) es un inhibidor y estabilizador de polimerización de alto rendimiento diseñado para el control preciso de reacciones de radicales en la producción de polímeros, almacenamiento de monómeros y fabricación de químicos especializados. Nuestro MEHQ de alta pureza (ensayo de 99%+) ofrece un rendimiento de inhibición constante, estabilidad térmica y compatibilidad en diversos sistemas de polímeros y procesos químicos. Este químico especializado esencial permite el manejo y almacenamiento seguro de monómeros reactivos mientras optimiza el control de la polimerización en la producción comercial."
+        },
+        "applications": {
+          "title": "Aplicaciones\nPrimarias",
+          "items": {
+            "0": {
+              "title": "Inhibidor de\nPolimerización",
+              "description": "Acrilatos, metacrilatos, estireno, acetato de vinilo y otros monómeros polimerizables por radicales."
+            },
+            "1": {
+              "title": "Estabilización de Resinas\ny Monómeros",
+              "description": "Estabilizador de almacenamiento que evita la polimerización prematura durante el transporte y almacenamiento."
+            },
+            "2": {
+              "title": "Síntesis Química\nEspecializada",
+              "description": "Reacciones de polimerización controladas, investigación de laboratorio, producción de químicos finos."
+            },
+            "3": {
+              "title": "Estabilización de\nProcesos Industriales",
+              "description": "Prevención del ensuciamiento por polímeros en reactores químicos e intercambiadores de calor."
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Cumplimiento Global y Garantía de Calidad",
+          "subtitle": "Estándares de Fabricación",
+          "otherStandards": {
+            "0": {
+              "title": "Seguridad",
+              "description": "SDS detallada, cumplimiento de transporte, protocolos de manejo para químicos industriales."
+            },
+            "1": {
+              "title": "Control de Calidad",
+              "description": "Verificación de pureza por GC/HPLC, análisis de trazas de impurezas, pruebas de rendimiento en sistemas de polímeros estándar."
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Excelencia en la Cadena de Suministro",
+          "subtitle": "Opciones de Empaque",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Tambores"
+            }
+          },
+          "packagingText": "Empaque personalizado disponible para fabricantes de polímeros",
+          "buttons": {
+            "0": {
+              "label": "Descargar PDS"
+            },
+            "1": {
+              "label": "Descargar SDS"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Contactar Ventas"
+            }
+          }
+        }
+      }
     }
+  }
 }

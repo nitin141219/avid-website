@@ -26,9 +26,11 @@
       "productsTitle": "Ausgewählte Produkte",
       "products": {
         "avigly_hp": {
+          "subtitle": "Glycin USP",
           "desc": "Eine grundlegende Aminosäure für metabolische Prozesse."
         },
         "avitau": {
+          "subtitle": "Taurin",
           "desc": "Ein wichtiger funktioneller Zusatzstoff für Gesundheit und Entwicklung."
         }
       }
@@ -59,9 +61,11 @@
           "desc": "Ein hochreiner Aromastoff für konsistente, intensive Geschmacksprofile."
         },
         "avigly_hp": {
+          "subtitle": "Glycin USP",
           "desc": "Eine grundlegende Aminosäure für metabolische Prozesse."
         },
         "avitau": {
+          "subtitle": "Taurin",
           "desc": "Lebensmitteltaugliche Aminosäure zur ernährungsphysiologischen Anreicherung in Energy-Getränken und funktionellen Lebensmittelanwendungen."
         }
       }
@@ -88,13 +92,19 @@
         }
       },
       "products": {
+        "aviga_bio_t": {
+          "subtitle": "Glykolsäure 70% Technische Qualität\nBiobasiert",
+          "desc": "Eine biobasierte vielseitige Säure für Reinigung, Entkalkung und chemische Synthese."
+        },
         "aviga_t": {
+          "subtitle": "Glykolsäure 70% Technische Qualität",
           "desc": "Eine vielseitige Säure für Reinigung, Entkalkung und chemische Synthese."
         },
         "mehq": {
           "desc": "Ein hochreiner Polymerisationsinhibitor zur Prozesskontrolle."
         },
         "chlorhexidine": {
+          "subtitle": "Basis",
           "desc": "Ein spezieller Zwischenstoff für Hochleistungsanwendungen."
         }
       }
@@ -122,18 +132,23 @@
       },
       "products": {
         "aviga_bio_hp": {
+          "subtitle": "Glykolsäure 70% Kosmetische Qualität Biobasiert",
           "desc": "Hergestellt aus biobasierten Quellen für kompromisslose kosmetische Reinheit."
         },
         "aviga_hp": {
+          "subtitle": "Glykolsäure 70% Kosmetische Qualität",
           "desc": "Der Branchenmaßstab für hochreine Exfoliation und Hauterneuerung."
         },
         "chlorhexidine_base": {
+          "subtitle": "Basis",
           "desc": "Eine hochreine antimikrobielle Basis für Konservierungssysteme in der Körperpflege."
         },
         "avigly_hp": {
+          "subtitle": "Glycin USP",
           "desc": "Hochreine Aminosäure zur Hautkonditionierung, pH-Pufferung und Stabilisierung von Formulierungen in kosmetischen Systemen."
         },
         "avitau": {
+          "subtitle": "Taurin",
           "desc": "Antioxidative Aminosäure für Anti-Aging- und schützende Hautpflegeformulierungen."
         },
         "avivan": {
@@ -164,12 +179,15 @@
       },
       "products": {
         "avigly_hp": {
+          "subtitle": "Glycin USP",
           "desc": "Hochreines Glycin in USP-Qualität für APIs und kritische Formulierungen."
         },
         "avitau": {
+          "subtitle": "Taurin",
           "desc": "Eine stabile, hochreine Aminosäure für pharmazeutische und nutraceutische Anwendungen."
         },
         "chlorhexidine_base": {
+          "subtitle": "Basis",
           "desc": "Ein hochreiner Zwischenstoff für die Synthese von Wirkstoffen."
         },
         "guaiacol": {

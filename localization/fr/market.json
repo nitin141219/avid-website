@@ -25,9 +25,11 @@
       "productsTitle": "Produits phares",
       "products": {
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "Un acide aminé fondamental pour les processus métaboliques."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "Un additif fonctionnel clé pour la santé et le développement."
         }
       }
@@ -57,9 +59,11 @@
           "desc": "Un composé aromatique de haute pureté pour des profils de saveur constants et percutants."
         },
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "Un acide aminé fondamental pour les processus métaboliques."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "Acide aminé de qualité alimentaire pour la fortification nutritionnelle dans les boissons énergisantes et les applications alimentaires fonctionnelles."
         }
       }
@@ -85,13 +89,19 @@
         }
       },
       "products": {
+        "aviga_bio_t": {
+          "subtitle": "Acide Glycolique 70% Grade Technique\nBiosource",
+          "desc": "Un acide polyvalent biosource pour le nettoyage, le détartrage et la synthèse chimique."
+        },
         "aviga_t": {
+          "subtitle": "Acide Glycolique 70% Grade Technique",
           "desc": "Un acide polyvalent pour le nettoyage, le détartrage et la synthèse chimique."
         },
         "mehq": {
           "desc": "Un inhibiteur de polymérisation de haute pureté pour le contrôle des processus."
         },
         "chlorhexidine": {
+          "subtitle": "Base CHX",
           "desc": "Un intermédiaire de spécialité pour les applications à haute performance."
         }
       }
@@ -118,18 +128,23 @@
       },
       "products": {
         "aviga_bio_hp": {
+          "subtitle": "Acide Glycolique 70% Grade Cosmétique Biosource",
           "desc": "Fabrique a partir d'origines biosourcees pour une purete cosmetique sans compromis."
         },
         "aviga_hp": {
+          "subtitle": "Acide Glycolique 70% Grade Cosmétique",
           "desc": "La référence de l'industrie pour l'exfoliation et le rajeunissement de haute pureté."
         },
         "chlorhexidine_base": {
+          "subtitle": "Base CHX",
           "desc": "Une base antimicrobienne de haute pureté pour les systèmes de conservation des soins personnels."
         },
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "Acide aminé de haute pureté pour le conditionnement de la peau, le tamponnage du pH et la stabilisation de la formulation dans les systèmes cosmétiques."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "Acide aminé antioxydant pour les formulations de soins de la peau anti-âge et protectrices."
         },
         "avivan": {
@@ -159,12 +174,15 @@
       },
       "products": {
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "Glycine de haute pureté, de qualité USP, pour les IPA et les formulations critiques."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "Un acide aminé stable et de haute pureté pour les applications pharmaceutiques et nutraceutiques."
         },
         "chlorhexidine_base": {
+          "subtitle": "Base CHX",
           "desc": "Un intermédiaire de haute pureté pour la synthèse d'ingrédients actifs."
         },
         "guaiacol": {

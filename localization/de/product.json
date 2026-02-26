@@ -166,6 +166,92 @@
           }
         }
       },
+      "aviga-bio-t": {
+        "hero": {
+          "title": "ALPHA\nHYDROXY\nSÄURE",
+          "subtitle": "Marktführende Lösungen für anspruchsvolle Anwendungen"
+        },
+        "information": {
+          "subText": "Glykolsäure 70% Technische Qualität Biobasiert",
+          "description": "AviGa™ Bio T ist unsere biobasierte Glykolsäure in technischer Qualität, entwickelt für industrielle Hersteller und Spezialchemieproduzenten, die sowohl Prozessleistung als auch nachgewiesene erneuerbare Herkunft verlangen. Hergestellt über denselben fortschrittlichen, formaldehydfreien MCA-Prozess wie unser konventionelles AviGa™ T, liefert es die gleiche außergewöhnliche Reinheit und Konsistenz - jetzt mit einem von Dritten verifizierten biobasierten Kohlenstoffanteil von 99%.",
+          "bioBasedContent": "99% (nach ASTM D6866 verifiziert)"
+        },
+        "applications": {
+          "title": "Hauptanwendungen",
+          "items": {
+            "0": {
+              "title": "Chemische\nSynthese",
+              "description": "Biobasiertes Zwischenprodukt für Spezialester, Polymervorstufen und Hochleistungsmaterialien"
+            },
+            "1": {
+              "title": "Industrielle Entkalkung\nund Reinigung",
+              "description": "Leistungsstarke Formulierungen erneuerbaren Ursprungs für Metallbehandlung, Molkereianlagen, Wärmetauscher und Kesselsysteme"
+            },
+            "2": {
+              "title": "Ölfeld",
+              "description": "Hochreines Carbonsäure-Zwischenprodukt mit dokumentierter biobasierter Herkunft"
+            },
+            "3": {
+              "title": "Textilverarbeitung",
+              "description": "pH-Wert-Regulierung, Färbeprozesse und Ausrüstungsbehandlungen - aus verifizierter nachhaltiger Quelle"
+            },
+            "4": {
+              "title": "Lederherstellung",
+              "description": "Gerbprozesse, pH-Wert-Einstellung und chemische Verarbeitung mit reduziertem fossilem Kohlenstoff-Fußabdruck"
+            },
+            "5": {
+              "title": "Spezialklebstoffe \nund -beschichtungen",
+              "description": "Polymermodifizierung und pH-Wert-Kontrolle in Formulierungen zur Erfüllung von Green-Chemistry-Anforderungen"
+            }
+          }
+        },
+        "qualityInfo": {
+          "title": "Globale Compliance & \nQualitätssicherung",
+          "subtitle": "Fertigungsstandards",
+          "otherStandards": {
+            "0": {
+              "title": "Sicherheit",
+              "description": "Umfassende Sicherheitsdatenblätter, Transportzertifizierungen für den weltweiten Versand"
+            },
+            "1": {
+              "title": "Qualitätskontrolle",
+              "description": "Chargenspezifisches Analysezertifikat, Echtzeit-Produktionsüberwachung, Validierung durch Dritte verfügbar"
+            }
+          }
+        },
+        "supplyChain": {
+          "title": "Exzellenz in der \n Lieferkette",
+          "subtitle": "Verpackungsoptionen",
+          "packagingOptions": {
+            "0": {
+              "unit": "kg",
+              "texts": "Ballons"
+            },
+            "1": {
+              "unit": "kg",
+              "texts": "Schlagzeug"
+            },
+            "2": {
+              "unit": "kg",
+              "texts": "Taschen"
+            }
+          },
+          "packagingText": "ISO-Großtanks",
+          "buttons": {
+            "0": {
+              "label": "PDS herunterladen"
+            },
+            "1": {
+              "label": "Sicherheitsdatenblatt herunterladen"
+            }
+          },
+          "linkButtons": {
+            "0": {
+              "label": "Kontaktieren Sie den Vertrieb"
+            }
+          }
+        }
+      },
       "aviga-t": {
         "hero": {
           "title": "ALPHA\nHYDROXY\nSÄURE",

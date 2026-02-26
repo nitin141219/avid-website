@@ -166,7 +166,93 @@
                     }
                 }
             },
-            "aviga-t": {
+            "aviga-bio-t": {
+                "hero": {
+                    "title": "ALPHA\nHYDROXY\nACIDS",
+                    "subtitle": "Market-Leading Solutions for Advanced Applications"
+                },
+                "information": {
+                    "subText": "Glycolic Acid 70% Technical Grade Bio-Based",
+                    "description": "AviGa™ Bio T is our bio-based, technical-grade Glycolic Acid engineered for industrial manufacturers and specialty chemical producers who demand both process performance and verified renewable origin. Manufactured via the same advanced formaldehyde-free MCA route as our conventional AviGa™ T, it delivers the same exceptional purity and consistency - now with a third-party verified 99% bio-based carbon content.",
+                    "bioBasedContent": "99% (ASTM D6866 verified)"
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Chemical\nSynthesis",
+                            "description": "Bio-based intermediate for specialty esters, polymer precursors and advanced materials"
+                        },
+                        "1": {
+                            "title": "Industrial Descaling\n& Cleaning",
+                            "description": "High-performance, renewable-origin formulations for metal treatment, dairy equipment, heat exchangers, boiler systems"
+                        },
+                        "2": {
+                            "title": "Oil\nField",
+                            "description": "High-purity carboxylic acid intermediate with documented bio-based provenance"
+                        },
+                        "3": {
+                            "title": "Textile\nProcessing",
+                            "description": "pH control, dyeing operations, finishing treatments - from a verified sustainable source"
+                        },
+                        "4": {
+                            "title": "Leather\nManufacturing",
+                            "description": "Tanning processes, pH adjustment, chemical processing with reduced fossil carbon footprint"
+                        },
+                        "5": {
+                            "title": "Specialty Adhesives\n& Coatings",
+                            "description": "Polymer modification and pH control in formulations for green chemistry compliance"
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Global Compliance & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Safety",
+                            "description": "Comprehensive SDS, transportation certifications for global shipment"
+                        },
+                        "1": {
+                            "title": "Quality Control",
+                            "description": "Batch-specific CoA, real-time production monitoring, third-party validation available"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Carboys"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Totes"
+                        }
+                    },
+                    "packagingText": "Bulk ISO tanks",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            },
+"aviga-t": {
                 "hero": {
                     "title": "ALPHA\nHYDROXY\nACIDS",
                     "subtitle": "Market-Leading Solutions for Advanced Applications"
@@ -742,3 +828,4 @@
         }
     }
 }
+

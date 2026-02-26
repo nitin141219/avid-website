@@ -26,9 +26,11 @@
       "productsTitle": "Featured Products",
       "products": {
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "A foundational amino acid for metabolic processes."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "A key functional additive for health and development."
         }
       }
@@ -59,9 +61,11 @@
           "desc": "A high-purity aromatic for consistent, high-impact flavor profiles."
         },
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "Food-grade amino acid for flavor enhancement and nutritional fortification."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "Food-grade amino acid for nutritional fortification in energy beverages and functional food applications."
         }
       }
@@ -88,13 +92,19 @@
         }
       },
       "products": {
+        "aviga_bio_t": {
+          "subtitle": "Glycolic Acid 70% Technical Grade\nBio-Based",
+          "desc": "A bio-based versatile acid for cleaning, descaling, and chemical synthesis."
+        },
         "aviga_t": {
+          "subtitle": "Glycolic Acid 70% Technical Grade",
           "desc": "A versatile acid for cleaning, descaling, and chemical synthesis."
         },
         "mehq": {
           "desc": "A high-purity polymerization inhibitor for process control."
         },
         "chlorhexidine": {
+          "subtitle": "Base",
           "desc": "A specialty intermediate for high-performance applications."
         }
       }
@@ -122,18 +132,23 @@
       },
       "products": {
         "aviga_bio_hp": {
+          "subtitle": "Glycolic Acid 70% Cosmetic Grade Bio-Based",
           "desc": "Manufactured from bio-based origins for uncompromising cosmetic purity."
         },
         "aviga_hp": {
+          "subtitle": "Glycolic Acid 70% Cosmetic Grade",
           "desc": "The industry benchmark for high-purity exfoliation and rejuvenation."
         },
         "chlorhexidine_base": {
+          "subtitle": "Base",
           "desc": "A high-purity antimicrobial base for personal care preservative systems."
         },
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "High-purity amino acid for skin conditioning, pH buffering, and formulation stabilization in cosmetic systems."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "Antioxidant amino acid for anti-aging and protective skincare formulations."
         },
         "avivan": {
@@ -164,12 +179,15 @@
       },
       "products": {
         "avigly_hp": {
+          "subtitle": "Glycine USP",
           "desc": "High-purity, USP-grade Glycine for APIs and critical formulations."
         },
         "avitau": {
+          "subtitle": "Taurine",
           "desc": "A stable, high-purity amino acid for pharmaceutical and nutraceutical applications."
         },
         "chlorhexidine_base": {
+          "subtitle": "Base",
           "desc": "A high-purity intermediate for active ingredient synthesis."
         },
         "guaiacol": {

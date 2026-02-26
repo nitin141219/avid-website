@@ -27,6 +27,7 @@ const SAME_AS_ENGLISH_VALUE_ALLOWLIST = new Set([
   'Glycolic Acid',
   'AviGa™ HP70',
   'AviGa™ Bio HP70',
+  'AviGa™ Bio T',
   'AviGa™ T',
   'AviGly™ HP',
   'AviGly™ T',
@@ -43,7 +44,7 @@ const SAME_AS_ENGLISH_VALUE_ALLOWLIST = new Set([
 ]);
 
 const SAME_AS_ENGLISH_PATH_ALLOWLIST = [
-  /^menu\.(aviga_bio_hp|aviga_hp|aviga_t|avigly_hp|avigly_t|avitau|avivan)$/,
+  /^menu\.(aviga_bio_hp|aviga_bio_t|aviga_hp|aviga_t|avigly_hp|avigly_t|avitau|avivan)$/,
   /^menu\.submenu\.(blogs|downloads|jobs)$/,
   /^menu\.side_popup\.title$/,
   /^product\..+\.supplyChain\.packagingOptions\.\d+\.(unit|texts)$/,
