@@ -5,12 +5,13 @@ export interface ProductPageData {
   };
 
   information: {
-    title: { type: "icon" | "text"; src: string; className?: string };
+    title: { type: "icon" | "text"; src: string; className?: string; gapPx?: number };
     image?: string;
     images?: string[];
     tag?: string;
     subText?: string;
     description: string;
+    bioBasedContent?: string;
     casNumber?: string;
     molecularFormula?: string;
     molecularWeight?: string;

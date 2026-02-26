@@ -117,6 +117,9 @@
         }
       },
       "products": {
+        "aviga_bio_hp": {
+          "desc": "Fabrique a partir d'origines biosourcees pour une purete cosmetique sans compromis."
+        },
         "aviga_hp": {
           "desc": "La référence de l'industrie pour l'exfoliation et le rajeunissement de haute pureté."
         },

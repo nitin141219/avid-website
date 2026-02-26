@@ -3,7 +3,8 @@
         "chemicalInfo": {
             "casNumber": "Numéro CAS",
             "molecularFormula": "Formule moléculaire",
-            "molecularWeight": "Poids moléculaire"
+            "molecularWeight": "Poids moléculaire",
+            "bioBasedContent": "Teneur biosourcee"
         },
         "alpha-hydroxy-acids": {
             "aviga-hp": {
@@ -47,6 +48,88 @@
                         "1": {
                             "title": "Contrôle Qualité",
                             "description": "CdA spécifique par lot, surveillance de la production en temps réel, validation par des tiers disponible."
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Excellence de la Chaîne d'Approvisionnement",
+                    "subtitle": "Options de Conditionnement",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Dames-jeannes"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Fûts"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Conteneurs (IBC)"
+                        }
+                    },
+                    "packagingText": "Citernes ISO en vrac",
+                    "buttons": {
+                        "0": {
+                            "label": "Télécharger la FT"
+                        },
+                        "1": {
+                            "label": "Télécharger la FDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contacter les Ventes"
+                        }
+                    }
+                }
+            },
+            "aviga-bio-hp-70": {
+                "hero": {
+                    "title": "ACIDE\nALPHA\nHYDROXY",
+                    "subtitle": "Solutions de pointe pour des applications avancées"
+                },
+                "information": {
+                    "subText": "Acide Glycolique 70% Grade Cosmétique Biosourcé",
+                    "description": "AviGa™ Bio HP70 est l'acide glycolique biosource d'Avid Organics, conçu pour les marques et fabricants qui exigent a la fois performance et provenance. Issu de ressources renouvelables via notre procede de synthese verte proprietaire, il offre la meme purete de reference et le meme profil d'impuretes ultra-faible que notre HP70 de reference, avec l'avantage supplementaire d'une origine biosourcee verifiee. Pour les formulateurs confrontes a la demande croissante d'ingredients durables et tracables, AviGa™ Bio HP70 est la reponse sans compromis.",
+                    "bioBasedContent": "99% (verifie selon ASTM D6866)"
+                },
+                "applications": {
+                    "title": "Applications\nPrincipales",
+                    "items": {
+                        "0": {
+                            "title": "Dermatologie Avancee",
+                            "description": "Peelings chimiques professionnels et traitements dermatologiques de grade eleve, adaptes a l’ere de la clean beauty."
+                        },
+                        "1": {
+                            "title": "Formulations Anti-Age Premium",
+                            "description": "Serums et cremes exploitant l'efficacite de l'acide glycolique avec une histoire d'ingredient durable certifiee."
+                        },
+                        "2": {
+                            "title": "Synthese Pharmaceutique",
+                            "description": "Intermediaire pour les IPA et excipients necessitant des acides carboxyliques de haute purete issus d’une source biosourcee tracable."
+                        },
+                        "3": {
+                            "title": "Specialites Industrielles",
+                            "description": "Electronique, nettoyage de precision et auxiliaires pour semi-conducteurs, ou la chimie verte repond a des exigences de performance elevees."
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Durabilite & Assurance Qualite",
+                    "subtitle": "Normes de Fabrication",
+                    "otherStandards": {
+                        "0": {
+                            "title": "References Vertes",
+                            "description": "99% de carbone biosource, verifie par analyse radiocarbone AMS (ASTM D6866-24a / NF EN 16640:2017) par CIRAM, laboratoire accrédité Cofrac ISO/IEC 17025."
+                        },
+                        "1": {
+                            "title": "Securite",
+                            "description": "FDS complete, certifications de transport pour expeditions mondiales"
+                        },
+                        "2": {
+                            "title": "Controle Qualite",
+                            "description": "CoA specifique par lot, suivi de production en temps reel, validation tierce disponible"
                         }
                     }
                 },
@@ -640,7 +723,6 @@
                             "texts": "Fûts"
                         }
                     },
-
                     "packagingText": "Emballage personnalisé disponible pour les fabricants de polymères",
                     "buttons": {
                         "0": {

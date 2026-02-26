@@ -30,7 +30,10 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug, locale } = await params;
-  const resolvedSlug = slug === "aviga-hp-70" ? "aviga-hp" : slug;
+  const isAvigaBioHp = slug === "aviga-bio-hp-70";
+  const resolvedSlug =
+    slug === "aviga-hp-70" || slug === "aviga-bio-hp-70" ? "aviga-hp" : slug;
+  const translationSlug = isAvigaBioHp ? slug : resolvedSlug;
   const data = productPages?.[category]?.[resolvedSlug];
   if (!data) {
     return {
@@ -39,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     };
   }
 
-  const t = await getTranslations(`product.${category}.${resolvedSlug}`);
+  const t = await getTranslations(`product.${category}.${translationSlug}`);
   
   // Use subText as the actual product name (e.g., "Glycolic Acid 70% Cosmetic Grade", "AviGa HP70")
   // If subText is not available, fall back to hero title
@@ -68,7 +71,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   // Extract features/qualities
   const features: string[] = [];
   if (data.qualityInfo?.otherStandards) {
-    data.qualityInfo.otherStandards.forEach(standard => {
+    const qualityStandards = isAvigaBioHp
+      ? [
+          { title: "qualityInfo.otherStandards.0.title" },
+          { title: "qualityInfo.otherStandards.1.title" },
+          { title: "qualityInfo.otherStandards.2.title" },
+        ]
+      : data.qualityInfo.otherStandards;
+
+    qualityStandards.forEach((standard) => {
       try {
         features.push(t(standard.title));
       } catch {
@@ -123,11 +134,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ProductDetailPage({ params }: Props) {
   const { category, slug, locale } = await params;
 
-  const resolvedSlug = slug === "aviga-hp-70" ? "aviga-hp" : slug;
+  const isAvigaBioHp = slug === "aviga-bio-hp-70";
+  const resolvedSlug =
+    slug === "aviga-hp-70" || slug === "aviga-bio-hp-70" ? "aviga-hp" : slug;
+  const translationSlug = isAvigaBioHp ? slug : resolvedSlug;
   const data = productPages?.[category]?.[resolvedSlug];
   if (!data) return notFound();
 
-  const t = await getTranslations(`product.${category}.${resolvedSlug}`);
+  const t = await getTranslations(`product.${category}.${translationSlug}`);
   
   // Use subText as the actual product name (e.g., "Glycolic Acid 70% Cosmetic Grade", "AviGa HP70")
   // If subText is not available, fall back to hero title
@@ -144,7 +158,7 @@ export default async function ProductDetailPage({ params }: Props) {
     : `${getSiteUrl()}${productImage}`;
   const productUrl = `${getSiteUrl()}/${locale}${path}`;
   const slideshowImages = await resolveProductSlideshowImages({
-    slug: resolvedSlug,
+    slug: isAvigaBioHp ? slug : resolvedSlug,
     productName,
     fallbackImage: productImage,
   });
@@ -168,9 +182,10 @@ export default async function ProductDetailPage({ params }: Props) {
       <ProductTemplate
         data={data}
         slideshowImages={slideshowImages}
+        isAvigaBioHp={isAvigaBioHp}
         params={{
           category,
-          slug: resolvedSlug,
+          slug: translationSlug,
         }}
       />
     </>

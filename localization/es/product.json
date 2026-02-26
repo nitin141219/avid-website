@@ -3,7 +3,8 @@
         "chemicalInfo": {
             "casNumber": "N.º CAS",
             "molecularFormula": "Fórmula molecular",
-            "molecularWeight": "Peso molecular"
+            "molecularWeight": "Peso molecular",
+            "bioBasedContent": "Contenido biobasado"
         },
         "alpha-hydroxy-acids": {
             "aviga-hp": {
@@ -47,6 +48,88 @@
                         "1": {
                             "title": "Control de Calidad",
                             "description": "CoA específico por lote, monitoreo de producción en tiempo real, validación por terceros disponible."
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Excelencia en la Cadena de Suministro",
+                    "subtitle": "Opciones de Empaque",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Garrafas"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Tambores"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Totes"
+                        }
+                    },
+                    "packagingText": "Tanques ISO a granel",
+                    "buttons": {
+                        "0": {
+                            "label": "Descargar PDS"
+                        },
+                        "1": {
+                            "label": "Descargar SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contactar Ventas"
+                        }
+                    }
+                }
+            },
+            "aviga-bio-hp-70": {
+                "hero": {
+                    "title": "ALFA\nHIDROXI\nÁCIDO",
+                    "subtitle": "Soluciones líderes en el mercado para aplicaciones avanzadas"
+                },
+                "information": {
+                    "subText": "Acido Glicolico 70% Grado Cosmetico de Origen Biobasado",
+                    "description": "AviGa™ Bio HP70 es el acido glicolico biobasado de Avid Organics, disenado para marcas y fabricantes que exigen rendimiento y procedencia. Derivado de materias primas renovables mediante nuestro proceso propietario de sintesis verde, ofrece la misma pureza lider y el mismo perfil de impurezas ultrabajo que nuestro HP70 de referencia, con el beneficio adicional de un origen biobasado verificado. Para formuladores que enfrentan la creciente demanda de ingredientes sostenibles y trazables, AviGa™ Bio HP70 es la respuesta sin compromisos.",
+                    "bioBasedContent": "99% (verificado segun ASTM D6866)"
+                },
+                "applications": {
+                    "title": "Aplicaciones\nPrimarias",
+                    "items": {
+                        "0": {
+                            "title": "Dermatologia Avanzada",
+                            "description": "Peelings quimicos profesionales y tratamientos dermatologicos de grado superior para la era clean beauty."
+                        },
+                        "1": {
+                            "title": "Formulaciones Antiedad Premium",
+                            "description": "Sueros y cremas que aprovechan la eficacia del acido glicolico con una historia de ingrediente sostenible certificada."
+                        },
+                        "2": {
+                            "title": "Sintesis Farmaceutica",
+                            "description": "Intermedio para API y excipientes que requieren acidos carboxilicos de alta pureza provenientes de una fuente biobasada trazable."
+                        },
+                        "3": {
+                            "title": "Especialidades Industriales",
+                            "description": "Electronica, limpieza de precision y auxiliares de semiconductores, donde la quimica verde cumple con exigentes estandares de rendimiento."
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Sostenibilidad y Garantia de Calidad",
+                    "subtitle": "Estándares de Fabricación",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Credenciales Verdes",
+                            "description": "99% de carbono biobasado, verificado mediante analisis radiocarbonico AMS (ASTM D6866-24a / NF EN 16640:2017) por CIRAM, laboratorio acreditado Cofrac ISO/IEC 17025."
+                        },
+                        "1": {
+                            "title": "Seguridad",
+                            "description": "SDS integral, certificaciones de transporte para envios globales"
+                        },
+                        "2": {
+                            "title": "Control de Calidad",
+                            "description": "CoA especifico por lote, monitoreo de produccion en tiempo real, validacion de terceros disponible"
                         }
                     }
                 },
@@ -640,7 +723,6 @@
                             "texts": "Tambores"
                         }
                     },
-
                     "packagingText": "Empaque personalizado disponible para fabricantes de polímeros",
                     "buttons": {
                         "0": {

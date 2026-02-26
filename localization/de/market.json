@@ -121,6 +121,9 @@
         }
       },
       "products": {
+        "aviga_bio_hp": {
+          "desc": "Hergestellt aus biobasierten Quellen für kompromisslose kosmetische Reinheit."
+        },
         "aviga_hp": {
           "desc": "Der Branchenmaßstab für hochreine Exfoliation und Hauterneuerung."
         },

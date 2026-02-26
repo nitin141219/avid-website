@@ -13,8 +13,13 @@ export interface MarketPageData {
   }[];
   productsTitle: string;
   products: {
-    title: { type: "icon" | "text"; src: string; className?: string };
+    title: {
+      type: "icon" | "text";
+      src: string;
+      className?: string;
+    };
     subtitle?: string;
+    subtitleClassName?: string;
     desc: string;
     image: string;
     link: string;
@@ -193,18 +198,19 @@ export const marketPages: Record<string, MarketPageData> = {
     productsTitle: "Featured Products",
     products: [
       {
+        title: { type: "icon", src: "/images/product/avigabioHP70.png", className: "w-40 mb-2" },
+        subtitle: "Glycolic Acid 70% Cosmetic Grade Bio-Based",
+        subtitleClassName: "whitespace-nowrap text-sm sm:text-base",
+        desc: "products.aviga_bio_hp.desc",
+        image: "/images/market/image19.jpg",
+        link: "/product/alpha-hydroxy-acids/aviga-bio-hp-70",
+      },
+      {
         title: { type: "icon", src: "/images/product/avigaHP70.png", className: "w-30 mb-2" },
         subtitle: "Glycolic Acid 70% Cosmetic Grade",
         desc: "products.aviga_hp.desc",
         image: "/images/market/image17.jpg",
         link: "/product/alpha-hydroxy-acids/aviga-hp-70",
-      },
-      {
-        title: { type: "text", src: "Chlorhexidine" },
-        subtitle: "Base",
-        desc: "products.chlorhexidine_base.desc",
-        image: "/images/market/image7.jpg",
-        link: "/product/specialty-chemicals-and-intermediates/chlorhexidine-base",
       },
       {
         title: { type: "icon", src: "/images/product/aviglyHP.png", className: "w-34" },
@@ -214,11 +220,18 @@ export const marketPages: Record<string, MarketPageData> = {
         link: "/product/amino-acids/avigly-hp",
       },
       {
-        title: { type: "icon", src: "/images/product/avitau.png", className: "mb-2" },
+        title: { type: "icon", src: "/images/product/avitau.png", className: "object-contain mb-1" },
         subtitle: "Taurine",
         desc: "products.avitau.desc",
         image: "/images/market/image9.jpg",
         link: "/product/amino-acids/avitau",
+      },
+      {
+        title: { type: "text", src: "Chlorhexidine" },
+        subtitle: "Base",
+        desc: "products.chlorhexidine_base.desc",
+        image: "/images/market/image7.jpg",
+        link: "/product/specialty-chemicals-and-intermediates/chlorhexidine-base",
       },
     ],
     productButton: {

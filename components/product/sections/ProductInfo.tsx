@@ -31,12 +31,15 @@ function ProductInfo({
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="items-start lg:items-center gap-8 lg:gap-16 grid lg:grid-cols-2 pt-4 lg:pt-0 container-inner"
+        className="items-start lg:items-center gap-8 lg:gap-16 grid lg:grid-cols-2 pt-4 lg:pt-0 pb-6 lg:pb-0 container-inner"
       >
         {/* Left Content */}
         <div>
           {data?.title?.type === "icon" ? (
-            <div className="mb-6 w-[250px] h-[50px] relative">
+            <div
+              className="w-[250px] h-[50px] relative"
+              style={{ marginBottom: data?.title?.gapPx ?? 24 }}
+            >
               <Image
                 width={250}
                 height={50}
@@ -73,6 +76,12 @@ function ProductInfo({
               {data.molecularWeight && (
                 <div className="text-off-black">
                     <b>{tRoot('chemicalInfo.molecularWeight')}:</b> <span className="font-normal">{data.molecularWeight}</span>
+                </div>
+              )}
+              {data.bioBasedContent && (
+                <div className="text-off-black">
+                  <b>{tRoot("chemicalInfo.bioBasedContent")}:</b>{" "}
+                  <span className="font-normal">{t(data.bioBasedContent)}</span>
                 </div>
               )}
             </div>

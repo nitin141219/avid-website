@@ -11,23 +11,61 @@ import ProductSupplyChainExcellence from "./sections/SupplyChainExcellence";
 export default function ProductTemplate({
   data,
   slideshowImages,
+  isAvigaBioHp = false,
   params,
 }: {
   data: ProductPageData;
   slideshowImages?: string[];
+  isAvigaBioHp?: boolean;
   params: { category: string; slug: string };
 }) {
+  const resolvedData: ProductPageData = isAvigaBioHp
+    ? {
+        ...data,
+        information: {
+          ...data.information,
+          bioBasedContent: "information.bioBasedContent",
+          title: { type: "icon", src: "/images/product/avigabioHP70.png", gapPx: 4 },
+        },
+        qualityInfo: {
+          ...data.qualityInfo,
+          otherStandards: [
+            {
+              id: 0,
+              title: "qualityInfo.otherStandards.0.title",
+              description: "qualityInfo.otherStandards.0.description",
+            },
+            {
+              id: 1,
+              title: "qualityInfo.otherStandards.1.title",
+              description: "qualityInfo.otherStandards.1.description",
+            },
+            {
+              id: 2,
+              title: "qualityInfo.otherStandards.2.title",
+              description: "qualityInfo.otherStandards.2.description",
+            },
+          ],
+        },
+      }
+    : data;
+
   const t = useTranslations("product." + params.category + "." + params.slug);
+  const tWithVariant = t;
 
   return (
     <>
       <section>
         {/* Hero Section */}
-        <ProductHeroSection data={data?.hero} t={t} />
-        <ProductInfo data={data?.information} slideshowImages={slideshowImages} t={t} />
-        <ProductPrimaryApplication data={data?.applications} t={t} />
-        <ProductGlobalCompliance data={data?.qualityInfo} t={t} />
-        <ProductSupplyChainExcellence data={data?.supplyChain} t={t} />
+        <ProductHeroSection data={resolvedData?.hero} t={tWithVariant} />
+        <ProductInfo
+          data={resolvedData?.information}
+          slideshowImages={slideshowImages}
+          t={tWithVariant}
+        />
+        <ProductPrimaryApplication data={resolvedData?.applications} t={tWithVariant} />
+        <ProductGlobalCompliance data={resolvedData?.qualityInfo} t={tWithVariant} />
+        <ProductSupplyChainExcellence data={resolvedData?.supplyChain} t={tWithVariant} />
       </section>
     </>
   );

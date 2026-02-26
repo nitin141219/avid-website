@@ -64,6 +64,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // 3. Product Pages
   const productPaths = [
+    "/product/alpha-hydroxy-acids/aviga-bio-hp-70",
     "/product/alpha-hydroxy-acids/aviga-hp-70",
     "/product/alpha-hydroxy-acids/aviga-t",
     "/product/amino-acids/avigly-hp",

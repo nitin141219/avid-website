@@ -100,7 +100,13 @@ export default function MarketTemplate({
                     {p?.subtitle && (
                       <>
                         <div className="border-light-dark border-b w-12"></div>
-                        <p className="font-normal text-medium-dark text-lg">{p?.subtitle}</p>
+                        <p
+                          className={`pr-8 font-normal text-medium-dark leading-snug ${
+                            p?.subtitleClassName || "text-base sm:text-lg"
+                          }`}
+                        >
+                          {p?.subtitle}
+                        </p>
                       </>
                     )}
                   </div>

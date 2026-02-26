@@ -3,7 +3,8 @@
         "chemicalInfo": {
             "casNumber": "CAS Number",
             "molecularFormula": "Molecular Formula",
-            "molecularWeight": "Molecular Weight"
+            "molecularWeight": "Molecular Weight",
+            "bioBasedContent": "Bio-Based Content"
         },
         "alpha-hydroxy-acids": {
             "aviga-hp": {
@@ -45,6 +46,88 @@
                             "description": "Comprehensive SDS, transportation certifications for global shipment"
                         },
                         "1": {
+                            "title": "Quality Control",
+                            "description": "Batch-specific CoA, real-time production monitoring, third-party validation available"
+                        }
+                    }
+                },
+                "supplyChain": {
+                    "title": "Supply Chain Excellence",
+                    "subtitle": "Packaging Options",
+                    "packagingOptions": {
+                        "0": {
+                            "unit": "kg",
+                            "texts": "Carboys"
+                        },
+                        "1": {
+                            "unit": "kg",
+                            "texts": "Drums"
+                        },
+                        "2": {
+                            "unit": "kg",
+                            "texts": "Totes"
+                        }
+                    },
+                    "packagingText": "Bulk ISO tanks",
+                    "buttons": {
+                        "0": {
+                            "label": "Download PDS"
+                        },
+                        "1": {
+                            "label": "Download SDS"
+                        }
+                    },
+                    "linkButtons": {
+                        "0": {
+                            "label": "Contact Sales"
+                        }
+                    }
+                }
+            },
+            "aviga-bio-hp-70": {
+                "hero": {
+                    "title": "ALPHA\nHYDROXY\nACIDS",
+                    "subtitle": "Market-Leading Solutions for Advanced Applications"
+                },
+                "information": {
+                    "subText": "Glycolic Acid 70% Cosmetic Grade Bio-Based",
+                    "description": "AviGa™ Bio HP70 is Avid Organics' bio-based Glycolic Acid, engineered for brands and manufacturers who demand both performance and provenance. Derived from renewable feedstocks through our proprietary green synthesis process, it delivers the same industry-leading purity and ultra-low impurity profile as our gold-standard HP70 with the added benefit of a verified bio-based origin. For formulators navigating the growing demand for sustainable, traceable ingredients, AviGa™ Bio HP70 is the answer that doesn't ask you to compromise.",
+                    "bioBasedContent": "99% (ASTM D6866 verified)"
+                },
+                "applications": {
+                    "title": "Primary\nApplications",
+                    "items": {
+                        "0": {
+                            "title": "Advanced Dermatology",
+                            "description": "Professional chemical peels and dermatologist-grade treatments formulated for the clean beauty era."
+                        },
+                        "1": {
+                            "title": "Premium Anti-Aging Formulations",
+                            "description": "Serums and creams leveraging glycolic acid efficacy with a certified sustainable ingredient story."
+                        },
+                        "2": {
+                            "title": "Pharmaceutical Synthesis",
+                            "description": "Intermediate for APIs and excipients requiring high-purity carboxylic acids from a traceable bio-based source."
+                        },
+                        "3": {
+                            "title": "Industrial Specialties",
+                            "description": "Electronics, precision cleaning & semiconductor auxiliaries where green chemistry meets demanding performance standards."
+                        }
+                    }
+                },
+                "qualityInfo": {
+                    "title": "Sustainability & Quality Assurance",
+                    "subtitle": "Manufacturing Standards",
+                    "otherStandards": {
+                        "0": {
+                            "title": "Green Credentials",
+                            "description": "99% bio-based carbon content, verified via AMS radiocarbon analysis (ASTM D6866-24a / NF EN 16640:2017) by CIRAM, a Cofrac-accredited ISO/IEC 17025 laboratory."
+                        },
+                        "1": {
+                            "title": "Safety",
+                            "description": "Comprehensive SDS, transportation certifications for global shipment"
+                        },
+                        "2": {
                             "title": "Quality Control",
                             "description": "Batch-specific CoA, real-time production monitoring, third-party validation available"
                         }
@@ -640,7 +723,6 @@
                             "texts": "Drums"
                         }
                     },
-
                     "packagingText": "Custom packaging available for polymer manufacturers",
                     "buttons": {
                         "0": {

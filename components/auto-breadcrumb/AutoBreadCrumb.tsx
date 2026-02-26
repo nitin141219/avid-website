@@ -35,6 +35,7 @@ const segmentToTranslationKey: Record<string, string> = {
   pharmaceuticals: "submenu.pharma",
 
   product: "products",
+  "aviga-bio-hp-70": "aviga_bio_hp",
   "aviga-hp-70": "aviga_hp",
   "alpha-hydroxy-acids": "products_alpha",
   "aviga-hp": "aviga_hp",

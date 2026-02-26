@@ -121,6 +121,9 @@
         }
       },
       "products": {
+        "aviga_bio_hp": {
+          "desc": "Manufactured from bio-based origins for uncompromising cosmetic purity."
+        },
         "aviga_hp": {
           "desc": "The industry benchmark for high-purity exfoliation and rejuvenation."
         },
