@@ -14,7 +14,12 @@ export default function EnvironmentalStewardshipSection() {
   const target2Value = t("future_targets.target2.value");
   const target2Number = Number.parseFloat(target2Value.replace(/[^0-9.-]/g, ""));
   const target2IsNumeric = Number.isFinite(target2Number);
-  const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
+  // Improved intersection observer for mobile reliability
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.05, // Lower threshold for mobile
+    rootMargin: "0px 0px 0px 0px", // Remove negative margin
+  });
   return (
     <section
       ref={ref}
@@ -73,7 +78,7 @@ export default function EnvironmentalStewardshipSection() {
                   {item.description_part1}{" "}
                   {inView ? (
                     <CountUp
-                      end={parseInt(item.count.replace(/,/g, ""))}
+                      end={Number.parseInt(String(item.count).replace(/[^\d-]/g, ""), 10) || 0}
                       duration={4}
                       separator="," 
                       className="font-bold text-primary text-2xl"
