@@ -57,13 +57,29 @@ export default function ProductTemplate({
     <>
       <section>
         {/* Hero Section */}
-        <ProductHeroSection data={resolvedData?.hero} t={tWithVariant} />
+        <ProductHeroSection
+          data={resolvedData?.hero}
+          t={tWithVariant}
+          backgroundColor={isAvigaBioHp ? "#159A46" : undefined}
+        />
         <ProductInfo
           data={resolvedData?.information}
           slideshowImages={slideshowImages}
           t={tWithVariant}
         />
-        <ProductPrimaryApplication data={resolvedData?.applications} t={tWithVariant} />
+        <ProductPrimaryApplication
+          data={resolvedData?.applications}
+          t={tWithVariant}
+          iconStyle={
+            isAvigaBioHp
+              ? {
+                  // Tints monochrome application icons to brand green (#159A46)
+                  filter:
+                    "brightness(0) saturate(100%) invert(43%) sepia(74%) saturate(670%) hue-rotate(96deg) brightness(95%) contrast(88%)",
+                }
+              : undefined
+          }
+        />
         <ProductGlobalCompliance data={resolvedData?.qualityInfo} t={tWithVariant} />
         <ProductSupplyChainExcellence data={resolvedData?.supplyChain} t={tWithVariant} />
       </section>

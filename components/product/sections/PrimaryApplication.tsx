@@ -2,14 +2,17 @@
 import { MultilineText } from "@/components/MultilineText";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import type { CSSProperties } from "react";
 import { ProductPageData } from "../data";
 
 export default function ProductPrimaryApplication({
   data,
   t,
+  iconStyle,
 }: {
   data: ProductPageData["applications"];
   t: any;
+  iconStyle?: CSSProperties;
 }) {
   return (
     <motion.div
@@ -33,7 +36,13 @@ export default function ProductPrimaryApplication({
           <div className="flex flex-col items-start w-full max-w-100" key={app?.id}>
             <div className="flex items-center gap-2">
               <div className="relative flex flex-[0_0_72px] justify-start items-center size-18">
-                <Image src={app.icon} alt={app.title as string} fill className="object-contain" />
+                <Image
+                  src={app.icon}
+                  alt={app.title as string}
+                  fill
+                  className="object-contain"
+                  style={iconStyle}
+                />
               </div>
               <MultilineText
                 as="h3"
