@@ -19,7 +19,7 @@ export default function NewsHeroSection() {
       >
         {/* Desktop Background Image */}
         <div
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom-right bg-fixed"
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom-right"
           style={{
             backgroundImage: `url(${pressImage.src})`,
           }}

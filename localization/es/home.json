@@ -21,7 +21,7 @@
   "key-products": {
     "title": "Nuestros Productos Clave",
     "tagline": "Un Enfoque en Químicas de Alto Rendimiento.",
-    "description": "Como fabricante, ofrecemos una experiencia sin igual en nuestras tecnologías principales.\n Nuestras series de productos están diseñadas para proporcionar un espectro de grados, brindando a nuestros socios soluciones personalizadas para sus aplicaciones específicas.",
+    "description": "",
     "series": "Serie",
     "aviga": {
       "subtitle": "Ácido Glicólico",
@@ -55,8 +55,8 @@
     },
     "next": {
       "title": [
-        "Qué Sigue",
-        ""
+        "Qué",
+        "Sigue"
       ],
       "description": "Con la electricidad 100% renovable ya lograda y un objetivo de carbono neto cero para 2050, continuamos avanzando en la fabricación responsable mientras expandimos nuestras capacidades globales.",
       "button": "Explore nuestros compromisos"

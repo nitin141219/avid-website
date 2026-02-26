@@ -4,26 +4,34 @@ import DotsOverlay from "@/components/dots-overlay/DotsOverlay";
 import { MultilineText } from "@/components/MultilineText";
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { CSSProperties } from "react";
 import { ProductPageData } from "../data";
 
 function ProductHeroSection({
   data,
   t,
-  backgroundColor,
+  transitionColor,
 }: {
   data: ProductPageData["hero"];
   t: any;
-  backgroundColor?: string;
+  transitionColor?: string;
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     once: true,
   });
-  const style: CSSProperties | undefined = backgroundColor ? { backgroundColor } : undefined;
 
   return (
-    <div className="relative bg-primary" style={style} ref={ref}>
+    <div className="relative bg-primary overflow-hidden" ref={ref}>
+      {transitionColor ? (
+        <motion.div
+          aria-hidden="true"
+          className="absolute inset-0 pointer-events-none"
+          style={{ backgroundColor: transitionColor }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+          transition={{ duration: 2, ease: "easeInOut" }}
+        />
+      ) : null}
       <DotsOverlay>
         <motion.div
           initial={{ opacity: 0 }}

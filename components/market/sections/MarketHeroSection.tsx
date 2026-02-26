@@ -32,7 +32,7 @@ function MarketHeroSection({ data, t }: { data: MarketPageData["hero"]; t: any }
       >
         {/* Desktop Background Image */}
         <div
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-center bg-fixed"
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-center"
           style={{
             backgroundImage: `url(${imageSource.desktop})`,
           }}

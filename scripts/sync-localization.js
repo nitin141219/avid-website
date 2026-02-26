@@ -77,6 +77,16 @@ function shouldAllowSameAsEnglish(keyPath, value) {
   return SAME_AS_ENGLISH_PATH_ALLOWLIST.some((pattern) => pattern.test(keyPath));
 }
 
+function getValueType(value) {
+  if (Array.isArray(value)) return 'array';
+  if (value === null) return 'null';
+  return typeof value;
+}
+
+function cloneValue(value) {
+  return JSON.parse(JSON.stringify(value));
+}
+
 /**
  * Translate English text using a simple mapping strategy
  * For production, this should use a translation API
@@ -242,6 +252,151 @@ function getUntranslatedSameAsEnglishKeys(enFile, langFile) {
 }
 
 /**
+ * Detect value-shape drifts that cause visual/content mismatch despite key parity
+ */
+function getValueDriftIssues(enFile, langFile) {
+  try {
+    const enJson = JSON.parse(fs.readFileSync(enFile, 'utf-8'));
+    const langJson = JSON.parse(fs.readFileSync(langFile, 'utf-8'));
+
+    function collectDrifts(enValue, langValue, keyPath = '') {
+      const issues = [];
+      const enType = getValueType(enValue);
+      const langType = getValueType(langValue);
+
+      if (enType !== langType) {
+        issues.push(`${keyPath || '<root>'}: type mismatch (${enType} vs ${langType})`);
+        return issues;
+      }
+
+      if (enType === 'array') {
+        if (enValue.length !== langValue.length) {
+          issues.push(`${keyPath || '<root>'}: array length mismatch (${enValue.length} vs ${langValue.length})`);
+        }
+
+        const iterations = Math.min(enValue.length, langValue.length);
+        for (let i = 0; i < iterations; i += 1) {
+          issues.push(...collectDrifts(enValue[i], langValue[i], `${keyPath}[${i}]`));
+        }
+        return issues;
+      }
+
+      if (enType === 'object') {
+        // Missing/extra keys are already reported by structural checks.
+        for (const key of Object.keys(enValue)) {
+          if (!(key in langValue)) continue;
+          const nextPath = keyPath ? `${keyPath}.${key}` : key;
+          issues.push(...collectDrifts(enValue[key], langValue[key], nextPath));
+        }
+        return issues;
+      }
+
+      if (enType === 'string') {
+        const enTrimmed = enValue.trim();
+        const langTrimmed = langValue.trim();
+
+        if (enTrimmed === '' && langTrimmed !== '') {
+          issues.push(`${keyPath}: English empty but locale has content`);
+        } else if (enTrimmed !== '' && langTrimmed === '') {
+          issues.push(`${keyPath}: English has content but locale is empty`);
+        }
+      }
+
+      return issues;
+    }
+
+    return collectDrifts(enJson, langJson);
+  } catch (e) {
+    return [];
+  }
+}
+
+/**
+ * Auto-fix locale shape/content parity against English to prevent visual drifts.
+ * - Keeps translated non-empty strings when compatible.
+ * - Forces empty/non-empty parity with English.
+ * - Aligns object keys, array lengths, and value types.
+ */
+function syncValueWithEnglish(enValue, localeValue) {
+  const enType = getValueType(enValue);
+  const localeType = getValueType(localeValue);
+
+  if (enType !== localeType) {
+    return cloneValue(enValue);
+  }
+
+  if (enType === 'array') {
+    const result = [];
+    for (let i = 0; i < enValue.length; i += 1) {
+      result.push(syncValueWithEnglish(enValue[i], localeValue[i]));
+    }
+    return result;
+  }
+
+  if (enType === 'object') {
+    const result = {};
+    for (const key of Object.keys(enValue)) {
+      result[key] = syncValueWithEnglish(enValue[key], localeValue[key]);
+    }
+    return result;
+  }
+
+  if (enType === 'string') {
+    const enTrimmed = enValue.trim();
+    const localeTrimmed = localeValue.trim();
+
+    // English intentionally empty: locale should also be empty for visual parity.
+    if (enTrimmed === '') return '';
+
+    // English has content but locale is blank: fallback to English to avoid empty UI.
+    if (localeTrimmed === '') return enValue;
+
+    // Keep translated content.
+    return localeValue;
+  }
+
+  return localeValue;
+}
+
+function autoSyncLocalizationFromEnglish() {
+  log('\n🛠️  Auto-syncing localization shape from English...', 'blue');
+  const files = fs.readdirSync(path.join(LOCALIZATION_DIR, EN_LANG)).filter((f) => f.endsWith('.json'));
+  let changedFiles = 0;
+
+  files.forEach((file) => {
+    const enPath = path.join(LOCALIZATION_DIR, EN_LANG, file);
+    const enJson = JSON.parse(fs.readFileSync(enPath, 'utf-8'));
+
+    LANGUAGES.forEach((lang) => {
+      const langPath = path.join(LOCALIZATION_DIR, lang, file);
+      if (!fs.existsSync(langPath)) {
+        fs.writeFileSync(langPath, JSON.stringify(enJson, null, 2) + '\n');
+        changedFiles += 1;
+        log(`➕ Created missing file from English: ${lang}/${file}`, 'yellow');
+        return;
+      }
+
+      const langJson = JSON.parse(fs.readFileSync(langPath, 'utf-8'));
+      const synced = syncValueWithEnglish(enJson, langJson);
+      const before = JSON.stringify(langJson);
+      const after = JSON.stringify(synced);
+
+      if (before !== after) {
+        fs.writeFileSync(langPath, JSON.stringify(synced, null, 2) + '\n');
+        changedFiles += 1;
+        log(`♻️  Synced: ${lang}/${file}`, 'yellow');
+      }
+    });
+  });
+
+  if (changedFiles === 0) {
+    log('✅ No locale files needed sync changes.', 'green');
+  } else {
+    log(`✅ Auto-sync updated ${changedFiles} locale file(s).`, 'green');
+  }
+}
+
+/**
  * Generate a detailed sync report
  */
 function generateSyncReport() {
@@ -257,7 +412,9 @@ function generateSyncReport() {
       totalIssues: 0,
       byLanguage: {},
       untranslatedSameAsEnglish: 0,
-      untranslatedByLanguage: {}
+      untranslatedByLanguage: {},
+      valueDriftIssues: 0,
+      valueDriftByLanguage: {}
     }
   };
 
@@ -269,21 +426,28 @@ function generateSyncReport() {
       const langPath = path.join(LOCALIZATION_DIR, lang, file);
       const missing = getMissingKeys(enPath, langPath);
       const untranslated = getUntranslatedSameAsEnglishKeys(enPath, langPath);
+      const valueDrifts = getValueDriftIssues(enPath, langPath);
       const issueCount = missing.length;
       const untranslatedCount = untranslated.length;
+      const valueDriftCount = valueDrifts.length;
 
       report.summary.totalIssues += issueCount;
       report.summary.byLanguage[lang] = (report.summary.byLanguage[lang] || 0) + issueCount;
       report.summary.untranslatedSameAsEnglish += untranslatedCount;
       report.summary.untranslatedByLanguage[lang] =
         (report.summary.untranslatedByLanguage[lang] || 0) + untranslatedCount;
+      report.summary.valueDriftIssues += valueDriftCount;
+      report.summary.valueDriftByLanguage[lang] =
+        (report.summary.valueDriftByLanguage[lang] || 0) + valueDriftCount;
       
       report.files[file][lang] = {
         exists: fs.existsSync(langPath),
         missingKeys: issueCount > 0 ? missing : 'None',
         issueCount,
         untranslatedSameAsEnglish: untranslatedCount > 0 ? untranslated : 'None',
-        untranslatedIssueCount: untranslatedCount
+        untranslatedIssueCount: untranslatedCount,
+        valueDrifts: valueDriftCount > 0 ? valueDrifts : 'None',
+        valueDriftIssueCount: valueDriftCount
       };
     });
   });
@@ -302,27 +466,33 @@ function generateSyncReport() {
 function main() {
   log('\n🔄 Starting Localization Sync Check...', 'blue');
   log(`📁 Localization directory: ${LOCALIZATION_DIR}`, 'blue');
+
+  if (process.argv.includes('--fix')) {
+    autoSyncLocalizationFromEnglish();
+  }
   
   const { allInSync, errors } = validateLocalizationStructure();
   
   const report = generateSyncReport();
   const hasNestedMissingKeys = (report.summary?.totalIssues || 0) > 0;
   const hasUntranslatedValues = (report.summary?.untranslatedSameAsEnglish || 0) > 0;
+  const hasValueDrift = (report.summary?.valueDriftIssues || 0) > 0;
 
-  if (allInSync && !hasNestedMissingKeys && !hasUntranslatedValues) {
+  if (allInSync && !hasNestedMissingKeys && !hasUntranslatedValues && !hasValueDrift) {
     log('\n✅ All localization files are properly synced!', 'green');
     process.exit(0);
   } else {
     const structureIssues = errors.length;
     const nestedIssues = report.summary?.totalIssues || 0;
     const untranslatedIssues = report.summary?.untranslatedSameAsEnglish || 0;
+    const valueDriftIssues = report.summary?.valueDriftIssues || 0;
     log(
-      `\n❌ Found ${structureIssues + nestedIssues + untranslatedIssues} sync issues (structure: ${structureIssues}, missing nested keys: ${nestedIssues}, untranslated values: ${untranslatedIssues})`,
+      `\n❌ Found ${structureIssues + nestedIssues + untranslatedIssues + valueDriftIssues} sync issues (structure: ${structureIssues}, missing nested keys: ${nestedIssues}, untranslated values: ${untranslatedIssues}, value drift: ${valueDriftIssues})`,
       'red'
     );
     log('\n⚠️  Action required:', 'yellow');
     log('1. Review the differences above', 'yellow');
-    log('2. Update missing/untranslated translations in other languages', 'yellow');
+    log('2. Update missing/untranslated/drifted translations in other languages', 'yellow');
     log('3. Run this script again to verify', 'yellow');
     log('\n📄 Detailed report saved to: localization-sync-report.json\n', 'yellow');
     process.exit(1);
@@ -338,4 +508,6 @@ module.exports = {
   validateLocalizationStructure,
   getMissingKeys,
   getUntranslatedSameAsEnglishKeys,
+  getValueDriftIssues,
+  autoSyncLocalizationFromEnglish,
 };

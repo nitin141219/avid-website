@@ -9,6 +9,11 @@ import { useInView } from "react-intersection-observer";
 export default function EnvironmentalStewardshipSection() {
   const t = useTranslations("Sustainability.EnvironmentalStewardship");
   const features = t.raw("features");
+  const target1Text = t("future_targets.target1.text");
+  const target1TextWithBreak = target1Text.replace(" (", "\n(");
+  const target2Value = t("future_targets.target2.value");
+  const target2Number = Number.parseFloat(target2Value.replace(/[^0-9.-]/g, ""));
+  const target2IsNumeric = Number.isFinite(target2Number);
   const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.5 });
   return (
     <section
@@ -90,45 +95,44 @@ export default function EnvironmentalStewardshipSection() {
           <h3 className="mb-4 font-extrabold text-off-black text-xl leading-tight">
             {t("future_targets.title")}
           </h3>
-          <div className="flex md:flex-row flex-col items-start md:items-center gap-10">
-            <div className="flex items-center gap-3 w-full max-w-64">
-              <p className="font-light text-off-black text-6xl">
+          <div className="flex md:flex-row flex-col items-start md:items-end gap-8 md:gap-10">
+            <div className="grid grid-cols-[auto_1fr] items-end gap-3 w-full md:max-w-[26rem]">
+              <p className="font-light text-off-black text-6xl leading-none whitespace-nowrap flex-shrink-0">
                 {inView ? (
                   <CountUp
                     end={50}
                     duration={4}
                     suffix="%"
-                    className="font-light text-off-black text-6xl"
+                    className="font-light text-off-black text-6xl leading-none whitespace-nowrap"
                   />
                 ) : (
-                  <span className="font-light text-off-black text-6xl">0%</span>
+                  <span className="font-light text-off-black text-6xl leading-none whitespace-nowrap">0%</span>
                 )}
               </p>
-              <p className="font-medium text-medium-dark text-xs">
-                {t("future_targets.target1.text")} {" "}
+              <p className="font-medium text-medium-dark text-xs leading-relaxed max-w-[16rem] whitespace-pre-line">
+                {target1TextWithBreak} {" "}
                 <span className="font-extrabold text-black/80">2030</span>
               </p>
             </div>
             <div className="max-md:hidden bg-gray-400 w-0.5 h-10" />
-            <div className="flex items-center gap-3 w-full">
-              <p className="font-light text-off-black text-6xl">
-                {/* If Net Zero is not a number, skip animation */}
-                {t("future_targets.target2.value") === "Net Zero" ? (
-                  t("future_targets.target2.value")
-                ) : (
+            <div className="grid grid-cols-[auto_1fr] items-end gap-3 w-full">
+              <p className="font-light text-off-black text-6xl leading-none whitespace-nowrap flex-shrink-0">
+                {target2IsNumeric ? (
                   inView ? (
                     <CountUp
-                      end={parseInt(t("future_targets.target2.value").replace(/%/g, ""))}
+                      end={target2Number}
                       duration={4}
                       suffix="%"
-                      className="font-light text-off-black text-6xl"
+                      className="font-light text-off-black text-6xl leading-none whitespace-nowrap"
                     />
                   ) : (
-                    <span className="font-light text-off-black text-6xl">0%</span>
+                    <span className="font-light text-off-black text-6xl leading-none whitespace-nowrap">0%</span>
                   )
+                ) : (
+                  target2Value
                 )}
               </p>
-              <p className="mt-auto mb-1 font-medium text-medium-dark text-xs">
+              <p className="mb-1 font-medium text-medium-dark text-xs leading-relaxed">
                 {t("future_targets.target2.text")}
                 <span className="font-extrabold text-black/80"> 2040</span>
               </p>

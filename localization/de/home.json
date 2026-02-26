@@ -12,16 +12,16 @@
   },
   "our-market": {
     "title": "Unsere Märkte",
-    "animal_nutrition": "Tierernährung",
-    "food_beverage": "Lebensmittel und Getränke",
-    "industrial": "Industrie- und Spezialanwendungen",
     "personal_care": "Körperpflege und Kosmetik",
-    "pharma": "Arzneimittel"
+    "pharma": "Arzneimittel",
+    "food_beverage": "Lebensmittel und Getränke",
+    "animal_nutrition": "Tierernährung",
+    "industrial": "Industrie- und Spezialanwendungen"
   },
   "key-products": {
     "title": "Unsere Schlüsselprodukte",
     "tagline": "Ein Fokus auf Hochleistungschemie.",
-    "description": "Als Hersteller bieten wir eine beispiellose Expertise in unseren Kerntechnologien.\n Unsere Produktserien sind so konzipiert, dass sie ein Spektrum an Qualitäten bieten und unseren Partnern maßgeschneiderte Lösungen für ihre spezifischen Anwendungen bieten.",
+    "description": "",
     "series": "Serie",
     "aviga": {
       "subtitle": "Glykolsäure",
@@ -38,17 +38,26 @@
   },
   "milestones": {
     "began": {
-      "title": ["Wo es ist", "Begann"],
+      "title": [
+        "Wo es ist",
+        "Begann"
+      ],
       "description": "Von einer Produktionslinie zu 4.200 MT jährlicher Kapazität über Glycin, Glykolsäure und Taurin. Drei Jahrzehnte der Bedienung von regulierten Industrien legten den Grundstein für globale Expansion.",
       "button": "Kennen Sie unsere Geschichte"
     },
     "operate": {
-      "title": ["Wie wir", "Arbeiten"],
+      "title": [
+        "Wie wir",
+        "Arbeiten"
+      ],
       "description": "18.000 Quadratmeter große emissionsfreie Anlage in Vadodara. 150+ Fachleute in Fertigung, F&E und Qualität. Strategische Partner in über 30 Ländern unterstützt durch Regionalbüros in den USA und Europa.",
       "button": "Entdecken Sie unsere Fähigkeiten"
     },
     "next": {
-      "title": ["Was ist", "Nächste"],
+      "title": [
+        "Was ist",
+        "Nächste"
+      ],
       "description": "Nachdem wir nun 100 % erneuerbaren Strom erzeugt haben und das Ziel der Klimaneutralität bis 2050 verfolgen, treiben wir die verantwortungsvolle Produktion weiter voran und bauen gleichzeitig unsere globalen Kapazitäten aus.",
       "button": "Entdecken Sie unsere Verpflichtungen"
     }

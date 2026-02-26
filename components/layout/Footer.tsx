@@ -13,7 +13,7 @@ export default function Footer() {
         <Image src="/assets/svg/footer_bg.svg" alt="footer-bg" fill priority />
       </div>
       <div className="mb-5 container-inner">
-        <div className="z-10 relative justify-between items-start gap-10 grid grid-cols-12 container-inner">
+        <div className="z-10 relative justify-between items-start gap-10 grid grid-cols-12">
           {/* Left Section - Logo and Certifications */}
           <div className="flex flex-col justify-between gap-8 col-span-12 lg:col-span-3 h-full">
             <Image
@@ -147,9 +147,9 @@ export default function Footer() {
       <div className="z-10 relative bg-primary py-3 text-white text-sm">
         <div className="justify-between items-start gap-4 sm:gap-10 grid grid-cols-1 sm:grid-cols-[2fr_1fr] xl:grid-cols-[3fr_1fr] container-inner">
           <div className="flex flex-wrap gap-4">
-            <p className="w-max">© {new Date().getFullYear()} Avid Organics Pvt. Ltd.</p>
+            <p>© {new Date().getFullYear()} Avid Organics Pvt. Ltd.</p>
           </div>
-          <div className="flex flex-wrap gap-2 sm:gap-4 text-white/90">
+          <div className="flex flex-wrap gap-2 sm:gap-4 text-white/90 sm:justify-end">
             <Link href="/privacy-policy" className="break-words">
               {tMenu("privacy_policy")}
             </Link>

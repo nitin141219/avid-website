@@ -60,7 +60,7 @@ export default function ProductTemplate({
         <ProductHeroSection
           data={resolvedData?.hero}
           t={tWithVariant}
-          backgroundColor={isAvigaBioHp ? "#159A46" : undefined}
+          transitionColor={isAvigaBioHp ? "#159A46" : undefined}
         />
         <ProductInfo
           data={resolvedData?.information}

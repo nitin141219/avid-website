@@ -264,11 +264,11 @@ export default function OurStorySection() {
   return (
     <section
       ref={wrapperRef}
-      className={"relative bg-primary text-white min-h-screen overflow-hidden max-w-full " + styles["our-story"]}
+      className={"relative bg-primary text-white min-h-[100svh] overflow-hidden max-w-full " + styles["our-story"]}
       id="history"
     >
       {/* Sticky viewport */}
-      <div className="sticky top-0 h-screen flex items-start pt-12 md:pt-14 pb-10 max-w-full">
+      <div className="sticky top-0 h-[100svh] flex items-start pt-12 md:pt-14 pb-10 max-w-full">
         <div className="absolute inset-0 -z-10 pointer-events-none">
           {bgImages.map((src, i) => (
             <Image
@@ -284,7 +284,7 @@ export default function OurStorySection() {
         </div>
         {/* Prev/Next buttons — always visible, centered vertically */}
         {/* Left button placed at line location (connector removed) */}
-        <div className="absolute left-20 top-1/2 -translate-y-1/2 z-40">
+        <div className="absolute left-3 sm:left-6 lg:left-20 top-1/2 -translate-y-1/2 z-40">
           <motion.button
             whileTap={{ scale: 0.95 }}
             aria-label="Previous year"
@@ -305,7 +305,7 @@ export default function OurStorySection() {
         </div>
 
         {/* Right button placed at line location (connector removed) */}
-        <div className="absolute right-20 top-1/2 -translate-y-1/2 z-40">
+        <div className="absolute right-3 sm:right-6 lg:right-20 top-1/2 -translate-y-1/2 z-40">
           <motion.button
             whileTap={{ scale: 0.95 }}
             aria-label="Next year"
@@ -336,7 +336,7 @@ export default function OurStorySection() {
               {items.map((item) => (
                 <div key={item.year} className={"group space-y-2 " + styles.slide}>
                   <p className="text-center text-xs md:text-sm px-3 leading-relaxed group-even:invisible">{item.text}</p>
-                  <div className="relative min-w-80 h-72 md:h-[19rem] flex items-center justify-center">
+                  <div className="relative min-w-[260px] sm:min-w-80 h-64 sm:h-72 md:h-[19rem] flex items-center justify-center">
                     <div className="relative z-10">
                       <div className="absolute -top-5 -left-5 w-[calc(100%+40px)] h-[calc(50%+20px)] border-2 border-white border-b-0 rotate-180 group-odd:rotate-0 origin-bottom" />
                       <div className="w-24 h-24 bg-white flex items-center justify-center shadow-lg border-[3px] border-white/30">

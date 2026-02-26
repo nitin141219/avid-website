@@ -20,7 +20,7 @@ export default function SustainabilityHeroSection() {
       >
         {/* Desktop Background Image */}
         <div
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom bg-fixed"
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
             backgroundImage: `url(${sustainabilityImage.src})`,
           }}

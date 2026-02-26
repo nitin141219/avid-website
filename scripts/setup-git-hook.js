@@ -21,6 +21,9 @@ const preCommitContent = `#!/bin/bash
 
 echo "🔍 Checking localization sync before commit..."
 
+# Auto-sync locale shape with English source of truth
+node scripts/sync-localization.js --fix
+
 # Run the sync validation script
 node scripts/sync-localization.js
 
@@ -34,6 +37,9 @@ if [ $? -ne 0 ]; then
   echo ""
   exit 1
 fi
+
+# Stage any auto-sync changes in localization files
+git add localization/*.json localization/*/*.json 2>/dev/null || true
 
 echo "✅ Localization files are in sync!"
 exit 0

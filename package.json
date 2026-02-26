@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "npm run check-translations && next build",
+    "build": "npm run sync-translations && npm run check-translations && next build",
     "start": "next start",
     "lint": "eslint",
     "deploy": "npm run build",
     "check-translations": "node scripts/sync-localization.js",
+    "sync-translations": "node scripts/sync-localization.js --fix",
     "setup-git-hook": "node scripts/setup-git-hook.js",
     "postinstall": "node scripts/setup-git-hook.js"
   },
@@ -47,6 +48,7 @@
     "@tiptap/react": "^3.14.0",
     "@tiptap/starter-kit": "^3.14.0",
     "@types/mdx": "^2.0.13",
+    "@vercel/analytics": "^1.6.1",
     "bcryptjs": "^3.0.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "2.1.1",

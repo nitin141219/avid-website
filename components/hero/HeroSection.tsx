@@ -19,7 +19,7 @@ const slides = [
     titleKey: "slide_1_title",
     subtitleKey: null,
     buttonKey: "slide_1_button",
-    position: "justify-end",
+    align: "right",
     link: "/sustainability",
   },
   {
@@ -28,7 +28,7 @@ const slides = [
     titleKey: "slide_2_title",
     subtitleKey: null,
     buttonKey: "slide_2_button",
-    position: "justify-end",
+    align: "right",
     link: "/about-us/manufacturing-excellence#researchDevelopment",
   },
   {
@@ -37,7 +37,7 @@ const slides = [
     titleKey: "slide_3_title",
     subtitleKey: null,
     buttonKey: "slide_3_button",
-    position: "justify-start",
+    align: "left",
     link: "/contact-us",
   },
 ];
@@ -71,9 +71,10 @@ export default function HeroSection() {
   }, [index]);
 
   const current = slides[index];
+  const isRightAlignedSlide = current.align === "right";
 
   return (
-    <section className="relative bg-white w-full h-screen min-h-162.5 overflow-hidden max-w-full">
+    <section className="relative bg-white w-full h-[100svh] min-h-[42rem] overflow-hidden max-w-full">
       <AnimatePresence mode="wait">
         <motion.div
           key={current.id}
@@ -101,12 +102,14 @@ export default function HeroSection() {
       </AnimatePresence>
 
       {/* Text container */}
-      <div className={`relative z-10 container-inner flex h-full items-center ${current.position} max-w-full`}>
+      <div className="relative z-10 h-full max-w-full">
         <AnimatePresence mode="wait">
           {phase === "text" && (
             <motion.div
               className={
-                "w-full relative z-10 flex h-full items-end pb-30 md:pb-45 " + current.position
+                `container-inner relative z-10 flex h-full w-full items-end pb-30 md:pb-45 ${
+                  isRightAlignedSlide ? "justify-end" : "justify-start"
+                }`
               }
               key={`text-${current.id}`}
               initial={{ opacity: 0, scale: 1.2 }}
@@ -114,7 +117,11 @@ export default function HeroSection() {
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 1, ease: "easeInOut" }}
             >
-              <div className="max-w-md md:max-w-xl xl:max-w-2xl text-white">
+              <div
+                className={`max-w-md md:max-w-xl xl:max-w-2xl text-white ${
+                  isRightAlignedSlide ? "ml-auto" : ""
+                }`}
+              >
                 {/* <div className="white-flare"></div> */}
                 <h1 className="font-bold text-3xl xs:text-3xl md:text-4xl xl:text-5xl leading-tight">
                   {t(current.titleKey)}
