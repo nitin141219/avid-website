@@ -80,7 +80,7 @@ export default function MarketTemplate({
                   />
                   <div className="z-1 absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(255,255,255),transparent_50%)] pointer-events-none"></div>
                   <div className="z-1 absolute inset-0 bg-[radial-gradient(circle_at_bottom_right,rgba(255,255,255),transparent_20%)] pointer-events-none"></div>
-                  <div className="bottom-3 left-4 z-2 absolute drop-shadow text-normal-black">
+                  <div className="bottom-6 left-4 z-2 absolute drop-shadow text-normal-black">
                     {p?.title?.type === "icon" ? (
                       <div className="w-[100px] h-[20px] relative">
                         <Image
@@ -105,7 +105,7 @@ export default function MarketTemplate({
                             p?.subtitleClassName || "text-base sm:text-lg"
                           }`}
                         >
-                          {p?.subtitle}
+                          {t.has(p?.subtitle) ? t(p?.subtitle) : p?.subtitle}
                         </p>
                       </>
                     )}

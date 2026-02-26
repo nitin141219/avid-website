@@ -25,9 +25,6 @@ const AutoBreadcrumb = dynamic(() => import("@/components/auto-breadcrumb/AutoBr
 });
 export default function Header({ navItems }: { navItems: NavItemType[] }) {
   const pathname = usePathname();
-  const isAvigaBioHpPage = pathname.includes("/product/alpha-hydroxy-acids/aviga-bio-hp-70");
-  const isSustainabilityPage = /\/sustainability\/?$/.test(pathname);
-  const shouldUseGreenTransition = isAvigaBioHpPage || isSustainabilityPage;
   const [mounted, setMounted] = useState(false);
   const [spotlights, setSpotlights] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -127,14 +124,6 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
         transition={{ duration: 0.25 }}
         className="top-0 z-100 relative sticky bg-primary shadow-md border-white border-b w-full text-white"
       >
-        <motion.div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none"
-          style={{ backgroundColor: "#159A46" }}
-          initial={{ opacity: 0 }}
-          animate={shouldUseGreenTransition ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        />
         <div className="relative z-10">
           <DotsOverlay>
             <div className="flex flex-col container-inner">

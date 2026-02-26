@@ -12,11 +12,13 @@ export default function ProductTemplate({
   data,
   slideshowImages,
   isAvigaBioHp = false,
+  useBioTheme = false,
   params,
 }: {
   data: ProductPageData;
   slideshowImages?: string[];
   isAvigaBioHp?: boolean;
+  useBioTheme?: boolean;
   params: { category: string; slug: string };
 }) {
   const resolvedData: ProductPageData = isAvigaBioHp
@@ -60,7 +62,7 @@ export default function ProductTemplate({
         <ProductHeroSection
           data={resolvedData?.hero}
           t={tWithVariant}
-          transitionColor={isAvigaBioHp ? "#159A46" : undefined}
+          transitionColor={useBioTheme ? "#159A46" : undefined}
         />
         <ProductInfo
           data={resolvedData?.information}
@@ -71,7 +73,7 @@ export default function ProductTemplate({
           data={resolvedData?.applications}
           t={tWithVariant}
           iconStyle={
-            isAvigaBioHp
+            useBioTheme
               ? {
                   // Tints monochrome application icons to brand green (#159A46)
                   filter:
@@ -81,7 +83,11 @@ export default function ProductTemplate({
           }
         />
         <ProductGlobalCompliance data={resolvedData?.qualityInfo} t={tWithVariant} />
-        <ProductSupplyChainExcellence data={resolvedData?.supplyChain} t={tWithVariant} />
+        <ProductSupplyChainExcellence
+          data={resolvedData?.supplyChain}
+          t={tWithVariant}
+          useGreenButtons={useBioTheme}
+        />
       </section>
     </>
   );

@@ -274,4 +274,24 @@
   .no-scrollbar {
     scrollbar-width: none;
   }
+
+  .cta-green {
+    background-color: #159a46 !important;
+    color: #fff !important;
+  }
+
+  .cta-green:hover {
+    background-color: #12853c !important;
+    color: #fff !important;
+  }
+
+  .cta-green:focus-visible {
+    background-color: #12853c !important;
+    color: #fff !important;
+  }
+
+  .cta-green:disabled {
+    background-color: #159a46 !important;
+    color: #fff !important;
+  }
 }

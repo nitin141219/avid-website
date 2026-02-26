@@ -35,9 +35,11 @@ const getProductSlugFromDoc = (document: any) => {
 function ProductSupplyChainExcellence({
   data,
   t,
+  useGreenButtons = false,
 }: {
   data: ProductPageData["supplyChain"];
   t: any;
+  useGreenButtons?: boolean;
 }) {
   const { isLoggedIn, user } = useAuth();
   const router = useRouter();
@@ -201,6 +203,7 @@ function ProductSupplyChainExcellence({
               <Button
                 key={btn?.slug}
                 variant="secondary"
+                className={useGreenButtons ? "cta-green" : ""}
                 onClick={() => checkAndDownload(btn?.slug)}
                 disabled={activeDownloadSlug === btn?.slug}
               >
@@ -215,7 +218,12 @@ function ProductSupplyChainExcellence({
             <Link
               key={btn?.link}
               href={btn?.link}
-              className="flex justify-between items-center bg-secondary hover:bg-secondary/90 px-4 py-2 text-white text-sm"
+              className={
+                "flex justify-between items-center px-4 py-2 text-white text-sm " +
+                (useGreenButtons
+                  ? "cta-green"
+                  : "bg-secondary hover:bg-secondary/90")
+              }
             >
               {t(btn?.label)}
             </Link>

@@ -36,6 +36,7 @@ const segmentToTranslationKey: Record<string, string> = {
 
   product: "products",
   "aviga-bio-hp-70": "aviga_bio_hp",
+  "aviga-bio-t": "aviga_bio_t",
   "aviga-hp-70": "aviga_hp",
   "alpha-hydroxy-acids": "products_alpha",
   "aviga-hp": "aviga_hp",

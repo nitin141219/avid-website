@@ -161,6 +161,120 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         linkButtons: [{ label: "supplyChain.linkButtons.0.label", link: "/contact-us" }],
       },
     },
+    "aviga-bio-t": {
+      hero: {
+        title: "hero.title",
+        subtitle: "hero.subtitle",
+      },
+      information: {
+        title: {
+          type: "icon",
+          src: "/images/product/avigabioT.png",
+          className: "object-contain mt-2",
+          gapPx: 12,
+        },
+        image: "/images/product/Product%20Slide%20Show/aviga-bio-t/Aviga%20Bio%20T-personal.png",
+        images: ["/images/product/Product%20Slide%20Show/aviga-bio-t/Aviga%20Bio%20T-personal.png"],
+        subText: "information.subText",
+        description: "information.description",
+        bioBasedContent: "information.bioBasedContent",
+        casNumber: "79-14-1",
+        molecularFormula: "C₂H₄O₃",
+        molecularWeight: "76.05 g/mol",
+      },
+      applications: {
+        title: "applications.title",
+        items: [
+          {
+            id: 1,
+            title: "applications.items.0.title",
+            icon: "/images/product/cs.png",
+            description: "applications.items.0.description",
+          },
+          {
+            id: 2,
+            title: "applications.items.1.title",
+            icon: "/images/product/idc.png",
+            description: "applications.items.1.description",
+          },
+          {
+            id: 3,
+            title: "applications.items.2.title",
+            icon: "/images/product/of.png",
+            description: "applications.items.2.description",
+          },
+          {
+            id: 4,
+            title: "applications.items.3.title",
+            icon: "/images/product/tp.png",
+            description: "applications.items.3.description",
+          },
+          {
+            id: 5,
+            title: "applications.items.4.title",
+            icon: "/images/product/lm.png",
+            description: "applications.items.4.description",
+          },
+          {
+            id: 6,
+            title: "applications.items.5.title",
+            icon: "/images/product/sac.png",
+            description: "applications.items.5.description",
+          },
+        ],
+      },
+      qualityInfo: {
+        title: "qualityInfo.title",
+        subtitle: "qualityInfo.subtitle",
+        manufacturingStandards: [
+          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
+          { id: 3, src: "/images/sustainability/reach.png", size: "h-22" },
+        ],
+        otherStandards: [
+          {
+            id: 1,
+            title: "qualityInfo.otherStandards.0.title",
+            description: "qualityInfo.otherStandards.0.description",
+          },
+          {
+            id: 2,
+            title: "qualityInfo.otherStandards.1.title",
+            description: "qualityInfo.otherStandards.1.description",
+          },
+        ],
+      },
+      supplyChain: {
+        title: "supplyChain.title",
+        subtitle: "supplyChain.subtitle",
+        packagingOptions: [
+          {
+            id: 1,
+            value: "25",
+            unit: "supplyChain.packagingOptions.0.unit",
+            texts: "supplyChain.packagingOptions.0.texts",
+          },
+          {
+            id: 2,
+            value: "250",
+            unit: "supplyChain.packagingOptions.1.unit",
+            texts: "supplyChain.packagingOptions.1.texts",
+          },
+          {
+            id: 3,
+            value: "1250",
+            unit: "supplyChain.packagingOptions.2.unit",
+            texts: "supplyChain.packagingOptions.2.texts",
+          },
+        ],
+        packagingText: "supplyChain.packagingText",
+        buttons: [
+          { label: "supplyChain.buttons.0.label", slug: "aviga-t-pds" },
+          { label: "supplyChain.buttons.1.label", slug: "aviga-t-sds" },
+        ],
+        linkButtons: [{ label: "supplyChain.linkButtons.0.label", link: "/contact-us" }],
+      },
+    },
     "aviga-t": {
       hero: {
         title: "hero.title",

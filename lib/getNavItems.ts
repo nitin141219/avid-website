@@ -52,6 +52,7 @@ export async function getNavItems(locale: string): Promise<NavItemType[]> {
           href: "alpha-hydroxy-acids",
           children: [
             { name: t("aviga_bio_hp"), href: "/product/alpha-hydroxy-acids/aviga-bio-hp-70" },
+            { name: t("aviga_bio_t"), href: "/product/alpha-hydroxy-acids/aviga-bio-t" },
             { name: t("aviga_hp"), href: "/product/alpha-hydroxy-acids/aviga-hp-70" },
             { name: t("aviga_t"), href: "/product/alpha-hydroxy-acids/aviga-t" },
           ],

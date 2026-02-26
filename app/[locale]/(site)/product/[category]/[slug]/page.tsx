@@ -31,9 +31,10 @@ type Props = {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category, slug, locale } = await params;
   const isAvigaBioHp = slug === "aviga-bio-hp-70";
+  const isAvigaBioT = slug === "aviga-bio-t";
   const resolvedSlug =
     slug === "aviga-hp-70" || slug === "aviga-bio-hp-70" ? "aviga-hp" : slug;
-  const translationSlug = isAvigaBioHp ? slug : resolvedSlug;
+  const translationSlug = isAvigaBioHp || isAvigaBioT ? slug : resolvedSlug;
   const data = productPages?.[category]?.[resolvedSlug];
   if (!data) {
     return {
@@ -135,9 +136,10 @@ export default async function ProductDetailPage({ params }: Props) {
   const { category, slug, locale } = await params;
 
   const isAvigaBioHp = slug === "aviga-bio-hp-70";
+  const isAvigaBioT = slug === "aviga-bio-t";
   const resolvedSlug =
     slug === "aviga-hp-70" || slug === "aviga-bio-hp-70" ? "aviga-hp" : slug;
-  const translationSlug = isAvigaBioHp ? slug : resolvedSlug;
+  const translationSlug = isAvigaBioHp || isAvigaBioT ? slug : resolvedSlug;
   const data = productPages?.[category]?.[resolvedSlug];
   if (!data) return notFound();
 
@@ -183,6 +185,7 @@ export default async function ProductDetailPage({ params }: Props) {
         data={data}
         slideshowImages={slideshowImages}
         isAvigaBioHp={isAvigaBioHp}
+        useBioTheme={isAvigaBioHp || isAvigaBioT}
         params={{
           category,
           slug: translationSlug,

@@ -58,14 +58,14 @@ export const marketPages: Record<string, MarketPageData> = {
     products: [
       {
         title: { type: "icon", src: "/images/product/aviglyHP.png", className: "w-34" },
-        subtitle: "Glycine USP",
+        subtitle: "products.avigly_hp.subtitle",
         desc: "products.avigly_hp.desc",
         image: "/images/market/image.jpg",
         link: "/product/amino-acids/avigly-hp",
       },
       {
         title: { type: "icon", src: "/images/product/avitau.png", className: "mb-2" },
-        subtitle: "Taurine",
+        subtitle: "products.avitau.subtitle",
         desc: "products.avitau.desc",
         image: "/images/market/image15.jpg",
         link: "/product/amino-acids/avitau",
@@ -103,14 +103,14 @@ export const marketPages: Record<string, MarketPageData> = {
     products: [
       {
         title: { type: "icon", src: "/images/product/aviglyHP.png", className: "w-34" },
-        subtitle: "Glycine USP",
+        subtitle: "products.avigly_hp.subtitle",
         desc: "products.avigly_hp.desc",
         image: "/images/market/image18.png",
         link: "/product/amino-acids/avigly-hp",
       },
       {
         title: { type: "icon", src: "/images/product/avitau.png", className: "mb-2" },
-        subtitle: "Taurine",
+        subtitle: "products.avitau.subtitle",
         desc: "products.avitau.desc",
         image: "/images/product/avitau-img.png",
         link: "/product/amino-acids/avitau",
@@ -147,8 +147,17 @@ export const marketPages: Record<string, MarketPageData> = {
     productsTitle: "Featured Products",
     products: [
       {
+        title: { type: "icon", src: "/images/product/avigabioT.png", className: "mb-2" },
+        subtitle: "products.aviga_bio_t.subtitle",
+        subtitleClassName: "whitespace-pre-line text-sm sm:text-base",
+        desc: "products.aviga_bio_t.desc",
+        image: "/images/product/Product%20Slide%20Show/aviga-bio-t/Aviga%20Bio%20T-personal.png",
+        link: "/product/alpha-hydroxy-acids/aviga-bio-t",
+      },
+      {
         title: { type: "icon", src: "/images/product/avigaT.png", className: "mb-2" },
-        subtitle: "Glycolic Acid",
+        subtitle: "products.aviga_t.subtitle",
+        subtitleClassName: "whitespace-pre-line text-sm sm:text-base",
         desc: "products.aviga_t.desc",
         image: "/images/market/image14.jpg",
         link: "/product/alpha-hydroxy-acids/aviga-t",
@@ -161,7 +170,7 @@ export const marketPages: Record<string, MarketPageData> = {
       },
       {
         title: { type: "text", src: "Chlorhexidine" },
-        subtitle: "Base",
+        subtitle: "products.chlorhexidine.subtitle",
         desc: "products.chlorhexidine.desc",
         image: "/images/market/image10.jpg",
         link: "/product/specialty-chemicals-and-intermediates/chlorhexidine-base",
@@ -199,7 +208,7 @@ export const marketPages: Record<string, MarketPageData> = {
     products: [
       {
         title: { type: "icon", src: "/images/product/avigabioHP70.png", className: "w-40 mb-2" },
-        subtitle: "Glycolic Acid 70% Cosmetic Grade Bio-Based",
+        subtitle: "products.aviga_bio_hp.subtitle",
         subtitleClassName: "whitespace-nowrap text-sm sm:text-base",
         desc: "products.aviga_bio_hp.desc",
         image: "/images/market/image19.jpg",
@@ -207,28 +216,28 @@ export const marketPages: Record<string, MarketPageData> = {
       },
       {
         title: { type: "icon", src: "/images/product/avigaHP70.png", className: "w-30 mb-2" },
-        subtitle: "Glycolic Acid 70% Cosmetic Grade",
+        subtitle: "products.aviga_hp.subtitle",
         desc: "products.aviga_hp.desc",
         image: "/images/market/image17.jpg",
         link: "/product/alpha-hydroxy-acids/aviga-hp-70",
       },
       {
         title: { type: "icon", src: "/images/product/aviglyHP.png", className: "w-34" },
-        subtitle: "Glycine USP",
+        subtitle: "products.avigly_hp.subtitle",
         desc: "products.avigly_hp.desc",
         image: "/images/market/image8.jpg",
         link: "/product/amino-acids/avigly-hp",
       },
       {
         title: { type: "icon", src: "/images/product/avitau.png", className: "object-contain mb-1" },
-        subtitle: "Taurine",
+        subtitle: "products.avitau.subtitle",
         desc: "products.avitau.desc",
         image: "/images/market/image9.jpg",
         link: "/product/amino-acids/avitau",
       },
       {
         title: { type: "text", src: "Chlorhexidine" },
-        subtitle: "Base",
+        subtitle: "products.chlorhexidine_base.subtitle",
         desc: "products.chlorhexidine_base.desc",
         image: "/images/market/image7.jpg",
         link: "/product/specialty-chemicals-and-intermediates/chlorhexidine-base",
@@ -266,21 +275,21 @@ export const marketPages: Record<string, MarketPageData> = {
     products: [
       {
         title: { type: "icon", src: "/images/product/aviglyHP.png", className: "w-34" },
-        subtitle: "Glycine USP",
+        subtitle: "products.avigly_hp.subtitle",
         desc: "products.avigly_hp.desc",
         image: "/images/product/avigly-hp-img.png",
         link: "/product/amino-acids/avigly-hp",
       },
       {
         title: { type: "icon", src: "/images/product/avitau.png", className: "mb-2" },
-        subtitle: "Taurine",
+        subtitle: "products.avitau.subtitle",
         desc: "products.avitau.desc",
         image: "/images/market/image13.jpg",
         link: "/product/amino-acids/avitau",
       },
       {
         title: { type: "text", src: "Chlorhexidine" },
-        subtitle: "Base",
+        subtitle: "products.chlorhexidine_base.subtitle",
         desc: "products.chlorhexidine_base.desc",
         image: "/images/market/image5.jpg",
         link: "/product/specialty-chemicals-and-intermediates/chlorhexidine-base",
