@@ -30,7 +30,7 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
           fill
           className="object-cover"
           priority
-          unoptimized
+          sizes="100vw"
         />
       </div>
     );
@@ -58,7 +58,7 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
             fill
             priority
             className="object-cover"
-            unoptimized
+            sizes="100vw"
           />
         </motion.div>
       </AnimatePresence>

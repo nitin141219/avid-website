@@ -13,6 +13,7 @@ import { BLOGS_SERVICES } from "@/services/admin/blogs/blogs.services";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -429,7 +430,14 @@ export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
             <Dialog.Title className="mb-4 font-semibold text-white text-xl"></Dialog.Title>
             <div className="relative">
               {previewImage ? (
-                <img src={previewImage} alt="Full View" className="shadow-2xl rounded-lg w-full h-auto" />
+                <Image
+                  src={previewImage}
+                  alt="Full View"
+                  width={1600}
+                  height={900}
+                  sizes="90vw"
+                  className="shadow-2xl rounded-lg w-full h-auto"
+                />
               ) : null}
               <button
                 onClick={() => setPreviewImage(null)}

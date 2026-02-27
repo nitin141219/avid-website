@@ -83,18 +83,18 @@ export default function BlogRelatedPostSection({ title, postList }: BlogRelatedP
                     <div className="w-full aspect-video overflow-hidden">
                       <Image
                         src={imageSource.desktop}
-                        unoptimized
                         width={480}
                         height={280}
                         alt={item?.title}
+                        sizes="(min-width: 768px) 480px, 100vw"
                         className="hidden md:block w-full h-full object-cover"
                       />
                       <Image
                         src={imageSource.mobile}
-                        unoptimized
                         width={480}
                         height={280}
                         alt={item?.title}
+                        sizes="(max-width: 767px) 100vw, 480px"
                         className="md:hidden w-full h-full object-cover"
                       />
                     </div>

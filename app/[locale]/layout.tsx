@@ -120,21 +120,6 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        {/* Preload critical fonts for LCP optimization */}
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/RedHatDisplay-Regular.ttf"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preload"
-          as="font"
-          href="/fonts/RedHatDisplay-Medium.ttf"
-          type="font/ttf"
-          crossOrigin="anonymous"
-        />
         <link
           rel="preload"
           as="style"

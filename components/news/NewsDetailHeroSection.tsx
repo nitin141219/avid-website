@@ -4,6 +4,7 @@ import { IMAGE_DIMENSION } from "@/constants";
 import { getResponsiveImageSources } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { DateTime } from "luxon";
+import Image from "next/image";
 import { useLocale } from "next-intl";
 import { getLocalizedContent } from "@/lib/getLocalizedContent";
 
@@ -52,22 +53,20 @@ export default function NewsDetailHeroSection({ data }: any) {
             maxHeight: IMAGE_DIMENSION.NEWS.height,
           }}
         >
-          <img
+          <Image
             src={heroImage.desktop}
             alt={data?.title || "Blog image"}
-            loading="lazy"
             width={IMAGE_DIMENSION.NEWS.width}
             height={IMAGE_DIMENSION.NEWS.height}
-            sizes="(max-width: 768px) 100vw, 1200px"
+            sizes="(min-width: 768px) 1120px, 100vw"
             className="hidden md:block w-full object-cover"
           />
-          <img
+          <Image
             src={heroImage.mobile}
             alt={data?.title || "Blog image"}
-            loading="lazy"
             width={IMAGE_DIMENSION.NEWS.width}
             height={IMAGE_DIMENSION.NEWS.height}
-            sizes="(max-width: 768px) 100vw, 1200px"
+            sizes="(max-width: 767px) 100vw, 1120px"
             className="md:hidden w-full object-cover"
           />
         </motion.div>

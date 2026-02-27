@@ -49,8 +49,8 @@ function setupGitHook() {
   try {
     // Check if .git directory exists
     if (!fs.existsSync(path.join(__dirname, '../.git'))) {
-      console.log('❌ Not a git repository. Please run this from the project root after initializing git.');
-      process.exit(1);
+      console.log('ℹ️  No .git directory found. Skipping git hook setup.');
+      return;
     }
 
     // Create hooks directory if it doesn't exist

@@ -98,7 +98,7 @@ function ProductInfo({
               alt={`${data?.title?.src || "Product"} - Avid Organics pharmaceutical grade specialty chemical`}
               fill
               className="object-cover"
-              unoptimized
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
           ) : (
             <>
@@ -107,14 +107,14 @@ function ProductInfo({
                 alt={`${data?.title?.src || "Product"} - Avid Organics pharmaceutical grade specialty chemical`}
                 fill
                 className="hidden md:block object-cover"
-                unoptimized
+                sizes="(min-width: 1024px) 50vw, 100vw"
               />
               <Image
                 src={imageSource.mobile}
                 alt={`${data?.title?.src || "Product"} - Avid Organics pharmaceutical grade specialty chemical`}
                 fill
                 className="md:hidden object-cover"
-                unoptimized
+                sizes="100vw"
               />
             </>
           )}

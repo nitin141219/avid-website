@@ -65,7 +65,7 @@ export default function SideContactPopup() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 100 }}
               transition={{ duration: 0.5, ease: [0.4, 0, 0.2, 1] }}
-              className="absolute h-0 right-0 top-0 "
+              className="absolute right-0 top-0"
             >
               <Button
                 onClick={() => setOpen(!open)}

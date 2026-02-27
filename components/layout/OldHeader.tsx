@@ -167,9 +167,8 @@ export default function Header() {
             alt="Logo"
             width={160}
             height={40}
-            preload
+            priority
             className="transition-all duration-300 w-30 min-w-30 lg:min-w-40"
-            unoptimized
           />
         </Link>
 

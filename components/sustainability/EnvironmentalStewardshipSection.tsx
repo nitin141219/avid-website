@@ -153,7 +153,7 @@ export default function EnvironmentalStewardshipSection() {
               alt="The Climate Registry"
               width={200}
               height={60}
-              unoptimized
+              sizes="200px"
             />
             <p className="font-medium text-medium-dark leading-relaxed">{t("reporting.text2")}</p>
             {/* No animated counters here, just static text */}

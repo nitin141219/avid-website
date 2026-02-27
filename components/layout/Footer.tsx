@@ -22,8 +22,7 @@ export default function Footer() {
               width={220}
               height={50}
               className="max-md:w-55 object-contain"
-              unoptimized
-              preload
+              sizes="220px"
             />
           </div>
           <div className="flex flex-col flex-wrap items-start gap-3 col-span-12 sm:col-span-4 lg:col-span-3 h-full">

@@ -145,9 +145,8 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                   alt="Logo"
                   width={144}
                   height={40}
-                  preload
+                  priority
                   className="w-30 min-w-26 lg:min-w-36 transition-all duration-300"
-                  unoptimized
                 />
               </Link>
               <nav className="hidden min-[1081px]:flex items-center gap-2">
@@ -348,9 +347,8 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                                         alt={i?.title || "Logo-Tagline"}
                                         width={300}
                                         height={150}
-                                        preload
                                         className="w-full h-full object-cover transition-all duration-300"
-                                        unoptimized
+                                        sizes="300px"
                                       />
                                     </div>
                                   </Link>
@@ -386,7 +384,6 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                             width={144}
                             height={40}
                             className="transition-all duration-300"
-                            unoptimized
                           />
                         </Link>
                       </SheetTitle>

@@ -1,0 +1,21 @@
+# Dependencies and build outputs
+node_modules
+.next
+out
+build
+
+# Local deployment archives
+*.tar
+*.tar.gz
+*.zip
+*.rar
+
+deploy.tar.gz
+deploy-quick.tar.gz
+deploy-next.tar.gz
+
+# Misc
+coverage
+playwright-report
+test-results
+.vercel

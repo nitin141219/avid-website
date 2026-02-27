@@ -74,9 +74,8 @@ export default function ResetPassword({ token }: ResetPasswordProps) {
             alt="Logo"
             width={60}
             height={60}
-            preload
+            priority
             className="mr-1 mb-1 transition-all duration-300"
-            unoptimized
           />
           <h1 className="font-normal text-medium-dark text-3xl md:text-4xl leading-none">
             {tLogin("mainTitle")}

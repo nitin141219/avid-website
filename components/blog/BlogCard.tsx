@@ -19,18 +19,18 @@ export default function BlogCard({ post }: any) {
         <div className="w-full aspect-video overflow-hidden">
           <Image
             src={postImage.desktop}
-            unoptimized
             width={480}
             height={280}
             alt={post?.title}
+            sizes="(min-width: 768px) 480px, 100vw"
             className="hidden md:block w-full h-full object-cover"
           />
           <Image
             src={postImage.mobile}
-            unoptimized
             width={480}
             height={280}
             alt={post?.title}
+            sizes="(max-width: 767px) 100vw, 480px"
             className="md:hidden w-full h-full object-cover"
           />
         </div>
