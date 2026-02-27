@@ -28,8 +28,6 @@ export const downloadFn = async (slug: string, historyMeta?: DownloadHistoryMeta
 
     // ❌ Handle API error response
     if (!res.ok) {
-      const data = await res.json();
-      toast.error(data?.message || "No file found");
       return;
     }
 
@@ -49,7 +47,6 @@ export const downloadFn = async (slug: string, historyMeta?: DownloadHistoryMeta
     a.download = fileName;
     document.body.appendChild(a);
     a.click();
-    toast.success("File downloaded successfully.");
 
     if (historyMeta?.userKey) {
       addDownloadHistory(historyMeta.userKey, {
@@ -64,8 +61,7 @@ export const downloadFn = async (slug: string, historyMeta?: DownloadHistoryMeta
     // 🧹 Cleanup
     a.remove();
     window.URL.revokeObjectURL(url);
-  } catch (error) {
-    toast.error("Something went wrong while downloading");
+  } catch {
   } finally {
     inFlightDownloads.delete(slug);
   }

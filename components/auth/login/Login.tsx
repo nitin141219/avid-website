@@ -16,7 +16,6 @@ import { useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 import { useAuth } from "../auth-context";
 
@@ -48,20 +47,9 @@ function Login() {
         method: "POST",
         body: JSON.stringify(values),
       });
-      const data = await res.json();
       if (!res.ok) {
-        if (data?.errorCode === "AUTH_INVALID_CREDENTIALS") {
-          toast.error(t("toast.invalidCredentials"));
-          return;
-        }
-        if (data?.errorCode === "AUTH_LOGIN_FAILED") {
-          toast.error(t("toast.loginFailed"));
-          return;
-        }
-        toast.error(data?.message || t("toast.loginFailed"));
         return;
       }
-      toast.success(data?.message || "Logged in successfully!");
       refreshAuth();
 
       const pendingDownloadSlug =
@@ -93,9 +81,7 @@ function Login() {
 
       const returnTo = searchParams?.get("returnTo");
       router.push(returnTo || "/media/downloads");
-    } catch {
-      toast.error(t("toast.networkError"));
-    }
+    } catch {}
   };
 
   return (
