@@ -17,7 +17,7 @@ const DotsOverlay: React.FC<DotsOverlayProps> = ({ children, className, opacity 
           backgroundImage: "url('/bg-pattern1.png')",
           backgroundRepeat: "repeat",
           backgroundPosition: "center",
-          backgroundAttachment: "fixed",
+          backgroundAttachment: "scroll",
           opacity: opacity || 0.2,
         }}
       />

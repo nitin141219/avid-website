@@ -98,7 +98,11 @@ export default function SideContactPopup() {
               <CardContent className="space-y-4 p-0">
                 <div className="flex justify-between w-full">
                   <h2 className="text-xl font-bold">{t("side_popup.how_can_we_help")}</h2>
-                  <button onClick={() => setOpen(false)} className=" text-white p-1 cursor-pointer">
+                  <button
+                    onClick={() => setOpen(false)}
+                    aria-label="Close contact panel"
+                    className=" text-white p-1 cursor-pointer"
+                  >
                     <ChevronRight className="size-6" />
                   </button>
                 </div>
@@ -127,6 +131,8 @@ export default function SideContactPopup() {
                         key={social?.name}
                         href={social?.url}
                         target="_blank"
+                        aria-label={`Open ${social?.name} in a new tab`}
+                        title={social?.name}
                         onClick={() => setOpen(false)}
                         className="inline-flex items-center justify-center bg-white text-secondary w-11 h-8 transform skew-x-14"
                       >

@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   let newsData;
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/news/${slug}?locale=${locale}`, {
+    const endpoint = process.env.BACKEND_URL
+      ? `${process.env.BACKEND_URL}/api/v1/get-news/${slug}?locale=${locale}`
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news/${slug}?locale=${locale}`;
+    const res = await fetch(endpoint, {
       cache: "force-cache",
       next: { revalidate: 3600 }, // Revalidate every hour
       headers: {
@@ -109,7 +112,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function getNews(slug: string, locale: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/news/${slug}?locale=${locale}`, {
+    const endpoint = process.env.BACKEND_URL
+      ? `${process.env.BACKEND_URL}/api/v1/get-news/${slug}?locale=${locale}`
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news/${slug}?locale=${locale}`;
+    const res = await fetch(endpoint, {
       cache: "force-cache",
       next: { revalidate: 3600 }, // Revalidate every hour
       headers: {

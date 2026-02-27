@@ -103,6 +103,8 @@ export default function Footer() {
             href={SOCIAL_LINKS.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Follow us on LinkedIn"
+            title="LinkedIn"
             className="inline-flex justify-center items-center bg-light-dark hover:bg-secondary w-10 h-7.5 text-white skew-x-14 transition-all duration-300 transform"
           >
             <CustomIcon name="linkedin" className="w-4 h-4 -skew-x-14 transform" />
@@ -111,6 +113,8 @@ export default function Footer() {
             href={SOCIAL_LINKS.twitter}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Follow us on X (Twitter)"
+            title="X (Twitter)"
             className="inline-flex justify-center items-center bg-light-dark hover:bg-secondary w-10 h-7.5 text-white skew-x-14 transition-all duration-300 transform"
           >
             <CustomIcon name="twitter" className="w-4 h-4 -skew-x-14 transform" />
@@ -119,6 +123,8 @@ export default function Footer() {
             href={SOCIAL_LINKS.facebook}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Follow us on Facebook"
+            title="Facebook"
             className="inline-flex justify-center items-center bg-light-dark hover:bg-secondary w-10 h-7.5 text-white skew-x-14 transition-all duration-300 transform"
           >
             <CustomIcon name="facebook" className="w-4 h-4 -skew-x-14 transform" />
@@ -127,6 +133,8 @@ export default function Footer() {
             href={SOCIAL_LINKS.instagram}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Follow us on Instagram"
+            title="Instagram"
             className="inline-flex justify-center items-center bg-light-dark hover:bg-secondary w-10 h-7.5 text-white skew-x-14 transition-all duration-300 transform"
           >
             <CustomIcon name="instagram" className="w-4 h-4 -skew-x-14 transform" />
@@ -135,6 +143,8 @@ export default function Footer() {
             href={SOCIAL_LINKS.youtube}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Follow us on YouTube"
+            title="YouTube"
             className="inline-flex justify-center items-center bg-light-dark hover:bg-secondary w-10 h-7.5 text-white skew-x-14 transition-all duration-300 transform"
           >
             <CustomIcon name="youtube" className="w-4 h-4 -skew-x-14 transform" />

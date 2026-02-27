@@ -49,6 +49,22 @@ const nextConfig: NextConfig = {
       },
     ];
   },
+  async redirects() {
+    return [
+      // Legacy media URLs
+      { source: "/media/blogs", destination: "/media/blog", permanent: true },
+      { source: "/blogs", destination: "/media/blog", permanent: true },
+      { source: "/blog", destination: "/media/blog", permanent: true },
+      { source: "/news", destination: "/media/news", permanent: true },
+      { source: "/downloads", destination: "/media/downloads", permanent: true },
+      // Locale-aware legacy media URLs
+      { source: "/:locale(en|de|fr|es)/media/blogs", destination: "/:locale/media/blog", permanent: true },
+      { source: "/:locale(en|de|fr|es)/blogs", destination: "/:locale/media/blog", permanent: true },
+      { source: "/:locale(en|de|fr|es)/blog", destination: "/:locale/media/blog", permanent: true },
+      { source: "/:locale(en|de|fr|es)/news", destination: "/:locale/media/news", permanent: true },
+      { source: "/:locale(en|de|fr|es)/downloads", destination: "/:locale/media/downloads", permanent: true },
+    ];
+  },
 };
 
 const withMDX = createMDX({ extension: /\.(md|mdx)$/ });

@@ -72,6 +72,7 @@ export default function BlogRelatedPostSection({ title, postList }: BlogRelatedP
           >
             {postList?.map((item: any) => {
               const imageSource = getResponsiveImageSources(item);
+              const cardImage = imageSource.desktop || imageSource.mobile;
 
               return (
                 <Link
@@ -82,20 +83,12 @@ export default function BlogRelatedPostSection({ title, postList }: BlogRelatedP
                   <div className="flex flex-col bg-gray-section h-full transition group">
                     <div className="w-full aspect-video overflow-hidden">
                       <Image
-                        src={imageSource.desktop}
+                        src={cardImage}
                         width={480}
                         height={280}
                         alt={item?.title}
-                        sizes="(min-width: 768px) 480px, 100vw"
-                        className="hidden md:block w-full h-full object-cover"
-                      />
-                      <Image
-                        src={imageSource.mobile}
-                        width={480}
-                        height={280}
-                        alt={item?.title}
-                        sizes="(max-width: 767px) 100vw, 480px"
-                        className="md:hidden w-full h-full object-cover"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                        className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="flex flex-col flex-1 justify-between p-5">

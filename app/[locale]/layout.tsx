@@ -1,6 +1,4 @@
 import { AuthProvider } from "@/components/auth/auth-context";
-import TopLoader from "@/components/top-loader/Toploader";
-import { Toaster } from "@/components/AvidToast";
 import { routing } from "@/i18n/routing";
 import { getAuthUser } from "@/lib/auth";
 import { redHatDisplay } from "@/lib/fonts";
@@ -9,7 +7,7 @@ import { hasLocale, Locale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import "../globals.css";
-import ThirdPartyCookie from "./Cookie";
+import DeferredClientWidgets from "./DeferredClientWidgets";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.avidorganics.net"),
@@ -119,24 +117,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <head>
-        <link
-          rel="preload"
-          as="style"
-          href="/css/silktide-consent-manager.css"
-        />
-        <link
-          rel="stylesheet"
-          href="/css/silktide-consent-manager.css"
-        />
-      </head>
       <body className={`${redHatDisplay.variable} font-sans antialiased`}>
-        <TopLoader />
         <NextIntlClientProvider>
           <AuthProvider user={loggedInUser?.data || null}>{children}</AuthProvider>
         </NextIntlClientProvider>
-        <Toaster />
-        <ThirdPartyCookie />
+        <DeferredClientWidgets />
       </body>
     </html>
   );

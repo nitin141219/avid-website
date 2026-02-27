@@ -37,14 +37,7 @@ export default function NewsCard({ post }: any) {
         <div className="flex flex-col flex-1 justify-between p-5">
           <div>
             <h3 className="text-base xl:text-xl">
-              {post.sub_title ? (
-                <>
-                  <span className="font-bold text-off-black">{post.title}: </span>
-                  <span className="font-normal text-medium-dark">{post.sub_title}</span>
-                </>
-              ) : (
-                <span className="font-bold text-off-black">{post.title}</span>
-              )}
+              <span className="font-bold text-off-black">{post.title}</span>
             </h3>
           </div>
           <div>

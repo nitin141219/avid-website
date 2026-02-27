@@ -6,6 +6,8 @@ export async function getAuthUser() {
     const token = cookieStore.get("token")?.value;
 
     if (!token) return null;
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 2500);
 
     const res = await fetch(`${process.env.BACKEND_URL}/api/v1/get-details`, {
       method: "GET",
@@ -13,12 +15,18 @@ export async function getAuthUser() {
         Authorization: `Bearer ${token}`,
       },
       cache: "no-store",
+      signal: controller.signal,
+    }).finally(() => {
+      clearTimeout(timeout);
     });
 
     if (!res.ok) return null;
     const user = await res.json();
     return user;
   } catch (error) {
+    if (error instanceof Error && error.name === "AbortError") {
+      return null;
+    }
     // During static generation, cookies() throws a dynamic server error
     // This is expected for statically generated pages - return null for public pages
     if (error instanceof Error && (error as any).digest === 'DYNAMIC_SERVER_USAGE') {

@@ -12,24 +12,35 @@ type DownloadHistoryMap = Record<string, DownloadHistoryEntry[]>;
 
 const DOWNLOAD_HISTORY_STORAGE_KEY = "avid_download_history_v1";
 const MAX_HISTORY_ITEMS_PER_USER = 100;
+const USER_ID_KEYS = ["_id", "id", "user_id", "userId"] as const;
+const USER_EMAIL_KEYS = ["email", "email_id", "emailId"] as const;
 
 const isRecord = (value: unknown): value is Record<string, unknown> =>
   typeof value === "object" && value !== null;
 
+const normalizeHistoryKey = (value: unknown) => String(value || "").trim().toLowerCase();
+
+export const getUserHistoryKeys = (user: unknown): string[] => {
+  if (!isRecord(user)) return [];
+
+  const keys: string[] = [];
+
+  USER_EMAIL_KEYS.forEach((field) => {
+    const value = normalizeHistoryKey(user[field]);
+    if (value) keys.push(value);
+  });
+
+  USER_ID_KEYS.forEach((field) => {
+    const value = normalizeHistoryKey(user[field]);
+    if (value) keys.push(value);
+  });
+
+  return Array.from(new Set(keys));
+};
+
 export const getUserHistoryKey = (user: unknown): string | null => {
-  if (!isRecord(user)) return null;
-
-  const rawId =
-    user._id ||
-    user.id ||
-    user.user_id ||
-    user.userId ||
-    user.email ||
-    user.email_id ||
-    user.emailId;
-
-  if (!rawId) return null;
-  return String(rawId).trim().toLowerCase();
+  const keys = getUserHistoryKeys(user);
+  return keys[0] || null;
 };
 
 const readHistoryMap = (): DownloadHistoryMap => {
@@ -77,9 +88,11 @@ export const addDownloadHistory = (
   }
 ) => {
   if (!userKey || typeof window === "undefined") return;
+  const normalizedKey = normalizeHistoryKey(userKey);
+  if (!normalizedKey) return;
 
   const historyMap = readHistoryMap();
-  const current = historyMap[userKey] || [];
+  const current = historyMap[normalizedKey] || [];
 
   const entry: DownloadHistoryEntry = {
     id: `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`,
@@ -91,12 +104,37 @@ export const addDownloadHistory = (
     downloadedAt: new Date().toISOString(),
   };
 
-  historyMap[userKey] = [entry, ...current].slice(0, MAX_HISTORY_ITEMS_PER_USER);
+  historyMap[normalizedKey] = [entry, ...current].slice(0, MAX_HISTORY_ITEMS_PER_USER);
   writeHistoryMap(historyMap);
 };
 
 export const getDownloadHistory = (userKey: string): DownloadHistoryEntry[] => {
   if (!userKey || typeof window === "undefined") return [];
   const historyMap = readHistoryMap();
-  return historyMap[userKey] || [];
+  return historyMap[normalizeHistoryKey(userKey)] || [];
+};
+
+export const getDownloadHistoryByKeys = (userKeys: string[]): DownloadHistoryEntry[] => {
+  if (!Array.isArray(userKeys) || userKeys.length === 0 || typeof window === "undefined") return [];
+
+  const historyMap = readHistoryMap();
+  const seen = new Set<string>();
+  const merged: DownloadHistoryEntry[] = [];
+
+  userKeys
+    .map((key) => normalizeHistoryKey(key))
+    .filter(Boolean)
+    .forEach((key) => {
+      const entries = historyMap[key] || [];
+      entries.forEach((entry) => {
+        const dedupeKey = `${entry.slug}|${entry.fileName}|${entry.downloadedAt}`;
+        if (seen.has(dedupeKey)) return;
+        seen.add(dedupeKey);
+        merged.push(entry);
+      });
+    });
+
+  return merged.sort(
+    (a, b) => new Date(b.downloadedAt).getTime() - new Date(a.downloadedAt).getTime()
+  );
 };

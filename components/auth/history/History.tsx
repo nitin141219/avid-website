@@ -2,26 +2,30 @@
 
 import { useAuth } from "@/components/auth/auth-context";
 import { Button } from "@/components/ui/button";
-import { getDownloadHistory, getUserHistoryKey } from "@/lib/downloadHistory";
+import {
+  getDownloadHistoryByKeys,
+  getUserHistoryKey,
+  getUserHistoryKeys,
+} from "@/lib/downloadHistory";
 import { downloadFn } from "@/lib/downloadFn";
+import { formatDateTime as formatLocaleDateTime } from "@/lib/intl";
 import { Link } from "@/i18n/navigation";
 import { useMemo, useState } from "react";
 
 const formatDateTime = (isoDate: string) => {
-  const date = new Date(isoDate);
-  if (Number.isNaN(date.getTime())) return isoDate;
-  return date.toLocaleString();
+  return formatLocaleDateTime(isoDate);
 };
 
 export default function History() {
   const { user } = useAuth();
   const userKey = getUserHistoryKey(user);
+  const userKeys = useMemo(() => getUserHistoryKeys(user), [user]);
   const [activeSlug, setActiveSlug] = useState<string | null>(null);
 
   const historyItems = useMemo(() => {
-    if (!userKey) return [];
-    return getDownloadHistory(userKey);
-  }, [userKey]);
+    if (userKeys.length === 0) return [];
+    return getDownloadHistoryByKeys(userKeys);
+  }, [userKeys]);
 
   const handleDownloadAgain = async (item: {
     slug: string;

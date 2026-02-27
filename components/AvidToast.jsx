@@ -6,6 +6,7 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import { formatTime } from "@/lib/intl";
 
 const FONT = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif";
 
@@ -65,7 +66,7 @@ const DismissIcon = () => (
 );
 
 function getTimestamp() {
-  return new Date().toLocaleTimeString("en-US", { hour: "2-digit", minute: "2-digit", hour12: true });
+  return formatTime(new Date());
 }
 
 // ─── Single Toast ─────────────────────────────────────────────────────────────

@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   
   let blogData;
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}?locale=${locale}`, {
+    const endpoint = process.env.BACKEND_URL
+      ? `${process.env.BACKEND_URL}/api/v1/get-blog/${slug}?locale=${locale}`
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}?locale=${locale}`;
+    const res = await fetch(endpoint, {
       cache: "force-cache",
       next: { revalidate: 3600 }, // Revalidate every hour
       headers: {
@@ -111,7 +114,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function getBlog(slug: string, locale: string) {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}?locale=${locale}`, {
+    const endpoint = process.env.BACKEND_URL
+      ? `${process.env.BACKEND_URL}/api/v1/get-blog/${slug}?locale=${locale}`
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}?locale=${locale}`;
+    const res = await fetch(endpoint, {
       cache: "force-cache",
       next: { revalidate: 3600 }, // Revalidate every hour
       headers: {

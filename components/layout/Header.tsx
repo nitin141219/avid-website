@@ -189,10 +189,9 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                         {item.name} <ChevronDownIcon size={16} />
                       </Link>
                     ) : (
-                      <span
+                      <button
+                        type="button"
                         className="inline-flex items-center gap-2 group-hover:bg-white p-2 rounded-md rounded-b-none font-medium text-white group-hover:text-primary text-sm uppercase transition-all duration-300 cursor-pointer"
-                        role="button"
-                        tabIndex={0}
                         onClick={(e) => {
                           e.stopPropagation();
                           toggleDropdown(openMenu === item.name ? null : item.name);
@@ -205,7 +204,7 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                         }}
                       >
                         {item.name} <ChevronDownIcon size={16} />
-                      </span>
+                      </button>
                     )}
                     <RemoveScroll enabled={!!openMenu}>
                       <motion.div
@@ -235,21 +234,14 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                                 if (hasChildren) {
                                   const isActiveLink = pathname.includes(sub.href);
                                   return (
-                                    <li
-                                      key={sub.name}
-                                      role="button"
-                                      tabIndex={0}
-                                      onMouseEnter={() => setActiveSub(sub)}
-                                      onClick={() => setActiveSub(sub)}
-                                      onKeyDown={(e) => {
-                                        if (e.key === "Enter" || e.key === " ") {
-                                          e.preventDefault();
-                                          setActiveSub(sub);
-                                        }
-                                      }}
-                                      className="group/item cursor-pointer"
-                                    >
-                                      <div
+                                    <li key={sub.name} className="group/item">
+                                      <button
+                                        type="button"
+                                        onMouseEnter={() => setActiveSub(sub)}
+                                        onClick={() => setActiveSub(sub)}
+                                        className="w-full text-left cursor-pointer"
+                                      >
+                                        <div
                                         className={cn(
                                           "flex justify-between items-center font-medium text-medium-dark hover:text-secondary text-base",
                                           activeSub?.name === sub.name ? "text-secondary" : "",
@@ -264,6 +256,7 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                                           )}
                                         />
                                       </div>
+                                      </button>
                                     </li>
                                   );
                                 }
@@ -389,7 +382,7 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                 {mounted ? (
                   <Sheet modal={false}>
                     <SheetTrigger asChild>
-                      <Button variant="link" className="p-0! size-10 cursor-pointer">
+                      <Button variant="link" className="p-0! size-10 cursor-pointer" aria-label="Open menu">
                         <Menu className="size-7 text-white" />
                       </Button>
                     </SheetTrigger>
@@ -411,7 +404,12 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                     </SheetContent>
                   </Sheet>
                 ) : (
-                  <Button variant="link" className="p-0! size-10 cursor-pointer" disabled>
+                  <Button
+                    variant="link"
+                    className="p-0! size-10 cursor-pointer"
+                    aria-label="Open menu"
+                    disabled
+                  >
                     <Menu className="size-7 text-white" />
                   </Button>
                 )}

@@ -148,14 +148,7 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
                   <div className="flex flex-col flex-1 justify-between py-5 text-left">
                     <div>
                       <h3 className="text-base xl:text-xl">
-                        {item.sub_title ? (
-                          <>
-                            <span className="font-bold">{item.title}: </span>
-                            <span className="font-normal text-white/85">{item.sub_title}</span>
-                          </>
-                        ) : (
-                          <span className="font-bold">{item.title}</span>
-                        )}
+                        <span className="font-bold">{item.title}</span>
                       </h3>
                     </div>
                     <div>

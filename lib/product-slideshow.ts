@@ -13,6 +13,19 @@ const SLIDESHOW_ROOT_PATH = path.join(
 
 const VALID_IMAGE_EXTENSIONS = new Set([".jpg", ".jpeg", ".png", ".webp", ".avif"]);
 
+function extensionPriority(ext: string): number {
+  const normalized = ext.toLowerCase();
+  if (normalized === ".webp") return 5;
+  if (normalized === ".avif") return 4;
+  if (normalized === ".jpg" || normalized === ".jpeg") return 3;
+  if (normalized === ".png") return 2;
+  return 1;
+}
+
+function toBaseName(fileName: string): string {
+  return fileName.replace(/\.[^/.]+$/, "").toLowerCase();
+}
+
 function normalizeValue(value: string): string {
   return value
     .normalize("NFKD")
@@ -118,7 +131,27 @@ export async function resolveProductSlideshowImages({
       return fallbackAsArray(fallbackImage);
     }
 
-    return imageFiles.map((fileName) => toPublicSlideshowPath(bestFolder, fileName));
+    const bestFileByBase = new Map<string, string>();
+    for (const fileName of imageFiles) {
+      const baseName = toBaseName(fileName);
+      const currentBest = bestFileByBase.get(baseName);
+      if (!currentBest) {
+        bestFileByBase.set(baseName, fileName);
+        continue;
+      }
+
+      const currentPriority = extensionPriority(path.extname(currentBest));
+      const nextPriority = extensionPriority(path.extname(fileName));
+      if (nextPriority > currentPriority) {
+        bestFileByBase.set(baseName, fileName);
+      }
+    }
+
+    const selectedFiles = Array.from(bestFileByBase.values()).sort((a, b) =>
+      a.localeCompare(b, undefined, { numeric: true, sensitivity: "base" })
+    );
+
+    return selectedFiles.map((fileName) => toPublicSlideshowPath(bestFolder, fileName));
   } catch {
     return fallbackAsArray(fallbackImage);
   }

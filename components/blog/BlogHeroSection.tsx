@@ -11,6 +11,7 @@ import { getLocalizedContent } from "@/lib/getLocalizedContent";
 export default function BlogHeroSection({ data }: any) {
   const locale = useLocale();
   const heroImage = getResponsiveImageSources(data);
+  const blogImage = heroImage.desktop || heroImage.mobile;
   const date = data.published_at
     ? DateTime.fromISO(data.published_at).setLocale(locale).toFormat("DDD")
     : null;
@@ -55,20 +56,12 @@ export default function BlogHeroSection({ data }: any) {
           }}
         >
           <Image
-            src={heroImage.desktop}
+            src={blogImage}
             alt={title || "Blog image"}
             width={IMAGE_DIMENSION.BLOG.width}
             height={IMAGE_DIMENSION.BLOG.height}
-            sizes="(min-width: 768px) 1120px, 100vw"
-            className="hidden md:block w-full object-cover"
-          />
-          <Image
-            src={heroImage.mobile}
-            alt={title || "Blog image"}
-            width={IMAGE_DIMENSION.BLOG.width}
-            height={IMAGE_DIMENSION.BLOG.height}
-            sizes="(max-width: 767px) 100vw, 1120px"
-            className="md:hidden w-full object-cover"
+            sizes="(min-width: 1280px) 1120px, 100vw"
+            className="w-full object-cover"
           />
         </motion.div>
       </div>

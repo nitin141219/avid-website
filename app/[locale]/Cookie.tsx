@@ -8,6 +8,19 @@ function ThirdPartyCookie() {
   return (
     <>
       <Script
+        id="silktide-cookie-style"
+        strategy="lazyOnload"
+      >{`
+        (function() {
+          if (document.getElementById('silktide-cookie-style-link')) return;
+          var link = document.createElement('link');
+          link.id = 'silktide-cookie-style-link';
+          link.rel = 'stylesheet';
+          link.href = '/css/silktide-consent-manager.css';
+          document.head.appendChild(link);
+        })();
+      `}</Script>
+      <Script
         src="/js/silktide-consent-manager.js"
         strategy="lazyOnload"
         onLoad={() => setLoaded(true)}

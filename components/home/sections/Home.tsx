@@ -14,11 +14,21 @@ export default function Home() {
   return (
     <>
       <HeroSection />
-      <OurMarkets />
-      <OurKeyProducts />
-      <BeganSection />
-      <StatsSection />
-      <GlobalPresence />
+      <div style={{ contentVisibility: "auto", containIntrinsicSize: "1200px" }}>
+        <OurMarkets />
+      </div>
+      <div style={{ contentVisibility: "auto", containIntrinsicSize: "1200px" }}>
+        <OurKeyProducts />
+      </div>
+      <div style={{ contentVisibility: "auto", containIntrinsicSize: "900px" }}>
+        <BeganSection />
+      </div>
+      <div style={{ contentVisibility: "auto", containIntrinsicSize: "700px" }}>
+        <StatsSection />
+      </div>
+      <div style={{ contentVisibility: "auto", containIntrinsicSize: "900px" }}>
+        <GlobalPresence />
+      </div>
       <PressReleasesSection title={t("press_release.title")} />
     </>
   );

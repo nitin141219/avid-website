@@ -4,6 +4,7 @@ import { CalendarPlus } from "lucide-react";
 import { DateTime } from "luxon";
 import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
+import { formatDate } from "@/lib/intl";
 import { Button } from "../ui/button";
 
 function buildGoogleCalendarUrl(post: any) {
@@ -43,8 +44,8 @@ export default function EventCard({ post }: any) {
   const rawEnd = post.end_date || DateTime.now().toISO();
   const addToCalendarUrl = post?.ics || buildGoogleCalendarUrl(post);
 
-  const displayStart = DateTime.fromISO(rawStart).setLocale(locale).toFormat("LLL dd, yyyy");
-  const displayEnd = DateTime.fromISO(rawEnd).setLocale(locale).toFormat("LLL dd, yyyy");
+  const displayStart = formatDate(rawStart, locale);
+  const displayEnd = formatDate(rawEnd, locale);
 
   return (
     <div className="flex flex-col bg-white shadow-sm p-6 border border-slate-200 rounded-sm w-full h-full">

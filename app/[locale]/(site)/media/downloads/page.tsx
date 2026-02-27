@@ -46,9 +46,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 async function getDownloads() {
   try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/downloads`, {
-      cache: "no-store",
-    });
+    const backendUrl = process.env.BACKEND_URL;
+    const fetchUrl = backendUrl
+      ? `${backendUrl}/api/v1/customer/get-document`
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/downloads`;
+
+    const res = await fetch(fetchUrl, { cache: "no-store" });
 
     if (!res.ok) {
       throw new Error(`Fetch failed with status ${res.status}`);

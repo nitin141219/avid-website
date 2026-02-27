@@ -2,20 +2,35 @@
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import { SLIDESHOW_AUTOPLAY_MS, SLIDESHOW_TRANSITION_SECONDS } from "@/constants/slideshow";
+import { SLIDESHOW_TRANSITION_SECONDS } from "@/constants/slideshow";
 
 interface ImageSlideshowProps {
   images: string[];
 }
+
+const PRODUCT_SLIDESHOW_AUTOPLAY_MS = 3000;
 
 export default function ImageSlideshow({ images }: ImageSlideshowProps) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
     if (images.length <= 1) return;
+    // Warm image cache to prevent stutter on mobile during slide changes.
+    const preloaders = images.map((src) => {
+      const img = new window.Image();
+      img.src = src;
+      return img;
+    });
+    return () => {
+      preloaders.length = 0;
+    };
+  }, [images]);
+
+  useEffect(() => {
+    if (images.length <= 1) return;
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, SLIDESHOW_AUTOPLAY_MS);
+    }, PRODUCT_SLIDESHOW_AUTOPLAY_MS);
     return () => clearInterval(interval);
   }, [images.length]);
 
@@ -38,7 +53,7 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
 
   return (
     <section className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync" initial={false}>
         <motion.div
           key={index}
           className="absolute inset-0"
@@ -51,12 +66,14 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
           animate="animate"
           exit="fadeout"
           transition={{ duration: SLIDESHOW_TRANSITION_SECONDS, ease: "easeOut" }}
+          style={{ willChange: "opacity, transform", backfaceVisibility: "hidden" }}
         >
           <Image
             src={images[index]}
             alt={`Slide ${index + 1}`}
             fill
-            priority
+            priority={index === 0}
+            loading={index === 0 ? "eager" : "lazy"}
             className="object-cover"
             sizes="100vw"
           />
