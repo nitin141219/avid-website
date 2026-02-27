@@ -1,6 +1,6 @@
 "use client";
 
-import excellenceImage from "@/public/images/manufacturing-excellence/excellence-hero.png";
+import excellenceImage from "@/public/images/manufacturing-excellence/excellence-hero.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";

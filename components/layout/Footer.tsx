@@ -10,7 +10,7 @@ export default function Footer() {
   return (
     <footer className="relative bg-gray-section pt-10 overflow-hidden">
       <div className="top-0 -right-8 z-0 absolute sm:size-50 md:size-60 lg:size-85">
-        <Image src="/assets/svg/footer_bg.svg" alt="footer-bg" fill priority />
+        <Image src="/assets/svg/footer_bg.svg" alt="" fill loading="lazy" sizes="340px" />
       </div>
       <div className="mb-5 container-inner">
         <div className="z-10 relative justify-between items-start gap-10 grid grid-cols-12">

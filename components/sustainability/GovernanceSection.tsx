@@ -12,7 +12,7 @@ export default function GovernanceSection() {
       id="governance-product-stewardship"
     >
       <div className="top-0 -right-6 -z-1 absolute size-85">
-        <Image src="/assets/svg/bg.svg" alt="footer-bg" fill priority />
+        <Image src="/assets/svg/bg.svg" alt="" fill loading="lazy" sizes="100vw" />
       </div>
       <motion.div
         initial={{ opacity: 0 }}

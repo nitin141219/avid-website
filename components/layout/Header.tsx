@@ -27,7 +27,8 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [spotlights, setSpotlights] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [hasFetchedSpotlights, setHasFetchedSpotlights] = useState(false);
 
   const hash = useHash();
   const [hidden, setHidden] = useState("0");
@@ -87,7 +88,12 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   }, []);
 
   useEffect(() => {
+    if (!openMenu || hasFetchedSpotlights) return;
+
+    let isCancelled = false;
+
     (async function fetchSpotlights() {
+      setLoading(true);
       try {
         const res = await fetch("/api/get-spotlight", {
           method: "GET",
@@ -97,15 +103,27 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
           toast.error(data?.message || "Failed to fetch spotlights");
           return;
         }
-        setSpotlights(data?.data || []);
+
+        if (!isCancelled) {
+          setSpotlights(data?.data || []);
+          setHasFetchedSpotlights(true);
+        }
       } catch {
-        setSpotlights([]);
-        toast.error("Something went wrong. Please try again.");
+        if (!isCancelled) {
+          setSpotlights([]);
+          toast.error("Something went wrong. Please try again.");
+        }
       } finally {
-        setLoading(false);
+        if (!isCancelled) {
+          setLoading(false);
+        }
       }
     })();
-  }, []);
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [openMenu, hasFetchedSpotlights]);
 
   useEffect(() => {
     return () => {

@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
 
 import { Link } from "@/i18n/navigation";
 import { SLIDESHOW_AUTOPLAY_MS, SLIDESHOW_TRANSITION_SECONDS } from "@/constants/slideshow";
-import SlideImage1 from "@/public/images/hero/banner_1.jpg";
-import SlideImage2 from "@/public/images/hero/banner_2.jpg";
-import SlideImage3 from "@/public/images/hero/banner_3.jpg";
+import SlideImage1 from "@/public/images/hero/banner_1.webp";
+import SlideImage2 from "@/public/images/hero/banner_2.webp";
+import SlideImage3 from "@/public/images/hero/banner_3.webp";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
 
@@ -46,6 +46,7 @@ const slides = [
 export default function HeroSection() {
   const [index, setIndex] = useState(0);
   const t = useTranslations("hero");
+  const isFirstSlide = index === 0;
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -79,7 +80,10 @@ export default function HeroSection() {
             src={current.img}
             alt={t(current.titleKey)}
             fill
-            priority
+            priority={isFirstSlide}
+            fetchPriority={isFirstSlide ? "high" : "auto"}
+            loading={isFirstSlide ? "eager" : "lazy"}
+            sizes="100vw"
             placeholder="blur"
             className="object-cover max-w-full"
           />
