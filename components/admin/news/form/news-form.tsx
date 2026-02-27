@@ -19,6 +19,16 @@ import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 
 const SUPPORTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+const DEFAULT_AUTHOR = "Avid Organics";
+
+const generateSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 const newsSchema = yup.object({
   slug: yup
@@ -78,6 +88,7 @@ type NewsFormProps = {
 export function NewsForm({ newsId, newsData }: NewsFormProps) {
   const router = useRouter();
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [isSlugManuallyEdited, setIsSlugManuallyEdited] = useState(false);
   const {
     register,
     handleSubmit,
@@ -91,11 +102,18 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
     defaultValues: {
       is_active: true,
       image_mobile: "",
+      author: DEFAULT_AUTHOR,
     },
     mode: "onChange",
   });
   const image = watch("image");
   const mobileImage = watch("image_mobile");
+  const titleEn = watch("title_en");
+
+  useEffect(() => {
+    if (newsId || isSlugManuallyEdited) return;
+    setValue("slug", generateSlug(titleEn || ""), { shouldValidate: true });
+  }, [isSlugManuallyEdited, newsId, setValue, titleEn]);
   // 🟡 Edit mode → load data
   useEffect(() => {
     if (!newsId) return;
@@ -114,15 +132,18 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
       content_de: newsData.content_de || "",
       content_fr: newsData.content_fr || "",
       content_es: newsData.content_es || "",
-      author: newsData.author || "",
+      author: newsData.author || DEFAULT_AUTHOR,
       image: newsData.image, // string
       image_mobile: newsData.image_mobile || newsData.imageMobile || newsData.mobileImage || "",
     });
+    setIsSlugManuallyEdited(true);
 
     () => {
       reset();
     };
   }, [newsId, reset]);
+
+  const slugField = register("slug");
 
   const onSubmit = async (values: NewsFormValues) => {
     const formData = new FormData();
@@ -187,6 +208,7 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
         await NEWS_SERVICES.createNews(formData);
         toast.success("News created successfully");
         reset();
+        setIsSlugManuallyEdited(false);
       }
       router.push("/admin/news");
     } catch (error: any) {
@@ -206,10 +228,14 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
             Slug
           </Label>
           <Input
-            {...register("slug")}
+            {...slugField}
             id="slug"
             placeholder="news-slug"
             className="bg-white border border-border"
+            onChange={(e) => {
+              setIsSlugManuallyEdited(true);
+              slugField.onChange(e);
+            }}
           />
           {errors.slug && <p className="mt-1 text-red-500 text-sm">{errors.slug.message}</p>}
         </div>

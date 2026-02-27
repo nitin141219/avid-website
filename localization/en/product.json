@@ -121,13 +121,9 @@
                     "otherStandards": {
                         "0": {
                             "title": "Green Credentials",
-                            "description": "99% bio-based carbon content, verified via AMS radiocarbon analysis (ASTM D6866-24a / NF EN 16640:2017) by CIRAM, a Cofrac-accredited ISO/IEC 17025 laboratory."
+                            "description": "99% bio-based carbon content, verified via AMS radiocarbon analysis by a Cofrac-accredited ISO/IEC 17025 French laboratory."
                         },
                         "1": {
-                            "title": "Safety",
-                            "description": "Comprehensive SDS, transportation certifications for global shipment"
-                        },
-                        "2": {
                             "title": "Quality Control",
                             "description": "Batch-specific CoA, real-time production monitoring, third-party validation available"
                         }

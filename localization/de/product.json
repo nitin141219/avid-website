@@ -121,15 +121,11 @@
           "otherStandards": {
             "0": {
               "title": "Gruene Nachweise",
-              "description": "99% biobasierter Kohlenstoffgehalt, verifiziert durch AMS-Radiokohlenstoffanalyse (ASTM D6866-24a / NF EN 16640:2017) durch CIRAM, ein Cofrac-akkreditiertes ISO/IEC-17025-Labor."
+              "description": "99% biobasierter Kohlenstoffgehalt, verifiziert durch AMS-Radiokohlenstoffanalyse durch ein franzoesisches, Cofrac-akkreditiertes ISO/IEC-17025-Labor."
             },
             "1": {
               "title": "Sicherheit",
               "description": "Umfassende Sicherheitsdatenblaetter, Transportzertifizierungen fuer weltweiten Versand"
-            },
-            "2": {
-              "title": "Qualitaetskontrolle",
-              "description": "Chargenspezifisches CoA, Echtzeit-Produktionsueberwachung, Validierung durch Dritte verfuegbar"
             }
           }
         },

@@ -42,11 +42,6 @@ export default function ProductTemplate({
               title: "qualityInfo.otherStandards.1.title",
               description: "qualityInfo.otherStandards.1.description",
             },
-            {
-              id: 2,
-              title: "qualityInfo.otherStandards.2.title",
-              description: "qualityInfo.otherStandards.2.description",
-            },
           ],
         },
       }

@@ -20,6 +20,16 @@ import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 
 const SUPPORTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+const DEFAULT_AUTHOR = "Avid Organics";
+
+const generateSlug = (value: string) =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-+|-+$/g, "");
 
 const blogSchema = yup.object({
   slug: yup
@@ -85,6 +95,7 @@ export type BlogFormProps = {
 export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
   const router = useRouter();
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [isSlugManuallyEdited, setIsSlugManuallyEdited] = useState(false);
 
   const {
     register,
@@ -99,12 +110,19 @@ export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
     defaultValues: {
       is_active: true,
       image_mobile: "",
+      author: DEFAULT_AUTHOR,
     },
     mode: "onChange",
   });
 
   const image = watch("image");
   const mobileImage = watch("image_mobile");
+  const titleEn = watch("title_en");
+
+  useEffect(() => {
+    if (blogId || isSlugManuallyEdited) return;
+    setValue("slug", generateSlug(titleEn || ""), { shouldValidate: true });
+  }, [blogId, isSlugManuallyEdited, setValue, titleEn]);
 
   // 🟡 Edit mode → load data
   useEffect(() => {
@@ -124,7 +142,7 @@ export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
       content_de: blogData.content_de || "",
       content_fr: blogData.content_fr || "",
       content_es: blogData.content_es || "",
-      author: blogData.author,
+      author: blogData.author || DEFAULT_AUTHOR,
       is_active: !!blogData.is_active,
       image: blogData.image,
       image_mobile: blogData.image_mobile || blogData.imageMobile || blogData.mobileImage || "",
@@ -133,11 +151,14 @@ export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
         label: blog.title,
       })),
     });
+    setIsSlugManuallyEdited(true);
 
     () => {
       reset();
     };
   }, [blogId, reset]);
+
+  const slugField = register("slug");
 
   const onSubmit = async (values: BlogFormValues) => {
     const formData = new FormData();
@@ -204,6 +225,7 @@ export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
         await BLOGS_SERVICES.createBlog(formData);
         toast.success("Blog created successfully");
         reset();
+        setIsSlugManuallyEdited(false);
       }
       router.push("/admin/blogs");
     } catch (error: any) {
@@ -232,10 +254,14 @@ export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
             Slug
           </Label>
           <Input
-            {...register("slug")}
+            {...slugField}
             id="slug"
             placeholder="blog-slug"
             className="bg-white border border-border"
+            onChange={(e) => {
+              setIsSlugManuallyEdited(true);
+              slugField.onChange(e);
+            }}
           />
           {errors.slug && <p className="mt-1 text-red-500 text-sm">{errors.slug.message}</p>}
         </div>
@@ -402,7 +428,9 @@ export function BlogForm({ blogId, blogData, blogsData }: BlogFormProps) {
           <Dialog.Content className="top-1/2 left-1/2 z-201 fixed w-[90vw] max-w-5xl -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="mb-4 font-semibold text-white text-xl"></Dialog.Title>
             <div className="relative">
-              <img src={previewImage || ""} alt="Full View" className="shadow-2xl rounded-lg w-full h-auto" />
+              {previewImage ? (
+                <img src={previewImage} alt="Full View" className="shadow-2xl rounded-lg w-full h-auto" />
+              ) : null}
               <button
                 onClick={() => setPreviewImage(null)}
                 className="-top-12 right-0 absolute flex items-center gap-2 text-white hover:text-slate-300 transition"

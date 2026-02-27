@@ -121,15 +121,11 @@
           "otherStandards": {
             "0": {
               "title": "Credenciales Verdes",
-              "description": "99% de carbono biobasado, verificado mediante analisis radiocarbonico AMS (ASTM D6866-24a / NF EN 16640:2017) por CIRAM, laboratorio acreditado Cofrac ISO/IEC 17025."
+              "description": "99% de carbono biobasado, verificado mediante analisis radiocarbonico AMS por un laboratorio frances acreditado por Cofrac ISO/IEC 17025."
             },
             "1": {
               "title": "Seguridad",
               "description": "SDS integral, certificaciones de transporte para envios globales"
-            },
-            "2": {
-              "title": "Control de Calidad",
-              "description": "CoA especifico por lote, monitoreo de produccion en tiempo real, validacion de terceros disponible"
             }
           }
         },

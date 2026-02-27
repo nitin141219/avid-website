@@ -151,7 +151,7 @@ export const marketPages: Record<string, MarketPageData> = {
         subtitle: "products.aviga_bio_t.subtitle",
         subtitleClassName: "whitespace-pre-line text-sm sm:text-base",
         desc: "products.aviga_bio_t.desc",
-        image: "/images/product/Product%20Slide%20Show/aviga-bio-t/Aviga%20Bio%20T-personal.png",
+        image: "/images/product/Product Slide Show/aviga-bio-t/Aviga Bio T-personal.png",
         link: "/product/alpha-hydroxy-acids/aviga-bio-t",
       },
       {

@@ -600,7 +600,9 @@ export function EventForm({ eventId, eventData }: EventFormProps) {
           <Dialog.Content className="top-1/2 left-1/2 z-201 fixed w-[90vw] max-w-5xl -translate-x-1/2 -translate-y-1/2">
             <Dialog.Title className="mb-4 font-semibold text-white text-xl"></Dialog.Title>
             <div className="relative">
-              <img src={previewImage || ""} alt="Full View" className="shadow-2xl rounded-lg w-full h-auto" />
+              {previewImage ? (
+                <img src={previewImage} alt="Full View" className="shadow-2xl rounded-lg w-full h-auto" />
+              ) : null}
               <button
                 onClick={() => setPreviewImage(null)}
                 className="-top-12 right-0 absolute flex items-center gap-2 text-white hover:text-slate-300 transition"

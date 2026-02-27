@@ -31,6 +31,13 @@ function buildGoogleCalendarUrl(post: any) {
 export default function EventCard({ post }: any) {
   const locale = useLocale();
   const tCommon = useTranslations("common");
+  const rawCategory = (post?.category || post?.category_title || "").trim();
+  const rawBoothOrSubTitle = (post?.sub_title || post?.subTitle || "").trim();
+  const isVitafoodsEvent = (post?.title || "").toLowerCase().includes("vitafoods");
+  const categoryLooksLikeBooth = /^booth\b/i.test(rawCategory);
+  const category = isVitafoodsEvent && categoryLooksLikeBooth ? "Trade Fair" : rawCategory;
+  const boothOrSubTitle =
+    rawBoothOrSubTitle || (isVitafoodsEvent && categoryLooksLikeBooth ? rawCategory : "");
 
   const rawStart = post.start_date || DateTime.now().toISO();
   const rawEnd = post.end_date || DateTime.now().toISO();
@@ -42,9 +49,12 @@ export default function EventCard({ post }: any) {
   return (
     <div className="flex flex-col bg-white shadow-sm p-6 border border-slate-200 rounded-sm w-full h-full">
       <div className="flex justify-between items-start mb-10">
-        <span className="max-w-52 font-bold text-slate-900 text-sm line-clamp-1 tracking-tight">
-          {post?.category}
-        </span>
+        <div className="max-w-52 space-y-1 tracking-tight">
+          {category ? <p className="font-bold text-slate-900 text-sm line-clamp-1">{category}</p> : null}
+          {boothOrSubTitle ? (
+            <p className="font-semibold text-slate-800 text-base line-clamp-1">{boothOrSubTitle}</p>
+          ) : null}
+        </div>
         <div className="text-slate-700 text-sm text-right leading-tight">
           {displayStart} -<br />
           {displayEnd}
@@ -99,3 +109,4 @@ const AddToGoogleCalendar = ({ url, label }: { url: string; label: string }) => 
     </button>
   );
 };
+

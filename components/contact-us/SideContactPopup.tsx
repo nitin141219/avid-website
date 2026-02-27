@@ -51,7 +51,7 @@ export default function SideContactPopup() {
   }, [open]);
 
   return (
-    <div className="fixed right-0 top-1/4 -translate-y-1/4 z-40">
+    <div className="fixed right-0 top-1/2 -translate-y-1/2 sm:top-1/4 sm:-translate-y-1/4 z-40">
       {/* --- WRAPPER WHERE BUTTON AND POPUP SHARE SAME POINT --- */}
       <div className="relative w-0 h-0 flex items-center justify-end">
         {/* ------------------------------ */}

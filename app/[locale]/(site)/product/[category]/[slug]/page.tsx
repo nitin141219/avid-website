@@ -76,7 +76,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       ? [
           { title: "qualityInfo.otherStandards.0.title" },
           { title: "qualityInfo.otherStandards.1.title" },
-          { title: "qualityInfo.otherStandards.2.title" },
         ]
       : data.qualityInfo.otherStandards;
 

@@ -23,7 +23,7 @@ function normalizeValue(value: string): string {
 }
 
 function toPublicSlideshowPath(folderName: string, fileName: string): string {
-  return `/images/product/Product%20Slide%20Show/${encodeURIComponent(folderName)}/${encodeURIComponent(fileName)}`;
+  return `/images/product/Product Slide Show/${folderName}/${fileName}`;
 }
 
 function scoreFolderMatch(folderName: string, candidates: string[]): number {

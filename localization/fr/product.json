@@ -121,15 +121,11 @@
           "otherStandards": {
             "0": {
               "title": "References Vertes",
-              "description": "99% de carbone biosource, verifie par analyse radiocarbone AMS (ASTM D6866-24a / NF EN 16640:2017) par CIRAM, laboratoire accrédité Cofrac ISO/IEC 17025."
+              "description": "99% de carbone biosource, verifie par analyse radiocarbone AMS par un laboratoire francais accrédité Cofrac ISO/IEC 17025."
             },
             "1": {
               "title": "Securite",
               "description": "FDS complete, certifications de transport pour expeditions mondiales"
-            },
-            "2": {
-              "title": "Controle Qualite",
-              "description": "CoA specifique par lot, suivi de production en temps reel, validation tierce disponible"
             }
           }
         },

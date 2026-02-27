@@ -27,6 +27,15 @@ const SIDEBAR_WIDTH_MOBILE = "18rem";
 const SIDEBAR_WIDTH_ICON = "3rem";
 const SIDEBAR_KEYBOARD_SHORTCUT = "b";
 
+const isEditableKeyboardTarget = (target: EventTarget | null): boolean => {
+  if (!(target instanceof Element)) return false;
+  return Boolean(
+    target.closest(
+      'input, textarea, select, [contenteditable="true"], [role="textbox"], .ProseMirror'
+    )
+  );
+};
+
 type SidebarContextProps = {
   state: "expanded" | "collapsed";
   open: boolean;
@@ -91,7 +100,12 @@ function SidebarProvider({
   // Adds a keyboard shortcut to toggle the sidebar.
   React.useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === SIDEBAR_KEYBOARD_SHORTCUT && (event.metaKey || event.ctrlKey)) {
+      const pressedKey = typeof event.key === "string" ? event.key.toLowerCase() : "";
+      if (
+        pressedKey === SIDEBAR_KEYBOARD_SHORTCUT &&
+        (event.metaKey || event.ctrlKey) &&
+        !isEditableKeyboardTarget(event.target)
+      ) {
         event.preventDefault();
         toggleSidebar();
       }

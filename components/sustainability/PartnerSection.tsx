@@ -46,7 +46,7 @@ const PartnerSection = () => {
       <div className="space-y-10 py-16 container-inner">
         <Link
           href="/contact-us"
-          className="inline-flex items-center gap-4 col-start-1 cta-green mt-0 mb-16 px-4 py-2 w-fit h-9"
+          className="inline-flex items-center gap-4 col-start-1 bg-primary hover:bg-primary/90 mt-0 mb-16 px-4 py-2 w-fit h-9 text-white transition"
         >
           {t("cta")} <MoveRight className="size-5" strokeWidth={2} />
         </Link>

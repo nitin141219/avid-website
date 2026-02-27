@@ -1,0 +1,2 @@
+export const SLIDESHOW_AUTOPLAY_MS = 4000;
+export const SLIDESHOW_TRANSITION_SECONDS = 0.7;

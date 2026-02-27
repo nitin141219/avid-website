@@ -1,7 +1,8 @@
 "use client";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { SLIDESHOW_AUTOPLAY_MS, SLIDESHOW_TRANSITION_SECONDS } from "@/constants/slideshow";
 
 interface ImageSlideshowProps {
   images: string[];
@@ -9,28 +10,14 @@ interface ImageSlideshowProps {
 
 export default function ImageSlideshow({ images }: ImageSlideshowProps) {
   const [index, setIndex] = useState(0);
-  const [phase, setPhase] = useState<"image" | "text" | "fadeout">("image");
-  const timeoutRef = useRef<NodeJS.Timeout[]>([]);
 
   useEffect(() => {
     if (images.length <= 1) return;
-    const timers: NodeJS.Timeout[] = [];
-
-    timers.push(
-      setTimeout(() => setPhase("text"), 300)
-    );
-    timers.push(
-      setTimeout(() => setPhase("fadeout"), 3700)
-    );
-    timers.push(
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % images.length);
-        setPhase("image");
-      }, 4000)
-    );
-    timeoutRef.current = timers;
-    return () => timers.forEach(clearTimeout);
-  }, [index, images.length]);
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, SLIDESHOW_AUTOPLAY_MS);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   if (images.length === 0) return null;
 
@@ -43,6 +30,7 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
           fill
           className="object-cover"
           priority
+          unoptimized
         />
       </div>
     );
@@ -55,14 +43,14 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
           key={index}
           className="absolute inset-0"
           variants={{
-            initial: { opacity: 0, scale: 1.1 },
+            initial: { opacity: 0, scale: 1.02 },
             animate: { opacity: 1, scale: 1 },
-            fadeout: { opacity: 0, scale: 0.9 },
+            fadeout: { opacity: 0, scale: 1 },
           }}
           initial="initial"
-          animate={phase === "fadeout" ? "fadeout" : "animate"}
+          animate="animate"
           exit="fadeout"
-          transition={{ duration: 1, ease: "easeOut" }}
+          transition={{ duration: SLIDESHOW_TRANSITION_SECONDS, ease: "easeOut" }}
         >
           <Image
             src={images[index]}
@@ -70,6 +58,7 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
             fill
             priority
             className="object-cover"
+            unoptimized
           />
         </motion.div>
       </AnimatePresence>
@@ -78,9 +67,7 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
           <button
             key={idx}
             onClick={() => {
-              timeoutRef.current.forEach(clearTimeout);
               setIndex(idx);
-              setPhase("image");
             }}
             aria-label={`Go to slide ${idx + 1}`}
             className={`h-2 w-6 transition-all cursor-pointer duration-300 ${

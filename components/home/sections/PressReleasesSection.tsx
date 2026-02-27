@@ -1,14 +1,14 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import useEmblaCarousel from "embla-carousel-react";
 import { motion } from "framer-motion";
-import { ChevronLeft, ChevronRight, MoveRight } from "lucide-react";
+import { MoveRight } from "lucide-react";
 import { DateTime } from "luxon";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import { useLocale } from "next-intl";
-import { useCallback, useEffect, useState } from "react";
+import type { WheelEvent } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "@/components/AvidToast";
 import { getResponsiveImageSources } from "@/lib/utils";
 import styles from "../styles/press-release.module.css"; // ✅ Module import
@@ -21,13 +21,33 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
   const locale = useLocale();
   const [newsData, setNewsData] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const lastWheelAt = useRef(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
     align: "center",
   });
 
-  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
-  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+  const handleWheel = useCallback(
+    (event: WheelEvent<HTMLDivElement>) => {
+      if (!emblaApi) return;
+
+      const now = Date.now();
+      if (now - lastWheelAt.current < 280) return;
+      lastWheelAt.current = now;
+
+      const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+      if (delta === 0) return;
+
+      event.preventDefault();
+      if (delta > 0) {
+        emblaApi.scrollNext();
+      } else {
+        emblaApi.scrollPrev();
+      }
+    },
+    [emblaApi]
+  );
 
   const fetchNews = async () => {
     setLoading(true);
@@ -56,6 +76,16 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
     fetchNews();
   }, []);
 
+  useEffect(() => {
+    if (!emblaApi || newsData.length <= 1 || isHovered) return;
+
+    const interval = window.setInterval(() => {
+      emblaApi.scrollNext();
+    }, 3000);
+
+    return () => window.clearInterval(interval);
+  }, [emblaApi, isHovered, newsData.length]);
+
   if (loading || newsData?.length === 0 || !newsData) {
     return null;
   }
@@ -72,29 +102,14 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
         >
           {title}
         </motion.h2>
-        {newsData?.length > 3 ? (
-          <>
-            <Button
-              onClick={scrollPrev}
-              size="icon"
-              variant="link"
-              className="hidden md:flex top-1/2 -left-5 z-10 absolute text-white -translate-y-1/2"
-            >
-              <ChevronLeft strokeWidth={1} className="size-10" />
-            </Button>
-            <Button
-              onClick={scrollNext}
-              size="icon"
-              variant="link"
-              className="hidden md:flex top-1/2 -right-5 z-10 absolute text-white -translate-y-1/2"
-            >
-              <ChevronRight strokeWidth={1} className="size-10" />
-            </Button>
-          </>
-        ) : null}
-
         {/* Embla Carousel */}
-        <div className={`${styles.viewport} cursor-grab active:cursor-grabbing`} ref={emblaRef}>
+        <div
+          className={`${styles.viewport} cursor-grab active:cursor-grabbing`}
+          ref={emblaRef}
+          onWheel={handleWheel}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
+        >
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -129,17 +144,19 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
                         alt={item?.title}
                         className="md:hidden w-full h-full object-cover"
                       />
-                    </div>
+                  </div>
                   <div className="flex flex-col flex-1 justify-between py-5 text-left">
                     <div>
-                      <h3 className="inline-block font-bold text-base xl:text-xl">
-                        {item.title}
-                      </h3>{" "}
-                      {item.sub_title && (
-                        <span className="font-normal text-white/85 text-base xl:text-xl">
-                          {item.sub_title}
-                        </span>
-                      )}
+                      <h3 className="text-base xl:text-xl">
+                        {item.sub_title ? (
+                          <>
+                            <span className="font-bold">{item.title}: </span>
+                            <span className="font-normal text-white/85">{item.sub_title}</span>
+                          </>
+                        ) : (
+                          <span className="font-bold">{item.title}</span>
+                        )}
+                      </h3>
                     </div>
                     <div>
                       <div className="bg-white/70 mt-8 mb-5 w-25 h-px"></div>
@@ -167,3 +184,5 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
     </section>
   );
 }
+
+
