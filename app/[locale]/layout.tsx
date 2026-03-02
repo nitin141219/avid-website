@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { hasLocale, Locale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "../globals.css";
 import DeferredClientWidgets from "./DeferredClientWidgets";
 
@@ -122,6 +123,7 @@ export default async function RootLayout({
           <AuthProvider user={loggedInUser?.data || null}>{children}</AuthProvider>
         </NextIntlClientProvider>
         <DeferredClientWidgets />
+        <SpeedInsights />
       </body>
     </html>
   );
