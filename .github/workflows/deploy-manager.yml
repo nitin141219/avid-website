@@ -1,0 +1,65 @@
+name: Deploy On Manager Push
+
+on:
+  push:
+    branches:
+      - manager
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-manager
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build app
+        run: npm run build
+
+      - name: Upload build files to server
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          source: ".next,public,package.json,package-lock.json"
+          target: ${{ secrets.HOSTINGER_REMOTE_PATH }}
+          overwrite: true
+          strip_components: 0
+
+      - name: Install production deps and restart app
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          START_COMMAND: ${{ secrets.HOSTINGER_START_COMMAND }}
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          envs: START_COMMAND
+          script: |
+            set -e
+            cd "${{ secrets.HOSTINGER_REMOTE_PATH }}"
+            npm install --production --omit=dev
+
+            if [ -n "$START_COMMAND" ]; then
+              echo "Running restart command..."
+              eval "$START_COMMAND"
+            else
+              echo "HOSTINGER_START_COMMAND is not set. Skipping app restart."
+            fi
