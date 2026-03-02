@@ -1,5 +1,5 @@
 "use client";
-import partnerImage from "@/public/images/sustainability/partner_bg.jpg";
+import partnerImage from "@/public/images/sustainability/partner_bg.webp";
 import { motion } from "framer-motion";
 import { MoveRight } from "lucide-react";
 import { useTranslations } from "next-intl";

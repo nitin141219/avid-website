@@ -1,6 +1,6 @@
 "use client";
 
-import leadershipImage from "@/public/images/leadership/leadership-bg.jpg";
+import leadershipImage from "@/public/images/leadership/leadership-bg.webp";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
@@ -32,7 +32,7 @@ export default function ExecutiveLeadershipHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/about-us/executive-leadership.jpg')",
+            backgroundImage: "url('/mobile/about-us/executive-leadership.webp')",
           }}
         />
         <DotsOverlay className="z-1" />

@@ -17,7 +17,7 @@ const slides = [
   {
     id: 3,
     img: SlideImage3,
-    mobileImg: "/mobile/main-banner/1.jpg",
+    mobileImg: "/mobile/main-banner/1.webp",
     titleKey: "slide_1_title",
     subtitleKey: null,
     buttonKey: "slide_1_button",
@@ -27,7 +27,7 @@ const slides = [
   {
     id: 2,
     img: SlideImage2,
-    mobileImg: "/mobile/main-banner/3.jpg",
+    mobileImg: "/mobile/main-banner/3.webp",
     titleKey: "slide_2_title",
     subtitleKey: null,
     buttonKey: "slide_2_button",
@@ -37,7 +37,7 @@ const slides = [
   {
     id: 1,
     img: SlideImage1,
-    mobileImg: "/mobile/main-banner/2.jpg",
+    mobileImg: "/mobile/main-banner/2.webp",
     titleKey: "slide_3_title",
     subtitleKey: null,
     buttonKey: "slide_3_button",

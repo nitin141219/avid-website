@@ -159,7 +159,7 @@ function Login() {
           </form>
           <div className="hidden lg:block relative">
             <Image
-              src="/images/log-in.jpg"
+              src="/images/log-in.webp"
               alt="Login background"
               fill
               className="absolute inset-0 w-full h-full object-cover"

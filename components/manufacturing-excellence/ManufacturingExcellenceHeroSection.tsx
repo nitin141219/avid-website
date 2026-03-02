@@ -28,7 +28,7 @@ export default function ManufacturingExcellenceHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/about-us/manufacturing-excellence.jpg')",
+            backgroundImage: "url('/mobile/about-us/manufacturing-excellence.webp')",
           }}
         />
         <DotsOverlay className="z-1" />

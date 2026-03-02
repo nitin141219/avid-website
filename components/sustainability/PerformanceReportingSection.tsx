@@ -1,6 +1,6 @@
 "use client";
 
-import greenImage from "@/public/images/sustainability/green.jpg";
+import greenImage from "@/public/images/sustainability/green.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -55,23 +55,23 @@ const PerformanceReportingSection = () => {
         >
           {[
             {
-              icon: "/images/sustainability/icon-8.png",
+              icon: "/images/sustainability/icon-8.webp",
               title: t("items.ghg"),
             },
             {
-              icon: "/images/sustainability/icon-9.png",
+              icon: "/images/sustainability/icon-9.webp",
               title: t("items.water"),
             },
             {
-              icon: "/images/sustainability/icon-10.png",
+              icon: "/images/sustainability/icon-10.webp",
               title: t("items.health"),
             },
             {
-              icon: "/images/sustainability/icon-11.png",
+              icon: "/images/sustainability/icon-11.webp",
               title: t("items.diversity"),
             },
             {
-              icon: "/images/sustainability/icon-12.png",
+              icon: "/images/sustainability/icon-12.webp",
               title: t("items.governance"),
             },
           ].map((i) => (

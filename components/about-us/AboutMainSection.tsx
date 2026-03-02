@@ -3,12 +3,12 @@ import Image from "next/image";
 
 const pillars = [
   {
-    icon: "/images/about-us/GOAL.png",
+    icon: "/images/about-us/GOAL.webp",
     title: "pillars.mission.title",
     description: "pillars.mission.description",
   },
   {
-    icon: "/images/about-us/EYE.png",
+    icon: "/images/about-us/EYE.webp",
     title: "pillars.vision.title",
     description: "pillars.vision.description",
   },
@@ -47,7 +47,7 @@ function AboutMainSection() {
       </section>
       <section className="z-0 relative bg-gray-200 mb-5">
         <Image
-          src="/images/about-us/vs-bg.jpg"
+          src="/images/about-us/vs-bg.webp"
           fill
           alt="Value System"
           className="-z-1 absolute object-cover"
@@ -56,7 +56,7 @@ function AboutMainSection() {
         <div className="py-16 container-inner">
           <div className="flex sm:flex-row flex-col items-start sm:items-center gap-5 mt-16">
             <div className="relative flex flex-[0_0_72px] justify-start items-center size-18">
-              <Image src={"/images/about-us/ValueSystemIcon.png"} alt={"Value System"} fill />
+              <Image src={"/images/about-us/ValueSystemIcon.webp"} alt={"Value System"} fill />
             </div>
             <div className="flex flex-col justify-between h-full">
               <h2 className="font-extrabold text-off-black text-2xl md:text-3xl">

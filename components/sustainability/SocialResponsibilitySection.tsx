@@ -26,7 +26,7 @@ export default function SocialResponsibilitySection() {
         </div>
         <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
           <Image
-            src="/images/sustainability/social-responsibility.jpg"
+            src="/images/sustainability/social-responsibility.webp"
             alt="Social Responsibility"
             fill
             className="object-cover"

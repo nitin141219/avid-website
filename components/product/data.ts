@@ -71,8 +71,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         subtitle: "hero.subtitle",
       },
       information: {
-        title: { type: "icon", src: "/images/product/avigaHP70.png" },
-        image: "/images/product/avigaHP70.png",
+        title: { type: "icon", src: "/images/product/avigaHP70.webp" },
+        image: "/images/product/avigaHP70.webp",
         tag: "HP",
         subText: "information.subText",
         description: "information.description",
@@ -86,25 +86,25 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/ad.png",
+            icon: "/images/product/ad.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/paf.png",
+            icon: "/images/product/paf.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/ps.png",
+            icon: "/images/product/ps.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/is.png",
+            icon: "/images/product/is.webp",
             description: "applications.items.3.description",
           },
         ],
@@ -113,9 +113,9 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
-          { id: 3, src: "/images/sustainability/reach.png", size: "h-22" },
+          { id: 1, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.webp", size: "h-22" },
+          { id: 3, src: "/images/sustainability/reach.webp", size: "h-22" },
         ],
         otherStandards: [
           {
@@ -169,12 +169,12 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
       information: {
         title: {
           type: "icon",
-          src: "/images/product/avigabioT.png",
+          src: "/images/product/avigabioT.webp",
           className: "object-contain mt-2",
           gapPx: 12,
         },
-        image: "/images/product/Product Slide Show/aviga-bio-t/Aviga Bio T-personal.png",
-        images: ["/images/product/Product Slide Show/aviga-bio-t/Aviga Bio T-personal.png"],
+        image: "/images/product/Product Slide Show/aviga-bio-t/Aviga Bio T-personal.webp",
+        images: ["/images/product/Product Slide Show/aviga-bio-t/Aviga Bio T-personal.webp"],
         subText: "information.subText",
         description: "information.description",
         bioBasedContent: "information.bioBasedContent",
@@ -188,37 +188,37 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/cs.png",
+            icon: "/images/product/cs.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/idc.png",
+            icon: "/images/product/idc.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/of.png",
+            icon: "/images/product/of.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/tp.png",
+            icon: "/images/product/tp.webp",
             description: "applications.items.3.description",
           },
           {
             id: 5,
             title: "applications.items.4.title",
-            icon: "/images/product/lm.png",
+            icon: "/images/product/lm.webp",
             description: "applications.items.4.description",
           },
           {
             id: 6,
             title: "applications.items.5.title",
-            icon: "/images/product/sac.png",
+            icon: "/images/product/sac.webp",
             description: "applications.items.5.description",
           },
         ],
@@ -227,9 +227,9 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
-          { id: 3, src: "/images/sustainability/reach.png", size: "h-22" },
+          { id: 1, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.webp", size: "h-22" },
+          { id: 3, src: "/images/sustainability/reach.webp", size: "h-22" },
         ],
         otherStandards: [
           {
@@ -281,8 +281,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         subtitle: "hero.subtitle",
       },
       information: {
-        title: { type: "icon", src: "/images/product/avigaT.png" },
-        image: "/images/product/avigaT-product.jpg",
+        title: { type: "icon", src: "/images/product/avigaT.webp" },
+        image: "/images/product/avigaT-product.webp",
         subText: "information.subText",
         description: "information.description",
         casNumber: "79-14-1",
@@ -295,37 +295,37 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/cs.png",
+            icon: "/images/product/cs.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/idc.png",
+            icon: "/images/product/idc.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/of.png",
+            icon: "/images/product/of.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/tp.png",
+            icon: "/images/product/tp.webp",
             description: "applications.items.3.description",
           },
           {
             id: 5,
             title: "applications.items.4.title",
-            icon: "/images/product/lm.png",
+            icon: "/images/product/lm.webp",
             description: "applications.items.4.description",
           },
           {
             id: 6,
             title: "applications.items.5.title",
-            icon: "/images/product/sac.png",
+            icon: "/images/product/sac.webp",
             description: "applications.items.5.description",
           },
         ],
@@ -334,9 +334,9 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
-          { id: 3, src: "/images/sustainability/reach.png", size: "h-22" },
+          { id: 1, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.webp", size: "h-22" },
+          { id: 3, src: "/images/sustainability/reach.webp", size: "h-22" },
         ],
         otherStandards: [
           {
@@ -390,10 +390,10 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         subtitle: "hero.subtitle",
       },
       information: {
-        title: { type: "icon", src: "/images/product/aviglyHP.png" },
-        image: "/images/product/avigly-hp-img.png",
+        title: { type: "icon", src: "/images/product/aviglyHP.webp" },
+        image: "/images/product/avigly-hp-img.webp",
         images: [
-          "/images/product/avigly-hp-img.png",
+          "/images/product/avigly-hp-img.webp",
         ],
         subText: "information.subText",
         description: "information.description",
@@ -407,37 +407,37 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/api.png",
+            icon: "/images/product/api.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/paf.png",
+            icon: "/images/product/paf.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/pe.png",
+            icon: "/images/product/pe.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/nu.png",
+            icon: "/images/product/nu.webp",
             description: "applications.items.3.description",
           },
           {
             id: 5,
             title: "applications.items.4.title",
-            icon: "/images/product/fb.png",
+            icon: "/images/product/fb.webp",
             description: "applications.items.4.description",
           },
           {
             id: 6,
             title: "applications.items.5.title",
-            icon: "/images/product/an.png",
+            icon: "/images/product/an.webp",
             description: "applications.items.5.description",
           },
         ],
@@ -446,12 +446,12 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/footer/logo1.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 3, src: "/images/sustainability/sgs45.png", size: "h-22" },
-          { id: 4, src: "/images/footer/logo3.png", size: "h-22" },
-          { id: 5, src: "/images/footer/logo6.png", size: "h-22" },
-          { id: 6, src: "/images/sustainability/fssai.png", size: "w-22! h-22" },
+          { id: 1, src: "/images/footer/logo1.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 3, src: "/images/sustainability/sgs45.webp", size: "h-22" },
+          { id: 4, src: "/images/footer/logo3.webp", size: "h-22" },
+          { id: 5, src: "/images/footer/logo6.webp", size: "h-22" },
+          { id: 6, src: "/images/sustainability/fssai.webp", size: "w-22! h-22" },
         ],
         otherStandards: [
           {
@@ -502,8 +502,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         subtitle: "hero.subtitle",
       },
       information: {
-        title: { type: "icon", src: "/images/product/aviglyT.png" },
-        image: "/images/product/avigly-t-img.png",
+        title: { type: "icon", src: "/images/product/aviglyT.webp" },
+        image: "/images/product/avigly-t-img.webp",
         subText: "information.subText",
         description: "information.description",
         casNumber: "56-40-6",
@@ -516,19 +516,19 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/ci.png",
+            icon: "/images/product/ci.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/ip.png",
+            icon: "/images/product/ip.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/ss.png",
+            icon: "/images/product/ss.webp",
             description: "applications.items.2.description",
           },
         ],
@@ -537,8 +537,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
+          { id: 1, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.webp", size: "h-22" },
         ],
         otherStandards: [
           {
@@ -584,8 +584,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         subtitle: "hero.subtitle",
       },
       information: {
-        title: { type: "icon", src: "/images/product/avitau.png" },
-        image: "/images/product/avitau-img.png",
+        title: { type: "icon", src: "/images/product/avitau.webp" },
+        image: "/images/product/avitau-img.webp",
         subText: "information.subText",
         description: "information.description",
         casNumber: "107-35-7",
@@ -598,25 +598,25 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/enrgy.png",
+            icon: "/images/product/enrgy.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/brain.png",
+            icon: "/images/product/brain.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/ps.png",
+            icon: "/images/product/ps.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/an.png",
+            icon: "/images/product/an.webp",
             description: "applications.items.3.description",
           },
         ],
@@ -625,11 +625,11 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/footer/logo1.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 3, src: "/images/sustainability/sgs45.png", size: "h-22" },
-          { id: 4, src: "/images/footer/logo3.png", size: "h-22" },
-          { id: 5, src: "/images/footer/logo6.png", size: "h-22" },
+          { id: 1, src: "/images/footer/logo1.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 3, src: "/images/sustainability/sgs45.webp", size: "h-22" },
+          { id: 4, src: "/images/footer/logo3.webp", size: "h-22" },
+          { id: 5, src: "/images/footer/logo6.webp", size: "h-22" },
         ],
         otherStandards: [
           {
@@ -673,7 +673,7 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
       },
       information: {
         title: { type: "text", src: "Guaiacol" },
-        image: "/images/product/guaiacol.jpg",
+        image: "/images/product/guaiacol.webp",
         description: "information.description",
         casNumber: "90-05-1",
         molecularFormula: "C₇H₈O₂",
@@ -685,25 +685,25 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/ffi.png",
+            icon: "/images/product/ffi.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/ps.png",
+            icon: "/images/product/ps.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/sc.png",
+            icon: "/images/product/sc.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/rnd.png",
+            icon: "/images/product/rnd.webp",
             description: "applications.items.3.description",
           },
         ],
@@ -712,8 +712,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
+          { id: 1, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.webp", size: "h-22" },
         ],
         otherStandards: [
           {
@@ -752,7 +752,7 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
       },
       information: {
         title: { type: "text", src: "Chlorhexidine Base" },
-        image: "/images/product/chlorhexidine-base.jpg",
+        image: "/images/product/chlorhexidine-base.webp",
         description: "information.description",
         casNumber: "55-56-1",
         molecularFormula: "C₂₂H₃₀Cl₂N₁₀",
@@ -764,25 +764,25 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/and.png",
+            icon: "/images/product/and.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/ocp.png",
+            icon: "/images/product/ocp.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/ps.png",
+            icon: "/images/product/ps.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/ia.png",
+            icon: "/images/product/ia.webp",
             description: "applications.items.3.description",
           },
         ],
@@ -791,8 +791,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
+          { id: 1, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.webp", size: "h-22" },
         ],
         otherStandards: [
           {
@@ -834,7 +834,7 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
       information: {
         title: { type: "text", src: "MEHQ" },
         subText: "information.subText",
-        image: "/images/product/mehq.jpg",
+        image: "/images/product/mehq.webp",
         description: "information.description",
         casNumber: "150-76-5",
         molecularFormula: "C₇H₈O₂",
@@ -846,25 +846,25 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
           {
             id: 1,
             title: "applications.items.0.title",
-            icon: "/images/product/pi.png",
+            icon: "/images/product/pi.webp",
             description: "applications.items.0.description",
           },
           {
             id: 2,
             title: "applications.items.1.title",
-            icon: "/images/product/rms.png",
+            icon: "/images/product/rms.webp",
             description: "applications.items.1.description",
           },
           {
             id: 3,
             title: "applications.items.2.title",
-            icon: "/images/product/scs.png",
+            icon: "/images/product/scs.webp",
             description: "applications.items.2.description",
           },
           {
             id: 4,
             title: "applications.items.3.title",
-            icon: "/images/product/ips.png",
+            icon: "/images/product/ips.webp",
             description: "applications.items.3.description",
           },
         ],
@@ -873,8 +873,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         title: "qualityInfo.title",
         subtitle: "qualityInfo.subtitle",
         manufacturingStandards: [
-          { id: 1, src: "/images/sustainability/sgs14.png", size: "h-22" },
-          { id: 2, src: "/images/sustainability/sgs45.png", size: "h-22" },
+          { id: 1, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+          { id: 2, src: "/images/sustainability/sgs45.webp", size: "h-22" },
         ],
         otherStandards: [
           {

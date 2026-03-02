@@ -18,7 +18,7 @@
       "description": "Die Nachhaltigkeitsstrategie von Avid Organics richtet sich nach führenden ESG-Standards, darunter GRI, SASB und die UN-Ziele für nachhaltige Entwicklung. Unser Ansatz basiert auf drei Grundpfeilern:",
       "items": [
         {
-          "icon": "/images/sustainability/icon-1.png",
+          "icon": "/images/sustainability/icon-1.webp",
           "title": [
             "Umwelt",
             "Verwaltung"
@@ -26,7 +26,7 @@
           "description": "Wir reduzieren unseren ökologischen Fußabdruck durch erneuerbare Energien, Ressourceneffizienz und Innovationen in der grünen Chemie."
         },
         {
-          "icon": "/images/sustainability/icon-2.png",
+          "icon": "/images/sustainability/icon-2.webp",
           "title": [
             "Sozial",
             "Verantwortung"
@@ -34,7 +34,7 @@
           "description": "Der Schutz unserer Mitarbeiter, die Förderung der Sicherheit und ein positiver Beitrag zu den Gemeinschaften, in denen wir tätig sind."
         },
         {
-          "icon": "/images/sustainability/icon-3.png",
+          "icon": "/images/sustainability/icon-3.webp",
           "title": [
             "Regierungsführung",
             "& Ethik"
@@ -47,22 +47,22 @@
       "title": "Umweltverantwortung in Aktion",
       "features": [
         {
-          "icon": "/images/sustainability/icon-4.png",
+          "icon": "/images/sustainability/icon-4.webp",
           "title": "Grüne Chemie durch Design",
           "desc": "Unsere Forschungs- und Entwicklungsteams wenden die Prinzipien der grünen Chemie in jeder Produktionsphase an, um die Prozesseffizienz zu verbessern, Abfall zu reduzieren und den Einsatz gefährlicher Materialien zu minimieren."
         },
         {
-          "icon": "/images/sustainability/icon-5.png",
+          "icon": "/images/sustainability/icon-5.webp",
           "title": "Wasser- und Abfallwirtschaft",
           "desc": "Unsere Anlagen arbeiten nach dem Prinzip der abwasserfreien Produktion (Zero Liquid Discharge, ZLD) mithilfe fortschrittlicher Abwasseraufbereitungssysteme, einschließlich Mehrstufenverdampfern. Seit 2018 haben wir die Abfallmenge pro Produktionseinheit um 22 % reduziert, obwohl die Produktionsmengen gestiegen sind."
         },
         {
-          "icon": "/images/sustainability/icon-6.png",
+          "icon": "/images/sustainability/icon-6.webp",
           "title": "Führerschaft im Bereich erneuerbarer Energien",
           "desc": "Durch die Umstellung auf 100 % erneuerbaren Strom haben wir die Emissionen der Kategorie 2 eliminiert und unsere gesamte CO2-Bilanz verbessert."
         },
         {
-          "icon": "/images/sustainability/icon-7.png",
+          "icon": "/images/sustainability/icon-7.webp",
           "title": "Fahrplan zur CO2-Reduzierung",
           "desc": "Seit 2018 haben wir durch Effizienzsteigerungen und den Einsatz erneuerbarer Energien eine Reduzierung der Treibhausgasemissionsintensität um 22 % erreicht."
         }

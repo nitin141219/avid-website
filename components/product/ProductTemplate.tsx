@@ -27,7 +27,7 @@ export default function ProductTemplate({
         information: {
           ...data.information,
           bioBasedContent: "information.bioBasedContent",
-          title: { type: "icon", src: "/images/product/avigabioHP70.png", gapPx: 4 },
+          title: { type: "icon", src: "/images/product/avigabioHP70.webp", gapPx: 4 },
         },
         qualityInfo: {
           ...data.qualityInfo,

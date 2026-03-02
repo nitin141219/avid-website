@@ -1,6 +1,6 @@
 "use client";
 
-import eventImage from "@/public/images/event/event.jpg";
+import eventImage from "@/public/images/event/event.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
@@ -28,7 +28,7 @@ export default function EventsHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/news/event.jpg')",
+            backgroundImage: "url('/mobile/news/event.webp')",
           }}
         />
         <DotsOverlay className="z-1 opacity-70" />

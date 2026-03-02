@@ -10,17 +10,17 @@ function LifeMainContent() {
   const t = useTranslations("careers.life");
   const safety = [
     {
-      icon: "/images/sustainability/icon-1.png",
+      icon: "/images/sustainability/icon-1.webp",
       title: t("safety.metrics.injuries.title"),
       text: t("safety.metrics.injuries.text"),
     },
     {
-      icon: "/images/sustainability/icon-2.png",
+      icon: "/images/sustainability/icon-2.webp",
       title: t("safety.metrics.compliance.title"),
       text: t("safety.metrics.compliance.text"),
     },
     {
-      icon: "/images/sustainability/icon-3.png",
+      icon: "/images/sustainability/icon-3.webp",
       text: t("safety.metrics.audits.text"),
     },
   ];
@@ -138,7 +138,7 @@ function LifeMainContent() {
           </div>
           <div className="relative w-full h-90">
             <Image
-              src="/images/life/Safety.jpg"
+              src="/images/life/Safety.webp"
               alt="Renewable Energy Operations"
               fill
               className="object-cover"
@@ -173,7 +173,7 @@ function LifeMainContent() {
         <div className="gap-10 grid md:grid-cols-2 container-inner">
           <div className="relative w-full h-90">
             <Image
-              src="/images/life/Diversity.jpg"
+              src="/images/life/Diversity.webp"
               alt="Renewable Energy Operations"
               fill
               className="object-cover"

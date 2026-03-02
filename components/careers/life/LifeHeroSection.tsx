@@ -1,7 +1,7 @@
 "use client";
 
 import DotsOverlay from "@/components/dots-overlay/DotsOverlay";
-import lifeImage from "@/public/images/life/life-at-avid.jpg";
+import lifeImage from "@/public/images/life/life-at-avid.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
@@ -28,7 +28,7 @@ export default function LifeHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/careers/life-at-avid.jpg')",
+            backgroundImage: "url('/mobile/careers/life-at-avid.webp')",
           }}
         />
         <DotsOverlay className="z-1" />

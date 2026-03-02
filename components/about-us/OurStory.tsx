@@ -142,11 +142,11 @@ export default function OurStorySection() {
   const [contentWidth, setContentWidth] = useState(0);
   // use exactly 5 images for the slideshow
   const bgImages = [
-    "/images/about-us/History/History Images-1.jpg",
-    "/images/about-us/History/History Images-2.jpg",
-    "/images/about-us/History/History Images-3.jpg",
-    "/images/about-us/History/History Images-4.jpg",
-    "/images/about-us/History/History Images-5.jpg",
+    "/images/about-us/History/History Images-1.webp",
+    "/images/about-us/History/History Images-2.webp",
+    "/images/about-us/History/History Images-3.webp",
+    "/images/about-us/History/History Images-4.webp",
+    "/images/about-us/History/History Images-5.webp",
   ];
   const [bgIndex, setBgIndex] = useState(0);
   const items = [
@@ -256,11 +256,11 @@ export default function OurStorySection() {
     <section
       ref={wrapperRef}
       style={{ "--slide-size": `${CARD_WIDTH}px` } as CSSProperties}
-      className={"relative bg-primary text-white min-h-[72svh] md:min-h-[100svh] overflow-hidden max-w-full scroll-mt-24 " + styles["our-story"]}
+      className={"relative bg-primary text-white min-h-[80svh] md:min-h-[100svh] overflow-hidden max-w-full scroll-mt-24 " + styles["our-story"]}
       id="history"
     >
       {/* Sticky viewport */}
-      <div className="sticky top-0 h-[72svh] md:h-[100svh] flex items-center md:items-start pt-0 md:pt-14 pb-0 md:pb-10 max-w-full">
+      <div className="sticky top-0 h-[80svh] md:h-[100svh] flex items-start pt-[max(2rem,env(safe-area-inset-top))] md:pt-14 pb-8 md:pb-10 max-w-full">
         <div className="absolute inset-0 -z-10 pointer-events-none">
           {bgImages.map((src, i) => (
             <Image
@@ -343,3 +343,4 @@ export default function OurStorySection() {
     </section>
   );
 }
+

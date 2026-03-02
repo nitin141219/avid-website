@@ -17,32 +17,32 @@ const markets = [
   {
     title: "personal_care",
     href: "/market/personal-care-and-cosmetics",
-    img: "/images/home/markets/Personal-Care-image.jpg",
-    icon: "/images/home/markets/Personal-Care-icon.png",
+    img: "/images/home/markets/Personal-Care-image.webp",
+    icon: "/images/home/markets/Personal-Care-icon.webp",
   },
   {
     title: "pharma",
     href: "/market/pharmaceuticals",
-    img: "/images/home/markets/Pharmaceuticals-Image.jpg",
-    icon: "/images/home/markets/Pharmaceuticals-icon.png",
+    img: "/images/home/markets/Pharmaceuticals-Image.webp",
+    icon: "/images/home/markets/Pharmaceuticals-icon.webp",
   },
   {
     title: "food_beverage",
     href: "/market/food-and-beverages",
-    img: "/images/home/markets/Food-Beverage-Image.jpg",
-    icon: "/images/home/markets/Food-Beverage-Icon.png",
+    img: "/images/home/markets/Food-Beverage-Image.webp",
+    icon: "/images/home/markets/Food-Beverage-Icon.webp",
   },
   {
     title: "animal_nutrition",
     href: "/market/animal-nutrition",
-    img: "/images/home/markets/Animal-Nutrition-image.jpg",
-    icon: "/images/home/markets/Animal-Nutrition-icon.png",
+    img: "/images/home/markets/Animal-Nutrition-image.webp",
+    icon: "/images/home/markets/Animal-Nutrition-icon.webp",
   },
   {
     title: "industrial",
     href: "/market/industrial-and-specialty-applications",
-    img: "/images/home/markets/Industrial-Specialty-Applications-image.jpg",
-    icon: "/images/home/markets/Industrial-Specialty-Applications-icon.png",
+    img: "/images/home/markets/Industrial-Specialty-Applications-image.webp",
+    icon: "/images/home/markets/Industrial-Specialty-Applications-icon.webp",
   },
 ];
 

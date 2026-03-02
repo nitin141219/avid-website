@@ -1,6 +1,6 @@
 "use client";
 
-import contactUsImage from "@/public/images/contact-us/contactus_bg.jpg";
+import contactUsImage from "@/public/images/contact-us/contactus_bg.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -26,7 +26,7 @@ export default function ContactHeroSection() {
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150 overflow-hidden"
         style={{
-          //   backgroundImage: `url(/images/market/animal.jpg)`,
+          //   backgroundImage: `url(/images/market/animal.webp)`,
           backgroundImage: `url(${loaded ? contactUsImage.src : contactUsImage.blurDataURL})`,
           filter: loaded ? "blur(0px)" : "blur(12px)",
           backgroundAttachment: "scroll",

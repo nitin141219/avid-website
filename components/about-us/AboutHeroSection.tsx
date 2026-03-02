@@ -1,6 +1,6 @@
 "use client";
 
-import aboutUsImage from "@/public/images/about-us/about-us.jpg";
+import aboutUsImage from "@/public/images/about-us/about-us.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
@@ -28,7 +28,7 @@ export default function AboutHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/about-us/about-us.jpg')",
+            backgroundImage: "url('/mobile/about-us/about-us.webp')",
           }}
         />
         <DotsOverlay className="z-1" />

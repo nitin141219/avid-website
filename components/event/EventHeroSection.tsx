@@ -100,7 +100,7 @@ export default function EventHeroSection({ data }: any) {
 //         transition={{ duration: 0.5, ease: "easeInOut" }}
 //         className="relative w-full h-150 overflow-hidden"
 //         style={{
-//           //   backgroundImage: `url(/images/market/animal.jpg)`,
+//           //   backgroundImage: `url(/images/market/animal.webp)`,
 //           backgroundImage: `url(${data?.image})`,
 //           filter: loaded ? "blur(0px)" : "blur(12px)",
 //           backgroundAttachment: "fixed",

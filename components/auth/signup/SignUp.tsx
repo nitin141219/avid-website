@@ -433,7 +433,7 @@ function SignUp() {
           <div className="top-10 sticky flex flex-col justify-between md:h-[90vh]">
             <div className="hidden md:block relative w-full h-max">
               <Image
-                src="/images/sign-in.jpg"
+                src="/images/sign-in.webp"
                 alt="Login background"
                 fill
                 className="absolute inset-0 w-full h-full object-cover"

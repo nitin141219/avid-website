@@ -39,7 +39,7 @@ export default function GlobalAlignmentSection() {
         {/* Right Image */}
         <div className="relative w-full h-full min-h-120 overflow-hidden">
           <Image
-            src="/images/sustainability/global.jpg"
+            src="/images/sustainability/global.webp"
             alt="Renewable Energy Operations"
             fill
             className="object-cover"

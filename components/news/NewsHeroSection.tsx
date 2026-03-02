@@ -1,6 +1,6 @@
 "use client";
 
-import pressImage from "@/public/images/news/press.jpg";
+import pressImage from "@/public/images/news/press.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
@@ -28,7 +28,7 @@ export default function NewsHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom-right"
           style={{
-            backgroundImage: "url('/mobile/news/mobilepress.jpg')",
+            backgroundImage: "url('/mobile/news/mobilepress.webp')",
           }}
         />
         <DotsOverlay className="z-1 opacity-70" />

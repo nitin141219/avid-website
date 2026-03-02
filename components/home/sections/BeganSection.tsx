@@ -1,24 +1,24 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import researchImage from "@/public/images/home/began/research.jpg";
+import researchImage from "@/public/images/home/began/research.webp";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 const milestones = [
   {
-    icon: "/images/home/began/Where-It-Began_icon.png",
+    icon: "/images/home/began/Where-It-Began_icon.webp",
     key: "began",
     link: "/about-us#history",
   },
   {
-    icon: "/images/home/began/How-we-Operate_icon.png",
+    icon: "/images/home/began/How-we-Operate_icon.webp",
     key: "operate",
     link: "/about-us/manufacturing-excellence",
   },
   {
-    icon: "/images/home/began/What-next_icon.png",
+    icon: "/images/home/began/What-next_icon.webp",
     key: "next",
     link: "/sustainability",
   },
@@ -59,7 +59,7 @@ export default function BeganSection() {
       </div>
       {/* <div className="relative w-full h-130"> */}
       {/* <Image
-        src="/images/home/began/research.png"
+        src="/images/home/began/research.webp"
         alt="research"
         width={1200}
         height={800}
@@ -84,3 +84,4 @@ export default function BeganSection() {
     </section>
   );
 }
+

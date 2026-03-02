@@ -18,7 +18,7 @@
       "description": "La stratégie de durabilité d'Avid Organics s'aligne sur les principales normes ESG, notamment la GRI, le SASB et les Objectifs de Développement Durable des Nations Unies. Notre approche repose sur trois piliers fondamentaux :",
       "items": [
         {
-          "icon": "/images/sustainability/icon-1.png",
+          "icon": "/images/sustainability/icon-1.webp",
           "title": [
             "Gestion de",
             "l'Environnement"
@@ -26,7 +26,7 @@
           "description": "Réduire notre empreinte environnementale grâce aux énergies renouvelables, à l'efficacité des ressources et à l'innovation dans la chimie verte."
         },
         {
-          "icon": "/images/sustainability/icon-2.png",
+          "icon": "/images/sustainability/icon-2.webp",
           "title": [
             "Responsabilité",
             "Sociale"
@@ -34,7 +34,7 @@
           "description": "Protéger nos collaborateurs, promouvoir la sécurité et contribuer positivement aux communautés où nous opérons."
         },
         {
-          "icon": "/images/sustainability/icon-3.png",
+          "icon": "/images/sustainability/icon-3.webp",
           "title": [
             "Gouvernance",
             "& Éthique"
@@ -47,22 +47,22 @@
       "title": "La Gestion Environnementale en Action",
       "features": [
         {
-          "icon": "/images/sustainability/icon-4.png",
+          "icon": "/images/sustainability/icon-4.webp",
           "title": "Chimie Verte dès la Conception",
           "desc": "Nos équipes de R&D appliquent les principes de la chimie verte à chaque étape de la production, améliorant l'efficacité des processus, réduisant les déchets et minimisant l'utilisation de matières dangereuses."
         },
         {
-          "icon": "/images/sustainability/icon-5.png",
+          "icon": "/images/sustainability/icon-5.webp",
           "title": "Gestion de l'Eau & des Déchets",
           "desc": "Nos installations fonctionnent avec un rejet liquide nul (ZLD) grâce à des systèmes avancés de traitement des eaux usées, notamment des évaporateurs à effet multiple. Depuis 2018, nous avons réduit la génération de déchets par unité de 22%, même avec l'augmentation des volumes de production."
         },
         {
-          "icon": "/images/sustainability/icon-6.png",
+          "icon": "/images/sustainability/icon-6.webp",
           "title": "Leadership en Énergies Renouvelables",
           "desc": "En passant à 100 % d'électricité renouvelable, nous avons éliminé les émissions de Scope 2 et renforcé notre performance carbone globale."
         },
         {
-          "icon": "/images/sustainability/icon-7.png",
+          "icon": "/images/sustainability/icon-7.webp",
           "title": "Feuille de Route de Réduction du Carbone",
           "desc": "Depuis 2018, nous avons atteint une réduction de 22 % de l'intensité de nos émissions de GES grâce à l'amélioration de l'efficacité et à l'adoption des énergies renouvelables."
         }

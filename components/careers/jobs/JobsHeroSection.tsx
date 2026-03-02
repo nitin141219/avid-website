@@ -1,7 +1,7 @@
 "use client";
 
 import DotsOverlay from "@/components/dots-overlay/DotsOverlay";
-import jobsImage from "@/public/images/life/Jobs.jpg";
+import jobsImage from "@/public/images/life/Jobs.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 
@@ -28,7 +28,7 @@ export default function JobsHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/careers/Jobs.jpg')",
+            backgroundImage: "url('/mobile/careers/Jobs.webp')",
           }}
         />
         <DotsOverlay className="z-1" />

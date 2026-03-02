@@ -40,7 +40,7 @@ export default function EnvironmentalStewardshipSection() {
         <div className="items-end lg:gap-16 grid grid-cols-1 lg:grid-cols-2">
           <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
             <Image
-              src="/images/sustainability/enviormental.jpg"
+              src="/images/sustainability/enviormental.webp"
               alt="Environmental Stewardship"
               fill
               className="object-cover duration-300"
@@ -149,7 +149,7 @@ export default function EnvironmentalStewardshipSection() {
           <div className="space-y-1">
             <p className="font-medium text-medium-dark leading-relaxed">{t("reporting.text1")}</p>
             <Image
-              src="/images/sustainability/climate_registry.png"
+              src="/images/sustainability/climate_registry.webp"
               alt="The Climate Registry"
               width={200}
               height={60}

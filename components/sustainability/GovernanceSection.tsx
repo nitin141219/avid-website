@@ -25,7 +25,7 @@ export default function GovernanceSection() {
         <div className="items-end lg:gap-16 grid grid-cols-1 lg:grid-cols-2">
           <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
             <Image
-              src="/images/sustainability/governal.jpg"
+              src="/images/sustainability/governal.webp"
               alt="Governance & Product Stewardship"
               fill
               className="object-cover"
@@ -44,15 +44,15 @@ export default function GovernanceSection() {
           <p className="font-medium text-medium-dark leading-relaxed">{t("certifications_desc")}</p>
           <div className="flex flex-wrap items-center gap-8 my-8">
             {[
-              { id: 1, src: "/images/footer/logo1.png", size: "h-22" },
-              { id: 2, src: "/images/sustainability/sgs14.png", size: "h-22" },
-              { id: 3, src: "/images/sustainability/sgs45.png", size: "h-22" },
-              { id: 4, src: "/images/footer/logo3.png", size: "h-22" },
-              { id: 5, src: "/images/footer/logo6.png", size: "h-22" },
-              { id: 6, src: "/images/sustainability/smeta.png", size: "h-18" },
-              { id: 7, src: "/images/certificates/fdca.png", size: "h-22" },
-              { id: 8, src: "/images/sustainability/fssai.png", size: "h-12" },
-              { id: 9, src: "/images/sustainability/reach.png", size: "h-22" },
+              { id: 1, src: "/images/footer/logo1.webp", size: "h-22" },
+              { id: 2, src: "/images/sustainability/sgs14.webp", size: "h-22" },
+              { id: 3, src: "/images/sustainability/sgs45.webp", size: "h-22" },
+              { id: 4, src: "/images/footer/logo3.webp", size: "h-22" },
+              { id: 5, src: "/images/footer/logo6.webp", size: "h-22" },
+              { id: 6, src: "/images/sustainability/smeta.webp", size: "h-18" },
+              { id: 7, src: "/images/certificates/fdca.webp", size: "h-22" },
+              { id: 8, src: "/images/sustainability/fssai.webp", size: "h-12" },
+              { id: 9, src: "/images/sustainability/reach.webp", size: "h-22" },
             ].map((i) => (
               <Image
                 src={i.src}

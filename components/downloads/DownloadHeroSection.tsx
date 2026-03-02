@@ -1,6 +1,6 @@
 "use client";
 
-import downloadsImage from "@/public/images/downloads/downloads.jpg";
+import downloadsImage from "@/public/images/downloads/downloads.webp";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useRef } from "react";
@@ -32,7 +32,7 @@ export default function DownloadHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/news/Downloads.jpg')",
+            backgroundImage: "url('/mobile/news/Downloads.webp')",
           }}
         />
         <DotsOverlay className="z-1" />

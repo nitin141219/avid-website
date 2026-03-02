@@ -34,7 +34,7 @@ export default function RenewableEnergySection() {
           className="relative w-full h-72 sm:h-96 lg:h-120"
         >
           <Image
-            src="/images/sustainability/energy.jpg"
+            src="/images/sustainability/energy.webp"
             alt="Renewable Energy Operations"
             fill
             className="object-cover"

@@ -1,6 +1,6 @@
 "use client";
 
-import blogsImage from "@/public/images/blog/Blogs.jpg";
+import blogsImage from "@/public/images/blog/Blogs.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
@@ -28,7 +28,7 @@ export default function BlogsHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/news/blogs.jpg')",
+            backgroundImage: "url('/mobile/news/blogs.webp')",
           }}
         />
         <DotsOverlay className="z-1 opacity-70" />

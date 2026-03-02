@@ -1,6 +1,6 @@
 "use client";
 
-import sustainabilityImage from "@/public/images/sustainability/sustainability_hero.jpg";
+import sustainabilityImage from "@/public/images/sustainability/sustainability_hero.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 // import Image from "next/image";
@@ -29,7 +29,7 @@ export default function SustainabilityHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: "url('/mobile/sustainability/sustainability-hero.jpg')",
+            backgroundImage: "url('/mobile/sustainability/sustainability-hero.webp')",
           }}
         />
         <DotsOverlay className="z-1 opacity-70" />

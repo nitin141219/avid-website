@@ -18,7 +18,7 @@
             "description": "Avid Organics' sustainability strategy aligns with leading ESG standards, including GRI, SASB, and the UN Sustainable Development Goals. Our approach is built around three core pillars:",
             "items": [
                 {
-                    "icon": "/images/sustainability/icon-1.png",
+                    "icon": "/images/sustainability/icon-1.webp",
                     "title": [
                         "Environmental",
                         "Stewardship"
@@ -26,7 +26,7 @@
                     "description": "Reducing our environmental footprint through renewable energy, resource efficiency, and innovation in green chemistry."
                 },
                 {
-                    "icon": "/images/sustainability/icon-2.png",
+                    "icon": "/images/sustainability/icon-2.webp",
                     "title": [
                         "Social",
                         "Responsibility"
@@ -34,7 +34,7 @@
                     "description": "Protecting our people, promoting safety, and contributing positively to the communities where we operate."
                 },
                 {
-                    "icon": "/images/sustainability/icon-3.png",
+                    "icon": "/images/sustainability/icon-3.webp",
                     "title": [
                         "Governance",
                         "& Ethics"
@@ -47,22 +47,22 @@
             "title": "Environmental Stewardship in Action",
             "features": [
                 {
-                    "icon": "/images/sustainability/icon-4.png",
+                    "icon": "/images/sustainability/icon-4.webp",
                     "title": "Green Chemistry by Design",
                     "desc": "Our R&D teams apply green chemistry principles to every stage of production, improving process efficiency, reducing waste, and minimizing the use of hazardous materials."
                 },
                 {
-                    "icon": "/images/sustainability/icon-5.png",
+                    "icon": "/images/sustainability/icon-5.webp",
                     "title": "Water & Waste Management",
                     "desc": "Our Vadodara facility operates with zero liquid discharge (ZLD) through advanced wastewater treatment, including multiple-effect evaporators. Since 2018, per-unit waste generation has decreased by 27%, alongside increasing production volumes."
                 },
                 {
-                    "icon": "/images/sustainability/icon-6.png",
+                    "icon": "/images/sustainability/icon-6.webp",
                     "title": "Renewable Energy Leadership",
                     "desc": "By transitioning to 100% renewable electricity, we have eliminated Scope 2 emissions and strengthened our overall carbon performance."
                 },
                 {
-                    "icon": "/images/sustainability/icon-7.png",
+                    "icon": "/images/sustainability/icon-7.webp",
                     "title": "Carbon Reduction Roadmap",
                     "desc": "Since 2018, we have achieved a 22% reduction in GHG emissions intensity through efficiency improvements and renewable energy adoption."
                 }

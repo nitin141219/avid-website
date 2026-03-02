@@ -21,7 +21,7 @@ export default function OurVisionSection() {
         <div className="items-end md:gap-16 grid md:grid-cols-2">
           <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
             <Image
-              src="/images/sustainability/co2.jpg"
+              src="/images/sustainability/co2.webp"
               alt="Environmental Stewardship"
               // width={600}
               // height={400}
