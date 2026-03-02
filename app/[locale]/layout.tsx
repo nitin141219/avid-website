@@ -2,6 +2,7 @@ import { AuthProvider } from "@/components/auth/auth-context";
 import { routing } from "@/i18n/routing";
 import { getAuthUser } from "@/lib/auth";
 import { redHatDisplay } from "@/lib/fonts";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import { hasLocale, Locale, NextIntlClientProvider } from "next-intl";
 import { setRequestLocale } from "next-intl/server";
@@ -122,6 +123,7 @@ export default async function RootLayout({
           <AuthProvider user={loggedInUser?.data || null}>{children}</AuthProvider>
         </NextIntlClientProvider>
         <DeferredClientWidgets />
+        <SpeedInsights />
       </body>
     </html>
   );
