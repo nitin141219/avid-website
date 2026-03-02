@@ -407,7 +407,7 @@ function SignUp() {
                       <span>
                         {t("fields.privacyPolicy.text")}{" "}
                         <Link
-                          href="/privacy-policy"
+                          href="http://localhost:3000/en/privacy-policy"
                           target="_blank"
                           className="inline-block text-secondary underline"
                         >

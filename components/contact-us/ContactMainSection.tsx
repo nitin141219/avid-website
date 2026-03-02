@@ -501,7 +501,7 @@ export default function ContactMainSection() {
                       <span>
                         {t("form.labels.agree")}{" "}
                         <Link
-                          href="/privacy-policy"
+                          href="http://localhost:3000/en/privacy-policy"
                           target="_blank"
                           className="inline-block text-secondary underline"
                         >

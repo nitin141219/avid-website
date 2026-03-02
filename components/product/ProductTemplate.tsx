@@ -26,7 +26,6 @@ export default function ProductTemplate({
         ...data,
         information: {
           ...data.information,
-          bioBasedContent: "information.bioBasedContent",
           title: { type: "icon", src: "/images/product/avigabioHP70.webp", gapPx: 4 },
         },
         qualityInfo: {
@@ -57,7 +56,6 @@ export default function ProductTemplate({
         <ProductHeroSection
           data={resolvedData?.hero}
           t={tWithVariant}
-          transitionColor={useBioTheme ? "#159A46" : undefined}
         />
         <ProductInfo
           data={resolvedData?.information}

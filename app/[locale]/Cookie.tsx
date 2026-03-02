@@ -92,7 +92,7 @@ silktideCookieBannerManager.updateCookieBannerConfig({
   ],
   text: {
     banner: {
-      description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic.&nbsp;<u><a href='https://avid-org.netlify.app/en/privacy-policy' target='_blank'>Privacy Policy.</a></u></p>",
+      description: "<p>We use cookies on our site to enhance your user experience, provide personalized content, and analyze our traffic.&nbsp;<u><a href='http://localhost:3000/en/privacy-policy' target='_blank'>Privacy Policy.</a></u></p>",
       acceptAllButtonText: "Accept all",
       acceptAllButtonAccessibleLabel: "Accept all cookies",
       rejectNonEssentialButtonText: "Reject non-essential",

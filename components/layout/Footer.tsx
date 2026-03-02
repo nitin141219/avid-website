@@ -159,7 +159,7 @@ export default function Footer() {
             <p>© {new Date().getFullYear()} Avid Organics Pvt. Ltd.</p>
           </div>
           <div className="flex flex-wrap gap-2 sm:gap-4 text-white/90 sm:justify-end">
-            <Link href="/privacy-policy" className="break-words">
+            <Link href="http://localhost:3000/en/privacy-policy" className="break-words">
               {tMenu("privacy_policy")}
             </Link>
             <span>|</span>
