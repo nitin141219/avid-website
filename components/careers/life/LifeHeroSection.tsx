@@ -15,7 +15,7 @@ export default function LifeHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150 overflow-hidden"
+        className="relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[34rem] lg:h-150 overflow-hidden"
       >
         {/* Desktop Background Image */}
         <div
@@ -28,7 +28,7 @@ export default function LifeHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: `url(${lifeImage.src})`,
+            backgroundImage: "url('/mobile/careers/life-at-avid.jpg')",
           }}
         />
         <DotsOverlay className="z-1" />
@@ -47,3 +47,7 @@ export default function LifeHeroSection() {
     </div>
   );
 }
+
+
+
+

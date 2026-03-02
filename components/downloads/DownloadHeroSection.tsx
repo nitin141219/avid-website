@@ -19,7 +19,7 @@ export default function DownloadHeroSection() {
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : {}}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150"
+        className="relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[34rem] lg:h-150"
       >
         {/* Desktop Background Image */}
         <div
@@ -32,7 +32,7 @@ export default function DownloadHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
-            backgroundImage: `url(${downloadsImage.src})`,
+            backgroundImage: "url('/mobile/news/Downloads.jpg')",
           }}
         />
         <DotsOverlay className="z-1" />
@@ -50,3 +50,8 @@ export default function DownloadHeroSection() {
     </div>
   );
 }
+
+
+
+
+

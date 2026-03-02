@@ -106,10 +106,31 @@ export default async function HomePage({ params }: Props) {
     buildFaqSchema(faqs),
   ];
 
+  let initialNews: any[] = [];
+  try {
+    const query = new URLSearchParams({
+      limit: "6",
+      page: "1",
+      locale,
+    }).toString();
+    const endpoint = process.env.BACKEND_URL
+      ? `${process.env.BACKEND_URL}/api/v1/customer/get-news?${query}`
+      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news?${query}`;
+    const res = await fetch(endpoint, {
+      next: { revalidate: 120 },
+    });
+    if (res.ok) {
+      const json = await res.json();
+      initialNews = json?.data?.news ?? [];
+    }
+  } catch {
+    initialNews = [];
+  }
+
   return (
     <>
       <SeoJsonLd schemas={schemas} />
-      <Home />
+      <Home initialNews={initialNews} />
     </>
   );
 }

@@ -17,6 +17,7 @@ const slides = [
   {
     id: 3,
     img: SlideImage3,
+    mobileImg: "/mobile/main-banner/1.jpg",
     titleKey: "slide_1_title",
     subtitleKey: null,
     buttonKey: "slide_1_button",
@@ -26,6 +27,7 @@ const slides = [
   {
     id: 2,
     img: SlideImage2,
+    mobileImg: "/mobile/main-banner/3.jpg",
     titleKey: "slide_2_title",
     subtitleKey: null,
     buttonKey: "slide_2_button",
@@ -35,6 +37,7 @@ const slides = [
   {
     id: 1,
     img: SlideImage1,
+    mobileImg: "/mobile/main-banner/2.jpg",
     titleKey: "slide_3_title",
     subtitleKey: null,
     buttonKey: "slide_3_button",
@@ -53,6 +56,8 @@ export default function HeroSection() {
     const preloaders = slides.slice(1).map((slide) => {
       const img = new window.Image();
       img.src = slide.img.src;
+      const mobileImg = new window.Image();
+      mobileImg.src = slide.mobileImg;
       return img;
     });
 
@@ -99,7 +104,18 @@ export default function HeroSection() {
               loading={isFirstSlide ? "eager" : "lazy"}
               sizes="100vw"
               placeholder={isFirstSlide ? "blur" : "empty"}
-              className="object-cover max-w-full"
+              className="hidden md:block object-cover max-w-full"
+            />
+            <Image
+              src={current.mobileImg}
+              alt={t(current.titleKey)}
+              fill
+              priority={isFirstSlide}
+              fetchPriority={isFirstSlide ? "high" : "auto"}
+              loading={isFirstSlide ? "eager" : "lazy"}
+              sizes="100vw"
+              placeholder="empty"
+              className="md:hidden object-cover max-w-full"
             />
           </m.div>
         </AnimatePresence>
@@ -166,3 +182,7 @@ export default function HeroSection() {
     </section>
   );
 }
+
+
+
+

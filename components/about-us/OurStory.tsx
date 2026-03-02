@@ -128,10 +128,10 @@
 
 "use client";
 
-import { motion, SpringOptions, useSpring, useAnimationFrame } from "framer-motion";
+import { motion, SpringOptions } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useCallback, useRef, useState, useEffect } from "react";
+import { CSSProperties, useCallback, useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import styles from "./our-story.module.css";
 
@@ -162,28 +162,27 @@ export default function OurStorySection() {
   ];
 
   // --- Auto-scroll logic ---
-  const CARD_WIDTH = 320;
-  const TOTAL_CARDS_WIDTH = CARD_WIDTH * items.length;
-  const END_X = -(TOTAL_CARDS_WIDTH - contentWidth);
+  const CARD_WIDTH = contentWidth > 0 && contentWidth < 640 ? 260 : 320;
   const physics: SpringOptions = { damping: 50, mass: 0.5, stiffness: 400 };
-  const [isPaused, setIsPaused] = useState(false);
-  const [isAutoPlay, setIsAutoPlay] = useState(false);
-  const [activeIndex, setActiveIndex] = useState(0);
   const [yearIndex, setYearIndex] = useState(0);
-  const clickLockRef = useRef(false);
-  const autoStepTimerRef = useRef(0);
-  const wheelAccumulatorRef = useRef(0);
-  const lastWheelStepRef = useRef(0);
-  const spring = useSpring(0, physics);
-  const visibleCards = contentWidth > 0 ? Math.max(1, Math.floor(contentWidth / CARD_WIDTH)) : 1;
-  const maxFirstIndex = Math.max(0, items.length - visibleCards);
+  const isMobileViewport = contentWidth > 0 && contentWidth < 640;
 
-  const scrollToIndex = useCallback(
+  const getCenteredX = useCallback(
     (index: number) => {
-      const clamped = Math.max(0, Math.min(maxFirstIndex, index));
-      setActiveIndex(clamped);
+      if (contentWidth <= 0) return 0;
+      if (isMobileViewport) {
+        const centerOffset = (contentWidth - CARD_WIDTH) / 2;
+        const centered = centerOffset - index * CARD_WIDTH;
+        const minX = centerOffset - (items.length - 1) * CARD_WIDTH;
+        const maxX = centerOffset;
+        return Math.max(minX, Math.min(maxX, centered));
+      }
+      const minX = Math.min(0, contentWidth - items.length * CARD_WIDTH);
+      const maxX = 0;
+      // Desktop: move exactly one card per click with pinned start/end (no edge gaps).
+      return Math.max(minX, Math.min(maxX, -(index * CARD_WIDTH)));
     },
-    [maxFirstIndex]
+    [CARD_WIDTH, contentWidth, isMobileViewport, items.length]
   );
 
   // unified navigation helper: moves year, background and timeline atomically
@@ -191,51 +190,33 @@ export default function OurStorySection() {
     (index: number) => {
       // clamp year index within bounds [0, items.length-1]
       const bounded = Math.max(0, Math.min(items.length - 1, index));
-
-      // compute activeIndex (based on visible cards)
-      const clampedActive = Math.max(0, Math.min(maxFirstIndex, bounded));
-
-      const nextBg = bounded % bgImages.length;
-
-      // perform atomic updates (batched by React)
+      // Single source of truth for timeline + background.
       setYearIndex(bounded);
-      setBgIndex(nextBg);
-      setActiveIndex(clampedActive);
-
-      // immediately move spring so the visual matches
-      if (contentWidth > 0) {
-        const xVal = Math.max(END_X, -(clampedActive * CARD_WIDTH));
-        spring.set(xVal);
-      }
     },
-    [items.length, bgImages.length, CARD_WIDTH, contentWidth, END_X, maxFirstIndex, spring]
+    [items.length]
   );
 
   // Wheel navigation removed: Prev/Next buttons control navigation exclusively.
 
-  // Auto-scroll using animation frame
-  useAnimationFrame((t, delta) => {
-    if (isAutoPlay && !isPaused && contentWidth > 0 && maxFirstIndex > 0) {
-      autoStepTimerRef.current += delta;
-      if (autoStepTimerRef.current >= 2200) {
-        autoStepTimerRef.current = 0;
-        setActiveIndex((prev) => (prev >= maxFirstIndex ? 0 : prev + 1));
-      }
-    }
-  });
-
   useEffect(() => {
-    if (contentWidth > 0) {
-      const xVal = Math.max(END_X, -(activeIndex * CARD_WIDTH));
-      spring.set(xVal);
-    }
-  }, [activeIndex, contentWidth, END_X, spring]);
+    if (typeof window === "undefined") return;
 
-  useEffect(() => {
-    if (activeIndex > maxFirstIndex) {
-      setActiveIndex(maxFirstIndex);
-    }
-  }, [activeIndex, maxFirstIndex]);
+    const scrollToHistory = () => {
+      if (window.location.hash !== "#history") return;
+      const section = document.getElementById("history");
+      if (!section) return;
+      const top = section.getBoundingClientRect().top + window.scrollY - 120;
+      window.scrollTo({ top, behavior: "smooth" });
+    };
+
+    const timer = window.setTimeout(scrollToHistory, 50);
+    window.addEventListener("hashchange", scrollToHistory);
+
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("hashchange", scrollToHistory);
+    };
+  }, []);
 
   const setContentNode = useCallback((node: HTMLDivElement | null) => {
     contentRef.current = node;
@@ -244,31 +225,42 @@ export default function OurStorySection() {
     }
   }, []);
 
+  useEffect(() => {
+    const node = contentRef.current;
+    if (!node || typeof window === "undefined") return;
+
+    const updateWidth = () => setContentWidth(node.clientWidth || 0);
+    updateWidth();
+
+    const observer = new ResizeObserver(() => updateWidth());
+    observer.observe(node);
+    window.addEventListener("resize", updateWidth);
+    window.addEventListener("orientationchange", updateWidth);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("resize", updateWidth);
+      window.removeEventListener("orientationchange", updateWidth);
+    };
+  }, []);
+
   // Background image changes only via `yearIndex` now (no scroll-driven updates)
 
-  // sync background image and active scroll position to selected `yearIndex`
+  // Sync background image and timeline position from selected year.
   useEffect(() => {
     const idx = yearIndex % bgImages.length;
-
-    // ensure the scrolling/timeline position matches the selected year
-    const clamped = Math.max(0, Math.min(maxFirstIndex, yearIndex));
-    setActiveIndex(clamped);
-
-    // immediately update spring position so UI reflects the change in one step
-    if (contentWidth > 0) {
-      const xVal = Math.max(END_X, -(clamped * CARD_WIDTH));
-      spring.set(xVal);
-    }
-  }, [yearIndex, bgImages.length, maxFirstIndex, contentWidth, END_X, spring]);
+    setBgIndex(idx);
+  }, [yearIndex, bgImages.length]);
 
   return (
     <section
       ref={wrapperRef}
-      className={"relative bg-primary text-white min-h-[100svh] overflow-hidden max-w-full " + styles["our-story"]}
+      style={{ "--slide-size": `${CARD_WIDTH}px` } as CSSProperties}
+      className={"relative bg-primary text-white min-h-[72svh] md:min-h-[100svh] overflow-hidden max-w-full scroll-mt-24 " + styles["our-story"]}
       id="history"
     >
       {/* Sticky viewport */}
-      <div className="sticky top-0 h-[100svh] flex items-start pt-12 md:pt-14 pb-10 max-w-full">
+      <div className="sticky top-0 h-[72svh] md:h-[100svh] flex items-center md:items-start pt-0 md:pt-14 pb-0 md:pb-10 max-w-full">
         <div className="absolute inset-0 -z-10 pointer-events-none">
           {bgImages.map((src, i) => (
             <Image
@@ -289,14 +281,9 @@ export default function OurStorySection() {
             whileTap={{ scale: 0.95 }}
             aria-label="Previous year"
             onClick={() => {
-              if (clickLockRef.current || yearIndex <= 0) return;
-              clickLockRef.current = true;
+              if (yearIndex <= 0) return;
               const next = yearIndex - 1;
-
-              // use unified helper to avoid any racing
               goToYear(next);
-
-              window.setTimeout(() => (clickLockRef.current = false), 500);
             }}
             className={`bg-white/90 text-black p-3 rounded-full shadow-lg touch-manipulation ${yearIndex <= 0 ? 'opacity-40 pointer-events-none' : ''}`}
           >
@@ -310,15 +297,9 @@ export default function OurStorySection() {
             whileTap={{ scale: 0.95 }}
             aria-label="Next year"
             onClick={() => {
-              if (clickLockRef.current) return;
-              clickLockRef.current = true;
               const isLast = yearIndex >= items.length - 1;
               const next = isLast ? 0 : yearIndex + 1;
-
-              // use unified helper to avoid any racing
               goToYear(next);
-
-              window.setTimeout(() => (clickLockRef.current = false), 500);
             }}
             className="bg-white/90 text-black p-3 rounded-full shadow-lg touch-manipulation"
           >
@@ -328,11 +309,15 @@ export default function OurStorySection() {
         <div className="container-inner relative w-full overflow-x-hidden overflow-y-visible">
           {/* Title */}
           <h2 className="text-2xl md:text-3xl font-extrabold">{t("title")}</h2>
-          <div className="h-px block w-12 bg-white/60 mt-2 max-lg:mx-auto mb-5"></div>
+          <div className="h-px block w-12 bg-white/60 mt-2 mb-5"></div>
 
           {/* Horizontal Translate Container */}
           <div ref={setContentNode} className="overflow-x-hidden overflow-y-visible relative pb-6">
-            <motion.div style={{ x: spring }} className={styles.container + " items-center w-max max-w-full"}>
+            <motion.div
+              animate={{ x: getCenteredX(yearIndex) }}
+              transition={{ type: "spring", ...physics }}
+              className={styles.container + " items-center w-max max-w-full"}
+            >
               {items.map((item) => (
                 <div key={item.year} className={"group space-y-2 " + styles.slide}>
                   <p className="text-center text-xs md:text-sm px-3 leading-relaxed group-even:invisible">{item.text}</p>

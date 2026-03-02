@@ -86,13 +86,13 @@
     }
   },
   "leadership-team": {
-    "dheeraj_jain": {
-      "role": "Director Ejecutivo y Director General",
-      "bio": "Dheeraj Jain fundó Avid Organics in 2007, estableciendo la capacidad de fabricación de glicina y ácido glicólico más grande de la India a través del desarrollo sistemático de infraestructura de calidad y excelencia operativa. Ingeniero químico del Instituto de Tecnología de Manipal con experiencia previa en operaciones de exportación de la industria química, ha liderado la evolución de Avid de productor regional de glicina a fabricante de productos químicos especializados de múltiples productos que sirve a clientes en todo el mundo."
-    },
     "bhaskar_banerjee": {
       "role": "Director Financiero y de Operaciones",
       "bio": "Bhaskar Banerjee lidera la planificación y el análisis financiero, la eficiencia operativa y la optimización de la cadena de suministro para las operaciones globales de Avid. Su mandato abarca la profesionalización de los controles financieros, la implementación de capacidades avanzadas de ERP y análisis, y la garantía de la escalabilidad operativa. Con amplia experiencia en gestión financiera y estrategia operativa para empresas manufactureras, impulsa la infraestructura organizacional que respalda la presencia internacional de Avid."
+    },
+    "dheeraj_jain": {
+      "role": "Director Ejecutivo y Director General",
+      "bio": "Dheeraj Jain fundó Avid Organics in 2007, estableciendo la capacidad de fabricación de glicina y ácido glicólico más grande de la India a través del desarrollo sistemático de infraestructura de calidad y excelencia operativa. Ingeniero químico del Instituto de Tecnología de Manipal con experiencia previa en operaciones de exportación de la industria química, ha liderado la evolución de Avid de productor regional de glicina a fabricante de productos químicos especializados de múltiples productos que sirve a clientes en todo el mundo."
     },
     "shivani_jain": {
       "role": "Directora",

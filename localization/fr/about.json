@@ -86,13 +86,13 @@
     }
   },
   "leadership-team": {
-    "dheeraj_jain": {
-      "role": "Chef de la Direction et Directeur Général",
-      "bio": "Dheeraj Jain a fondé Avid Organics en 2007, établissant la plus grande capacité de fabrication de glycine et d'acide glycolique en Inde grâce au développement systématique d'infrastructures de qualité et à l'excellence opérationnelle. Ingénieur chimiste de l'Institut de technologie de Manipal, doté d'une expérience préalable dans les opérations d'exportation de l'industrie chimique, il a dirigé l'évolution d'Avid, d'un producteur régional de glycine à un fabricant de produits chimiques de spécialité multi-produits servant des clients dans le monde entier."
-    },
     "bhaskar_banerjee": {
       "role": "Directeur Financier et Opérationnel",
       "bio": "Bhaskar Banerjee dirige la planification et l'analyse financières, l'efficacité opérationnelle et l'optimisation de la chaîne d'approvisionnement pour les opérations mondiales d'Avid. Son mandat englobe la professionnalisation des contrôles financiers, la mise en œuvre de capacités avancées d'ERP et d'analyse, et la garantie de l'évolutivité opérationnelle. Fort d'une vaste expérience en gestion financière et en stratégie opérationnelle pour les entreprises manufacturières, il pilote l'infrastructure organisationnelle soutenant la présence internationale d'Avid."
+    },
+    "dheeraj_jain": {
+      "role": "Chef de la Direction et Directeur Général",
+      "bio": "Dheeraj Jain a fondé Avid Organics en 2007, établissant la plus grande capacité de fabrication de glycine et d'acide glycolique en Inde grâce au développement systématique d'infrastructures de qualité et à l'excellence opérationnelle. Ingénieur chimiste de l'Institut de technologie de Manipal, doté d'une expérience préalable dans les opérations d'exportation de l'industrie chimique, il a dirigé l'évolution d'Avid, d'un producteur régional de glycine à un fabricant de produits chimiques de spécialité multi-produits servant des clients dans le monde entier."
     },
     "shivani_jain": {
       "role": "Directrice",

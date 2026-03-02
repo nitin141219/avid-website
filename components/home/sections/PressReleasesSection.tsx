@@ -15,12 +15,13 @@ import styles from "../styles/press-release.module.css"; // ✅ Module import
 
 interface PressReleasesProps {
   title: string;
+  initialNews?: any[];
 }
 
-export default function PressReleasesSection({ title }: PressReleasesProps) {
+export default function PressReleasesSection({ title, initialNews = [] }: PressReleasesProps) {
   const locale = useLocale();
-  const [newsData, setNewsData] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [newsData, setNewsData] = useState(initialNews);
+  const [loading, setLoading] = useState(initialNews.length === 0);
   const [isHovered, setIsHovered] = useState(false);
   const lastWheelAt = useRef(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -56,9 +57,7 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
       page: String(1),
     }).toString();
     try {
-      const res = await fetch(`/api/news?${query}`, {
-        credentials: "include",
-      });
+      const res = await fetch(`/api/news?${query}`);
       const data = await res.json();
       if (!res.ok) {
         toast.error(data?.message || "Get News failed");
@@ -73,8 +72,9 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
   };
 
   useEffect(() => {
+    if (initialNews.length > 0) return;
     fetchNews();
-  }, []);
+  }, [initialNews.length]);
 
   useEffect(() => {
     if (!emblaApi || newsData.length <= 1 || isHovered) return;
@@ -86,7 +86,36 @@ export default function PressReleasesSection({ title }: PressReleasesProps) {
     return () => window.clearInterval(interval);
   }, [emblaApi, isHovered, newsData.length]);
 
-  if (loading || newsData?.length === 0 || !newsData) {
+  if (loading) {
+    return (
+      <section className="relative bg-primary py-10 sm:py-16 overflow-hidden text-white">
+        <div className={`container-inner relative ${styles.press}`}>
+          <h2 className="mb-10 sm:mb-16 font-extrabold text-2xl md:text-3xl max-lg:text-center">
+            {title}
+          </h2>
+          <div className={styles.viewport}>
+            <div className={styles.container}>
+              {Array.from({ length: 3 }).map((_, i) => (
+                <div key={i} className={styles.slide}>
+                  <div className="flex flex-col h-full">
+                    <div className="bg-white/20 w-full aspect-video animate-pulse" />
+                    <div className="py-5 text-left">
+                      <div className="bg-white/20 mb-3 w-4/5 h-5 animate-pulse" />
+                      <div className="bg-white/20 mb-6 w-3/5 h-5 animate-pulse" />
+                      <div className="bg-white/30 mb-4 w-20 h-px" />
+                      <div className="bg-white/20 w-24 h-4 animate-pulse" />
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (newsData?.length === 0 || !newsData) {
     return null;
   }
 

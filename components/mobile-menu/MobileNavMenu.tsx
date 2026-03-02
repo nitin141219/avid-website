@@ -7,20 +7,55 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Link } from "@/i18n/navigation";
+import { useState } from "react";
 import { NavItemType } from "../layout/OldHeader";
 import { SheetClose } from "../ui/sheet";
 
 export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] }) {
+  const [openItem, setOpenItem] = useState<string | undefined>(undefined);
+
   return (
-    <Accordion type="single" className="space-y-1 mt-4 w-full max-w-full" collapsible>
+    <Accordion
+      type="single"
+      value={openItem}
+      onValueChange={(value) => setOpenItem(value || undefined)}
+      className="space-y-1 mt-4 w-full max-w-full"
+      collapsible
+    >
       {navItems.map((item, idx) => {
         const hasSub = item.submenu && item.submenu.length > 0;
         const clickable = item.isMenuClickable || !hasSub;
+        const itemValue = `item-${idx}`;
 
         return (
-          <AccordionItem key={idx} value={`item-${idx}`} className="py-1 border-b w-full">
+          <AccordionItem key={idx} value={itemValue} className="py-1 border-b w-full">
             {/* ---------- TOP LEVEL NAME ---------- */}
-            {clickable ? (
+            {hasSub ? (
+              <div className="grid grid-cols-[1fr_40px] items-center w-full">
+                {item.isMenuClickable ? (
+                  <Link
+                    href={item.href}
+                    onClick={(e) => {
+                      // Mobile parity with desktop: first tap opens submenu, second tap navigates.
+                      if (openItem !== itemValue) {
+                        e.preventDefault();
+                        setOpenItem(itemValue);
+                      }
+                    }}
+                    className="inline-block py-3 font-medium hover:text-secondary text-base cursor-pointer"
+                  >
+                    {item.name}
+                  </Link>
+                ) : (
+                  <span className="inline-block py-3 font-medium text-base">{item.name}</span>
+                )}
+                <AccordionTrigger
+                  aria-label={`Toggle ${item.name}`}
+                  className="!px-0 !py-0 w-10 h-10 !items-center !justify-center !gap-0 hover:text-secondary hover:no-underline cursor-pointer touch-manipulation [&>svg]:translate-y-0 [&>svg]:size-4"
+                  onClick={(e) => e.stopPropagation()}
+                />
+              </div>
+            ) : clickable ? (
               <SheetClose asChild>
                 <Link
                   href={item.href}

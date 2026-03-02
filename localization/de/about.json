@@ -86,13 +86,13 @@
     }
   },
   "leadership-team": {
-    "dheeraj_jain": {
-      "role": "Chief Executive Officer und Geschäftsführer",
-      "bio": "Dheeraj Jain gründete Avid Organics 2007 und etablierte Indiens größte Glycin- und Glykolsäure-Fertigungskapazität durch systematische Qualitätsinfrastrukturentwicklung und operative Exzellenz. Ein Chemieingenieur vom Manipal Institute of Technology mit vorheriger Erfahrung in Exportoperationen der Chemieindustrie, hat er Avids Entwicklung von regionalem Glycinproduzent zu Multi-Produkt-Spezialchemiehersteller mit globalen Kunden geleitet."
-    },
     "bhaskar_banerjee": {
       "role": "Chief Financial and Operating Officer",
       "bio": "Bhaskar Banerjee leitet Finanzplanung und -analyse, operative Effizienz und Lieferkettenoptimierung für Avids globale Operationen. Sein Mandat umfasst Professionalisierung von Finanzkontrollen, Implementierung fortschrittlicher ERP- und Analysfähigkeiten sowie Gewährleistung operativer Skalierbarkeit. Mit umfassender Erfahrung in Finanzmanagement und operativer Strategie für Fertigungsbetriebe treibt er die organisatorische Infrastruktur voran, die Avids internationale Präsenz unterstützt."
+    },
+    "dheeraj_jain": {
+      "role": "Chief Executive Officer und Geschäftsführer",
+      "bio": "Dheeraj Jain gründete Avid Organics 2007 und etablierte Indiens größte Glycin- und Glykolsäure-Fertigungskapazität durch systematische Qualitätsinfrastrukturentwicklung und operative Exzellenz. Ein Chemieingenieur vom Manipal Institute of Technology mit vorheriger Erfahrung in Exportoperationen der Chemieindustrie, hat er Avids Entwicklung von regionalem Glycinproduzent zu Multi-Produkt-Spezialchemiehersteller mit globalen Kunden geleitet."
     },
     "shivani_jain": {
       "role": "Direktorin",

@@ -94,36 +94,16 @@ export async function getCustomerEvents(searchParams: SearchParams) {
   const selectedYear = searchParams.year?.trim();
   const searchText = searchParams.search?.trim().toLowerCase();
 
-  const paginate = (items: any[]) => {
-    const totalCount = items.length;
-    const totalPage = Math.max(1, Math.ceil(totalCount / limit));
-    const safePage = Math.min(page, totalPage);
-    const start = (safePage - 1) * limit;
-    const end = start + limit;
-
-    return {
-      events: items.slice(start, end),
-      pagination: {
-        current_page: safePage,
-        total_page: totalPage,
-        total_count: totalCount,
-        limit,
-        has_next_page: safePage < totalPage,
-        has_prev_page: safePage > 1,
-      },
-    };
-  };
-
   try {
     if (token && process.env.BACKEND_URL) {
       const adminParams = new URLSearchParams();
-      adminParams.set("page", "1");
-      adminParams.set("limit", "1000");
+      adminParams.set("page", String(page));
+      adminParams.set("limit", String(limit));
 
-      const adminRes = await fetch(
-        `${process.env.BACKEND_URL}/api/v1/admin/get-events?${adminParams.toString()}`,
-        {
-          cache: "no-store",
+        const adminRes = await fetch(
+          `${process.env.BACKEND_URL}/api/v1/admin/get-events?${adminParams.toString()}`,
+          {
+            cache: "no-store",
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -150,21 +130,23 @@ export async function getCustomerEvents(searchParams: SearchParams) {
             upcoming,
             past,
           },
-          pagination: {
-            current_page: 1,
-            total_page: 1,
-            total_count: sorted.length,
-            limit: sorted.length || limit,
-            has_next_page: false,
-            has_prev_page: false,
-          },
+          pagination:
+            adminJson?.data?.pagination ??
+            ({
+              current_page: page,
+              total_page: 1,
+              total_count: sorted.length,
+              limit,
+              has_next_page: false,
+              has_prev_page: false,
+            } as const),
         };
       }
     }
 
     const params = new URLSearchParams();
-    params.set("page", "1");
-    params.set("limit", "1000");
+    params.set("page", String(page));
+    params.set("limit", String(limit));
     params.set("locale", locale);
     if (selectedYear && selectedYear !== "all") params.set("year", selectedYear);
     if (searchText) params.set("search", searchText);
@@ -174,7 +156,7 @@ export async function getCustomerEvents(searchParams: SearchParams) {
       : `${process.env.NEXT_PUBLIC_BASE_URL}/api/events`;
 
     const res = await fetch(`${baseUrl}?${params}`, {
-      cache: "no-store",
+      next: { revalidate: 120 },
     });
 
     if (!res.ok) {
@@ -204,14 +186,16 @@ export async function getCustomerEvents(searchParams: SearchParams) {
         upcoming,
         past,
       },
-      pagination: {
-        current_page: 1,
-        total_page: 1,
-        total_count: sorted.length,
-        limit: sorted.length || limit,
-        has_next_page: false,
-        has_prev_page: false,
-      },
+      pagination:
+        json?.data?.pagination ??
+        ({
+          current_page: page,
+          total_page: 1,
+          total_count: sorted.length,
+          limit,
+          has_next_page: false,
+          has_prev_page: false,
+        } as const),
     };
   } catch (error) {
     console.error("Error fetching events:", error);
@@ -234,7 +218,7 @@ export default async function EventList({ searchParams }: { searchParams: Search
   const pastEvents = grouped?.past ?? [];
 
   return (
-    <div className="bg-gray-100 my-20 p-10 container-inner">
+    <div className="bg-gray-100 my-8 sm:my-20 p-4 sm:p-10 container-inner">
       <EventFilter />
 
       {events?.length === 0 ? (

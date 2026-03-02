@@ -15,7 +15,7 @@ export default function NewsHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150 overflow-hidden"
+        className="relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[24rem] lg:h-150 overflow-hidden"
       >
         {/* Desktop Background Image */}
         <div
@@ -28,7 +28,7 @@ export default function NewsHeroSection() {
         <div
           className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom-right"
           style={{
-            backgroundImage: `url(${pressImage.src})`,
+            backgroundImage: "url('/mobile/news/mobilepress.jpg')",
           }}
         />
         <DotsOverlay className="z-1 opacity-70" />
@@ -48,3 +48,8 @@ export default function NewsHeroSection() {
     </div>
   );
 }
+
+
+
+
+

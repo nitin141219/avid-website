@@ -86,13 +86,13 @@
     }
   },
   "leadership-team": {
-    "dheeraj_jain": {
-      "role": "Chief Executive Officer & Managing Director",
-      "bio": "Dheeraj Jain founded Avid Organics in 2007, establishing India's largest glycine and glycolic acid manufacturing capability through systematic quality infrastructure development and operational excellence. A chemical engineer from Manipal Institute of Technology with prior experience in chemical industry export operations, he has led Avid's evolution from regional glycine producer to multi-product specialty chemical manufacturer serving customers globally."
-    },
     "bhaskar_banerjee": {
       "role": "Chief Financial & Operating Officer",
       "bio": "Bhaskar Banerjee leads financial planning and analysis, operational efficiency, and supply chain optimization for Avid's global operations. His mandate encompasses professionalizing financial controls, implementing advanced ERP and analytics capabilities, and ensuring operational scalability. With extensive experience in financial management and operational strategy for manufacturing enterprises, he drives the organizational infrastructure supporting Avid's international presence."
+    },
+    "dheeraj_jain": {
+      "role": "Chief Executive Officer & Managing Director",
+      "bio": "Dheeraj Jain founded Avid Organics in 2007, establishing India's largest glycine and glycolic acid manufacturing capability through systematic quality infrastructure development and operational excellence. A chemical engineer from Manipal Institute of Technology with prior experience in chemical industry export operations, he has led Avid's evolution from regional glycine producer to multi-product specialty chemical manufacturer serving customers globally."
     },
     "shivani_jain": {
       "role": "Director",

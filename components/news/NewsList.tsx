@@ -29,7 +29,7 @@ export async function getCustomerNews(searchParams: SearchParams) {
       : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news`;
 
     const res = await fetch(`${baseUrl}?${params}`, {
-      cache: "no-store",
+      next: { revalidate: 120 },
     });
 
     if (!res.ok) {
@@ -94,7 +94,7 @@ export default async function NewsList({ searchParams }: any) {
   // const paginated = filtered.slice((page - 1) * perPage, page * perPage);
 
   return (
-    <div className="py-16 container-inner">
+    <div className="py-8 sm:py-16 container-inner">
       <NewsFilter />
       {news?.length === 0 ? (
         <p className="text-muted-foreground text-center">{t("error")}</p>
