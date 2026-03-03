@@ -80,19 +80,19 @@ export default function HeroSection() {
   return (
     <section className="relative bg-white w-full h-[100svh] min-h-[42rem] overflow-hidden max-w-full">
       <LazyMotion features={domAnimation}>
-        <AnimatePresence mode="wait">
+        <AnimatePresence initial={false}>
           <m.div
             key={current.id}
             className="absolute inset-0 max-w-full"
             variants={{
-              initial: { opacity: 0, scale: 1.02 },
-              animate: { opacity: 1, scale: 1 },
-              fadeout: { opacity: 0, scale: 1 },
+              initial: { opacity: 0 },
+              animate: { opacity: 1 },
+              fadeout: { opacity: 0 },
             }}
             initial="initial"
             animate="animate"
             exit="fadeout"
-            transition={{ duration: SLIDESHOW_TRANSITION_SECONDS, ease: "easeOut" }}
+            transition={{ duration: SLIDESHOW_TRANSITION_SECONDS, ease: "easeInOut" }}
           >
             <DotsOverlay className="z-1" />
             <Image

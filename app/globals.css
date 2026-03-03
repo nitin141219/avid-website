@@ -162,6 +162,14 @@
     padding-right: env(safe-area-inset-right);
   }
 
+  /* Reduce iOS Safari bounce-chain artifacts near page boundaries. */
+  @supports (-webkit-touch-callout: none) {
+    html,
+    body {
+      overscroll-behavior-y: none;
+    }
+  }
+
   img,
   svg,
   video,

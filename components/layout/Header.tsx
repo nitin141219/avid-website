@@ -33,8 +33,10 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   const spotlightRequestRef = useRef(false);
 
   const hash = useHash();
-  const [hidden, setHidden] = useState("0");
+  const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
+  const lastToggleYRef = useRef(0);
+  const lastDirectionRef = useRef<"up" | "down" | null>(null);
   const [activeSub, setActiveSub] = useState<NonNullable<NavItemType["submenu"]>[number] | null>(
     null
   );
@@ -74,14 +76,47 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   }, [activeChildren, clearCloseMenuTimeout]);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    const previous = scrollY.getPrevious() || 0;
-    // scroll down → hide
-    if (latest > 150 && latest > previous) {
-      setHidden("-100%");
+    if (typeof window === "undefined") return;
+
+    const previous = scrollY.getPrevious() ?? latest;
+    const delta = latest - previous;
+    const absDelta = Math.abs(delta);
+    const y = Math.max(latest, 0);
+    const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 0);
+    const nearTop = y < 10;
+    const nearBottom = maxScroll > 0 && y >= maxScroll - 4;
+    const direction = delta > 0 ? "down" : "up";
+
+    // Ignore tiny jitter and aggressively ignore edge bounce jitter on mobile.
+    if (absDelta < 2) return;
+    if ((nearTop || nearBottom) && absDelta < 8) return;
+
+    if (nearTop) {
+      lastToggleYRef.current = y;
+      lastDirectionRef.current = "up";
+      setHidden(false);
+      return;
     }
-    // scroll up → show
-    else {
-      setHidden(latest > 150 ? "calc(-100% + 63px)" : "0");
+
+    if (nearBottom && direction === "down") return;
+
+    // Require some travel before toggling direction to prevent flicker.
+    if (lastDirectionRef.current !== direction) {
+      lastDirectionRef.current = direction;
+      lastToggleYRef.current = y;
+      return;
+    }
+    if (Math.abs(y - lastToggleYRef.current) < 16) return;
+
+    if (direction === "down" && !nearBottom) {
+      lastToggleYRef.current = y;
+      setHidden(true);
+      return;
+    }
+
+    if (direction === "up") {
+      lastToggleYRef.current = y;
+      setHidden(false);
     }
   });
 
@@ -139,8 +174,9 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   return (
     <>
       <motion.header
-        animate={{ y: hidden }}
+        animate={hidden ? { y: "-100%" } : { y: 0 }}
         transition={{ duration: 0.25 }}
+        style={{ willChange: "transform", backfaceVisibility: "hidden", transform: "translateZ(0)" }}
         className="top-0 z-100 relative sticky bg-primary shadow-md border-white border-b w-full text-white"
       >
         <div className="relative z-10">

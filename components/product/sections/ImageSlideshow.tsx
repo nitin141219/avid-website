@@ -53,20 +53,19 @@ export default function ImageSlideshow({ images }: ImageSlideshowProps) {
 
   return (
     <section className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
-      <AnimatePresence mode="sync" initial={false}>
+      <AnimatePresence initial={false}>
         <motion.div
           key={index}
           className="absolute inset-0"
           variants={{
-            initial: { opacity: 0, scale: 1.02 },
-            animate: { opacity: 1, scale: 1 },
-            fadeout: { opacity: 0, scale: 1 },
+            initial: { opacity: 0 },
+            animate: { opacity: 1 },
+            fadeout: { opacity: 0 },
           }}
           initial="initial"
           animate="animate"
           exit="fadeout"
-          transition={{ duration: SLIDESHOW_TRANSITION_SECONDS, ease: "easeOut" }}
-          style={{ willChange: "opacity, transform", backfaceVisibility: "hidden" }}
+          transition={{ duration: SLIDESHOW_TRANSITION_SECONDS, ease: "easeInOut" }}
         >
           <Image
             src={images[index]}

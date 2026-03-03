@@ -1015,7 +1015,17 @@ export function buildProductSchema(input: {
   url: string;
   brand?: string;
   sku?: string;
+  applications?: string[];
 }) {
+  const applicationProperties = (input.applications || [])
+    .filter(Boolean)
+    .slice(0, 8)
+    .map((application) => ({
+      "@type": "PropertyValue",
+      name: "Primary Application",
+      value: application,
+    }));
+
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -1049,6 +1059,7 @@ export function buildProductSchema(input: {
         name: "Quality Standards",
         value: "WHO-GMP, cGMP, ISO 14001:2015",
       },
+      ...applicationProperties,
     ],
     audience: {
       "@type": "Audience",

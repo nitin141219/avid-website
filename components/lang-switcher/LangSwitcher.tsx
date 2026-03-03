@@ -16,7 +16,28 @@ export default function LangSwitcher() {
   const params = useParams();
   const [isPending, startTransition] = useTransition();
   const [isOpen, setIsOpen] = useState(false);
+  const [canHover, setCanHover] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const closeMenuTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const clearCloseMenuTimeout = () => {
+    if (closeMenuTimeoutRef.current) {
+      clearTimeout(closeMenuTimeoutRef.current);
+      closeMenuTimeoutRef.current = null;
+    }
+  };
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
+    const updateCanHover = () => setCanHover(mediaQuery.matches);
+
+    updateCanHover();
+    mediaQuery.addEventListener("change", updateCanHover);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateCanHover);
+    };
+  }, []);
 
   useEffect(() => {
     function handleOutsideClick(event: MouseEvent | TouchEvent) {
@@ -32,6 +53,7 @@ export default function LangSwitcher() {
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       document.removeEventListener("touchstart", handleOutsideClick);
+      clearCloseMenuTimeout();
     };
   }, []);
 
@@ -56,6 +78,18 @@ export default function LangSwitcher() {
       initial="closed"
       animate={isOpen ? "open" : "closed"}
       onClick={(e) => e.stopPropagation()}
+      onMouseEnter={() => {
+        if (!canHover) return;
+        clearCloseMenuTimeout();
+        setIsOpen(true);
+      }}
+      onMouseLeave={() => {
+        if (!canHover) return;
+        clearCloseMenuTimeout();
+        closeMenuTimeoutRef.current = setTimeout(() => {
+          setIsOpen(false);
+        }, 120);
+      }}
     >
       <button
         type="button"

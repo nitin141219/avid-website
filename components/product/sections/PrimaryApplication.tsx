@@ -50,8 +50,6 @@ export default function ProductPrimaryApplication({
                 className="font-extrabold text-off-black text-xl leading-tight"
               />
             </div>
-            <div className="my-4 border-light-dark border-t w-20"></div>
-            <p className="font-medium text-medium-dark leading-relaxed">{t(app.description)}</p>
           </div>
         ))}
       </div>

@@ -83,7 +83,8 @@ function ZoomableMapSection({ activeRegion, setActiveRegion }: any) {
     <TransformWrapper
       minScale={1}
       maxScale={3}
-      wheel={{ disabled: false }}
+      // Keep page wheel scroll behavior consistent with the rest of the homepage.
+      wheel={{ disabled: true }}
       doubleClick={{ disabled: true }}
       pinch={{ disabled: false }}
       // onInit={(ref: ReactZoomPanPinchRef) => {
@@ -208,7 +209,14 @@ export default function GlobalPresence() {
   const [activeRegion, setActiveRegion] = useState<"EUROPE" | "INDIA" | "AMERICA">("INDIA");
   const t = useTranslations("global_presence");
   return (
-    <section className="relative w-full container-inner pt-5 pb-16" id="global-presence">
+    <motion.section
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="relative w-full container-inner pt-5 pb-16"
+      id="global-presence"
+    >
       {/* Heading */}
       <motion.div
         initial={{ opacity: 0 }}
@@ -246,6 +254,6 @@ export default function GlobalPresence() {
           <RegionDetailsMemo activeRegion={activeRegion} />
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }

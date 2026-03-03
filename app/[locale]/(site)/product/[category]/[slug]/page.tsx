@@ -163,6 +163,14 @@ export default async function ProductDetailPage({ params }: Props) {
     productName,
     fallbackImage: productImage,
   });
+  const applications = data.applications?.items?.map((item) => {
+    try {
+      const title = Array.isArray(item.title) ? item.title[0] : item.title;
+      return typeof title === "string" ? t(title) : "";
+    } catch {
+      return "";
+    }
+  }).filter(Boolean) || [];
 
   const breadcrumbItems = buildBreadcrumbItemsFromPath(path, locale);
   const schemas = [
@@ -173,6 +181,7 @@ export default async function ProductDetailPage({ params }: Props) {
       description: productDescription,
       image: absoluteImage,
       url: productUrl,
+      applications: applications.length > 0 ? applications : undefined,
     }),
     buildFaqSchema(faqs),
   ];

@@ -23,6 +23,7 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
   const [newsData, setNewsData] = useState(initialNews);
   const [loading, setLoading] = useState(initialNews.length === 0);
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const lastWheelAt = useRef(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -87,6 +88,20 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
     return () => window.clearInterval(interval);
   }, [emblaApi, isHovered, newsData.length]);
 
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const onChange = () => setIsMobile(media.matches);
+    onChange();
+
+    if (typeof media.addEventListener === "function") {
+      media.addEventListener("change", onChange);
+      return () => media.removeEventListener("change", onChange);
+    }
+
+    media.addListener(onChange);
+    return () => media.removeListener(onChange);
+  }, []);
+
   if (loading) {
     return (
       <section className="relative bg-primary py-10 sm:py-16 overflow-hidden text-white">
@@ -135,8 +150,10 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
     <section className="relative bg-primary py-10 sm:py-16 overflow-hidden text-white">
       <div className={`container-inner relative ${styles.press}`}>
         <motion.h2
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
+          initial={isMobile ? false : { opacity: 0 }}
+          whileInView={isMobile ? undefined : { opacity: 1 }}
+          animate={isMobile ? { opacity: 1 } : undefined}
+          viewport={isMobile ? undefined : { once: true, amount: 0.25 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="mb-10 sm:mb-16 font-extrabold text-2xl md:text-3xl max-lg:text-center"
         >
@@ -151,8 +168,10 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
           onMouseLeave={() => setIsHovered(false)}
         >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={isMobile ? false : { opacity: 0 }}
+            whileInView={isMobile ? undefined : { opacity: 1 }}
+            animate={isMobile ? { opacity: 1 } : undefined}
+            viewport={isMobile ? undefined : { once: true, amount: 0.25 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className={styles.container}
           >
