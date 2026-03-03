@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:webpack": "next dev --webpack",
     "build": "npm run sync-translations && npm run check-translations && next build",
     "start": "next start",
     "lint": "eslint",

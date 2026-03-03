@@ -17,7 +17,7 @@ import LangSwitcher from "../lang-switcher/LangSwitcher";
 import MobileNavMenu from "../mobile-menu/MobileNavMenu";
 import NavUser from "../nav-user/nav-user";
 import { Button } from "../ui/button";
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
+import { Sheet, SheetClose, SheetContent, SheetTitle, SheetTrigger } from "../ui/sheet";
 import { Skeleton } from "../ui/skeleton";
 
 const AutoBreadcrumb = dynamic(() => import("@/components/auto-breadcrumb/AutoBreadCrumb"), {
@@ -29,6 +29,8 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   const [spotlights, setSpotlights] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasFetchedSpotlights, setHasFetchedSpotlights] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const spotlightRequestRef = useRef(false);
 
   const hash = useHash();
   const [hidden, setHidden] = useState("0");
@@ -87,43 +89,42 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (!openMenu || hasFetchedSpotlights) return;
+  const fetchSpotlights = useCallback(async () => {
+    if (hasFetchedSpotlights || spotlightRequestRef.current) return;
+    spotlightRequestRef.current = true;
 
-    let isCancelled = false;
-
-    (async function fetchSpotlights() {
-      setLoading(true);
-      try {
-        const res = await fetch("/api/get-spotlight", {
-          method: "GET",
-        });
-        const data = await res.json();
-        if (!res.ok) {
-          toast.error(data?.message || "Failed to fetch spotlights");
-          return;
-        }
-
-        if (!isCancelled) {
-          setSpotlights(data?.data || []);
-          setHasFetchedSpotlights(true);
-        }
-      } catch {
-        if (!isCancelled) {
-          setSpotlights([]);
-          toast.error("Something went wrong. Please try again.");
-        }
-      } finally {
-        if (!isCancelled) {
-          setLoading(false);
-        }
+    setLoading(true);
+    try {
+      const res = await fetch("/api/get-spotlight", {
+        method: "GET",
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        toast.error(data?.message || "Failed to fetch spotlights");
+        spotlightRequestRef.current = false;
+        return;
       }
-    })();
 
-    return () => {
-      isCancelled = true;
-    };
-  }, [openMenu, hasFetchedSpotlights]);
+      setSpotlights(data?.data || []);
+      setHasFetchedSpotlights(true);
+    } catch {
+      setSpotlights([]);
+      toast.error("Something went wrong. Please try again.");
+      spotlightRequestRef.current = false;
+    } finally {
+      setLoading(false);
+    }
+  }, [hasFetchedSpotlights]);
+
+  useEffect(() => {
+    void fetchSpotlights();
+  }, [fetchSpotlights]);
+
+  useEffect(() => {
+    if (openMenu || mobileMenuOpen) {
+      void fetchSpotlights();
+    }
+  }, [openMenu, mobileMenuOpen, fetchSpotlights]);
 
   useEffect(() => {
     return () => {
@@ -380,7 +381,7 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
               {/* Mobile (hamburger) */}
               <div className="min-[1081px]:hidden z-40 flex items-center mb-1.5">
                 {mounted ? (
-                  <Sheet modal={false}>
+                  <Sheet modal={false} open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
                     <SheetTrigger asChild>
                       <Button variant="link" className="p-0! size-10 cursor-pointer" aria-label="Open menu">
                         <Menu className="size-7 text-white" />
@@ -399,7 +400,53 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                         </Link>
                       </SheetTitle>
                       <div className="mt-4">
-                        <MobileNavMenu navItems={navItems as any} />
+                        <MobileNavMenu
+                          navItems={navItems as any}
+                          onNavigate={() => setMobileMenuOpen(false)}
+                        />
+                      </div>
+                      <div className="mt-6 pt-4 border-t border-gray-200">
+                        <h4 className="mb-3 font-semibold text-light-dark text-xs uppercase tracking-wide">
+                          {t("spotlight.title")}
+                        </h4>
+                        {loading ? (
+                          <div className="space-y-3">
+                            <Skeleton className="w-full h-4" />
+                            <Skeleton className="rounded w-full h-28" />
+                          </div>
+                        ) : (
+                          <div className="space-y-4">
+                            {spotlights?.slice(0, 3).map((i: any) => (
+                              <SheetClose key={i?._id} asChild>
+                                <Link
+                                  href={
+                                    i?.type === "news"
+                                      ? `/media/news/${i?.slug}`
+                                      : `/media/events/${i?.slug}`
+                                  }
+                                  className="block"
+                                >
+                                  <p className="mb-2 text-sm font-semibold text-gray-700 line-clamp-2">
+                                    {i?.title}
+                                  </p>
+                                  <div
+                                    className="w-full overflow-hidden rounded"
+                                    style={{ aspectRatio: "2/1" }}
+                                  >
+                                    <Image
+                                      src={getSpotlightImage(i)}
+                                      alt={i?.title || "Spotlight"}
+                                      width={600}
+                                      height={300}
+                                      className="w-full h-full object-cover"
+                                      sizes="100vw"
+                                    />
+                                  </div>
+                                </Link>
+                              </SheetClose>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     </SheetContent>
                   </Sheet>

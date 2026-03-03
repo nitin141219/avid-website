@@ -81,7 +81,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   verification: {
-    google: "verification_token_if_available",
+    google: "LBEECIrf02cqeZZ6C79eZRMrwsqOnq72TD9kZ2Sq5FQ",
   },
   alternates: {
     canonical: "https://www.avidorganics.net",
@@ -126,3 +126,4 @@ export default async function RootLayout({
     </html>
   );
 }
+

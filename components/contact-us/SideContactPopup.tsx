@@ -69,7 +69,7 @@ export default function SideContactPopup() {
             >
               <Button
                 onClick={() => setOpen(!open)}
-                className="font-bold rotate-270 origin-top-right -translate-x-13 hover:bg-primary h-13 p-4! text-lg"
+                className="font-bold rotate-270 origin-top-right -translate-x-13 hover:bg-primary h-13 min-h-[52px] px-4! py-3! text-[18px] leading-none whitespace-nowrap [text-size-adjust:100%] [-webkit-text-size-adjust:100%]"
                 style={{ boxShadow: "rgba(0,0,0,0.3) 0px 0px 38px, rgba(0,0,0,0.22) 0px 0px 12px" }}
               >
                 {t("side_popup.title")}{" "}
@@ -110,7 +110,7 @@ export default function SideContactPopup() {
                 <Link
                   href="/contact-us"
                   onClick={() => setOpen(false)}
-                  className="w-full font-bold text-base bg-white text-secondary px-4 py-3 inline-block text-center transition-all duration-500"
+                  className="w-full min-h-[48px] font-bold text-base leading-none bg-white text-secondary px-4 py-3 inline-flex items-center justify-center whitespace-nowrap [text-size-adjust:100%] [-webkit-text-size-adjust:100%] transition-all duration-500"
                 >
                   {t("contact_us")}
                 </Link>
@@ -149,3 +149,4 @@ export default function SideContactPopup() {
     </div>
   );
 }
+

@@ -27,7 +27,7 @@ function LifeMainContent() {
   return (
     <div>
       <section className="relative py-16 container-inner">
-        <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-center">
+        <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-left">
           {t("culture.title")}
         </h2>
         <div className="bg-light-dark mt-0.5 mb-6 w-12 h-px" />
@@ -38,7 +38,7 @@ function LifeMainContent() {
       </section>
       <div className="bg-gray-section py-16">
         <section className="relative container-inner">
-          <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-center">
+          <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-left">
             {t("why_work_with_us.title")}
           </h2>
           <div className="bg-light-dark mt-1 mb-6 w-12 h-px" />
@@ -114,7 +114,7 @@ function LifeMainContent() {
         </section>
       </div>
       <section className="relative py-16 container-inner">
-        <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-center">
+        <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-left">
           {t("learning.title")}
         </h2>
         <div className="bg-light-dark mt-1 mb-6 w-12 h-px" />
@@ -128,7 +128,7 @@ function LifeMainContent() {
       <section className="md:pt-16 max-md:pb-16">
         <div className="flex flex-col-reverse gap-10 md:grid md:grid-cols-2 container-inner">
           <div>
-            <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-center">
+            <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-left">
               {t("safety.title")}
             </h2>
             <div className="bg-light-dark mt-1 mb-6 w-12 h-px" />
@@ -180,7 +180,7 @@ function LifeMainContent() {
             />
           </div>
           <div>
-            <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-center">
+            <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-left">
               {t("diversity.title")}
             </h2>
             <div className="bg-light-dark mt-1 mb-6 w-12 h-px" />
@@ -193,7 +193,7 @@ function LifeMainContent() {
       <section className="bg-primary py-16">
         <div className="container-inner">
           <div>
-            <h2 className="font-extrabold text-white text-2xl md:text-3xl max-lg:text-center">
+            <h2 className="font-extrabold text-white text-2xl md:text-3xl max-lg:text-left">
               {t("benefits.title")}
             </h2>
             <div className="bg-white/60 mt-1 mb-6 w-12 h-px" />
@@ -207,7 +207,7 @@ function LifeMainContent() {
               {t("benefits.offering_title")}
             </h4>
             <div className="bg-white/60 mt-2 mb-6 w-12 h-px" />
-            <ul className="font-normal text-white list-[square] list-outside">
+            <ul className="mt-1 pl-5 space-y-1 font-normal text-white list-disc list-outside marker:text-white">
               {[
                 t("benefits.list.compensation"),
                 t("benefits.list.performance"),
@@ -222,7 +222,7 @@ function LifeMainContent() {
         </div>
       </section>
       <section className="relative py-16 container-inner">
-        <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-center">
+        <h2 className="font-extrabold text-off-black text-2xl md:text-3xl max-lg:text-left">
           {t("join.title")}
         </h2>
         <div className="bg-light-dark mt-1 mb-6 w-12 h-px" />

@@ -11,7 +11,13 @@ import { useState } from "react";
 import { NavItemType } from "../layout/OldHeader";
 import { SheetClose } from "../ui/sheet";
 
-export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] }) {
+export default function MobileNavMenu({
+  navItems,
+  onNavigate,
+}: {
+  navItems: NavItemType[];
+  onNavigate?: () => void;
+}) {
   const [openItem, setOpenItem] = useState<string | undefined>(undefined);
 
   return (
@@ -35,12 +41,9 @@ export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] })
                 {item.isMenuClickable ? (
                   <Link
                     href={item.href}
-                    onClick={(e) => {
-                      // Mobile parity with desktop: first tap opens submenu, second tap navigates.
-                      if (openItem !== itemValue) {
-                        e.preventDefault();
-                        setOpenItem(itemValue);
-                      }
+                    prefetch
+                    onClick={() => {
+                      onNavigate?.();
                     }}
                     className="inline-block py-3 font-medium hover:text-secondary text-base cursor-pointer"
                   >
@@ -59,6 +62,7 @@ export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] })
               <SheetClose asChild>
                 <Link
                   href={item.href}
+                  prefetch
                   className="inline-block py-3 font-medium hover:text-secondary text-base cursor-pointer"
                 >
                   {item.name}
@@ -102,6 +106,7 @@ export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] })
                                   <SheetClose key={child.name} asChild>
                                     <Link
                                       href={child.href}
+                                      prefetch
                                       className="py-2 text-gray-600 hover:text-secondary text-sm"
                                     >
                                       {child.name}
@@ -116,7 +121,7 @@ export default function MobileNavMenu({ navItems }: { navItems: NavItemType[] })
 
                       return (
                         <SheetClose key={sub.name} asChild>
-                          <Link href={sub.href} className="py-2 hover:text-secondary text-sm">
+                          <Link href={sub.href} prefetch className="py-2 hover:text-secondary text-sm">
                             {sub.name}
                           </Link>
                         </SheetClose>

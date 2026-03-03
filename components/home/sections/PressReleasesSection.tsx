@@ -16,12 +16,17 @@ import styles from "../styles/press-release.module.css"; // ✅ Module import
 interface PressReleasesProps {
   title: string;
   initialNews?: any[];
+  shouldFetch?: boolean;
 }
 
-export default function PressReleasesSection({ title, initialNews = [] }: PressReleasesProps) {
+export default function PressReleasesSection({
+  title,
+  initialNews = [],
+  shouldFetch = true,
+}: PressReleasesProps) {
   const locale = useLocale();
   const [newsData, setNewsData] = useState(initialNews);
-  const [loading, setLoading] = useState(initialNews.length === 0);
+  const [loading, setLoading] = useState(initialNews.length === 0 && shouldFetch);
   const [isHovered, setIsHovered] = useState(false);
   const lastWheelAt = useRef(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -55,6 +60,7 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
     const query = new URLSearchParams({
       limit: String(6),
       page: String(1),
+      locale,
     }).toString();
     try {
       const res = await fetch(`/api/news?${query}`);
@@ -62,7 +68,7 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
       if (!res.ok) {
         toast.error(data?.message || "Get News failed");
       }
-      setNewsData(data?.data?.news);
+      setNewsData(Array.isArray(data?.data?.news) ? data.data.news : []);
     } catch (error: any) {
       setNewsData([]);
       toast.error(error.message || "Something went wrong");
@@ -72,9 +78,10 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
   };
 
   useEffect(() => {
+    if (!shouldFetch) return;
     if (initialNews.length > 0) return;
     fetchNews();
-  }, [initialNews.length]);
+  }, [initialNews.length, locale, shouldFetch]);
 
   useEffect(() => {
     if (!emblaApi || newsData.length <= 1 || isHovered) return;
@@ -116,7 +123,18 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
   }
 
   if (newsData?.length === 0 || !newsData) {
-    return null;
+    return (
+      <section className="relative bg-primary py-10 sm:py-16 overflow-hidden text-white">
+        <div className={`container-inner relative ${styles.press}`}>
+          <h2 className="mb-10 sm:mb-16 font-extrabold text-2xl md:text-3xl max-lg:text-center">
+            {title}
+          </h2>
+          <div className="text-center text-white/80">
+            News & announcements will appear here shortly.
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (

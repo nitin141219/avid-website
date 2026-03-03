@@ -269,8 +269,8 @@ export const productPages: Record<string, Record<string, ProductPageData>> = {
         ],
         packagingText: "supplyChain.packagingText",
         buttons: [
-          { label: "supplyChain.buttons.0.label", slug: "aviga-t-pds" },
-          { label: "supplyChain.buttons.1.label", slug: "aviga-t-sds" },
+          { label: "supplyChain.buttons.0.label", slug: "aviga-bio-t-pds" },
+          { label: "supplyChain.buttons.1.label", slug: "aviga-bio-t-sds" },
         ],
         linkButtons: [{ label: "supplyChain.linkButtons.0.label", link: "/contact-us" }],
       },

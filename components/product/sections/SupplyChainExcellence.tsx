@@ -20,6 +20,28 @@ const getDocTypeFromSlug = (slug: string) => {
   return "";
 };
 
+const normalizeSlug = (value: string) =>
+  String(value || "")
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)+/g, "");
+
+const comparableProductSlug = (value: string) =>
+  normalizeSlug(String(value || "").replace(/-(pds|sds)$/i, "")).replace(/-(\d+)/g, "$1");
+
+const isSameProductSlug = (left: string, right: string) => {
+  const a = comparableProductSlug(left);
+  const b = comparableProductSlug(right);
+  return Boolean(a && b && a === b);
+};
+
+const getProductSlugFromPathname = (pathname: string) => {
+  const normalized = String(pathname || "").split("?")[0].split("#")[0];
+  const segments = normalized.split("/").filter(Boolean);
+  return String(segments[segments.length - 1] || "").toLowerCase();
+};
+
 const getProductSlugFromDoc = (document: any) => {
   const direct = String(document?.product_slug || document?.productSlug || "").toLowerCase();
   if (direct) return direct;
@@ -71,31 +93,49 @@ function ProductSupplyChainExcellence({
 
     const normalizedRequested = requestedSlug.toLowerCase();
     const requestedType = getDocTypeFromSlug(normalizedRequested);
+    const pageProduct = getProductSlugFromPathname(pathname || "");
     const requestedProduct = normalizedRequested.replace(/-(pds|sds)$/i, "");
+    const matchProducts = [pageProduct, requestedProduct].filter(Boolean);
+
+    // Bio HP page uses aviga-hp config internally, so explicitly prefer bio-hp aliases.
+    if (isSameProductSlug(pageProduct, "aviga-bio-hp-70")) {
+      matchProducts.push("aviga-bio-hp70", "aviga-bio-hp-70", "aviga-bio-hp");
+    }
 
     const exactMatch = productDocuments.find(
       (doc: any) => String(doc?.slug || "").toLowerCase() === normalizedRequested
     );
-    if (exactMatch?.slug) {
+    if (
+      exactMatch?.slug &&
+      (!pageProduct ||
+        !getProductSlugFromDoc(exactMatch) ||
+        isSameProductSlug(getProductSlugFromDoc(exactMatch), pageProduct))
+    ) {
       return String(exactMatch.slug);
     }
 
     const typeAndProductMatch = productDocuments.find((doc: any) => {
       const docProduct = getProductSlugFromDoc(doc);
       const docType = getDocTypeFromSlug(String(doc?.slug || ""));
-      return docProduct === requestedProduct && docType === requestedType;
+      return (
+        docType === requestedType &&
+        matchProducts.some((targetProduct) => isSameProductSlug(docProduct, targetProduct))
+      );
     });
     if (typeAndProductMatch?.slug) {
       return String(typeAndProductMatch.slug);
     }
 
-    const prefixMatch = productDocuments.find((doc: any) => {
-      const docSlug = String(doc?.slug || "").toLowerCase();
-      const docType = getDocTypeFromSlug(docSlug);
-      return docType === requestedType && docSlug.startsWith(`${requestedProduct}-`);
+    const strictNormalizedMatch = productDocuments.find((doc: any) => {
+      const docType = getDocTypeFromSlug(String(doc?.slug || ""));
+      const docProduct = comparableProductSlug(getProductSlugFromDoc(doc));
+      return Boolean(
+        docType === requestedType &&
+          matchProducts.some((targetProduct) => docProduct === comparableProductSlug(targetProduct))
+      );
     });
-    if (prefixMatch?.slug) {
-      return String(prefixMatch.slug);
+    if (strictNormalizedMatch?.slug) {
+      return String(strictNormalizedMatch.slug);
     }
 
     return requestedSlug;

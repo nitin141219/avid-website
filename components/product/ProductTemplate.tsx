@@ -56,6 +56,7 @@ export default function ProductTemplate({
         <ProductHeroSection
           data={resolvedData?.hero}
           t={tWithVariant}
+          heroBgColor={useBioTheme ? "#159A46" : undefined}
         />
         <ProductInfo
           data={resolvedData?.information}

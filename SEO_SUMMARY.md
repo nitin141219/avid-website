@@ -46,7 +46,7 @@
 **Blog/News/Events Pages:**
 - `app/[locale]/(site)/media/blog/[slug]/page.tsx` – Metadata + breadcrumb schema
 - `app/[locale]/(site)/media/news/[slug]/page.tsx` – Metadata + breadcrumb schema
-- `app/[locale]/(site)/media/event/[slug]/page.tsx` – Metadata + breadcrumb schema
+- `app/[locale]/(site)/media/events/[slug]/page.tsx` – Metadata + breadcrumb schema
 
 **Sitemap:**
 - `app/sitemap.ts` – Enhanced with hreflang for all locales (en/de/fr/es + regional)

@@ -48,10 +48,10 @@ export default function EventHeroSection({ data }: any) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="relative bg-gray-100 mx-auto rounded-lg overflow-hidden"
+          className="relative bg-gray-100 mx-auto rounded-lg w-full h-full overflow-hidden"
           style={{
-            width: IMAGE_DIMENSION.EVENT.width,
-            height: IMAGE_DIMENSION.EVENT.height,
+            maxWidth: IMAGE_DIMENSION.EVENT.width,
+            maxHeight: IMAGE_DIMENSION.EVENT.height,
           }}
         >
           <Image
@@ -60,7 +60,7 @@ export default function EventHeroSection({ data }: any) {
             width={IMAGE_DIMENSION.EVENT.width}
             height={IMAGE_DIMENSION.EVENT.height}
             sizes="(min-width: 768px) 1120px, 100vw"
-            className="hidden md:block w-full h-full object-cover"
+            className="hidden md:block w-full object-cover"
           />
           <Image
             src={heroImage.mobile}

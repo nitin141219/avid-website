@@ -9,11 +9,11 @@ import { ProductPageData } from "../data";
 function ProductHeroSection({
   data,
   t,
-  transitionColor,
+  heroBgColor,
 }: {
   data: ProductPageData["hero"];
   t: any;
-  transitionColor?: string;
+  heroBgColor?: string;
 }) {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -21,17 +21,11 @@ function ProductHeroSection({
   });
 
   return (
-    <div className="relative bg-primary overflow-hidden" ref={ref}>
-      {transitionColor ? (
-        <motion.div
-          aria-hidden="true"
-          className="absolute inset-0 pointer-events-none"
-          style={{ backgroundColor: transitionColor }}
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 2, ease: "easeInOut" }}
-        />
-      ) : null}
+    <div
+      className="relative bg-primary overflow-hidden"
+      ref={ref}
+      style={heroBgColor ? { backgroundColor: heroBgColor } : undefined}
+    >
       <DotsOverlay>
         <motion.div
           initial={{ opacity: 0 }}

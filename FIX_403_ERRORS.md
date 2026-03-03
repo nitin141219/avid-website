@@ -172,7 +172,7 @@ console.log(data);
    - Specific 403 logging
    - Falls back gracefully
 
-3. **Event Pages** (`app/[locale]/(site)/media/event/[slug]/page.tsx`)
+3. **Event Pages** (`app/[locale]/(site)/media/events/[slug]/page.tsx`)
    - Comprehensive error catching
    - Detailed error logs
    - Graceful degradation

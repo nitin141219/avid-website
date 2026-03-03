@@ -18,6 +18,44 @@ type Props = {
   params: Promise<{ locale: string }>;
 };
 
+async function fetchHomeNews(locale: string): Promise<any[]> {
+  const query = new URLSearchParams({
+    limit: "6",
+    page: "1",
+    locale,
+  }).toString();
+
+  const backendBase = process.env.BACKEND_URL?.replace(/\/+$/, "");
+  const siteBase = process.env.NEXT_PUBLIC_BASE_URL?.replace(/\/+$/, "");
+
+  const endpoints = [
+    backendBase ? `${backendBase}/api/v1/customer/get-news?${query}` : null,
+    siteBase ? `${siteBase}/api/news?${query}` : null,
+  ].filter((endpoint): endpoint is string => Boolean(endpoint));
+
+  for (const endpoint of endpoints) {
+    try {
+      const res = await fetch(endpoint, {
+        next: { revalidate: 120 },
+      });
+
+      if (!res.ok) {
+        continue;
+      }
+
+      const json = await res.json();
+      const news = json?.data?.news;
+      if (Array.isArray(news)) {
+        return news;
+      }
+    } catch {
+      // Try next endpoint
+    }
+  }
+
+  return [];
+}
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const path = "";
@@ -91,7 +129,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function HomePage({ params }: Props) {
   const { locale } = await params;
   const path = "";
-  const override = await fetchSeoOverride(path, locale);
+  const [override, initialNews] = await Promise.all([fetchSeoOverride(path, locale), fetchHomeNews(locale)]);
   const faqs = override?.faqs?.length ? override.faqs : defaultHomeFaqs;
   const breadcrumbItems = buildBreadcrumbItemsFromPath(path, locale);
   
@@ -105,27 +143,6 @@ export default async function HomePage({ params }: Props) {
     buildBreadcrumbSchema(breadcrumbItems),
     buildFaqSchema(faqs),
   ];
-
-  let initialNews: any[] = [];
-  try {
-    const query = new URLSearchParams({
-      limit: "6",
-      page: "1",
-      locale,
-    }).toString();
-    const endpoint = process.env.BACKEND_URL
-      ? `${process.env.BACKEND_URL}/api/v1/customer/get-news?${query}`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news?${query}`;
-    const res = await fetch(endpoint, {
-      next: { revalidate: 120 },
-    });
-    if (res.ok) {
-      const json = await res.json();
-      initialNews = json?.data?.news ?? [];
-    }
-  } catch {
-    initialNews = [];
-  }
 
   return (
     <>

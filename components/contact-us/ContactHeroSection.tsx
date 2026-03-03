@@ -1,6 +1,7 @@
 "use client";
 
 import contactUsImage from "@/public/images/contact-us/contactus_bg.webp";
+import mobileContactUsImage from "@/public/mobile/contact-us/contact-us.webp";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
@@ -24,17 +25,21 @@ export default function ContactHeroSection() {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full h-[26rem] sm:h-[34rem] lg:h-150 overflow-hidden"
-        style={{
-          //   backgroundImage: `url(/images/market/animal.webp)`,
-          backgroundImage: `url(${loaded ? contactUsImage.src : contactUsImage.blurDataURL})`,
-          filter: loaded ? "blur(0px)" : "blur(12px)",
-          backgroundAttachment: "scroll",
-          backgroundPosition: "bottom",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-        }}
+        className="relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[34rem] lg:h-150 overflow-hidden"
       >
+        <div
+          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
+          style={{
+            backgroundImage: `url(${loaded ? contactUsImage.src : contactUsImage.blurDataURL})`,
+            filter: loaded ? "blur(0px)" : "blur(12px)",
+          }}
+        />
+        <div
+          className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
+          style={{
+            backgroundImage: `url(${mobileContactUsImage.src})`,
+          }}
+        />
         <DotsOverlay className="z-1" />
       </motion.div>
       <motion.div

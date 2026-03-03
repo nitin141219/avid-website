@@ -20,7 +20,7 @@
 **Files:** 
 - `app/[locale]/(site)/media/blog/[slug]/page.tsx`
 - `app/[locale]/(site)/media/news/[slug]/page.tsx`
-- `app/[locale]/(site)/media/event/[slug]/page.tsx`
+- `app/[locale]/(site)/media/events/[slug]/page.tsx`
 
 - **Before:** `cache: "no-store"` causing every crawler hit to fetch fresh + rate-limit/403 errors
 - **After:** 
@@ -32,7 +32,7 @@
 **Files:**
 - `app/[locale]/(site)/media/blog/[slug]/page.tsx`
 - `app/[locale]/(site)/media/news/[slug]/page.tsx`
-- `app/[locale]/(site)/media/event/[slug]/page.tsx`
+- `app/[locale]/(site)/media/events/[slug]/page.tsx`
 
 - **Before:** All API failures returned `robots: { index: false, follow: false }` permanently
 - **After:**
@@ -86,7 +86,7 @@
 - `lib/seo.ts` (new functions added)
 - `app/[locale]/(site)/media/blog/[slug]/page.tsx`
 - `app/[locale]/(site)/media/news/[slug]/page.tsx`
-- `app/[locale]/(site)/media/event/[slug]/page.tsx`
+- `app/[locale]/(site)/media/events/[slug]/page.tsx`
 
 - **Before:** No article schema, blog/news/events treated as generic pages
 - **After:**
@@ -203,7 +203,7 @@
 1. ✅ `app/[locale]/(site)/product/[category]/[slug]/page.tsx` - Force-dynamic removed, ISR added
 2. ✅ `app/[locale]/(site)/media/blog/[slug]/page.tsx` - Caching + error handling + article schema
 3. ✅ `app/[locale]/(site)/media/news/[slug]/page.tsx` - Caching + error handling + article schema
-4. ✅ `app/[locale]/(site)/media/event/[slug]/page.tsx` - Caching + error handling + article schema
+4. ✅ `app/[locale]/(site)/media/events/[slug]/page.tsx` - Caching + error handling + article schema
 5. ✅ `app/robots.ts` - Crawl delays added
 6. ✅ `app/sitemap.ts` - Pagination entries added
 7. ✅ `lib/seo.ts` - New schemas: Article, Author, Website Search
