@@ -1,13 +1,13 @@
-name: Deploy On Manager Push
+name: Deploy On Master Push
 
 on:
   push:
     branches:
-      - manager
+      - master
   workflow_dispatch:
 
 concurrency:
-  group: deploy-manager
+  group: deploy-master
   cancel-in-progress: true
 
 jobs:
