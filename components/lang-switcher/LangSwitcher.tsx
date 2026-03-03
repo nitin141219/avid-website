@@ -52,11 +52,9 @@ export default function LangSwitcher() {
   return (
     <motion.div
       ref={dropdownRef}
-      className="group relative z-50"
+      className="group relative z-[200]"
       initial="closed"
       animate={isOpen ? "open" : "closed"}
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={() => setIsOpen(false)}
       onClick={(e) => e.stopPropagation()}
     >
       <button
@@ -69,7 +67,7 @@ export default function LangSwitcher() {
           "inline-flex items-center gap-1 px-2 py-1 font-medium text-sm uppercase transition-all duration-300 cursor-pointer",
           isOpen 
             ? "bg-white text-primary rounded-md rounded-b-none" 
-            : "text-white group-hover:bg-white group-hover:text-primary rounded-md group-hover:rounded-b-none",
+            : "text-white hover:bg-white hover:text-primary rounded-md hover:rounded-b-none",
           isPending && "opacity-50 pointer-events-none"
         )}
       >

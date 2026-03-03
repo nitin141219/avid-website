@@ -16,17 +16,12 @@ import styles from "../styles/press-release.module.css"; // ✅ Module import
 interface PressReleasesProps {
   title: string;
   initialNews?: any[];
-  shouldFetch?: boolean;
 }
 
-export default function PressReleasesSection({
-  title,
-  initialNews = [],
-  shouldFetch = true,
-}: PressReleasesProps) {
+export default function PressReleasesSection({ title, initialNews = [] }: PressReleasesProps) {
   const locale = useLocale();
   const [newsData, setNewsData] = useState(initialNews);
-  const [loading, setLoading] = useState(initialNews.length === 0 && shouldFetch);
+  const [loading, setLoading] = useState(initialNews.length === 0);
   const [isHovered, setIsHovered] = useState(false);
   const lastWheelAt = useRef(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -78,10 +73,9 @@ export default function PressReleasesSection({
   };
 
   useEffect(() => {
-    if (!shouldFetch) return;
     if (initialNews.length > 0) return;
     fetchNews();
-  }, [initialNews.length, locale, shouldFetch]);
+  }, [initialNews.length, locale]);
 
   useEffect(() => {
     if (!emblaApi || newsData.length <= 1 || isHovered) return;
@@ -142,8 +136,7 @@ export default function PressReleasesSection({
       <div className={`container-inner relative ${styles.press}`}>
         <motion.h2
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="mb-10 sm:mb-16 font-extrabold text-2xl md:text-3xl max-lg:text-center"
         >
@@ -159,8 +152,7 @@ export default function PressReleasesSection({
         >
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true, amount: 0.3 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className={styles.container}
           >
@@ -181,7 +173,7 @@ export default function PressReleasesSection({
                         height={280}
                         alt={item?.title}
                         sizes="(min-width: 768px) 480px, 100vw"
-                        className="hidden md:block w-full h-full object-cover"
+                        className="hidden md:block w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
                       />
                       <Image
                         src={imageSource.mobile}
@@ -189,7 +181,7 @@ export default function PressReleasesSection({
                         height={280}
                         alt={item?.title}
                         sizes="(max-width: 767px) 100vw, 480px"
-                        className="md:hidden w-full h-full object-cover"
+                        className="md:hidden w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
                       />
                   </div>
                   <div className="flex flex-col flex-1 justify-between py-5 text-left">
@@ -208,7 +200,7 @@ export default function PressReleasesSection({
                         </span>
                         <MoveRight
                           size={24}
-                          className="transition-all -translate-x-4 group-hover:translate-x-0 duration-300"
+                          className="transition-all -translate-x-4 group-hover:translate-x-0 group-active:translate-x-0 duration-300"
                           strokeWidth={1}
                         />
                       </div>
