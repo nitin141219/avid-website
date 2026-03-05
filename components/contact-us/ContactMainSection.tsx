@@ -188,14 +188,18 @@ export default function ContactMainSection() {
               {t("global_locations.title")}
             </h2>
             <div>
-              <h2 className="font-extrabold text-off-black text-2xl md:text-3xl">INDIA</h2>
+              <h2 className="font-extrabold text-off-black text-2xl md:text-3xl">
+                {t("global_locations.locations.india.country")}
+              </h2>
               <div className="bg-light-dark my-3 w-12 h-px"></div>
-              <p className="mt-2 font-bold text-off-black leading-relaxed">Corporate Office</p>
+              <p className="mt-2 font-bold text-off-black leading-relaxed">
+                {t("global_locations.locations.india.office_label")}
+              </p>
               <p className="mt-2 font-medium text-medium-dark leading-relaxed">
-                Avid Organics Private Limited <br />
-                409/410 Sears Towers, Sevasi
+                {t("global_locations.locations.india.company")} <br />
+                {t("global_locations.locations.india.address_line1")}
                 <br />
-                Vadodara – 391 101, Gujarat, India
+                {t("global_locations.locations.india.address_line2")}
               </p>
               <div className="space-y-2 mt-5 text-off-black">
                 <a
@@ -216,15 +220,19 @@ export default function ContactMainSection() {
               </div>
             </div>
             <div>
-              <h2 className="font-extrabold text-off-black text-2xl md:text-3xl">NETHERLANDS</h2>
+              <h2 className="font-extrabold text-off-black text-2xl md:text-3xl">
+                {t("global_locations.locations.netherlands.country")}
+              </h2>
               <div className="bg-light-dark my-3 w-12 h-px"></div>
-              <p className="mt-2 font-bold text-off-black leading-relaxed">Regional Sales Office</p>
+              <p className="mt-2 font-bold text-off-black leading-relaxed">
+                {t("global_locations.locations.netherlands.office_label")}
+              </p>
               <p className="mt-2 font-medium text-medium-dark leading-relaxed">
-                Avid Organics <br />
-                Avenue Ceramique 221
+                {t("global_locations.locations.netherlands.company")} <br />
+                {t("global_locations.locations.netherlands.address_line1")}
                 <br />
-                6221 KX Maastricht <br />
-                The Netherlands
+                {t("global_locations.locations.netherlands.address_line2")} <br />
+                {t("global_locations.locations.netherlands.address_line3")}
               </p>
               <div className="space-y-2 mt-5 text-off-black">
                 {/* Email Button with email */}
@@ -238,18 +246,28 @@ export default function ContactMainSection() {
               </div>
             </div>
             <div>
-              <h2 className="font-extrabold text-off-black text-2xl md:text-3xl">UNITED STATES</h2>
+              <h2 className="font-extrabold text-off-black text-2xl md:text-3xl">
+                {t("global_locations.locations.usa.country")}
+              </h2>
               <div className="bg-light-dark my-3 w-12 h-px"></div>
-              <p className="mt-2 font-bold text-off-black leading-relaxed">Regional Sales Office</p>
+              <p className="mt-2 font-bold text-off-black leading-relaxed">
+                {t("global_locations.locations.usa.office_label")}
+              </p>
               <p className="mt-2 font-medium text-medium-dark leading-relaxed">
-                Avid Organics America Inc. <br />
-                5021 Vernon Avenue S, #209
+                {t("global_locations.locations.usa.company")} <br />
+                {t("global_locations.locations.usa.address_line1")}
                 <br />
-                Edina, MN 55436-2102
+                {t("global_locations.locations.usa.address_line2")}
                 <br />
-                United States
+                {t("global_locations.locations.usa.address_line3")}
               </p>
               <div className="space-y-2 mt-5 text-off-black">
+                <a
+                  href={`tel:+18885702843`}
+                  className="flex items-center gap-2 font-medium hover:text-primary hover:underline transition"
+                >
+                  <Phone size={20} /> +1 (888) 570-2843
+                </a>
                 {/* Email Button with email */}
                 <a
                   href={`mailto:info@avidorganics.net`}

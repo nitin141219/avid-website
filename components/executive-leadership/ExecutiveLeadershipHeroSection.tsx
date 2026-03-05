@@ -1,36 +1,31 @@
 "use client";
 
 import leadershipImage from "@/public/images/leadership/leadership-bg.webp";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useRef } from "react";
 import DotsOverlay from "../dots-overlay/DotsOverlay";
 
 export default function ExecutiveLeadershipHeroSection() {
   const t = useTranslations("menu");
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-  });
 
   return (
-    <div className="relative bg-gray-section overflow-hidden" ref={ref}>
+    <div className="relative bg-gray-section overflow-hidden">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
+        initial={false}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[34rem] lg:h-150"
+        className="parallax-hero relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[34rem] lg:h-150"
       >
         {/* Desktop Background Image */}
         <div
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
+          className="parallax-hero__image hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
             backgroundImage: `url(${leadershipImage.src})`,
           }}
         />
         {/* Mobile Background Image */}
         <div
-          className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
+          className="parallax-hero__image md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
             backgroundImage: "url('/mobile/about-us/executive-leadership.webp')",
           }}
@@ -38,9 +33,8 @@ export default function ExecutiveLeadershipHeroSection() {
         <DotsOverlay className="z-1" />
       </motion.div>
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        initial={false}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className="z-1 absolute inset-0 flex flex-col py-10 sm:py-16 text-left container-inner"
       >

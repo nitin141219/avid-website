@@ -5,66 +5,35 @@ import { motion } from "framer-motion";
 import { Mail, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { memo, useCallback, useState } from "react";
+import { memo, useCallback, useMemo, useState } from "react";
 import { TransformComponent, TransformWrapper } from "react-zoom-pan-pinch";
 const zoomScale = 1.5;
+type RegionKey = "INDIA" | "EUROPE" | "AMERICA";
+
+interface RegionInfo {
+  title: string;
+  mapLabel: string;
+  companyName: string;
+  locations: { label: string; address: string[] }[];
+}
+
+type RegionDataMap = Record<RegionKey, RegionInfo>;
+
 const pinPositions = {
   INDIA: { x: 72, y: 35 },
   EUROPE: { x: 53, y: 12 },
   AMERICA: { x: 18, y: 32 },
 };
-const regionData = {
-  INDIA: {
-    title: "Vadodara, India",
-    companyName: "AVID ORGANICS PVT LTD",
-    locations: [
-      {
-        label: "Corporate Office:",
-        address: ["409/410 Sears Towers, Sevasi", "Vadodara – 391 101, Gujarat, India"],
-      },
-      // {
-      //   label: "Manufacturing Unit:",
-      //   address: ["409/410 Sears Towers, Sevasi", "Vadodara – 391 101, Gujarat, India"],
-      // },
-    ],
-  },
 
-  EUROPE: {
-    title: "Maastricht, The Netherlands",
-    companyName: "AVID ORGANICS",
-    locations: [
-      {
-        label: "Regional Sales Office:",
-        address: [
-          // "Avid Organics Europe B.V.",
-          "Avenue Ceramique 221",
-          // "6221 KX Maastricht",
-          // "The Netherlands",
-          "Maastricht, The Netherlands",
-        ],
-      },
-    ],
-  },
-
-  AMERICA: {
-    title: "Texas, United States",
-    companyName: "AVID ORGANICS AMERICA INC.",
-    locations: [
-      {
-        label: "Regional Sales Office:",
-        address: [
-          // "Avid Organics America Inc.",
-          "5021 Vernon Avenue S, #209",
-          // "Edina, MN 55436-2102",
-          // "United States",
-          "Texas, United States",
-        ],
-      },
-    ],
-  },
-};
-
-function ZoomableMapSection({ activeRegion, setActiveRegion }: any) {
+function ZoomableMapSection({
+  activeRegion,
+  setActiveRegion,
+  regionData,
+}: {
+  activeRegion: RegionKey;
+  setActiveRegion: (region: RegionKey) => void;
+  regionData: RegionDataMap;
+}) {
   const handleZoomTo = useCallback((ref: any, point: { x: number; y: number }, region: any) => {
     if (!ref) return;
 
@@ -133,9 +102,7 @@ function ZoomableMapSection({ activeRegion, setActiveRegion }: any) {
                     transform: "translate(-50%, -50%)",
                   }}
                 >
-                  <span className="mt-1 text-xs xl:text-sm 2xl:text-base">
-                    {key === "EUROPE" ? "NETHERLANDS" : key === "AMERICA" ? "UNITED STATES" : key}
-                  </span>
+                  <span className="mt-1 text-xs xl:text-sm 2xl:text-base">{regionData[key as RegionKey].mapLabel}</span>
                   <MapPinIcon className="size-6 xl:size-8 2xl:size-10" />
                 </button>
               ))}
@@ -148,10 +115,11 @@ function ZoomableMapSection({ activeRegion, setActiveRegion }: any) {
 }
 
 interface RegionDetailsProps {
-  activeRegion: "INDIA" | "EUROPE" | "AMERICA";
+  activeRegion: RegionKey;
+  regionData: RegionDataMap;
 }
 
-function RegionDetails({ activeRegion }: RegionDetailsProps) {
+function RegionDetails({ activeRegion, regionData }: RegionDetailsProps) {
   const region = regionData[activeRegion];
 
   return (
@@ -188,6 +156,14 @@ function RegionDetails({ activeRegion }: RegionDetailsProps) {
             <Phone size={20} /> +91-265-2370829
           </a>
         )}
+        {activeRegion === "AMERICA" && (
+          <a
+            href={`tel:+18885702843`}
+            className="flex items-center gap-2 hover:text-primary hover:underline transition font-medium"
+          >
+            <Phone size={20} /> +1 (888) 570-2843
+          </a>
+        )}
 
         {/* Email Button with email */}
         <a
@@ -206,8 +182,46 @@ const ZoomableMapSectionMemo = memo(ZoomableMapSection);
 const RegionDetailsMemo = memo(RegionDetails);
 
 export default function GlobalPresence() {
-  const [activeRegion, setActiveRegion] = useState<"EUROPE" | "INDIA" | "AMERICA">("INDIA");
+  const [activeRegion, setActiveRegion] = useState<RegionKey>("INDIA");
   const t = useTranslations("global_presence");
+  const regionData = useMemo<RegionDataMap>(
+    () => ({
+      INDIA: {
+        title: t("regions.india.title"),
+        mapLabel: t("regions.india.map_label"),
+        companyName: t("regions.india.company"),
+        locations: [
+          {
+            label: t("regions.india.office_label"),
+            address: [t("regions.india.address_line1"), t("regions.india.address_line2")],
+          },
+        ],
+      },
+      EUROPE: {
+        title: t("regions.europe.title"),
+        mapLabel: t("regions.europe.map_label"),
+        companyName: t("regions.europe.company"),
+        locations: [
+          {
+            label: t("regions.europe.office_label"),
+            address: [t("regions.europe.address_line1"), t("regions.europe.address_line2")],
+          },
+        ],
+      },
+      AMERICA: {
+        title: t("regions.america.title"),
+        mapLabel: t("regions.america.map_label"),
+        companyName: t("regions.america.company"),
+        locations: [
+          {
+            label: t("regions.america.office_label"),
+            address: [t("regions.america.address_line1"), t("regions.america.address_line2")],
+          },
+        ],
+      },
+    }),
+    [t]
+  );
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -241,7 +255,11 @@ export default function GlobalPresence() {
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="relative w-full h-full flex-auto aspect-video"
         >
-          <ZoomableMapSectionMemo activeRegion={activeRegion} setActiveRegion={setActiveRegion} />
+          <ZoomableMapSectionMemo
+            activeRegion={activeRegion}
+            setActiveRegion={setActiveRegion}
+            regionData={regionData}
+          />
         </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
@@ -251,7 +269,7 @@ export default function GlobalPresence() {
           transition={{ duration: 0.5, ease: "easeInOut" }}
           className="text-left max-w-48 lg:max-w-xs w-full flex flex-col justify-center mx-auto"
         >
-          <RegionDetailsMemo activeRegion={activeRegion} />
+          <RegionDetailsMemo activeRegion={activeRegion} regionData={regionData} />
         </motion.div>
       </div>
     </motion.section>

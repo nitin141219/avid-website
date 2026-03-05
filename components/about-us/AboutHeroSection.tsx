@@ -11,22 +11,21 @@ export default function AboutHeroSection() {
   return (
     <div className="relative bg-gray-section overflow-hidden">
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
+        initial={false}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        className="relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[34rem] lg:h-150"
+        className="parallax-hero relative w-full aspect-[1200/1675] sm:aspect-auto sm:h-[34rem] lg:h-150"
       >
         {/* Desktop Background Image */}
         <div
-          className="hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
+          className="parallax-hero__image hidden md:block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
             backgroundImage: `url(${aboutUsImage.src})`,
           }}
         />
         {/* Mobile Background Image */}
         <div
-          className="md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
+          className="parallax-hero__image md:hidden block absolute inset-0 bg-cover bg-no-repeat bg-bottom"
           style={{
             backgroundImage: "url('/mobile/about-us/about-us.webp')",
           }}
@@ -34,9 +33,8 @@ export default function AboutHeroSection() {
         <DotsOverlay className="z-1" />
       </motion.div>
       <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true, amount: 0.3 }}
+        initial={false}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
         className="z-1 absolute inset-0 flex flex-col py-10 sm:py-16 text-left container-inner"
       >

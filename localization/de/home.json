@@ -71,7 +71,33 @@
   },
   "global_presence": {
     "title": "Globale Präsenz",
-    "subTitle": "Fertigungszentrale in Vadodara, Indien. Regionale Verkaufsunterstützung durch Avid Organics America Inc. und unser Büro in Maastricht, Niederlande."
+    "subTitle": "Fertigungszentrale in Vadodara, Indien. Regionale Verkaufsunterstützung durch Avid Organics America Inc. und unser Büro in Maastricht, Niederlande.",
+    "regions": {
+      "india": {
+        "title": "Vadodara, Indien",
+        "map_label": "INDIEN",
+        "company": "AVID ORGANICS PVT LTD",
+        "office_label": "Hauptsitz:",
+        "address_line1": "409/410 Sears Towers, Sevasi",
+        "address_line2": "Vadodara - 391 101, Gujarat, Indien"
+      },
+      "europe": {
+        "title": "Maastricht, Niederlande",
+        "map_label": "NIEDERLANDE",
+        "company": "AVID ORGANICS",
+        "office_label": "Regionales Vertriebsbüro:",
+        "address_line1": "Avenue Ceramique 221",
+        "address_line2": "Maastricht, Niederlande"
+      },
+      "america": {
+        "title": "Texas, Vereinigte Staaten",
+        "map_label": "VEREINIGTE STAATEN",
+        "company": "AVID ORGANICS AMERICA INC.",
+        "office_label": "Regionales Vertriebsbüro:",
+        "address_line1": "5021 Vernon Avenue S, #209",
+        "address_line2": "Texas, Vereinigte Staaten"
+      }
+    }
   },
   "press_release": {
     "title": "Pressemitteilungen"

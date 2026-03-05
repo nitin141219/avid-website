@@ -1,3 +1,95 @@
+const cloneFormData = (source: FormData) => {
+  const cloned = new FormData();
+  source.forEach((value, key) => cloned.append(key, value));
+  return cloned;
+};
+
+const stripDownloadKeys = (source: FormData) => {
+  const cloned = cloneFormData(source);
+  cloned.delete("download_pdf");
+  cloned.delete("download_title");
+  return cloned;
+};
+
+const buildPdfFallbackPayloads = (base: FormData): FormData[] => {
+  const pdfValue = base.get("download_pdf");
+  if (!(pdfValue instanceof File)) return [];
+
+  // Keep a single quick compatibility retry to avoid long save delays.
+  const fallbackVariants: Array<{ fileKey: string; titleKey?: string | null }> = [
+    { fileKey: "file", titleKey: null },
+  ];
+
+  return fallbackVariants.map(({ fileKey, titleKey }) => {
+    const payload = stripDownloadKeys(base);
+    payload.append(fileKey, pdfValue);
+    const downloadTitle = base.get("download_title");
+    if (downloadTitle && titleKey) {
+      payload.append(titleKey, String(downloadTitle));
+    }
+    return payload;
+  });
+};
+
+const shouldRetryWithPdfFallback = (status: number, message: string) => {
+  const text = (message || "").toLowerCase();
+  return (
+    status === 400 ||
+    text.includes("unexpected field") ||
+    text.includes("unexpected failed") ||
+    text.includes("invalid field")
+  );
+};
+
+const requestWithPdfFallback = async (url: string, method: "POST" | "PATCH", formData: FormData) => {
+  const attempt = async (payload: FormData) => {
+    const res = await fetch(url, {
+      method,
+      credentials: "include",
+      body: payload,
+    });
+    const data = await res.json().catch(() => ({}));
+    return { res, data };
+  };
+
+  const first = await attempt(formData);
+  if (first.res.ok && first.data?.success !== false) {
+    return first.data;
+  }
+
+  const firstMessage = first.data?.message || "";
+  const hasPdfFile = formData.get("download_pdf") instanceof File;
+  if (!hasPdfFile) {
+    throw new Error(firstMessage || `${method} news failed`);
+  }
+  if (!shouldRetryWithPdfFallback(first.res.status, firstMessage)) {
+    throw new Error(firstMessage || `${method} news failed`);
+  }
+
+  const fallbackPayloads = buildPdfFallbackPayloads(formData);
+  for (const payload of fallbackPayloads) {
+    const retry = await attempt(payload);
+    if (retry.res.ok && retry.data?.success !== false) {
+      return retry.data;
+    }
+  }
+
+  // Final fallback: save news without download fields so Add/Update doesn't fail.
+  const noDownloadPayload = stripDownloadKeys(formData);
+  const plainRetry = await attempt(noDownloadPayload);
+  if (plainRetry.res.ok && plainRetry.data?.success !== false) {
+    return {
+      ...plainRetry.data,
+      __pdfSkipped: true,
+      message:
+        plainRetry.data?.message ||
+        "News saved, but PDF upload was skipped because backend rejected file fields.",
+    };
+  }
+
+  throw new Error(firstMessage || plainRetry.data?.message || `${method} news failed`);
+};
+
 export const NEWS_SERVICES = {
   getNews: async (params: { limit: number; page: number }): Promise<any> => {
     const query = new URLSearchParams({
@@ -18,34 +110,10 @@ export const NEWS_SERVICES = {
     };
   },
   createNews: async (formData: FormData): Promise<any> => {
-    const res = await fetch("/api/backend/add-news", {
-      method: "POST",
-      credentials: "include",
-      body: formData,
-    });
-
-    const data = await res.json();
-
-    if (!res.ok || data.success === false) {
-      throw new Error(data.message || "Create news failed");
-    }
-
-    return data;
+    return requestWithPdfFallback("/api/backend/add-news", "POST", formData);
   },
   updateNews: async (newsId: string, formData: FormData): Promise<any> => {
-    const res = await fetch(`/api/backend/update-news/${newsId}`, {
-      method: "PATCH",
-      credentials: "include",
-      body: formData,
-    });
-
-    const data = await res.json();
-
-    if (!res.ok || data.success === false) {
-      throw new Error(data.message || "Update news failed");
-    }
-
-    return data;
+    return requestWithPdfFallback(`/api/backend/update-news/${newsId}`, "PATCH", formData);
   },
   updateNewsStatus: async (newsId: string, status: boolean): Promise<boolean> => {
     const res = await fetch(`/api/backend/update-news-status/${newsId}`, {

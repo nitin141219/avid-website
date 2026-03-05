@@ -50,6 +50,8 @@ const SAME_AS_ENGLISH_PATH_ALLOWLIST = [
   /^product\..+\.supplyChain\.packagingOptions\.\d+\.(unit|texts)$/,
   /^product\..+\.information\.subText$/,
   /^Sustainability\..+\.target\d+\.value$/,
+  /^contact_us\.global_locations\.locations\.(india|netherlands|usa)\.(country|company|address_line1|address_line2|address_line3)$/,
+  /^global_presence\.regions\.(india|europe|america)\.(title|map_label|company|address_line1|address_line2)$/,
 ];
 
 // Color codes for terminal output

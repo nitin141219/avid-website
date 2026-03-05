@@ -1,5 +1,6 @@
 "use client";
 
+import FileInput from "@/components/file-input";
 import ImageUpload from "@/components/ImageUpload";
 import { dataURLtoBlob } from "@/components/MultilineText";
 import { RichTextEditor } from "@/components/rich-text-editor/rich-text-editor";
@@ -11,7 +12,7 @@ import { IMAGE_DIMENSION } from "@/constants";
 import { NEWS_SERVICES } from "@/services/admin/news/news.services";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Dialog from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { Download, X } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -20,7 +21,9 @@ import { toast } from "@/components/AvidToast";
 import * as yup from "yup";
 
 const SUPPORTED_IMAGE_TYPES = ["image/jpeg", "image/jpg", "image/png", "image/webp"];
+const SUPPORTED_PDF_TYPES = ["application/pdf"];
 const DEFAULT_AUTHOR = "Avid Organics";
+const DEFAULT_DOWNLOAD_TITLE = "Copy of news and announcement";
 
 const generateSlug = (value: string) =>
   value
@@ -77,6 +80,26 @@ const newsSchema = yup.object({
       }
       return true;
     }),
+  download_title: yup.string().optional().default(DEFAULT_DOWNLOAD_TITLE),
+  download_pdf: yup
+    .mixed<FileList | string>()
+    .optional()
+    .nullable()
+    .default(null)
+    .test("file-check", "Invalid file", (value) => {
+      if (!value) return true;
+      if (value instanceof FileList) {
+        return value.length > 0;
+      }
+      return true;
+    })
+    .test("fileType", "Unsupported file format (.pdf only)", (value) => {
+      if (!value) return true;
+      if (value instanceof FileList) {
+        return SUPPORTED_PDF_TYPES.includes(value?.[0]?.type);
+      }
+      return true;
+    }),
 });
 
 type NewsFormValues = yup.InferType<typeof newsSchema>;
@@ -104,11 +127,14 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
       is_active: true,
       image_mobile: "",
       author: DEFAULT_AUTHOR,
+      download_title: DEFAULT_DOWNLOAD_TITLE,
+      download_pdf: null,
     },
     mode: "onChange",
   });
   const image = watch("image");
   const mobileImage = watch("image_mobile");
+  const downloadPdf = watch("download_pdf");
   const titleEn = watch("title_en");
 
   useEffect(() => {
@@ -136,6 +162,21 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
       author: newsData.author || DEFAULT_AUTHOR,
       image: newsData.image, // string
       image_mobile: newsData.image_mobile || newsData.imageMobile || newsData.mobileImage || "",
+      download_title:
+        newsData.download_title ||
+        newsData.downloadTitle ||
+        newsData.pdf_title ||
+        newsData.pdfTitle ||
+        DEFAULT_DOWNLOAD_TITLE,
+      download_pdf:
+        newsData.download_pdf ||
+        newsData.downloadPdf ||
+        newsData.pdf ||
+        newsData.pdf_file ||
+        newsData.pdfFile ||
+        newsData.attachment ||
+        newsData.file ||
+        null,
     });
     setIsSlugManuallyEdited(true);
 
@@ -176,6 +217,10 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
     formData.append("content_es", contentEs);
     formData.append("author", values.author);
     formData.append("is_active", String(values.is_active));
+    const hasNewPdf = values.download_pdf instanceof FileList && values.download_pdf.length > 0;
+    if (hasNewPdf) {
+      formData.append("download_title", values.download_title || DEFAULT_DOWNLOAD_TITLE);
+    }
 
     const appendImageField = (
       key: "image" | "image_mobile",
@@ -201,13 +246,27 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
     appendImageField("image", values.image);
     appendImageField("image_mobile", values.image_mobile);
 
+    if (values.download_pdf instanceof FileList) {
+      formData.append("download_pdf", values.download_pdf[0]);
+    }
+
+    if (typeof values.download_pdf === "string") {
+      formData.append("download_pdf", values.download_pdf);
+    }
+
     try {
       if (newsId) {
-        await NEWS_SERVICES.updateNews(newsId, formData);
+        const res = await NEWS_SERVICES.updateNews(newsId, formData);
         toast.success("News updated successfully");
+        if (res?.__pdfSkipped) {
+          toast.info("News saved, but PDF upload is not supported by backend yet.");
+        }
       } else {
-        await NEWS_SERVICES.createNews(formData);
+        const res = await NEWS_SERVICES.createNews(formData);
         toast.success("News created successfully");
+        if (res?.__pdfSkipped) {
+          toast.info("News saved, but PDF upload is not supported by backend yet.");
+        }
         reset();
         setIsSlugManuallyEdited(false);
       }
@@ -327,6 +386,53 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
               </Button>
             </div>
           ) : null}
+        </div>
+        <div>
+          <Label className="mb-2 w-max font-medium md:text-sm cursor-pointer" htmlFor="download_pdf">
+            Upload PDF
+          </Label>
+          <FileInput
+            id="download_pdf"
+            accept=".pdf"
+            className="hidden"
+            onChange={(e) => {
+              const file = e?.target.files;
+              if (!file?.length) return;
+              setValue("download_pdf", file, { shouldValidate: true });
+            }}
+            onClear={() => {
+              setValue("download_pdf", null, { shouldValidate: true });
+            }}
+          />
+          {errors.download_pdf && (
+            <p className="mt-1 text-red-500 text-xs">{errors.download_pdf.message}</p>
+          )}
+          {typeof downloadPdf === "string" && downloadPdf ? (
+            <div className="flex justify-end items-center gap-2 mt-2">
+              <Button
+                type="button"
+                onClick={() => window.open(downloadPdf, "_blank", "noopener,noreferrer")}
+                className="flex bg-secondary px-2 py-1 w-fit h-auto font-normal text-white text-sm"
+              >
+                <Download className="mr-1 w-4 h-4" />
+                Download PDF
+              </Button>
+            </div>
+          ) : null}
+        </div>
+        <div>
+          <Label className="mb-2 font-medium md:text-sm" htmlFor="download_title">
+            Downloads Title
+          </Label>
+          <Input
+            {...register("download_title")}
+            id="download_title"
+            placeholder={DEFAULT_DOWNLOAD_TITLE}
+            className="bg-white border border-border"
+          />
+          {errors.download_title && (
+            <p className="mt-1 text-red-500 text-sm">{errors.download_title.message}</p>
+          )}
         </div>
         {/* Active Status */}
         <div className="flex items-center gap-2">

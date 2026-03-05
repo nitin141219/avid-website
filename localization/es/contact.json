@@ -6,7 +6,32 @@
             "subtitle2": "Apoyamos a clientes en los sectores farmacéutico, de cuidado personal, nutracéutico, agroquímico e industrial con un servicio técnico receptivo y un rendimiento de la cadena de suministro confiable."
         },
         "global_locations": {
-            "title": "Ubicaciones Globales"
+            "title": "Ubicaciones Globales",
+            "locations": {
+                "india": {
+                    "country": "INDIA",
+                    "office_label": "Oficina Corporativa",
+                    "company": "Avid Organics Private Limited",
+                    "address_line1": "409/410 Sears Towers, Sevasi",
+                    "address_line2": "Vadodara - 391 101, Gujarat, India"
+                },
+                "netherlands": {
+                    "country": "PAÍSES BAJOS",
+                    "office_label": "Oficina Regional de Ventas",
+                    "company": "Avid Organics",
+                    "address_line1": "Avenue Ceramique 221",
+                    "address_line2": "6221 KX Maastricht",
+                    "address_line3": "Países Bajos"
+                },
+                "usa": {
+                    "country": "ESTADOS UNIDOS",
+                    "office_label": "Oficina Regional de Ventas",
+                    "company": "Avid Organics America Inc.",
+                    "address_line1": "5021 Vernon Avenue S, #209",
+                    "address_line2": "Edina, MN 55436-2102",
+                    "address_line3": "Estados Unidos"
+                }
+            }
         },
         "get_in_touch": {
             "title": "Póngase en Contacto",

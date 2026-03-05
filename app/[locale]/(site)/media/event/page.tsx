@@ -1,5 +1,10 @@
-import { notFound } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
-export default function EventAliasPage() {
-  notFound();
+export default async function EventAliasPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  permanentRedirect(`/${locale}/media/events`);
 }

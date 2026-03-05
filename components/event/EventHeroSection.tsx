@@ -26,17 +26,17 @@ export default function EventHeroSection({ data }: any) {
           </div>
           {/* Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 15 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-3 font-extrabold text-primary text-3xl md:text-4xl"
           >
             {title}
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="font-normal text-medium-dark text-base xl:text-xl"
           >
             {subTitle}
@@ -45,10 +45,10 @@ export default function EventHeroSection({ data }: any) {
 
         {/* Hero Image */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="relative bg-gray-100 mx-auto rounded-lg w-full h-full overflow-hidden"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="parallax-hero relative bg-gray-100 mx-auto rounded-lg w-full h-full overflow-hidden"
           style={{
             maxWidth: IMAGE_DIMENSION.EVENT.width,
             maxHeight: IMAGE_DIMENSION.EVENT.height,
@@ -60,7 +60,7 @@ export default function EventHeroSection({ data }: any) {
             width={IMAGE_DIMENSION.EVENT.width}
             height={IMAGE_DIMENSION.EVENT.height}
             sizes="(min-width: 768px) 1120px, 100vw"
-            className="hidden md:block w-full object-cover"
+            className="parallax-hero__image hidden md:block w-full object-cover will-change-transform"
           />
           <Image
             src={heroImage.mobile}
@@ -68,7 +68,7 @@ export default function EventHeroSection({ data }: any) {
             width={IMAGE_DIMENSION.EVENT.width}
             height={IMAGE_DIMENSION.EVENT.height}
             sizes="(max-width: 767px) 100vw, 1120px"
-            className="md:hidden w-full h-full object-cover"
+            className="parallax-hero__image md:hidden w-full h-full object-cover will-change-transform"
           />
         </motion.div>
       </div>
@@ -94,9 +94,9 @@ export default function EventHeroSection({ data }: any) {
 //   return (
 //     <div className="relative bg-gray-section overflow-hidden">
 //       <motion.div
-//         initial={{ opacity: 0 }}
-//         whileInView={{ opacity: 1 }}
-//         viewport={{ once: true }}
+//         initial={false}
+//         animate={{ opacity: 1 }}
+//
 //         transition={{ duration: 0.5, ease: "easeInOut" }}
 //         className="relative w-full h-150 overflow-hidden"
 //         style={{
@@ -113,9 +113,9 @@ export default function EventHeroSection({ data }: any) {
 //       </motion.div>
 
 //       <motion.div
-//         initial={{ opacity: 0 }}
-//         whileInView={{ opacity: 1 }}
-//         viewport={{ once: true, amount: 0.3 }}
+//         initial={false}
+//         animate={{ opacity: 1 }}
+//
 //         transition={{ duration: 0.5, ease: "easeInOut" }}
 //         className="z-20 absolute inset-0 flex flex-col py-16 text-left container-inner"
 //       >

@@ -142,11 +142,11 @@ export default function OurStorySection() {
   const [contentWidth, setContentWidth] = useState(0);
   // use exactly 5 images for the slideshow
   const bgImages = [
-    "/images/about-us/History/History Images-1.webp",
-    "/images/about-us/History/History Images-2.webp",
-    "/images/about-us/History/History Images-3.webp",
-    "/images/about-us/History/History Images-4.webp",
-    "/images/about-us/History/History Images-5.webp",
+    "/images/about-us/History/History Images-1.png",
+    "/images/about-us/History/History Images-2.png",
+    "/images/about-us/History/History Images-3.png",
+    "/images/about-us/History/History Images-4.png",
+    "/images/about-us/History/History Images-5.png",
   ];
   const [bgIndex, setBgIndex] = useState(0);
   const items = [

@@ -702,7 +702,6 @@ export function buildOrganizationSchema() {
     },
     image: `${baseUrl}/logo-tagline.png`,
     email: "info@avidorganics.net",
-    telephone: "+91-XXXXXXXXXX", // Update with actual number
     foundingDate: "2010", // Update with actual founding year
     address: {
       "@type": "PostalAddress",
@@ -743,24 +742,24 @@ export function buildOrganizationSchema() {
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
-          name: "Specialty Chemicals",
+          "@type": "Service",
+          name: "Specialty Chemicals Supply",
           description: "High-purity specialty chemicals for pharmaceutical, food, personal care, and industrial applications",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
-          name: "Pharmaceutical Ingredients",
+          "@type": "Service",
+          name: "Pharmaceutical Ingredients Supply",
           description: "GMP certified pharmaceutical ingredients and excipients",
         },
       },
       {
         "@type": "Offer",
         itemOffered: {
-          "@type": "Product",
-          name: "Amino Acids",
+          "@type": "Service",
+          name: "Amino Acids Supply",
           description: "USP/BP grade amino acids for pharmaceutical and animal nutrition applications",
         },
       },
@@ -774,13 +773,6 @@ export function buildOrganizationSchema() {
     ],
     // Enhanced geo-targeting
     "@id": `${baseUrl}/#organization`,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.8",
-      reviewCount: "150",
-      bestRating: "5",
-      worstRating: "1",
-    },
     // Global distribution network
     serviceArea: [
       {
@@ -839,7 +831,7 @@ export function buildLocalBusinessSchema(region: "india" | "usa" | "europe" = "i
         postalCode: "400001", // Update with actual postal code
         streetAddress: "Avid Organics Headquarters", // Update with actual address
       },
-      telephone: "+91-XXXXXXXXXX", // Update with actual number
+      telephone: null,
       priceRange: "$$$",
       geo: {
         "@type": "GeoCoordinates",
@@ -869,7 +861,7 @@ export function buildLocalBusinessSchema(region: "india" | "usa" | "europe" = "i
         postalCode: "10001", // Update with actual postal code
         streetAddress: "USA Distribution Center", // Update with actual address
       },
-      telephone: "+1-XXX-XXX-XXXX", // Update with actual number
+      telephone: "+1-888-570-2843",
       priceRange: "$$$",
       geo: {
         "@type": "GeoCoordinates",
@@ -894,7 +886,7 @@ export function buildLocalBusinessSchema(region: "india" | "usa" | "europe" = "i
         postalCode: "EC1A 1AA", // Update with actual postal code
         streetAddress: "Europe Distribution Center", // Update with actual address
       },
-      telephone: "+44-XXXX-XXXXXX", // Update with actual number
+      telephone: null,
       priceRange: "$$$",
       geo: {
         "@type": "GeoCoordinates",
@@ -925,7 +917,7 @@ export function buildLocalBusinessSchema(region: "india" | "usa" | "europe" = "i
     name: data.name,
     image: `${baseUrl}/logo-tagline.png`,
     url: baseUrl,
-    telephone: data.telephone,
+    ...(data.telephone ? { telephone: data.telephone } : {}),
     priceRange: data.priceRange,
     address: data.address,
     geo: data.geo,
@@ -1042,6 +1034,17 @@ export function buildProductSchema(input: {
       "@type": "Organization",
       name: "Avid Organics",
       url: getSiteUrl(),
+    },
+    offers: {
+      "@type": "Offer",
+      url: input.url,
+      availability: "https://schema.org/InStock",
+      itemCondition: "https://schema.org/NewCondition",
+      seller: {
+        "@type": "Organization",
+        name: "Avid Organics",
+        url: getSiteUrl(),
+      },
     },
     additionalProperty: [
       {

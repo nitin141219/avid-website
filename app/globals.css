@@ -302,4 +302,114 @@
     background-color: #159a46 !important;
     color: #fff !important;
   }
+
+  .parallax-hero {
+    --parallax-y: 0px;
+    overflow: hidden;
+  }
+
+  .parallax-hero__image {
+    background-size: cover !important;
+    background-position: center center !important;
+    background-repeat: no-repeat !important;
+  }
+
+  @media (min-width: 768px) {
+    .parallax-hero__image {
+      background-attachment: fixed;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .parallax-hero__image {
+      background-attachment: scroll;
+    }
+  }
+
+  .scroll-hero {
+    --scroll-parallax-y: 0px;
+    --scroll-parallax-scale: 1.12;
+    --scroll-hero-offset: 0px;
+    position: relative;
+    min-height: 200vh;
+  }
+
+  .scroll-hero__track {
+    display: grid;
+    gap: 2rem;
+    min-height: inherit;
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .scroll-hero__media-col {
+    min-height: 100vh;
+  }
+
+  .scroll-hero__sticky {
+    position: sticky;
+    top: var(--scroll-hero-offset);
+    height: calc(100vh - var(--scroll-hero-offset));
+    overflow: hidden;
+  }
+
+  .scroll-hero__image-wrap {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .scroll-hero__image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate3d(0, var(--scroll-parallax-y), 0) scale(var(--scroll-parallax-scale));
+    transform-origin: center center;
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  .scroll-hero__content-col {
+    position: relative;
+    z-index: 2;
+  }
+
+  .scroll-hero__content-inner {
+    display: grid;
+    gap: 1.25rem;
+    padding: 2rem 0;
+  }
+
+  @media (max-width: 767px) {
+    .scroll-hero {
+      --scroll-parallax-scale: 1.06;
+      min-height: 160vh;
+    }
+
+    .scroll-hero__sticky {
+      height: 62vh;
+      top: 0;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .scroll-hero__track {
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .parallax-hero__image {
+      background-attachment: scroll !important;
+    }
+
+    .scroll-hero__image {
+      transform: translate3d(0, 0, 0) scale(1) !important;
+      will-change: auto;
+    }
+  }
 }

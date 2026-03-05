@@ -1,8 +1,7 @@
 "use client";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useRef } from "react";
 import { getResponsiveImageSources } from "@/lib/utils";
 import { ProductPageData } from "../data";
 import ImageSlideshow from "./ImageSlideshow";
@@ -16,20 +15,16 @@ function ProductInfo({
   slideshowImages?: string[];
   t: any;
 }) {
-  const ref = useRef(null);
   const imageSource = getResponsiveImageSources(data as any);
   const resolvedImages = slideshowImages?.length ? slideshowImages : data?.images || [];
   const hasMultipleImages = resolvedImages.length > 1;
   const hasSingleImage = resolvedImages.length === 1;
-  const isInView = useInView(ref, {
-    once: true,
-  });
-    const tRoot = useTranslations("product");
+  const tRoot = useTranslations("product");
   return (
-    <div className="bg-gray-section" ref={ref}>
+    <div className="bg-gray-section">
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={isInView ? { opacity: 1 } : {}}
+        initial={false}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="items-start lg:items-center gap-8 lg:gap-16 grid lg:grid-cols-2 pt-4 lg:pt-0 pb-6 lg:pb-0 container-inner"
       >
@@ -89,7 +84,7 @@ function ProductInfo({
         </div>
 
         {/* Right Image */}
-        <div className="relative w-full h-72 sm:h-96 lg:h-120">
+        <div className="relative w-full h-72 sm:h-96 lg:h-120 overflow-hidden">
           {hasMultipleImages ? (
             <ImageSlideshow images={resolvedImages} />
           ) : hasSingleImage ? (

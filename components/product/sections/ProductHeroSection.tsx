@@ -2,8 +2,7 @@
 
 import DotsOverlay from "@/components/dots-overlay/DotsOverlay";
 import { MultilineText } from "@/components/MultilineText";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { ProductPageData } from "../data";
 
 function ProductHeroSection({
@@ -15,21 +14,15 @@ function ProductHeroSection({
   t: any;
   heroBgColor?: string;
 }) {
-  const ref = useRef(null);
-  const isInView = useInView(ref, {
-    once: true,
-  });
-
   return (
     <div
       className="relative bg-primary overflow-hidden"
-      ref={ref}
       style={heroBgColor ? { backgroundColor: heroBgColor } : undefined}
     >
       <DotsOverlay>
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          initial={false}
+          animate={{ opacity: 1 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
           className="flex flex-col py-16 md:h-80 text-left container-inner"
         >

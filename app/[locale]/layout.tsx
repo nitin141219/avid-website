@@ -80,12 +80,9 @@ export const metadata: Metadata = {
     apple: [{ url: "/A.png", sizes: "180x180", type: "image/png" }],
     shortcut: ["/A.png"],
   },
-  manifest: "/manifest.json",
+  manifest: "/manifest.webmanifest",
   verification: {
     google: "LBEECIrf02cqeZZ6C79eZRMrwsqOnq72TD9kZ2Sq5FQ",
-  },
-  alternates: {
-    canonical: "https://www.avidorganics.net",
   },
   category: "Manufacturing",
 };
@@ -106,7 +103,9 @@ export default async function RootLayout({
   params: Promise<{ locale: string }>;
 }>) {
   const loggedInUser = await getAuthUser();
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-MWNTS7N9";
+  const ahrefsAnalyticsKey =
+    process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY || "+BQPSicnE4fbMeiKQnZ4UQ";
 
   // Ensure that the incoming `locale` is valid
   const { locale } = await params;
@@ -119,31 +118,28 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
+      <head>
+        <Script id="google-tag-manager" strategy="lazyOnload">
+          {`
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','${gtmId}');
+          `}
+        </Script>
+        {ahrefsAnalyticsKey ? (
+          <Script
+            id="ahrefs-analytics"
+            src="https://analytics.ahrefs.com/analytics.js"
+            data-key={ahrefsAnalyticsKey}
+            strategy="lazyOnload"
+          />
+        ) : null}
+      </head>
       <body className={`${redHatDisplay.variable} font-sans antialiased`}>
         {gtmId ? (
           <>
-            <Script id="gtm-consent-default" strategy="beforeInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('consent', 'default', {
-                  ad_storage: 'denied',
-                  analytics_storage: 'denied',
-                  ad_user_data: 'denied',
-                  ad_personalization: 'denied',
-                  wait_for_update: 500
-                });
-              `}
-            </Script>
-            <Script id="google-tag-manager" strategy="afterInteractive">
-              {`
-                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','${gtmId}');
-              `}
-            </Script>
             <noscript>
               <iframe
                 src={`https://www.googletagmanager.com/ns.html?id=${gtmId}`}

@@ -71,7 +71,33 @@
   },
   "global_presence": {
     "title": "Presencia Global",
-    "subTitle": "Sede de manufactura en Vadodara, India. Apoyo regional de ventas a través de Avid Organics America Inc. y nuestra oficina en Maastricht, Países Bajos."
+    "subTitle": "Sede de manufactura en Vadodara, India. Apoyo regional de ventas a través de Avid Organics America Inc. y nuestra oficina en Maastricht, Países Bajos.",
+    "regions": {
+      "india": {
+        "title": "Vadodara, India",
+        "map_label": "INDIA",
+        "company": "AVID ORGANICS PVT LTD",
+        "office_label": "Oficina Corporativa:",
+        "address_line1": "409/410 Sears Towers, Sevasi",
+        "address_line2": "Vadodara - 391 101, Gujarat, India"
+      },
+      "europe": {
+        "title": "Maastricht, Países Bajos",
+        "map_label": "PAÍSES BAJOS",
+        "company": "AVID ORGANICS",
+        "office_label": "Oficina Regional de Ventas:",
+        "address_line1": "Avenue Ceramique 221",
+        "address_line2": "Maastricht, Países Bajos"
+      },
+      "america": {
+        "title": "Texas, Estados Unidos",
+        "map_label": "ESTADOS UNIDOS",
+        "company": "AVID ORGANICS AMERICA INC.",
+        "office_label": "Oficina Regional de Ventas:",
+        "address_line1": "5021 Vernon Avenue S, #209",
+        "address_line2": "Texas, Estados Unidos"
+      }
+    }
   },
   "press_release": {
     "title": "Comunicados de Prensa"

@@ -27,17 +27,17 @@ export default function BlogHeroSection({ data }: any) {
           </div>
           {/* Title */}
           <motion.h1
-            initial={{ opacity: 0, y: 15 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-3 font-extrabold text-primary text-3xl md:text-4xl"
           >
             {title}
           </motion.h1>
           <motion.p
-            initial={{ opacity: 0, y: 15 }}
+            initial={false}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
             className="font-normal text-medium-dark text-base xl:text-xl"
           >
             {subTitle}
@@ -46,10 +46,10 @@ export default function BlogHeroSection({ data }: any) {
 
         {/* Hero Image */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={false}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-          className="relative bg-gray-100 mx-auto rounded-lg w-full h-full overflow-hidden"
+          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="parallax-hero relative bg-gray-100 mx-auto rounded-lg w-full h-full overflow-hidden"
           style={{
             maxWidth: IMAGE_DIMENSION.BLOG.width,
             maxHeight: IMAGE_DIMENSION.BLOG.height,
@@ -61,7 +61,7 @@ export default function BlogHeroSection({ data }: any) {
             width={IMAGE_DIMENSION.BLOG.width}
             height={IMAGE_DIMENSION.BLOG.height}
             sizes="(min-width: 1280px) 1120px, 100vw"
-            className="w-full object-cover"
+            className="parallax-hero__image w-full object-cover will-change-transform"
           />
         </motion.div>
       </div>

@@ -51,17 +51,30 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      { source: "/manifest.json", destination: "/manifest.webmanifest", permanent: true },
       // Legacy media URLs
       { source: "/media/blogs", destination: "/media/blog", permanent: true },
       { source: "/blogs", destination: "/media/blog", permanent: true },
       { source: "/blog", destination: "/media/blog", permanent: true },
       { source: "/news", destination: "/media/news", permanent: true },
+      { source: "/event", destination: "/media/events", permanent: true },
+      { source: "/events", destination: "/media/events", permanent: true },
+      { source: "/media/event", destination: "/media/events", permanent: true },
+      { source: "/media/event/:slug*", destination: "/media/events/:slug*", permanent: true },
       { source: "/downloads", destination: "/media/downloads", permanent: true },
       // Locale-aware legacy media URLs
       { source: "/:locale(en|de|fr|es)/media/blogs", destination: "/:locale/media/blog", permanent: true },
       { source: "/:locale(en|de|fr|es)/blogs", destination: "/:locale/media/blog", permanent: true },
       { source: "/:locale(en|de|fr|es)/blog", destination: "/:locale/media/blog", permanent: true },
       { source: "/:locale(en|de|fr|es)/news", destination: "/:locale/media/news", permanent: true },
+      { source: "/:locale(en|de|fr|es)/event", destination: "/:locale/media/events", permanent: true },
+      { source: "/:locale(en|de|fr|es)/events", destination: "/:locale/media/events", permanent: true },
+      { source: "/:locale(en|de|fr|es)/media/event", destination: "/:locale/media/events", permanent: true },
+      {
+        source: "/:locale(en|de|fr|es)/media/event/:slug*",
+        destination: "/:locale/media/events/:slug*",
+        permanent: true,
+      },
       { source: "/:locale(en|de|fr|es)/downloads", destination: "/:locale/media/downloads", permanent: true },
     ];
   },

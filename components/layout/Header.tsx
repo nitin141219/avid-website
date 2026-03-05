@@ -2,7 +2,7 @@
 
 import { useHash } from "@/hooks/useHash";
 import { Link, usePathname } from "@/i18n/navigation";
-import { NavItemType } from "@/lib/getNavItems";
+import type { NavItemType } from "@/lib/getNavItems";
 import { cn } from "@/lib/utils";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronDownIcon, ChevronRight, Menu } from "lucide-react";
@@ -150,10 +150,6 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
       setLoading(false);
     }
   }, [hasFetchedSpotlights]);
-
-  useEffect(() => {
-    void fetchSpotlights();
-  }, [fetchSpotlights]);
 
   useEffect(() => {
     if (openMenu || mobileMenuOpen) {

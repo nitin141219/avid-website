@@ -2,7 +2,6 @@
 
 import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { MoveRight } from "lucide-react";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 
 import { Link } from "@/i18n/navigation";
@@ -76,6 +75,7 @@ export default function HeroSection() {
 
   const current = slides[index];
   const isRightAlignedSlide = current.align === "right";
+  const shouldAnimateText = index !== 0;
 
   return (
     <section className="relative bg-white w-full h-[100svh] min-h-[42rem] overflow-hidden max-w-full">
@@ -95,34 +95,23 @@ export default function HeroSection() {
             transition={{ duration: SLIDESHOW_TRANSITION_SECONDS, ease: "easeInOut" }}
           >
             <DotsOverlay className="z-1" />
-            <Image
-              src={current.img}
-              alt={t(current.titleKey)}
-              fill
-              priority={isFirstSlide}
-              fetchPriority={isFirstSlide ? "high" : "auto"}
-              loading={isFirstSlide ? "eager" : "lazy"}
-              sizes="100vw"
-              placeholder={isFirstSlide ? "blur" : "empty"}
-              className="hidden md:block object-cover max-w-full"
-            />
-            <Image
-              src={current.mobileImg}
-              alt={t(current.titleKey)}
-              fill
-              priority={isFirstSlide}
-              fetchPriority={isFirstSlide ? "high" : "auto"}
-              loading={isFirstSlide ? "eager" : "lazy"}
-              sizes="100vw"
-              placeholder="empty"
-              className="md:hidden object-cover max-w-full"
-            />
+            <picture className="absolute inset-0 block w-full h-full max-w-full">
+              <source media="(min-width: 768px)" srcSet={current.img.src} />
+              <img
+                src={current.mobileImg}
+                alt={t(current.titleKey)}
+                loading={isFirstSlide ? "eager" : "lazy"}
+                fetchPriority={isFirstSlide ? "high" : "auto"}
+                decoding="async"
+                className="w-full h-full object-cover max-w-full"
+              />
+            </picture>
           </m.div>
         </AnimatePresence>
 
         {/* Text container */}
         <div className="relative z-10 h-full max-w-full">
-          <AnimatePresence mode="wait">
+          <AnimatePresence initial={false} mode="wait">
             <m.div
               className={
                 `container-inner relative z-10 flex h-full w-full items-end pb-30 md:pb-45 ${
@@ -130,10 +119,10 @@ export default function HeroSection() {
                 }`
               }
               key={`text-${current.id}`}
-              initial={{ opacity: 0, y: 20 }}
+              initial={shouldAnimateText ? { opacity: 0, y: 12 } : false}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
-              transition={{ duration: 0.55, ease: "easeOut" }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
             >
               <div
                 className={`max-w-md md:max-w-xl xl:max-w-2xl text-white ${
@@ -158,7 +147,9 @@ export default function HeroSection() {
                     ` ${current.subtitleKey ? "mt-6" : "mt-4"}`
                   }
                 >
-                  {t(current.buttonKey)} <MoveRight className="size-5" strokeWidth={1} />
+                  {t(current.buttonKey)}
+                  <span className="sr-only"> {t(current.titleKey)}</span>
+                  <MoveRight className="size-5" strokeWidth={1} />
                 </Link>
               </div>
             </m.div>
