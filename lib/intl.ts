@@ -1,16 +1,6 @@
 export function resolveLocaleTag(preferredLocale?: string): string {
   if (preferredLocale && preferredLocale.includes("-")) return preferredLocale;
 
-  if (typeof navigator !== "undefined" && navigator.language) {
-    const browserLocale = navigator.language;
-    if (!preferredLocale) return browserLocale;
-    const preferred = preferredLocale.toLowerCase();
-    const browser = browserLocale.toLowerCase();
-    if (browser === preferred || browser.startsWith(`${preferred}-`)) {
-      return browserLocale;
-    }
-  }
-
   return preferredLocale || "en";
 }
 

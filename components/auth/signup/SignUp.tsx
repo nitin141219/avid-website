@@ -406,11 +406,7 @@ function SignUp() {
                     >
                       <span>
                         {t("fields.privacyPolicy.text")}{" "}
-                        <Link
-                          href="http://localhost:3000/en/privacy-policy"
-                          target="_blank"
-                          className="inline-block text-secondary underline"
-                        >
+                        <Link href="/privacy-policy" target="_blank" className="inline-block text-secondary underline">
                           {t("fields.privacyPolicy.linkText")}
                         </Link>
                       </span>

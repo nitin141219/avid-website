@@ -11,23 +11,50 @@ const stripDownloadKeys = (source: FormData) => {
   return cloned;
 };
 
-const buildPdfFallbackPayloads = (base: FormData): FormData[] => {
+const stripDownloadFileOnly = (source: FormData) => {
+  const cloned = cloneFormData(source);
+  cloned.delete("download_pdf");
+  return cloned;
+};
+
+const formDataToJson = (source: FormData) => {
+  const payload: Record<string, string> = {};
+
+  source.forEach((value, key) => {
+    if (typeof value === "string") {
+      payload[key] = value;
+    }
+  });
+
+  return payload;
+};
+
+const buildPdfFallbackPayloads = (base: FormData): Array<{ label: string; payload: FormData }> => {
   const pdfValue = base.get("download_pdf");
   if (!(pdfValue instanceof File)) return [];
 
-  // Keep a single quick compatibility retry to avoid long save delays.
+  const downloadTitle = base.get("download_title");
+  const titleValue = downloadTitle ? String(downloadTitle) : "";
+
+  // Try the field names already tolerated by the frontend/public news renderer.
   const fallbackVariants: Array<{ fileKey: string; titleKey?: string | null }> = [
+    { fileKey: "pdf_file", titleKey: "pdf_title" },
+    { fileKey: "pdfFile", titleKey: "pdfTitle" },
+    { fileKey: "pdf", titleKey: "pdf_title" },
+    { fileKey: "attachment", titleKey: "download_title" },
     { fileKey: "file", titleKey: null },
   ];
 
   return fallbackVariants.map(({ fileKey, titleKey }) => {
     const payload = stripDownloadKeys(base);
     payload.append(fileKey, pdfValue);
-    const downloadTitle = base.get("download_title");
-    if (downloadTitle && titleKey) {
-      payload.append(titleKey, String(downloadTitle));
+    if (titleValue && titleKey) {
+      payload.append(titleKey, titleValue);
     }
-    return payload;
+    return {
+      label: titleKey ? `${fileKey}+${titleKey}` : fileKey,
+      payload,
+    };
   });
 };
 
@@ -41,53 +68,81 @@ const shouldRetryWithPdfFallback = (status: number, message: string) => {
   );
 };
 
-const requestWithPdfFallback = async (url: string, method: "POST" | "PATCH", formData: FormData) => {
-  const attempt = async (payload: FormData) => {
+const requestWithPdfFallback = async (
+  url: string,
+  method: "POST" | "PATCH" | "PUT",
+  formData: FormData
+) => {
+  const attempt = async (payload: FormData, label: string) => {
     const res = await fetch(url, {
       method,
       credentials: "include",
       body: payload,
     });
-    const data = await res.json().catch(() => ({}));
+    const contentType = (res.headers.get("content-type") || "").toLowerCase();
+    let data: any = {};
+
+    if (contentType.includes("application/json")) {
+      data = await res.json().catch(() => ({}));
+    } else {
+      const text = await res.text().catch(() => "");
+      data = text ? { message: text } : {};
+    }
+
+    if (!res.ok && !data?.message) {
+      data = {
+        ...data,
+        message: `${method} ${url} failed (${res.status})`,
+      };
+    }
+
     return { res, data };
   };
 
-  const first = await attempt(formData);
+  const first = await attempt(formData, "primary");
   if (first.res.ok && first.data?.success !== false) {
     return first.data;
   }
 
   const firstMessage = first.data?.message || "";
-  const hasPdfFile = formData.get("download_pdf") instanceof File;
-  if (!hasPdfFile) {
-    throw new Error(firstMessage || `${method} news failed`);
-  }
+  const pdfValue = formData.get("download_pdf");
+  const hasPdfFile = pdfValue instanceof File;
+  const hasPdfString = typeof pdfValue === "string" && pdfValue.trim().length > 0;
+
   if (!shouldRetryWithPdfFallback(first.res.status, firstMessage)) {
     throw new Error(firstMessage || `${method} news failed`);
   }
 
+  if (hasPdfString) {
+    const retryWithoutStringPdf = await attempt(stripDownloadFileOnly(formData), "without-download-pdf");
+    if (retryWithoutStringPdf.res.ok && retryWithoutStringPdf.data?.success !== false) {
+      return retryWithoutStringPdf.data;
+    }
+  }
+
+  if (!hasPdfFile) {
+    throw new Error(firstMessage || `${method} news failed`);
+  }
+
   const fallbackPayloads = buildPdfFallbackPayloads(formData);
-  for (const payload of fallbackPayloads) {
-    const retry = await attempt(payload);
+  for (const { label, payload } of fallbackPayloads) {
+    const retry = await attempt(payload, label);
     if (retry.res.ok && retry.data?.success !== false) {
       return retry.data;
     }
   }
 
-  // Final fallback: save news without download fields so Add/Update doesn't fail.
-  const noDownloadPayload = stripDownloadKeys(formData);
-  const plainRetry = await attempt(noDownloadPayload);
-  if (plainRetry.res.ok && plainRetry.data?.success !== false) {
+  const retryWithoutPdf = await attempt(stripDownloadFileOnly(formData), "without-pdf");
+  if (retryWithoutPdf.res.ok && retryWithoutPdf.data?.success !== false) {
     return {
-      ...plainRetry.data,
+      ...retryWithoutPdf.data,
       __pdfSkipped: true,
-      message:
-        plainRetry.data?.message ||
-        "News saved, but PDF upload was skipped because backend rejected file fields.",
     };
   }
 
-  throw new Error(firstMessage || plainRetry.data?.message || `${method} news failed`);
+  throw new Error(
+    firstMessage || "PDF upload failed because the backend rejected all supported file fields."
+  );
 };
 
 export const NEWS_SERVICES = {
@@ -113,6 +168,10 @@ export const NEWS_SERVICES = {
     return requestWithPdfFallback("/api/backend/add-news", "POST", formData);
   },
   updateNews: async (newsId: string, formData: FormData): Promise<any> => {
+    if (!newsId) {
+      throw new Error("Update news failed: news id is missing");
+    }
+
     return requestWithPdfFallback(`/api/backend/update-news/${newsId}`, "PATCH", formData);
   },
   updateNewsStatus: async (newsId: string, status: boolean): Promise<boolean> => {

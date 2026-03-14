@@ -2,8 +2,11 @@ import createMDX from "@next/mdx";
 import type { NextConfig } from "next";
 import createNextIntlPlugin from "next-intl/plugin";
 
+const isDev = process.env.NODE_ENV === "development";
+
 const nextConfig: NextConfig = {
   images: {
+    unoptimized: isDev,
     qualities: [45, 60, 75],
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048],
@@ -12,6 +15,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       new URL("https://www.avidorganics.net/**"),
       new URL("https://api.avidorganics.net/**"),
+      new URL("http://localhost:3003/**"),
     ],
   },
   turbopack: {

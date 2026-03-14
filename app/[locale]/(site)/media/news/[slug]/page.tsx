@@ -13,59 +13,79 @@ import {
 } from "@/lib/seo";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
   // searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
+function getNewsEndpoints(slug: string, locale: string) {
+  const directBackend = process.env.BACKEND_URL
+    ? `${process.env.BACKEND_URL}/api/v1/get-news/${slug}?locale=${locale}`
+    : "";
+  const publicApi = process.env.NEXT_PUBLIC_BASE_URL
+    ? `${process.env.NEXT_PUBLIC_BASE_URL}/api/news/${slug}?locale=${locale}`
+    : "";
+  const hardFallback = (process.env.NEXT_PUBLIC_BASE_URL || "").includes("avidorganics.net")
+    ? `https://api.avidorganics.net/api/v1/get-news/${slug}?locale=${locale}`
+    : "";
+
+  return [directBackend, publicApi, hardFallback].filter(
+    (endpoint, index, arr) => Boolean(endpoint) && arr.indexOf(endpoint) === index
+  );
+}
+
+const fetchNewsPayload = cache(async (slug: string, locale: string) => {
+  const endpoints = getNewsEndpoints(slug, locale);
+  let lastStatus = 500;
+
+  for (const endpoint of endpoints) {
+    try {
+      const res = await fetch(endpoint, {
+        next: { revalidate: 3600 },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (res.ok) {
+        const json = await res.json();
+        return { ok: true as const, status: res.status, data: json?.data ?? null };
+      }
+
+      lastStatus = res.status;
+      if (res.status === 404) {
+        return { ok: false as const, status: 404, data: null };
+      }
+    } catch {
+      // Try the next endpoint on network failures.
+    }
+  }
+
+  return { ok: false as const, status: lastStatus, data: null };
+});
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug, locale } = await params;
-  
-  let newsData;
-  try {
-    const endpoint = process.env.BACKEND_URL
-      ? `${process.env.BACKEND_URL}/api/v1/get-news/${slug}?locale=${locale}`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news/${slug}?locale=${locale}`;
-    const res = await fetch(endpoint, {
-      cache: "force-cache",
-      next: { revalidate: 3600 }, // Revalidate every hour
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    
-    // Handle errors appropriately
-    if (!res.ok) {
-      // Only return noindex for true 404s, not temporary failures
-      if (res.status === 404) {
-        console.warn(`News not found: ${slug}`);
-        return {
-          title: "News Not Found",
-          robots: { index: false, follow: false },
-        };
-      }
-      // For other errors (403, 500, etc.), generate minimal metadata
-      console.warn(`News API returned ${res.status} for slug: ${slug}`);
-      return {
-        title: slug.replace(/-/g, " "),
-        description: "Avid Organics News",
-        robots: { index: true, follow: true }, // Keep indexing enabled for retries
-      };
-    }
-    newsData = await res.json();
-  } catch (error) {
-    console.error(`Error fetching news metadata for ${slug}:`, error);
-    // Return neutral metadata on fetch errors
+  const payload = await fetchNewsPayload(slug, locale);
+
+  if (!payload.ok && payload.status === 404) {
+    return {
+      title: "News Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+  if (!payload.ok) {
     return {
       title: slug.replace(/-/g, " "),
       description: "Avid Organics News",
-      robots: { index: true, follow: true },
+      robots: { index: false, follow: false },
     };
   }
-  
-  const news = newsData?.data;
-  if (!newsData || !news) {
+
+  const news = payload.data;
+  if (!news) {
     return {
       title: "News Not Found",
       robots: { index: false, follow: false },
@@ -111,39 +131,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getNews(slug: string, locale: string) {
-  try {
-    const endpoint = process.env.BACKEND_URL
-      ? `${process.env.BACKEND_URL}/api/v1/get-news/${slug}?locale=${locale}`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news/${slug}?locale=${locale}`;
-    const res = await fetch(endpoint, {
-      cache: "force-cache",
-      next: { revalidate: 3600 }, // Revalidate every hour
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    
-    if (!res.ok) {
-      // Log specific error codes for debugging
-      if (res.status === 403) {
-        console.error(`403 Forbidden: News API access denied for slug: ${slug}`);
-      } else if (res.status === 404) {
-        console.warn(`404 Not Found: News not found for slug: ${slug}`);
-      } else {
-        console.error(`Fetch failed with status ${res.status} for slug: ${slug}`);
-      }
-      return null;
-    }
-
-    const json = await res.json();
-
-    return {
-      event: json.data ?? {},
-    };
-  } catch (error) {
-    console.error(`Error in getNews for ${slug}:`, error);
+  const payload = await fetchNewsPayload(slug, locale);
+  if (!payload.ok || !payload.data) {
     return null;
   }
+
+  return {
+    event: payload.data ?? {},
+  };
 }
 
 export default async function Event({ params }: Props) {

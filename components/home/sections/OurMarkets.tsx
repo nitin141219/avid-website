@@ -99,6 +99,7 @@ export default function OurMarkets() {
                             alt={item.title}
                             width={400}
                             height={300}
+                            sizes="(min-width: 1280px) 24vw, (min-width: 1024px) 29vw, (min-width: 768px) 31vw, 46vw"
                             className="hidden md:block object-cover w-full h-full transition-transform duration-500 group-hover:scale-120"
                           />
                           <Image
@@ -106,6 +107,7 @@ export default function OurMarkets() {
                             alt={item.title}
                             width={400}
                             height={300}
+                            sizes="(max-width: 767px) 46vw, 400px"
                             className="md:hidden object-cover w-full h-full transition-transform duration-500 group-hover:scale-120"
                           />
                         </>
@@ -121,6 +123,8 @@ export default function OurMarkets() {
                         alt={`${item.title} icon`}
                         width={70}
                         height={70}
+                        loading="lazy"
+                        sizes="70px"
                         className="mb-1 sm:mb-2 size-8 xs:size-10 sm:size-15 xl:size-17.5"
                         aria-hidden="true"
                       />

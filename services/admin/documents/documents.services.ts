@@ -83,23 +83,7 @@ export const DOCUMENTS_SERVICES = {
       throw new Error("Update failed: document id is missing");
     }
 
-    const attempts: Array<{
-      url: string;
-      method: "PATCH" | "PUT";
-      includeIdInBody?: boolean;
-    }> = [
-      { url: `/api/backend/update-document/${id}`, method: "PATCH" },
-      { url: `/api/backend/update-document/${id}`, method: "PUT" },
-      { url: `/api/backend/admin/update-document/${id}`, method: "PATCH" },
-      { url: `/api/backend/admin/update-document/${id}`, method: "PUT" },
-      { url: `/api/backend/update-document`, method: "PATCH", includeIdInBody: true },
-      { url: `/api/backend/update-document`, method: "PUT", includeIdInBody: true },
-      { url: `/api/backend/admin/update-document`, method: "PATCH", includeIdInBody: true },
-      { url: `/api/backend/admin/update-document`, method: "PUT", includeIdInBody: true },
-    ];
-
-    let lastErrorMessage = "Update failed";
-    let lastAttempt = "";
+    const lastErrorMessage = "Update failed";
 
     const cloneFormData = (source: FormData) => {
       const cloned = new FormData();
@@ -111,47 +95,12 @@ export const DOCUMENTS_SERVICES = {
       return cloned;
     };
 
-    for (const attempt of attempts) {
-      try {
-        lastAttempt = `${attempt.method} ${attempt.url}`;
-        const payload = cloneFormData(formData);
-
-        if (attempt.includeIdInBody) {
-          payload.set("id", id);
-          payload.set("_id", id);
-          payload.set("document_id", id);
-          payload.set("documentId", id);
-        }
-
-        const res = await fetch(attempt.url, {
-          method: attempt.method,
-          credentials: "include",
-          body: payload,
-        });
-
-        const data = await res.json().catch(() => null);
-
-        if (res.ok && data?.success !== false) {
-          return true;
-        }
-
-        lastErrorMessage = data?.message || `Update failed (${res.status})`;
-      } catch (error: any) {
-        lastErrorMessage = error?.message || "Update failed";
-      }
-    }
-
-    // All update routes failed (404), fallback to recreate (upload new + delete old)
-    // First check if file exists in FormData
+    // The current backend only exposes upload + delete for documents, so edits are a
+    // replace flow: keep or fetch the file, delete the old record, then upload anew.
     let hasFile = false;
-    try {
-      const fileEntry = formData.get("file");
-      hasFile = fileEntry instanceof File || Boolean(fileEntry && typeof fileEntry === "object");
-    } catch {
-      hasFile = false;
-    }
+    const fileEntry = formData.get("file");
+    hasFile = fileEntry instanceof File || Boolean(fileEntry && typeof fileEntry === "object");
 
-    // If no file, try to fetch from existing document
     if (!hasFile) {
       try {
         const url = options?.documentUrl;
@@ -189,24 +138,25 @@ export const DOCUMENTS_SERVICES = {
           formData.set("file", new File([fileBlob], fileName, { type: fileBlob.type || "application/octet-stream" }));
           hasFile = true;
         }
-      } catch (err) {
-        // Silently continue, will fail at upload with clear error
+      } catch {
+        // Continue and fail below with a clearer message if we could not recover the file.
       }
     }
 
-    // Now try upload+delete
+    if (!hasFile) {
+      throw new Error("Update failed: existing document file could not be recovered");
+    }
+
     try {
-      // Delete old document first to avoid slug collision
       try {
         await fetch(`/api/backend/delete-document/${id}`, {
           method: "DELETE",
           credentials: "include",
         });
-      } catch (err) {
-        // Continue even if delete fails
+      } catch {
+        // Continue to upload; the backend will report a duplicate if delete truly failed.
       }
 
-      // Now upload as new document
       const uploadRes = await fetch("/api/backend/upload-document", {
         method: "POST",
         credentials: "include",

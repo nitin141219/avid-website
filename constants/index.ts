@@ -1,4 +1,4 @@
-import { Bell, Files, Mail, Newspaper, SquareChartGantt, Users } from "lucide-react";
+import { Bell, Files, Images, Mail, Newspaper, SquareChartGantt, Users } from "lucide-react";
 
 export const PAGINATION_DATA = { limit: 10, page: 1 };
 
@@ -23,6 +23,16 @@ export const IMAGE_DIMENSION = {
     width: 1120,
     height: 465,
     screenWidth: 1120,
+  },
+  HOMEPAGE_SLIDE: {
+    width: 1120,
+    height: 465,
+    screenWidth: 1120,
+  },
+  HOMEPAGE_SLIDE_MOBILE: {
+    width: 1200,
+    height: 1675,
+    screenWidth: 1200,
   },
 };
 
@@ -50,6 +60,16 @@ export const SIDEBAR_ITEMS = [
     url: "/admin/news",
     icon: Newspaper,
     activeUrls: ["/admin/news", "/admin/news/add", "/admin/news/edit"],
+  },
+  {
+    title: "Homepage Slides",
+    url: "/admin/homepage-slides",
+    icon: Images,
+    activeUrls: [
+      "/admin/homepage-slides",
+      "/admin/homepage-slides/add",
+      "/admin/homepage-slides/edit",
+    ],
   },
   {
     title: "Events",

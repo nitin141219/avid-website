@@ -107,6 +107,7 @@ export default function OurKeyProducts() {
                       src={imageSource.desktop}
                       alt={p.name}
                       fill
+                      sizes="(min-width: 1536px) 25rem, (min-width: 1280px) 22.5rem, (min-width: 1130px) 20rem, (min-width: 1024px) 17.5rem, 20rem"
                       className={`hidden md:block object-contain object-bottom transition-all duration-500 origin-bottom max-lg:contrast-105 max-lg:saturate-115
                       ${activeIndex === p.id ? " lg:scale-110 contrast-105 saturate-115 grayscale-0" : " lg:contrast-100 lg:grayscale-40"}
                     `}
@@ -117,6 +118,7 @@ export default function OurKeyProducts() {
                       src={imageSource.mobile}
                       alt={p.name}
                       fill
+                      sizes="(max-width: 1023px) 20rem, 17.5rem"
                       className={`md:hidden object-contain object-bottom transition-all duration-500 origin-bottom max-lg:contrast-105 max-lg:saturate-115
                       ${activeIndex === p.id ? " lg:scale-110 contrast-105 saturate-115 grayscale-0" : " lg:contrast-100 lg:grayscale-40"}
                     `}
@@ -138,6 +140,8 @@ export default function OurKeyProducts() {
                           width={90}
                           height={30}
                           alt={p.name}
+                          loading="lazy"
+                          sizes="90px"
                           className="object-contain"
                         />
                       </div>

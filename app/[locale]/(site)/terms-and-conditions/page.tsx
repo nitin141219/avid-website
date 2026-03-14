@@ -1,9 +1,9 @@
 import SeoJsonLd from "@/components/seo/SeoJsonLd";
+import { buildStaticPageMetadata } from "@/lib/site-page-seo";
 import {
   buildBreadcrumbItemsFromPath,
   buildBreadcrumbSchema,
   buildOrganizationSchema,
-  buildSeoMetadata,
   fetchSeoOverride,
 } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -16,27 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const path = "/terms-and-conditions";
   const override = await fetchSeoOverride(path, locale);
-
-  return buildSeoMetadata(
-    {
-      title: "Terms and Conditions | Avid Organics",
-      description: "Avid Organics Terms and Conditions. Review our terms of service, usage policies, liability limitations, and legal agreements for purchasing specialty chemicals and pharmaceutical ingredients.",
-      path,
-      locale,
-      type: "website",
-      keywords: [
-        "terms and conditions",
-        "terms of service",
-        "usage policy",
-        "legal agreement",
-        "purchase terms",
-        "liability disclaimer",
-        "service agreement",
-        "user agreement",
-      ],
-    },
-    override || undefined
-  );
+  return buildStaticPageMetadata({ locale, path, override });
 }
 
 export default async function TermsAndConditionsPage({ params }: Props) {

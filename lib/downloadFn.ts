@@ -28,6 +28,32 @@ export const downloadFn = async (slug: string, historyMeta?: DownloadHistoryMeta
 
     // ❌ Handle API error response
     if (!res.ok) {
+      const contentType = res.headers.get("content-type") || "";
+      let message = "Download failed. Please try again.";
+
+      if (contentType.includes("application/json")) {
+        const data = await res.json().catch(() => null);
+        message = data?.message || message;
+      } else if (res.status === 401) {
+        message = "Please login to access documents";
+        if (typeof window !== "undefined") {
+          window.sessionStorage.setItem("pendingDownloadSlug", slug);
+          window.sessionStorage.setItem(
+            "pendingDownloadMeta",
+            JSON.stringify({
+              title: historyMeta?.title,
+              productTitle: historyMeta?.productTitle,
+              pagePath: historyMeta?.pagePath || window.location.pathname,
+            })
+          );
+          const returnTo = historyMeta?.pagePath || window.location.pathname || "/";
+          window.location.href = `/login?returnTo=${encodeURIComponent(returnTo)}`;
+        }
+      } else if (res.status === 404) {
+        message = "Document not found";
+      }
+
+      toast.error(message);
       return;
     }
 
@@ -62,6 +88,7 @@ export const downloadFn = async (slug: string, historyMeta?: DownloadHistoryMeta
     a.remove();
     window.URL.revokeObjectURL(url);
   } catch {
+    toast.error("Download failed. Please try again.");
   } finally {
     inFlightDownloads.delete(slug);
   }

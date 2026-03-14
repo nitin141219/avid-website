@@ -86,6 +86,7 @@ export default function NewsFilter() {
         onChange={(option: any) => updateParams("category", option?.value)}
       /> */}
       <CustomSelect
+        instanceId="news-year-filter"
         placeholder={tCommon("year")}
         options={[
           { value: "2026", label: "2026" },

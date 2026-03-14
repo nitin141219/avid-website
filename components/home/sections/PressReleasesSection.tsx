@@ -24,6 +24,7 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
   const [loading, setLoading] = useState(initialNews.length === 0);
   const [isHovered, setIsHovered] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [imageFallbacks, setImageFallbacks] = useState<Record<string, { desktop?: boolean; mobile?: boolean }>>({});
   const lastWheelAt = useRef(0);
   const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: true,
@@ -177,6 +178,10 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
           >
             {newsData?.map((item: any) => {
               const imageSource = getResponsiveImageSources(item);
+              const fallbackState = imageFallbacks[item?._id || item?.slug || ""] || {};
+              const desktopSrc = fallbackState.desktop ? "/logo.png" : imageSource.desktop;
+              const mobileSrc = fallbackState.mobile ? "/logo.png" : imageSource.mobile;
+              const imageKey = item?._id || item?.slug || imageSource.desktop;
 
               return (
                 <Link
@@ -187,19 +192,31 @@ export default function PressReleasesSection({ title, initialNews = [] }: PressR
                   <div className="flex flex-col h-full transition group">
                     <div className="w-full aspect-video overflow-hidden">
                       <Image
-                        src={imageSource.desktop}
+                        src={desktopSrc}
                         width={480}
                         height={280}
                         alt={item?.title}
                         sizes="(min-width: 768px) 480px, 100vw"
+                        onError={() =>
+                          setImageFallbacks((prev) => ({
+                            ...prev,
+                            [imageKey]: { ...(prev[imageKey] || {}), desktop: true },
+                          }))
+                        }
                         className="hidden md:block w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
                       />
                       <Image
-                        src={imageSource.mobile}
+                        src={mobileSrc}
                         width={480}
                         height={280}
                         alt={item?.title}
-                        sizes="(max-width: 767px) 100vw, 480px"
+                        sizes="(max-width: 767px) 88vw, 480px"
+                        onError={() =>
+                          setImageFallbacks((prev) => ({
+                            ...prev,
+                            [imageKey]: { ...(prev[imageKey] || {}), mobile: true },
+                          }))
+                        }
                         className="md:hidden w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 group-active:scale-105"
                       />
                   </div>

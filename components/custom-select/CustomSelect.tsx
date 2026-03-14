@@ -1,6 +1,5 @@
 "use client";
 
-import { useId } from "react";
 import Select, { Props as SelectProps, StylesConfig } from "react-select";
 
 export const defaultStyles: StylesConfig = {
@@ -124,8 +123,15 @@ export default function CustomSelect({
   customStyles,
   ...props
 }: CustomSelectProps) {
-  const instanceId = useId();
   const finalStyles = mergeStyles(defaultStyles, customStyles);
+  const instanceId =
+    props.instanceId ||
+    props.name ||
+    String(placeholder || "custom-select")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)+/g, "") ||
+    "custom-select";
   return (
     <Select
       instanceId={instanceId}

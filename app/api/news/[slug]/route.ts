@@ -1,16 +1,13 @@
 import { NextResponse } from "next/server";
+import { fetchBackend } from "@/lib/backend";
 
 export async function GET(req: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const { searchParams } = new URL(req.url);
-
-  const backendUrl = new URL(`${process.env.BACKEND_URL}/api/v1/get-news/${slug}`);
-  searchParams.forEach((value, key) => {
-    backendUrl.searchParams.append(key, value);
-  });
+  const backendPath = `/api/v1/get-news/${slug}${searchParams.toString() ? `?${searchParams.toString()}` : ""}`;
 
   try {
-    const res = await fetch(backendUrl.toString(), {
+    const res = await fetchBackend(backendPath, {
       cache: "no-store",
     });
 

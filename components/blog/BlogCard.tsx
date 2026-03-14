@@ -10,7 +10,6 @@ export default function BlogCard({ post }: any) {
   const locale = useLocale();
   const tCommon = useTranslations("common");
   const postImage = getResponsiveImageSources(post);
-  const cardImage = postImage.desktop || postImage.mobile;
   const date = post.published_at
     ? DateTime.fromISO(post.published_at).setLocale(locale).toFormat("DDD")
     : null;
@@ -19,12 +18,20 @@ export default function BlogCard({ post }: any) {
       <div className="flex flex-col bg-gray-section h-full transition">
         <div className="w-full aspect-video overflow-hidden">
           <Image
-            src={cardImage}
+            src={postImage.desktop}
             width={480}
             height={280}
             alt={post?.title}
-            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            className="w-full h-full object-cover"
+            sizes="(min-width: 768px) 480px, 100vw"
+            className="hidden md:block w-full h-full object-cover"
+          />
+          <Image
+            src={postImage.mobile}
+            width={480}
+            height={280}
+            alt={post?.title}
+            sizes="(max-width: 767px) 100vw, 480px"
+            className="md:hidden w-full h-full object-cover"
           />
         </div>
         <div className="flex flex-col flex-1 justify-between p-5">

@@ -1,6 +1,7 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { ObjectId } from "mongodb";
+import { getApiErrorMessage, parseApiResponseBody } from "@/lib/api-response";
 import { getMongoDb } from "@/lib/mongodb";
 
 type Candidate = {
@@ -40,14 +41,6 @@ const CANDIDATE_ENDPOINTS: Candidate[] = [
   { path: "customer/update-user", method: "PUT" },
   { path: "customer/update-user", method: "POST" },
 ];
-
-async function parseResponseBody(res: Response) {
-  try {
-    return await res.json();
-  } catch {
-    return null;
-  }
-}
 
 type UpdatePayload = {
   first_name?: string;
@@ -125,7 +118,7 @@ export async function PATCH(req: Request) {
       });
 
       if (res.ok) {
-        const data = await parseResponseBody(res);
+        const data = await parseApiResponseBody(res);
         return NextResponse.json(data || { message: "Profile updated successfully." });
       }
 
@@ -133,9 +126,9 @@ export async function PATCH(req: Request) {
         continue;
       }
 
-      const errorData = await parseResponseBody(res);
+      const errorData = await parseApiResponseBody(res);
       return NextResponse.json(
-        { message: errorData?.message || "Profile update failed." },
+        { message: getApiErrorMessage(errorData, "Profile update failed.") },
         { status: res.status || 400 }
       );
     }
@@ -159,8 +152,11 @@ export async function PATCH(req: Request) {
       return NextResponse.json({ message: "Unable to identify user for profile update." }, { status: 401 });
     }
 
-    const meData = await parseResponseBody(meRes);
-    const loggedInUser = meData?.data || {};
+    const meData = await parseApiResponseBody<{ data?: { _id?: string; email?: string } }>(meRes);
+    const loggedInUser =
+      meData && typeof meData === "object" && "data" in meData && meData.data && typeof meData.data === "object"
+        ? meData.data
+        : {};
     const loggedInUserId = loggedInUser?._id ? String(loggedInUser._id) : "";
     const loggedInEmail = loggedInUser?.email ? String(loggedInUser.email).toLowerCase() : "";
     const updateData = sanitizePayload(body);

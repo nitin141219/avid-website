@@ -1,5 +1,7 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { parseApiResponseBody } from "@/lib/api-response";
+import { fetchBackend } from "@/lib/backend";
 
 export async function GET() {
   try {
@@ -10,7 +12,7 @@ export async function GET() {
       return NextResponse.json({ user: null }, { status: 401 });
     }
 
-    const res = await fetch(`${process.env.BACKEND_URL}/api/v1/get-details`, {
+    const res = await fetchBackend("/api/v1/get-details", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -22,7 +24,7 @@ export async function GET() {
       return NextResponse.json({ user: null }, { status: 401 });
     }
 
-    const user = await res.json();
+    const user = await parseApiResponseBody(res);
 
     return NextResponse.json({ user });
   } catch (error) {

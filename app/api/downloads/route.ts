@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
+import { fetchBackend } from "@/lib/backend";
 
 export async function GET() {
-  const backendUrl = new URL(`${process.env.BACKEND_URL}/api/v1/customer/get-document`);
-
   try {
-    const res = await fetch(backendUrl.toString(), {
+    const res = await fetchBackend("/api/v1/customer/get-document", {
       cache: "no-store",
     });
 

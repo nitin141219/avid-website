@@ -12,16 +12,31 @@ import { Label } from "@/components/ui/label";
 import { Link, useRouter } from "@/i18n/navigation";
 import { downloadFn } from "@/lib/downloadFn";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useTranslations } from "next-intl";
+import { toast } from "sonner";
+import { useLocale, useTranslations } from "next-intl";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { useAuth } from "../auth-context";
 
+const LOCALE_PREFIX_PATTERN = /^\/(en|de|fr|es)(\/|$)/;
+
+function resolvePostLoginPath(locale: string, returnTo: string | null) {
+  const fallbackPath = "/media/downloads";
+  const candidate = returnTo && returnTo.startsWith("/") ? returnTo : fallbackPath;
+
+  if (LOCALE_PREFIX_PATTERN.test(candidate)) {
+    return candidate;
+  }
+
+  return candidate === "/" ? `/${locale}` : `/${locale}${candidate}`;
+}
+
 function Login() {
   const [open, setOpen] = useState(false);
   const t = useTranslations("login");
+  const locale = useLocale();
   const router = useRouter();
   const searchParams = useSearchParams();
   const schema = yup.object({
@@ -45,12 +60,21 @@ function Login() {
     try {
       const res = await fetch("/api/auth/login", {
         method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(values),
       });
+      const data = await res.json().catch(() => null);
+
       if (!res.ok) {
+        if (data?.errorCode === "AUTH_INVALID_CREDENTIALS") {
+          toast.error(t("toast.invalidCredentials"));
+          return;
+        }
+        toast.error(data?.message || t("toast.loginFailed"));
         return;
       }
-      refreshAuth();
+
+      await refreshAuth();
 
       const pendingDownloadSlug =
         typeof window !== "undefined" ? window.sessionStorage.getItem("pendingDownloadSlug") : null;
@@ -80,8 +104,18 @@ function Login() {
       }
 
       const returnTo = searchParams?.get("returnTo");
-      router.push(returnTo || "/media/downloads");
-    } catch {}
+      const nextPath = resolvePostLoginPath(locale, returnTo);
+
+      if (typeof window !== "undefined") {
+        window.location.assign(nextPath);
+        return;
+      }
+
+      router.replace(nextPath);
+      router.refresh();
+    } catch {
+      toast.error(t("toast.networkError"));
+    }
   };
 
   return (
@@ -138,7 +172,7 @@ function Login() {
               disabled={isSubmitting}
               className="mt-2 w-full text-base"
             >
-              {isSubmitting ? "Logging in..." : "Log In"}
+              {isSubmitting ? t("buttons.login.loadingText") : t("buttons.login.text")}
             </Button>
             <Button
               variant="link"

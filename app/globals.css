@@ -303,6 +303,17 @@
     color: #fff !important;
   }
 
+  .deferred-section {
+    --deferred-size: auto;
+  }
+
+  @media (min-width: 768px) {
+    .deferred-section {
+      content-visibility: auto;
+      contain-intrinsic-size: var(--deferred-size);
+    }
+  }
+
   .parallax-hero {
     --parallax-y: 0px;
     overflow: hidden;

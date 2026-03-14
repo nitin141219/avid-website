@@ -1,5 +1,7 @@
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
+import { getApiErrorMessage, parseApiResponseBody } from "@/lib/api-response";
+import { fetchBackend, getBackendBaseUrls } from "@/lib/backend";
 
 const extractFileNameFromContentDisposition = (contentDisposition: string | null) => {
   if (!contentDisposition) return "";
@@ -60,6 +62,59 @@ const toAsciiFileName = (value: string) => {
 const isGeneratedStorageName = (value: string) =>
   /^file-\d+-\d+(?:\.[a-z0-9]+)?$/i.test(String(value || "").trim());
 
+const normalizeAssetUrl = (value: string) =>
+  String(value || "").replace(/(https?:\/\/)|(\/)+/g, (match, protocol) => protocol || "/");
+
+const buildFileUrlCandidates = (value: string) => {
+  const normalized = normalizeAssetUrl(value);
+  const candidates = new Set<string>();
+
+  if (!normalized) return [];
+
+  candidates.add(normalized);
+
+  try {
+    const parsed = new URL(normalized);
+    const pathname = parsed.pathname || "";
+    const search = parsed.search || "";
+
+    getBackendBaseUrls().forEach((baseUrl) => {
+      if (!baseUrl) return;
+      try {
+        const backend = new URL(baseUrl);
+        const next = new URL(pathname + search, `${backend.protocol}//${backend.host}`);
+        candidates.add(next.toString());
+      } catch {
+        // ignore malformed fallback base
+      }
+    });
+  } catch {
+    // If it's not a valid absolute URL, keep original candidate only.
+  }
+
+  return Array.from(candidates);
+};
+
+const fetchDocumentFile = async (value: string) => {
+  const candidates = buildFileUrlCandidates(value);
+  let lastStatus = 0;
+
+  for (const candidate of candidates) {
+    try {
+      const response = await fetch(candidate, { cache: "no-store" });
+      if (response.ok) {
+        return { response, resolvedUrl: candidate };
+      }
+
+      lastStatus = response.status;
+    } catch {
+      // Try next candidate.
+    }
+  }
+
+  return { response: null, resolvedUrl: "", status: lastStatus };
+};
+
 export async function GET(req: Request) {
   try {
     // 🔐 AUTH CHECK (same as your existing API)
@@ -78,51 +133,71 @@ export async function GET(req: Request) {
     }
 
     // 🔍 Call backend to get file URL by slug
-    const backendRes = await fetch(`${process.env.BACKEND_URL}/api/v1/get-document/${slug}`, {
+    const backendRes = await fetchBackend(`/api/v1/get-document/${slug}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
       cache: "no-store",
     });
     if (!backendRes.ok) {
-      return NextResponse.json({ message: "Document not found" }, { status: 404 });
+      const errorData = await parseApiResponseBody(backendRes);
+      const status = backendRes.status || 500;
+      const fallbackMessage =
+        status === 401
+          ? "Unauthorized"
+          : status === 404
+          ? "Document not found"
+          : "Failed to fetch document details";
+      return NextResponse.json(
+        { message: getApiErrorMessage(errorData, fallbackMessage) },
+        { status }
+      );
     }
 
-    const data = await backendRes.json();
-    const fileUrl = data?.data?.url; // 👈 backend must return this
+    const data = await parseApiResponseBody<{ data?: { url?: string; [key: string]: unknown } }>(backendRes);
+    const backendData: Record<string, unknown> =
+      data && typeof data === "object" && "data" in data && data.data && typeof data.data === "object"
+        ? data.data
+        : {};
+    const fileUrl = typeof backendData.url === "string" ? backendData.url : ""; // 👈 backend must return this
 
     if (!fileUrl) {
       return NextResponse.json({ message: "Document not found" }, { status: 404 });
     }
 
     // 📥 Download actual file
-    const fileRes = await fetch(fileUrl, {
-      cache: "no-store",
-    });
+    const fileResult = await fetchDocumentFile(fileUrl);
 
-    if (!fileRes.ok) {
-      return NextResponse.json({ message: "Failed to download document" }, { status: 500 });
+    if (!fileResult.response) {
+      const status = fileResult.status === 404 ? 404 : 500;
+      const message =
+        status === 404 ? "Document not found" : "Failed to download document";
+      return NextResponse.json({ message }, { status });
     }
+
+    const { response: fileRes, resolvedUrl } = fileResult;
 
     const blob = await fileRes.blob();
     const contentType = fileRes.headers.get("content-type") || "application/octet-stream";
 
-    const backendData = data?.data || {};
     const backendName =
-      backendData?.original_filename ||
-      backendData?.originalFileName ||
-      backendData?.file_name ||
-      backendData?.fileName ||
-      backendData?.filename ||
+      (typeof backendData.original_filename === "string" && backendData.original_filename) ||
+      (typeof backendData.originalFileName === "string" && backendData.originalFileName) ||
+      (typeof backendData.file_name === "string" && backendData.file_name) ||
+      (typeof backendData.fileName === "string" && backendData.fileName) ||
+      (typeof backendData.filename === "string" && backendData.filename) ||
       "";
     const documentDisplayName =
-      backendData?.name || backendData?.document_name || backendData?.documentName || slug;
+      (typeof backendData.name === "string" && backendData.name) ||
+      (typeof backendData.document_name === "string" && backendData.document_name) ||
+      (typeof backendData.documentName === "string" && backendData.documentName) ||
+      slug;
 
     const headerName = extractFileNameFromContentDisposition(
       fileRes.headers.get("content-disposition")
     );
 
-    const urlName = fileUrl.split("/").pop() || "download";
+    const urlName = resolvedUrl.split("/").pop() || fileUrl.split("/").pop() || "download";
     const primaryName = backendName || headerName || urlName || "download";
     let filename = sanitizeFileName(primaryName);
 

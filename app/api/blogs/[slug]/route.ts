@@ -13,15 +13,14 @@
 // }
 
 import { NextResponse } from "next/server";
+import { fetchBackend } from "@/lib/backend";
+import { normalizeResponsiveImageSources } from "@/lib/utils";
 
 export async function GET(_req: Request, { params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  // const { searchParams } = new URL(req.url);
-
-  const backendUrl = new URL(`${process.env.BACKEND_URL}/api/v1/get-blog/${slug}`);
 
   try {
-    const res = await fetch(backendUrl.toString(), {
+    const res = await fetchBackend(`/api/v1/get-blog/${slug}`, {
       cache: "no-store",
     });
 
@@ -34,6 +33,9 @@ export async function GET(_req: Request, { params }: { params: Promise<{ slug: s
     }
 
     const data = await res.json();
+    if (data?.data) {
+      data.data = normalizeResponsiveImageSources(data.data);
+    }
     return NextResponse.json(data);
   } catch {
     return NextResponse.json({ message: "Internal Server Error" }, { status: 500 });

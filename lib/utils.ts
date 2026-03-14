@@ -5,6 +5,8 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+const LOCAL_HOSTNAMES = new Set(["localhost", "127.0.0.1", "0.0.0.0"])
+
 function getPathWithoutQuery(value: string): string {
   return value.split("?")[0] || value
 }
@@ -31,6 +33,68 @@ function preferWebpFromCandidates(target: string, candidates: string[]): string 
   })
 
   return webpVariant || target
+}
+
+function getPreferredMediaOrigin(): URL | null {
+  const candidates = [process.env.BACKEND_URL, process.env.NEXT_PUBLIC_BASE_URL].filter(
+    (value): value is string => Boolean(value)
+  )
+
+  for (const candidate of candidates) {
+    try {
+      const parsed = new URL(candidate)
+      if (!LOCAL_HOSTNAMES.has(parsed.hostname)) return parsed
+    } catch {
+      // Ignore invalid URLs.
+    }
+  }
+
+  if ((process.env.NEXT_PUBLIC_BASE_URL || "").includes("avidorganics.net")) {
+    return new URL("https://api.avidorganics.net")
+  }
+
+  return null
+}
+
+export function resolveMediaUrl(url?: string | null, fallback = "/logo.png"): string {
+  if (!url) return fallback
+  return url
+}
+
+export function normalizeMediaUrl(url?: string | null, fallback = "/logo.png"): string {
+  if (!url) return fallback
+  if (!/^https?:\/\//i.test(url)) return url
+
+  try {
+    const parsed = new URL(url)
+    if (!LOCAL_HOSTNAMES.has(parsed.hostname)) return url
+
+    const preferredOrigin = getPreferredMediaOrigin()
+    if (!preferredOrigin) return url
+
+    parsed.protocol = preferredOrigin.protocol
+    parsed.host = preferredOrigin.host
+    return parsed.toString()
+  } catch {
+    return url
+  }
+}
+
+export function normalizeResponsiveImageSources<
+  T extends {
+    image?: string | null
+    imageMobile?: string | null
+    mobileImage?: string | null
+    image_mobile?: string | null
+  },
+>(source: T): T {
+  return {
+    ...source,
+    image: source.image ? normalizeMediaUrl(source.image) : source.image,
+    imageMobile: source.imageMobile ? normalizeMediaUrl(source.imageMobile) : source.imageMobile,
+    mobileImage: source.mobileImage ? normalizeMediaUrl(source.mobileImage) : source.mobileImage,
+    image_mobile: source.image_mobile ? normalizeMediaUrl(source.image_mobile) : source.image_mobile,
+  }
 }
 
 export function getResponsiveImageSources(

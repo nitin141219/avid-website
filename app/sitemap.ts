@@ -7,22 +7,35 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://www.avidorganics.net";
   const locales = ["en", "de", "fr", "es"];
 
+  const normalizeLastModified = (value?: string | Date | null) => {
+    if (!value) return undefined;
+
+    const parsed = value instanceof Date ? value : new Date(value);
+    return Number.isNaN(parsed.getTime()) ? undefined : parsed;
+  };
+
   // Helper function to generate entries for all languages
   const generateLocaleEntries = (
     path: string,
     priority: number = 0.7,
-    changeFreq: "monthly" | "weekly" | "daily" = "weekly"
+    changeFreq: "monthly" | "weekly" | "daily" = "weekly",
+    lastModified?: string | Date | null
   ) => {
     const languages: Record<string, string> = {};
     locales.forEach((lang) => {
       languages[lang] = `${baseUrl}/${lang}${path}`;
     });
-    // Use x-default instead of regional variants to consolidate duplicates (en-in, en-us, en-gb all point to /en)
+    languages["en-us"] = `${baseUrl}/en${path}`;
+    languages["en-gb"] = `${baseUrl}/en${path}`;
+    languages["en-nl"] = `${baseUrl}/en${path}`;
+    languages["de-de"] = `${baseUrl}/de${path}`;
+    languages["fr-fr"] = `${baseUrl}/fr${path}`;
     languages["x-default"] = `${baseUrl}/en${path}`;
+    const normalizedLastModified = normalizeLastModified(lastModified);
 
     return locales.map((lang) => ({
       url: `${baseUrl}/${lang}${path}`,
-      lastModified: new Date(),
+      ...(normalizedLastModified ? { lastModified: normalizedLastModified } : {}),
       changeFrequency: changeFreq as any,
       priority: priority,
       alternates: {
@@ -80,51 +93,27 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 4. Blogs Pages (Dynamic)
   const blogData = await getCustomerBlogs({ limit: "1000", page: "1" });
   const blogRoutes = (blogData?.blogs || []).flatMap((blog: any) =>
-    generateLocaleEntries(`/media/blog/${blog.slug}`, 0.6, "weekly")
+    generateLocaleEntries(`/media/blog/${blog.slug}`, 0.6, "weekly", blog.updated_at || blog.published_at)
   );
 
   // 5. Events Pages (Dynamic)
   const eventData = await getCustomerEvents({ limit: "1000", page: "1" });
   const eventRoutes = (eventData?.events || []).flatMap((event: any) =>
-    generateLocaleEntries(`/media/events/${event.slug}`, 0.6, "weekly")
+    generateLocaleEntries(`/media/events/${event.slug}`, 0.6, "weekly", event.updated_at || event.published_at)
   );
 
   // 6. News Pages (Dynamic)
   const newsData = await getCustomerNews({ limit: "1000", page: "1" });
   const newsRoutes = (newsData?.news || []).flatMap((news: any) =>
-    generateLocaleEntries(`/media/news/${news.slug}`, 0.6, "weekly")
+    generateLocaleEntries(`/media/news/${news.slug}`, 0.6, "weekly", news.updated_at || news.published_at)
   );
-
-  // 7. Paginated Blog Pages
-  const blogPages = blogData?.pagination?.total_page || 1;
-  const paginatedBlogRoutes = Array.from({ length: Math.max(1, blogPages - 1) }, (_, i) => {
-    const page = i + 2; // Start from page 2
-    return generateLocaleEntries(`/media/blog?page=${page}`, 0.5, "weekly");
-  }).flat();
-
-  // 8. Paginated News Pages
-  const newsPages = newsData?.pagination?.total_page || 1;
-  const paginatedNewsRoutes = Array.from({ length: Math.max(1, newsPages - 1) }, (_, i) => {
-    const page = i + 2; // Start from page 2
-    return generateLocaleEntries(`/media/news?page=${page}`, 0.5, "weekly");
-  }).flat();
-
-  // 9. Paginated Event Pages
-  const eventPages = eventData?.pagination?.total_page || 1;
-  const paginatedEventRoutes = Array.from({ length: Math.max(1, eventPages - 1) }, (_, i) => {
-    const page = i + 2; // Start from page 2
-    return generateLocaleEntries(`/media/events?page=${page}`, 0.5, "weekly");
-  }).flat();
 
   return [
     ...staticRoutes,
     ...marketRoutes,
     ...productRoutes,
     ...blogRoutes,
-    ...paginatedBlogRoutes,
     ...eventRoutes,
-    ...paginatedEventRoutes,
     ...newsRoutes,
-    ...paginatedNewsRoutes,
   ];
 }

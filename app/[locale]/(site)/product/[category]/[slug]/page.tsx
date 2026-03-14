@@ -1,7 +1,7 @@
 import { productPages } from "@/components/product/data";
 import ProductTemplate from "@/components/product/ProductTemplate";
 import SeoJsonLd from "@/components/seo/SeoJsonLd";
-import { defaultProductFaqs } from "@/lib/seo-content";
+import { getLocalizedProductFaqs } from "@/lib/seo-content";
 import { resolveProductSlideshowImages } from "@/lib/product-slideshow";
 import {
   buildBreadcrumbItemsFromPath,
@@ -20,9 +20,22 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 
-// Force dynamic rendering to support cookies in parent layout
-export const dynamic = 'force-dynamic';
 export const revalidate = 3600; // Revalidate every hour (ISR)
+
+export function generateStaticParams() {
+  return Object.entries(productPages).flatMap(([category, products]) =>
+    Object.keys(products || {}).flatMap((slug) => {
+      if (category === "alpha-hydroxy-acids" && slug === "aviga-hp") {
+        return [
+          { category, slug: "aviga-hp-70" },
+          { category, slug: "aviga-bio-hp-70" },
+        ];
+      }
+
+      return [{ category, slug }];
+    })
+  );
+}
 
 type Props = {
   params: Promise<{ category: string; slug: string; locale: string }>;
@@ -152,7 +165,7 @@ export default async function ProductDetailPage({ params }: Props) {
   const productDescription = t(data.hero.subtitle);
   const path = `/product/${category}/${slug}`;
   const override = await fetchSeoOverride(path, locale);
-  const faqs = override?.faqs?.length ? override.faqs : defaultProductFaqs(productName);
+  const faqs = override?.faqs?.length ? override.faqs : getLocalizedProductFaqs(productName, locale);
   const productImage = data.information?.image || "/logo-tagline.png";
   const absoluteImage = productImage.startsWith("http")
     ? productImage
@@ -183,7 +196,7 @@ export default async function ProductDetailPage({ params }: Props) {
       url: productUrl,
       applications: applications.length > 0 ? applications : undefined,
     }),
-    buildFaqSchema(faqs),
+    ...(faqs.length ? [buildFaqSchema(faqs)] : []),
   ];
 
   return (

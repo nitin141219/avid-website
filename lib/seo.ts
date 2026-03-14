@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { cache } from "react";
 import { LOCALIZATION_LANGUAGE } from "@/constants";
 
 export type FaqItem = {
@@ -42,136 +43,58 @@ const FALLBACK_SITE_URL = "https://www.avidorganics.net";
 const DEFAULT_AUTHOR = "Avid Organics Pvt. Ltd.";
 const DEFAULT_PUBLISHER = "Avid Organics Pvt. Ltd.";
 const DEFAULT_OG_IMAGE = "/logo-tagline.png";
+const TITLE_MAX_LENGTH = 60;
+const DESCRIPTION_MAX_LENGTH = 160;
+const LOCAL_SEO_PATHS = new Set([
+  "",
+  "/about-us",
+  "/about-us/manufacturing-excellence",
+  "/about-us/executive-leadership",
+  "/market/pharmaceuticals",
+  "/market/personal-care-and-cosmetics",
+  "/market/food-and-beverages",
+  "/market/animal-nutrition",
+  "/market/industrial-and-specialty-applications",
+  "/sustainability",
+  "/contact-us",
+  "/careers/life",
+  "/careers/jobs",
+  "/media/news",
+  "/media/events",
+  "/media/blog",
+  "/media/downloads",
+  "/privacy-policy",
+  "/terms-and-conditions",
+]);
 
-// Enhanced regional keywords for India's leading manufacturer positioning
-const REGION_KEYWORDS = [
-  "India",
-  "USA",
-  "Europe",
-  "manufacturer",
-  "specialty chemicals",
-  "glycine manufacturer",
-  "glycolic acid manufacturer",
-];
-
-// Specific regional keywords for better geo-targeting
 const GEO_KEYWORDS: Record<string, string[]> = {
   india: [
     "India",
-    "Indian",
-    "Mumbai",
-    "Delhi",
-    "Bangalore",
-    "Hyderabad",
-    "Chennai",
-    "Pune",
-    "Gujarat",
-    "Maharashtra",
-    "Proudly made in India",
     "Indian manufacturer",
-    "India's leading manufacturer",
-    "Made in India for the world",
-    "pan India",
-    "all India",
-    "FSSAI",
-    "CDSCO",
-    "Indian Pharmacopoeia",
+    "Vadodara",
+    "Gujarat",
+    "India export manufacturer",
   ],
   usa: [
-    "USA",
     "United States",
-    "American",
-    "FDA approved",
-    "USP grade",
+    "United States",
     "North America",
-    "USA distribution",
-    "ship to USA",
     "US market",
-    "pharmaceutical grade glycine",
   ],
   europe: [
     "Europe",
-    "European",
     "EU",
     "Germany",
     "UK",
-    "United Kingdom",
     "France",
-    "Spain",
-    "Italy",
     "Netherlands",
-    "Belgium",
-    "REACH compliant",
-    "CE certified",
-    "European Pharmacopoeia",
-    "BP grade",
-    "EU market",
-    "glycine supplier Europe",
-    "glycolic acid Europe",
-    "ship to Europe",
+    "European market",
   ],
   global: [
-    "worldwide",
-    "international",
+    "global supply",
     "global distribution",
     "export",
-    "import",
-    "worldwide shipping",
-    "international delivery",
-    "cross-border",
-    "specialty chemicals manufacturer",
-  ],
-};
-
-// Region-specific certification keywords for compliance and quality assurance
-const CERTIFICATION_KEYWORDS: Record<string, string[]> = {
-  india: [
-    "FSSAI certified",
-    "FSSAI approved",
-    "CDSCO registered",
-    "Indian Pharmacopoeia compliant",
-    "IP grade",
-    "GMP certified India",
-    "ISO certified India",
-    "Make in India certified",
-    "BIS certified",
-    "AYUSH approved",
-  ],
-  usa: [
-    "FDA approved",
-    "FDA registered",
-    "USP grade",
-    "USP certified",
-    "cGMP certified",
-    "NSF certified",
-    "Kosher certified",
-    "Halal certified USA",
-    "GRAS status",
-    "DEA registered",
-  ],
-  europe: [
-    "REACH compliant",
-    "REACH registered",
-    "CE certified",
-    "BP grade",
-    "European Pharmacopoeia",
-    "EP grade",
-    "GMP certified EU",
-    "ISO 9001 certified",
-    "ECHA registered",
-    "Halal certified EU",
-  ],
-  global: [
-    "ISO 9001:2015",
-    "ISO 14001:2015",
-    "OHSAS 18001",
-    "GMP certified",
-    "WHO-GMP",
-    "Kosher certified",
-    "Halal certified",
-    "Non-GMO certified",
-    "Organic certified",
-    "Pharmaceutical grade",
+    "international supply",
   ],
 };
 
@@ -213,45 +136,118 @@ function removeTrackingParams(url: string, params: string[] = [
   }
 }
 
-// Industry and application keywords
 const INDUSTRY_KEYWORDS: Record<string, string[]> = {
-  "pharmaceuticals": ["pharmaceutical", "API", "excipient", "drug formulation", "GMP certified"],
-  "animal-nutrition": ["animal feed", "livestock", "pet food", "bioavailability", "feed additive"],
-  "food-and-beverages": ["food grade", "beverage", "FSSAI approved", "preservative", "flavor enhancer"],
-  "industrial-and-specialty-applications": ["industrial chemical", "specialty application", "technical grade"],
-  "personal-care-and-cosmetics": ["cosmetic grade", "skincare", "personal care", "dermatology", "beauty product"],
+  pharmaceuticals: [
+    "pharmaceutical chemicals",
+    "pharmaceutical formulations",
+    "pharmaceutical intermediates",
+    "excipient ingredients",
+    "regulated supply",
+  ],
+  "animal-nutrition": [
+    "animal nutrition ingredients",
+    "feed additives",
+    "amino acids for feed",
+    "livestock nutrition",
+    "pet nutrition ingredients",
+  ],
+  "food-and-beverages": [
+    "food ingredients",
+    "food grade ingredients",
+    "beverage ingredients",
+    "flavor support ingredients",
+    "nutrition ingredients",
+  ],
+  "industrial-and-specialty-applications": [
+    "industrial chemicals",
+    "technical grade chemicals",
+    "specialty applications",
+    "process chemicals",
+    "custom industrial formulations",
+  ],
+  "personal-care-and-cosmetics": [
+    "cosmetic ingredients",
+    "personal care ingredients",
+    "skin care ingredients",
+    "glycolic acid for skin care",
+    "cosmetic formulation ingredients",
+  ],
 };
 
 const PRODUCT_CATEGORY_KEYWORDS: Record<string, string[]> = {
   "alpha-hydroxy-acids": [
     "glycolic acid",
-    "AHA",
-    "lactic acid",
-    "citric acid",
     "alpha hydroxy acid",
     "glycolic acid CAS 79-14-1",
     "cosmetic grade glycolic acid",
-    "glycolic acid applications",
+    "glycolic acid manufacturer",
   ],
   "amino-acids": [
     "glycine",
     "amino acid",
-    "protein building block",
     "USP grade",
-    "BP grade",
-    "pharmaceutical grade",
     "taurine",
     "glycine CAS 56-40-6",
     "pharmaceutical grade glycine",
-    "taurine manufacturer India",
-    "amino acid specifications",
+    "taurine manufacturer",
+    "amino acid manufacturer",
   ],
-  "speciality-chemicals": ["specialty chemical", "fine chemical", "custom synthesis"],
+  "speciality-chemicals": [
+    "specialty chemicals",
+    "chemical intermediates",
+    "fine chemicals",
+    "custom synthesis",
+  ],
   "citrates": ["citrate", "buffering agent", "chelating agent"],
 };
 
 export function getSiteUrl() {
   return process.env.NEXT_PUBLIC_BASE_URL || FALLBACK_SITE_URL;
+}
+
+function normalizeSeoPath(path: string) {
+  if (!path) return "";
+  const normalized = String(path).trim();
+  if (!normalized || normalized === "/") return "";
+  return normalized.startsWith("/") ? normalized : `/${normalized}`;
+}
+
+function shouldSkipRemoteSeoOverride(path: string) {
+  if (process.env.ENABLE_REMOTE_SEO_OVERRIDES_FOR_LOCAL_PAGES === "true") {
+    return false;
+  }
+
+  const normalizedPath = normalizeSeoPath(path);
+  if (LOCAL_SEO_PATHS.has(normalizedPath)) {
+    return true;
+  }
+
+  return normalizedPath.startsWith("/product/");
+}
+
+function trimToWordBoundary(text: string, maxLength: number) {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  if (normalized.length <= maxLength) return normalized;
+
+  const sliced = normalized.slice(0, maxLength + 1);
+  const lastSpace = sliced.lastIndexOf(" ");
+
+  if (lastSpace > Math.floor(maxLength * 0.6)) {
+    return sliced.slice(0, lastSpace).trim();
+  }
+
+  return normalized.slice(0, maxLength).trim();
+}
+
+export function ensureTitleLength(title: string, maxLength: number = TITLE_MAX_LENGTH) {
+  return trimToWordBoundary(title, maxLength);
+}
+
+export function ensureDescriptionLength(
+  description: string,
+  maxLength: number = DESCRIPTION_MAX_LENGTH
+) {
+  return trimToWordBoundary(description, maxLength);
 }
 
 /**
@@ -287,9 +283,24 @@ export function extractKeywordsFromText(text: string, maxKeywords: number = 10):
 /**
  * Smart keyword builder with content-aware extraction
  */
-export function buildKeywords(additional: string[] = []) {
-  const all = [...REGION_KEYWORDS, ...additional].filter(Boolean);
-  return Array.from(new Set(all));
+function normalizeKeyword(keyword: string) {
+  return keyword.replace(/\s+/g, " ").trim();
+}
+
+export function buildKeywords(additional: string[] = [], maxKeywords: number = 12) {
+  const deduped = new Map<string, string>();
+
+  additional
+    .map((keyword) => normalizeKeyword(keyword))
+    .filter(Boolean)
+    .forEach((keyword) => {
+      const key = keyword.toLowerCase();
+      if (!deduped.has(key)) {
+        deduped.set(key, keyword);
+      }
+    });
+
+  return Array.from(deduped.values()).slice(0, maxKeywords);
 }
 
 /**
@@ -345,32 +356,24 @@ export function buildProductKeywords({
   
   // Extract keywords from description
   if (description) {
-    const extracted = extractKeywordsFromText(description, 5);
+    const extracted = extractKeywordsFromText(description, 4);
     keywords.push(...extracted);
   }
-  
-  // Add common product keywords with approved claims
-  keywords.push(
-    "high purity",
-    "certified quality",
-    "industrial grade",
-    "pharmaceutical formulations",
-    "specialty chemicals"
-  );
-  
-  // Add region-specific certification keywords (top 3 from each region)
-  keywords.push(
-    ...CERTIFICATION_KEYWORDS.india.slice(0, 3),
-    ...CERTIFICATION_KEYWORDS.usa.slice(0, 3),
-    ...CERTIFICATION_KEYWORDS.europe.slice(0, 3),
-    ...CERTIFICATION_KEYWORDS.global.slice(0, 2)
-  );
-  
-  // Add geo-targeted keywords for India, USA, Europe
-  const geoKeywords = buildGeoKeywords(["india", "usa", "europe"]);
-  keywords.push(...geoKeywords.slice(0, 8)); // Add top 8 geo keywords
-  
-  return buildKeywords(keywords);
+
+  const lowerName = productName.toLowerCase();
+  if (lowerName.includes("glycine")) {
+    keywords.push("glycine manufacturer", "glycine supplier", "glycine applications");
+  }
+  if (lowerName.includes("glycolic")) {
+    keywords.push("glycolic acid manufacturer", "glycolic acid supplier", "glycolic acid applications");
+  }
+  if (lowerName.includes("taurine")) {
+    keywords.push("taurine manufacturer", "taurine supplier", "taurine applications");
+  }
+
+  keywords.push("Avid Organics");
+
+  return buildKeywords(keywords, 12);
 }
 
 /**
@@ -404,31 +407,13 @@ export function buildMarketKeywords({
   
   // Extract from description
   if (description) {
-    const extracted = extractKeywordsFromText(description, 5);
+    const extracted = extractKeywordsFromText(description, 4);
     keywords.push(...extracted);
   }
-  
-  // Add market-specific terms
-  keywords.push(
-    "industry solutions",
-    "specialized chemicals",
-    "application specific",
-    "custom formulation"
-  );
-  
-  // Add certification keywords for market credibility (top 2 from each region)
-  keywords.push(
-    ...CERTIFICATION_KEYWORDS.india.slice(0, 2),
-    ...CERTIFICATION_KEYWORDS.usa.slice(0, 2),
-    ...CERTIFICATION_KEYWORDS.europe.slice(0, 2),
-    ...CERTIFICATION_KEYWORDS.global.slice(0, 2)
-  );
-  
-  // Add geo-targeted keywords for global reach
-  const geoKeywords = buildGeoKeywords(["india", "usa", "europe", "global"]);
-  keywords.push(...geoKeywords.slice(0, 10)); // Add top 10 geo keywords
-  
-  return buildKeywords(keywords);
+
+  keywords.push("Avid Organics");
+
+  return buildKeywords(keywords, 10);
 }
 
 /**
@@ -464,11 +449,13 @@ export function buildArticleKeywords({
   
   // Extract from content
   if (content) {
-    const contentKeywords = extractKeywordsFromText(content, 8);
+    const contentKeywords = extractKeywordsFromText(content, 6);
     keywords.push(...contentKeywords);
   }
-  
-  return buildKeywords(keywords);
+
+  keywords.push("Avid Organics");
+
+  return buildKeywords(keywords, 10);
 }
 
 /**
@@ -488,15 +475,44 @@ export function generateSmartTitle({
   const baseName = name.trim();
   
   switch (type) {
-    case "product":
-      return `${baseName} - Premium Quality Manufacturer | Made in India | Avid Organics`;
+    case "product": {
+      const lowerName = baseName.toLowerCase();
+      let title = `${baseName} | Avid Organics`;
+
+      if (lowerName.includes("glycine")) {
+        title = `${baseName} | Glycine Manufacturer | Avid Organics`;
+      } else if (lowerName.includes("glycolic")) {
+        title = `${baseName} | Glycolic Acid Manufacturer | Avid Organics`;
+      } else if (lowerName.includes("taurine")) {
+        title = `${baseName} | Taurine Manufacturer | Avid Organics`;
+      } else if (category) {
+        title = `${baseName} | ${category} | Avid Organics`;
+      }
+
+      return ensureTitleLength(title);
+    }
     case "market":
-      return `${baseName} Solutions - Specialty Chemicals for ${baseName} Industry | Avid Organics`;
+      if (/pharmaceutical/i.test(baseName)) {
+        return ensureTitleLength("Chemicals for Pharmaceuticals | Avid Organics");
+      }
+      if (/personal care|cosmetic/i.test(baseName)) {
+        return ensureTitleLength("Chemicals for Personal Care | Avid Organics");
+      }
+      if (/food/i.test(baseName)) {
+        return ensureTitleLength("Chemicals for Food & Beverage | Avid Organics");
+      }
+      if (/animal/i.test(baseName)) {
+        return ensureTitleLength("Chemicals for Animal Nutrition | Avid Organics");
+      }
+      if (/industrial/i.test(baseName)) {
+        return ensureTitleLength("Chemicals for Industrial Applications | Avid Organics");
+      }
+      return ensureTitleLength(`${baseName} Solutions | Avid Organics`);
     case "article":
-      return `${baseName} | Avid Organics Insights`;
+      return ensureTitleLength(`${baseName} | Avid Organics`);
     case "page":
     default:
-      return `${baseName}${action ? " - " + action : ""} | Avid Organics`;
+      return ensureTitleLength(`${baseName}${action ? " - " + action : ""} | Avid Organics`);
   }
 }
 
@@ -518,37 +534,42 @@ export function generateSmartDescription({
 }): string {
   if (summary && summary.length >= 120) {
     // Use provided summary if it's substantial
-    return summary.slice(0, 160);
+    return ensureDescriptionLength(summary);
   }
   
   switch (type) {
     case "product": {
-      let desc = `${name} from Avid Organics - India's leading manufacturer of specialty chemicals. `;
+      let desc = `${name} from Avid Organics for regulated and industrial applications. `;
       if (features?.length) {
         desc += `${features.slice(0, 2).join(", ")}. `;
       }
       if (applications?.length) {
         desc += `For ${applications.slice(0, 2).join(", ")}. `;
       }
-      desc += "FSSAI, FDA & REACH certified. Proudly made in India for the world. High purity, GMP quality.";
-      return desc.slice(0, 160);
+      desc += "Export supply with technical support, batch documentation, and dependable quality.";
+      return ensureDescriptionLength(desc);
     }
     case "market": {
-      let desc = `Specialized chemicals for ${name} industry. `;
+      let desc = `Specialty chemicals for ${name} applications from Avid Organics. `;
       if (summary) {
         desc += summary + " ";
       }
       if (applications?.length) {
         desc += `Solutions for ${applications.slice(0, 2).join(", ")}. `;
       }
-      desc += "FSSAI, FDA & REACH certified. Trusted globally. Custom formulations available.";
-      return desc.slice(0, 160);
+      desc += "Technical support, export documentation, and dependable global supply.";
+      return ensureDescriptionLength(desc);
     }
     case "article": {
-      return summary || `Explore ${name} - insights and updates from Avid Organics, a leading specialty chemicals manufacturer serving global industries.`;
+      return ensureDescriptionLength(
+        summary ||
+          `Explore ${name} with technical insights and industry updates from Avid Organics.`
+      );
     }
     default: {
-      return summary || `Learn more about ${name} at Avid Organics - your trusted partner for specialty chemicals and pharmaceutical ingredients.`;
+      return ensureDescriptionLength(
+        summary || `Learn more about ${name} at Avid Organics, manufacturer of specialty chemicals.`
+      );
     }
   }
 }
@@ -571,17 +592,19 @@ export function buildHreflangAlternates(path: string) {
 
   return {
     ...localeAlternates,
-    "en-in": `${baseUrl}/en${normalizedPath}`,
     "en-us": `${baseUrl}/en${normalizedPath}`,
     "en-gb": `${baseUrl}/en${normalizedPath}`,
+    "en-nl": `${baseUrl}/en${normalizedPath}`,
+    "de-de": `${baseUrl}/de${normalizedPath}`,
+    "fr-fr": `${baseUrl}/fr${normalizedPath}`,
     "x-default": `${baseUrl}/en${normalizedPath}`,
   };
 }
 
 export function buildSeoMetadata(input: SeoInput, override?: SeoOverride): Metadata {
   const baseUrl = getSiteUrl();
-  const mergedTitle = override?.title || input.title;
-  const mergedDescription = override?.description || input.description;
+  const mergedTitle = ensureTitleLength(override?.title || input.title);
+  const mergedDescription = ensureDescriptionLength(override?.description || input.description);
   const mergedImage = override?.image || input.image || DEFAULT_OG_IMAGE;
   const mergedKeywords = buildKeywords([...(input.keywords || []), ...(override?.keywords || [])]);
   const mergedAuthor = override?.author || input.author || DEFAULT_AUTHOR;
@@ -600,7 +623,9 @@ export function buildSeoMetadata(input: SeoInput, override?: SeoOverride): Metad
   const ogType = input.type === "product" ? "website" : input.type || "website";
 
   return {
-    title: mergedTitle,
+    title: {
+      absolute: mergedTitle,
+    },
     description: mergedDescription,
     keywords: mergedKeywords,
     authors: [{ name: mergedAuthor }],
@@ -632,7 +657,7 @@ export function buildSeoMetadata(input: SeoInput, override?: SeoOverride): Metad
       title: override?.twitterTitle || mergedTitle,
       description: override?.twitterDescription || mergedDescription,
       images: [override?.twitterImage || mergedImage],
-      creator: "@avidorganics", // Add Twitter handle for better AI attribution
+      creator: "@avid_organics",
     },
     // Additional metadata for AI crawlers
     other: {
@@ -645,87 +670,104 @@ export function buildSeoMetadata(input: SeoInput, override?: SeoOverride): Metad
   };
 }
 
-export async function fetchSeoOverride(path: string, locale: string) {
-  const backendUrl = process.env.BACKEND_URL;
-  if (!backendUrl) {
-    console.warn("BACKEND_URL not configured, skipping SEO override fetch");
+export const fetchSeoOverride = cache(async (path: string, locale: string) => {
+  if (shouldSkipRemoteSeoOverride(path)) {
     return null;
   }
 
-  const url = new URL(`${backendUrl}/api/v1/get-seo`);
-  url.searchParams.set("path", path);
-  url.searchParams.set("locale", locale);
+  const rawEndpoints = [
+    process.env.BACKEND_URL || "",
+    (process.env.NEXT_PUBLIC_BASE_URL || "").includes("avidorganics.net")
+      ? "https://api.avidorganics.net"
+      : "",
+  ];
 
-  try {
-    const res = await fetch(url.toString(), { 
-      cache: "no-store",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    
-    if (!res.ok) {
-      // Log specific errors for debugging
-      if (res.status === 403) {
-        console.error(`403 Forbidden: SEO API access denied for path: ${path}, locale: ${locale}`);
-      } else if (res.status === 404) {
-        // 404 is expected when no override exists, don't log as error
-        console.debug(`No SEO override found for path: ${path}, locale: ${locale}`);
-      } else {
-        console.warn(`SEO API returned ${res.status} for path: ${path}, locale: ${locale}`);
+  const endpointBases = rawEndpoints.filter(
+    (value, index, arr) => Boolean(value) && arr.indexOf(value) === index
+  );
+  if (endpointBases.length === 0) return null;
+
+  for (const base of endpointBases) {
+    try {
+      const url = new URL("/api/v1/get-seo", base);
+      url.searchParams.set("path", path);
+      url.searchParams.set("locale", locale);
+
+      const res = await fetch(url.toString(), {
+        next: { revalidate: 300 },
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!res.ok) {
+        if (res.status === 404) return null;
+        if (res.status === 403) continue;
+        continue;
       }
-      return null;
+
+      const data = await res.json();
+      return (data?.data || null) as SeoOverride | null;
+    } catch {
+      // Network errors are expected on unreachable local backends; try next endpoint.
+      continue;
     }
-    
-    const data = await res.json();
-    return (data?.data || null) as SeoOverride | null;
-  } catch (error) {
-    console.error(`Error fetching SEO override for ${path}:`, error);
-    return null;
   }
-}
+
+  return null;
+});
 
 export function buildOrganizationSchema() {
   const baseUrl = getSiteUrl();
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Avid Organics",
-    alternateName: "Avid Organics Pvt. Ltd.",
-    description: "India's leading manufacturer of Glycine and Glycolic Acid. Rapidly emerging leader in specialty chemicals, setting benchmarks in the chemical industry. Proudly made in India for the world.",
+    "@id": `${baseUrl}/#organization`,
+    name: "Avid Organics Pvt. Ltd.",
+    alternateName: "Avid Organics",
+    description:
+      "Manufacturer of glycine, glycolic acid, and specialty chemicals for pharmaceutical, food, personal care, and industrial applications.",
     url: baseUrl,
     logo: {
       "@type": "ImageObject",
       url: `${baseUrl}/logo.png`,
-      width: "600",
-      height: "60",
+      width: 600,
+      height: 60,
     },
     image: `${baseUrl}/logo-tagline.png`,
     email: "info@avidorganics.net",
-    foundingDate: "2010", // Update with actual founding year
+    telephone: "+91-265-2370829",
+    foundingDate: "2007",
     address: {
       "@type": "PostalAddress",
+      streetAddress: "409/410 Sears Towers, Sevasi",
+      addressLocality: "Vadodara",
+      addressRegion: "Gujarat",
+      postalCode: "391101",
       addressCountry: "IN",
-      addressRegion: "India",
     },
-    areaServed: [
+    contactPoint: [
       {
-        "@type": "Country",
-        name: "India",
-      },
-      {
-        "@type": "Country",
-        name: "United States",
-      },
-      {
-        "@type": "Country",
-        name: "United Kingdom",
-      },
-      {
-        "@type": "Place",
-        name: "Europe",
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "info@avidorganics.net",
+        telephone: "+91-265-2370829",
+        areaServed: ["US", "GB", "DE", "FR", "NL", "IN"],
+        availableLanguage: ["en", "de", "fr"],
       },
     ],
+    areaServed: [
+      { "@type": "Country", name: "India" },
+      { "@type": "Country", name: "United States" },
+      { "@type": "Country", name: "United Kingdom" },
+      { "@type": "Country", name: "Germany" },
+      { "@type": "Country", name: "France" },
+      { "@type": "Country", name: "Netherlands" },
+    ],
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: 150,
+    },
     knowsAbout: [
       "Specialty Chemicals",
       "Glycine Manufacturing",
@@ -735,34 +777,16 @@ export function buildOrganizationSchema() {
       "Alpha Hydroxy Acids",
       "Chemical Manufacturing",
       "Taurine Manufacturing",
-      "GMP Certified Chemicals",
-      "ISO Certified Manufacturing",
+      "Formaldehyde-free Glycine",
+      "Pharmaceutical Grade Glycine",
     ],
-    makesOffer: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Specialty Chemicals Supply",
-          description: "High-purity specialty chemicals for pharmaceutical, food, personal care, and industrial applications",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Pharmaceutical Ingredients Supply",
-          description: "GMP certified pharmaceutical ingredients and excipients",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Amino Acids Supply",
-          description: "USP/BP grade amino acids for pharmaceutical and animal nutrition applications",
-        },
-      },
+    award: [
+      "FSSC 22000",
+      "ISO 14001",
+      "ISO 45001",
+      "HALAL",
+      "KOSHER",
+      "SMETA",
     ],
     sameAs: [
       "https://www.linkedin.com/company/avid-organics/",
@@ -770,46 +794,6 @@ export function buildOrganizationSchema() {
       "https://www.facebook.com/profile.php?id=100090349187598",
       "https://www.instagram.com/avidorganics/",
       "https://youtube.com/@avidorganics?si=tL1AMVvxf03b0ziX",
-    ],
-    // Enhanced geo-targeting
-    "@id": `${baseUrl}/#organization`,
-    // Global distribution network
-    serviceArea: [
-      {
-        "@type": "GeoShape",
-        addressCountry: "IN",
-        name: "India - Nationwide Coverage",
-      },
-      {
-        "@type": "GeoShape",
-        addressCountry: "US",
-        name: "United States",
-      },
-      {
-        "@type": "GeoShape",
-        addressCountry: "GB",
-        name: "United Kingdom",
-      },
-      {
-        "@type": "GeoShape",
-        addressCountry: "DE",
-        name: "Germany",
-      },
-      {
-        "@type": "GeoShape",
-        addressCountry: "FR",
-        name: "France",
-      },
-      {
-        "@type": "GeoShape",
-        addressCountry: "ES",
-        name: "Spain",
-      },
-      {
-        "@type": "GeoShape",
-        addressCountry: "IT",
-        name: "Italy",
-      },
     ],
   };
 }
@@ -822,89 +806,61 @@ export function buildLocalBusinessSchema(region: "india" | "usa" | "europe" = "i
   
   const regionalData = {
     india: {
-      name: "Avid Organics - India Operations",
+      name: "Avid Organics Pvt. Ltd.",
       address: {
         "@type": "PostalAddress",
         addressCountry: "IN",
-        addressRegion: "Maharashtra",
-        addressLocality: "Mumbai", // Update with actual city
-        postalCode: "400001", // Update with actual postal code
-        streetAddress: "Avid Organics Headquarters", // Update with actual address
+        addressRegion: "Gujarat",
+        addressLocality: "Vadodara",
+        postalCode: "391101",
+        streetAddress: "409/410 Sears Towers, Sevasi",
       },
-      telephone: null,
+      telephone: "+91-265-2370829",
       priceRange: "$$$",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: "19.0760", // Update with actual coordinates
-        longitude: "72.8777",
-      },
       areaServed: [
         "India",
-        "Mumbai",
-        "Delhi",
-        "Bangalore",
-        "Hyderabad",
-        "Chennai",
-        "Pune",
         "Gujarat",
-        "Maharashtra",
+        "Vadodara",
       ],
-      keywords: "glycine manufacturer India, glycolic acid manufacturer India, India's leading manufacturer, specialty chemicals India, pharmaceutical ingredients India, FSSAI certified, GMP certified manufacturer India, made in India",
+      keywords:
+        "glycine manufacturer India, glycolic acid manufacturer India, specialty chemicals India, pharmaceutical ingredients India, export-ready manufacturer",
     },
     usa: {
-      name: "Avid Organics - USA Distribution",
+      name: "Avid Organics America Inc.",
       address: {
         "@type": "PostalAddress",
         addressCountry: "US",
-        addressRegion: "NY", // Update with actual state
-        addressLocality: "New York", // Update with actual city
-        postalCode: "10001", // Update with actual postal code
-        streetAddress: "USA Distribution Center", // Update with actual address
+        addressRegion: "Texas",
+        addressLocality: "Texas",
+        streetAddress: "5021 Vernon Avenue S, #209",
       },
-      telephone: "+1-888-570-2843",
+      telephone: undefined,
       priceRange: "$$$",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: "40.7128", // Update with actual coordinates
-        longitude: "-74.0060",
-      },
-      areaServed: [
-        "United States",
-        "North America",
-        "USA",
-        "US",
-      ],
-      keywords: "glycine supplier Europe, pharmaceutical grade glycine, glycolic acid USA, pharmaceutical ingredients USA, FDA approved chemicals, USP grade, specialty chemicals USA"
+      areaServed: ["United States", "North America", "USA", "US"],
+      keywords:
+        "glycine supplier USA, glycolic acid supplier USA, pharmaceutical ingredients USA, specialty chemicals USA",
     },
     europe: {
-      name: "Avid Organics - Europe Distribution",
+      name: "Avid Organics Europe B.V. (i.o.)",
       address: {
         "@type": "PostalAddress",
-        addressCountry: "GB",
-        addressRegion: "England",
-        addressLocality: "London", // Update with actual city
-        postalCode: "EC1A 1AA", // Update with actual postal code
-        streetAddress: "Europe Distribution Center", // Update with actual address
+        addressCountry: "NL",
+        addressRegion: "Limburg",
+        addressLocality: "Maastricht",
+        postalCode: "6221 KX",
+        streetAddress: "Avenue Ceramique 221",
       },
       telephone: null,
       priceRange: "$$$",
-      geo: {
-        "@type": "GeoCoordinates",
-        latitude: "51.5074", // Update with actual coordinates
-        longitude: "-0.1278",
-      },
       areaServed: [
         "Europe",
-        "United Kingdom",
+        "Netherlands",
         "Germany",
         "France",
-        "Spain",
-        "Italy",
-        "Netherlands",
-        "Belgium",
         "EU",
       ],
-      keywords: "glycine supplier Europe, glycolic acid supplier, REACH compliant chemicals, BP grade, pharmaceutical ingredients UK, specialty chemicals Europe, pharmaceutical grade glycine manufacturer"
+      keywords:
+        "glycine supplier Europe, glycolic acid supplier Europe, specialty chemicals Netherlands, pharmaceutical ingredients Europe, REACH support",
     },
   };
 
@@ -920,7 +876,6 @@ export function buildLocalBusinessSchema(region: "india" | "usa" | "europe" = "i
     ...(data.telephone ? { telephone: data.telephone } : {}),
     priceRange: data.priceRange,
     address: data.address,
-    geo: data.geo,
     areaServed: data.areaServed,
     keywords: data.keywords,
     openingHoursSpecification: {
@@ -1009,6 +964,17 @@ export function buildProductSchema(input: {
   sku?: string;
   applications?: string[];
 }) {
+  const lowerName = input.name.toLowerCase();
+  const inferredCas = lowerName.includes("glycine")
+    ? "56-40-6"
+    : lowerName.includes("glycolic")
+      ? "79-14-1"
+      : undefined;
+  const inferredCategory = lowerName.includes("glycine")
+    ? "Amino Acid"
+    : lowerName.includes("glycolic")
+      ? "Alpha Hydroxy Acid"
+      : "Specialty Chemical";
   const applicationProperties = (input.applications || [])
     .filter(Boolean)
     .slice(0, 8)
@@ -1025,6 +991,8 @@ export function buildProductSchema(input: {
     description: input.description,
     image: [input.image],
     sku: input.sku,
+    mpn: inferredCas,
+    category: inferredCategory,
     brand: {
       "@type": "Brand",
       name: input.brand || "Avid Organics",
@@ -1047,20 +1015,29 @@ export function buildProductSchema(input: {
       },
     },
     additionalProperty: [
+      ...(inferredCas
+        ? [
+            {
+              "@type": "PropertyValue",
+              name: "CAS Number",
+              value: inferredCas,
+            },
+          ]
+        : []),
       {
         "@type": "PropertyValue",
         name: "Certifications",
-        value: "FSSAI Certified, FDA Approved, REACH Compliant, GMP Certified, ISO 9001:2015",
+        value: "FSSC 22000, ISO 14001, ISO 45001, HALAL, KOSHER, SMETA",
       },
       {
         "@type": "PropertyValue",
-        name: "Compliance",
-        value: "Indian Pharmacopoeia (IP), United States Pharmacopeia (USP), British Pharmacopoeia (BP), European Pharmacopoeia (EP)",
+        name: "Supply Capability",
+        value: "Export documentation, technical support, and batch traceability for regulated and industrial customers",
       },
       {
         "@type": "PropertyValue",
-        name: "Quality Standards",
-        value: "WHO-GMP, cGMP, ISO 14001:2015",
+        name: "Markets Served",
+        value: "India, United States, United Kingdom, Germany, France, Netherlands",
       },
       ...applicationProperties,
     ],

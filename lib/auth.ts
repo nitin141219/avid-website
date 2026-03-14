@@ -1,4 +1,5 @@
 import { cookies } from "next/headers";
+import { fetchBackend } from "@/lib/backend";
 
 export async function getAuthUser() {
   try {
@@ -9,7 +10,7 @@ export async function getAuthUser() {
     const controller = new AbortController();
     const timeout = setTimeout(() => controller.abort(), 2500);
 
-    const res = await fetch(`${process.env.BACKEND_URL}/api/v1/get-details`, {
+    const res = await fetchBackend("/api/v1/get-details", {
       method: "GET",
       headers: {
         Authorization: `Bearer ${token}`,

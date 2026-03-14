@@ -87,6 +87,7 @@ export default function BlogFilter() {
         onChange={(option: any) => updateParams("category", option?.value)}
       /> */}
       <CustomSelect
+        instanceId="blog-year-filter"
         placeholder={tCommon("year")}
         options={[
           { value: "2026", label: "2026" },

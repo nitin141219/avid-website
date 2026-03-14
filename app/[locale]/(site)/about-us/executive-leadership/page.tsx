@@ -1,10 +1,10 @@
 import ExecutiveLeadership from "@/components/executive-leadership/ExecutiveLeadership";
 import SeoJsonLd from "@/components/seo/SeoJsonLd";
+import { buildStaticPageMetadata } from "@/lib/site-page-seo";
 import {
   buildBreadcrumbItemsFromPath,
   buildBreadcrumbSchema,
   buildOrganizationSchema,
-  buildSeoMetadata,
   fetchSeoOverride,
 } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -17,29 +17,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const path = "/about-us/executive-leadership";
   const override = await fetchSeoOverride(path, locale);
-
-  return buildSeoMetadata(
-    {
-      title: "Executive Leadership Team | Avid Organics",
-      description: "Meet the leadership team at Avid Organics. Experienced executives driving innovation in specialty chemicals, pharmaceutical ingredients, and sustainable manufacturing. Industry experts in chemical production and quality assurance.",
-      path,
-      locale,
-      type: "website",
-      keywords: [
-        "Avid Organics leadership",
-        "executive team",
-        "chemical industry leaders",
-        "pharmaceutical manufacturing experts",
-        "specialty chemicals executives",
-        "management team",
-        "industry expertise",
-        "chemical company leadership",
-        "GMP certified leadership",
-        "pharmaceutical industry experts",
-      ],
-    },
-    override || undefined
-  );
+  return buildStaticPageMetadata({ locale, path, override });
 }
 
 export default async function ExecutiveLeadershipPage({ params }: Props) {

@@ -19,7 +19,7 @@ const stats = [
     subtitle: "glycine_capacity",
   },
   {
-    value: 15,
+    value: 19,
     suffix: "+",
     title: "years",
     subtitle: "manufacturing_excellence",

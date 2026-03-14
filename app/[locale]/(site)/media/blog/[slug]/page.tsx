@@ -11,63 +11,87 @@ import {
   buildArticleKeywords,
   buildArticleSchema,
 } from "@/lib/seo";
+import { normalizeResponsiveImageSources } from "@/lib/utils";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
 type Props = {
   params: Promise<{ slug: string; locale: string }>;
   // searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 };
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug, locale } = await params;
-  
-  let blogData;
-  try {
-    const endpoint = process.env.BACKEND_URL
-      ? `${process.env.BACKEND_URL}/api/v1/get-blog/${slug}?locale=${locale}`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}?locale=${locale}`;
-    const res = await fetch(endpoint, {
-      cache: "force-cache",
-      next: { revalidate: 3600 }, // Revalidate every hour
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    
-    // Handle errors appropriately
-    if (!res.ok) {
-      // Only return noindex for true 404s, not temporary failures
-      if (res.status === 404) {
-        console.warn(`Blog not found: ${slug}`);
+function getBlogEndpoints(slug: string, locale: string) {
+  const directBackend = process.env.BACKEND_URL
+    ? `${process.env.BACKEND_URL}/api/v1/get-blog/${slug}?locale=${locale}`
+    : "";
+  const publicApi = process.env.NEXT_PUBLIC_BASE_URL
+    ? `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}?locale=${locale}`
+    : "";
+  const hardFallback = (process.env.NEXT_PUBLIC_BASE_URL || "").includes("avidorganics.net")
+    ? `https://api.avidorganics.net/api/v1/get-blog/${slug}?locale=${locale}`
+    : "";
+
+  return [directBackend, publicApi, hardFallback].filter(
+    (endpoint, index, arr) => Boolean(endpoint) && arr.indexOf(endpoint) === index
+  );
+}
+
+const fetchBlogPayload = cache(async (slug: string, locale: string) => {
+  const endpoints = getBlogEndpoints(slug, locale);
+  let lastStatus = 500;
+
+  for (const endpoint of endpoints) {
+    try {
+      const res = await fetch(endpoint, {
+        cache: "force-cache",
+        next: { revalidate: 3600 }, // Revalidate every hour
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (res.ok) {
+        const json = await res.json();
         return {
-          title: "Blog Not Found",
-          robots: { index: false, follow: false },
+          ok: true as const,
+          status: res.status,
+          data: json?.data ? normalizeResponsiveImageSources(json.data) : null,
         };
       }
-      // For other errors (403, 500, etc.), generate minimal metadata
-      // This allows search engines to retry later
-      console.warn(`Blog API returned ${res.status} for slug: ${slug}`);
-      return {
-        title: slug.replace(/-/g, " "),
-        description: "Avid Organics Blog Article",
-        robots: { index: true, follow: true }, // Keep indexing enabled for retries
-      };
+
+      lastStatus = res.status;
+      if (res.status === 404) {
+        return { ok: false as const, status: 404, data: null };
+      }
+    } catch {
+      // Try next endpoint.
     }
-    blogData = await res.json();
-  } catch (error) {
-    console.error(`Error fetching blog metadata for ${slug}:`, error);
-    // Return neutral metadata on fetch errors
+  }
+
+  return { ok: false as const, status: lastStatus, data: null };
+});
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug, locale } = await params;
+  const payload = await fetchBlogPayload(slug, locale);
+
+  if (!payload.ok && payload.status === 404) {
+    return {
+      title: "Blog Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+  if (!payload.ok) {
     return {
       title: slug.replace(/-/g, " "),
       description: "Avid Organics Blog Article",
-      robots: { index: true, follow: true },
+      robots: { index: false, follow: false },
     };
   }
-  
-  const blog = blogData?.data;
-  if (!blogData || !blog) {
-    // Only noindex if we successfully fetched but found no data (true 404)
+
+  const blog = payload.data;
+  if (!blog) {
     return {
       title: "Blog Not Found",
       robots: { index: false, follow: false },
@@ -113,39 +137,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 async function getBlog(slug: string, locale: string) {
-  try {
-    const endpoint = process.env.BACKEND_URL
-      ? `${process.env.BACKEND_URL}/api/v1/get-blog/${slug}?locale=${locale}`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/blogs/${slug}?locale=${locale}`;
-    const res = await fetch(endpoint, {
-      cache: "force-cache",
-      next: { revalidate: 3600 }, // Revalidate every hour
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-    
-    if (!res.ok) {
-      // Log specific error codes for debugging
-      if (res.status === 403) {
-        console.error(`403 Forbidden: Blog API access denied for slug: ${slug}`);
-      } else if (res.status === 404) {
-        console.warn(`404 Not Found: Blog not found for slug: ${slug}`);
-      } else {
-        console.error(`Fetch failed with status ${res.status} for slug: ${slug}`);
-      }
-      return null;
-    }
-
-    const json = await res.json();
-
-    return {
-      blog: json.data ?? {},
-    };
-  } catch (error) {
-    console.error(`Error in getBlog for ${slug}:`, error);
+  const payload = await fetchBlogPayload(slug, locale);
+  if (!payload.ok || !payload.data) {
     return null;
   }
+
+  return {
+    blog: payload.data ?? {},
+  };
 }
 
 export default async function Blog({ params }: Props) {

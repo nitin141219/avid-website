@@ -1,9 +1,9 @@
 import SeoJsonLd from "@/components/seo/SeoJsonLd";
+import { buildStaticPageMetadata } from "@/lib/site-page-seo";
 import {
   buildBreadcrumbItemsFromPath,
   buildBreadcrumbSchema,
   buildOrganizationSchema,
-  buildSeoMetadata,
   fetchSeoOverride,
 } from "@/lib/seo";
 import type { Metadata } from "next";
@@ -16,27 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
   const path = "/privacy-policy";
   const override = await fetchSeoOverride(path, locale);
-
-  return buildSeoMetadata(
-    {
-      title: "Privacy Policy | Avid Organics",
-      description: "Avid Organics Privacy Policy. Learn how we collect, use, protect, and manage your personal data. GDPR compliant. Your privacy and data security are our priorities.",
-      path,
-      locale,
-      type: "website",
-      keywords: [
-        "privacy policy",
-        "data protection",
-        "GDPR compliance",
-        "personal information",
-        "data security",
-        "privacy rights",
-        "cookie policy",
-        "data usage",
-      ],
-    },
-    override || undefined
-  );
+  return buildStaticPageMetadata({ locale, path, override });
 }
 
 export default async function PrivacyPolicyPage({ params }: Props) {

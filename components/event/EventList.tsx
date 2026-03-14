@@ -1,6 +1,5 @@
 import { getTranslations } from "next-intl/server";
 import { getLocale } from "next-intl/server";
-import { cookies } from "next/headers";
 import { PUBLIC_PAST_FALLBACK_EVENTS } from "@/constants/public-event-fallbacks";
 import EventCard from "./EventCard";
 import EventFilter from "./EventFilter";
@@ -85,8 +84,6 @@ function sortEventsByTimeline(events: any[]) {
 // Data Fetching Function
 export async function getCustomerEvents(searchParams: SearchParams) {
   const locale = await getLocale();
-  const cookieStore = await cookies();
-  const token = cookieStore.get("token")?.value;
   const currentPage = Number(searchParams.page ?? "1");
   const page = Number.isNaN(currentPage) || currentPage < 1 ? 1 : currentPage;
   const currentLimit = Number(searchParams.limit ?? PER_PAGE.toString());
@@ -95,75 +92,35 @@ export async function getCustomerEvents(searchParams: SearchParams) {
   const searchText = searchParams.search?.trim().toLowerCase();
 
   try {
-    if (token && process.env.BACKEND_URL) {
-      const adminParams = new URLSearchParams();
-      adminParams.set("page", String(page));
-      adminParams.set("limit", String(limit));
-
-        const adminRes = await fetch(
-          `${process.env.BACKEND_URL}/api/v1/admin/get-events?${adminParams.toString()}`,
-          {
-            cache: "no-store",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      if (adminRes.ok) {
-        const adminJson = await adminRes.json();
-        const adminEvents = adminJson?.data?.events ?? [];
-        const filtered = filterEventsByYearAndSearch(adminEvents, selectedYear, searchText);
-        const withFallback = mergeFallbackPastEvents(filtered);
-        const sorted = sortEventsByTimeline(withFallback);
-        const now = Date.now();
-        const upcoming = sorted.filter(
-          (event: any) => new Date(event?.end_date || event?.start_date || 0).getTime() >= now
-        );
-        const past = sorted.filter(
-          (event: any) => new Date(event?.end_date || event?.start_date || 0).getTime() < now
-        );
-
-        return {
-          events: sorted,
-          grouped: {
-            upcoming,
-            past,
-          },
-          pagination:
-            adminJson?.data?.pagination ??
-            ({
-              current_page: page,
-              total_page: 1,
-              total_count: sorted.length,
-              limit,
-              has_next_page: false,
-              has_prev_page: false,
-            } as const),
-        };
-      }
-    }
-
     const params = new URLSearchParams();
     params.set("page", String(page));
     params.set("limit", String(limit));
     params.set("locale", locale);
     if (selectedYear && selectedYear !== "all") params.set("year", selectedYear);
     if (searchText) params.set("search", searchText);
+    const query = params.toString();
+    const endpoints = [
+      process.env.BACKEND_URL ? `${process.env.BACKEND_URL}/api/v1/customer/get-events?${query}` : "",
+      process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/api/events?${query}` : "",
+      (process.env.NEXT_PUBLIC_BASE_URL || "").includes("avidorganics.net")
+        ? `https://api.avidorganics.net/api/v1/customer/get-events?${query}`
+        : "",
+    ].filter((endpoint, index, arr) => Boolean(endpoint) && arr.indexOf(endpoint) === index);
 
-    const baseUrl = process.env.BACKEND_URL
-      ? `${process.env.BACKEND_URL}/api/v1/customer/get-events`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/events`;
-
-    const res = await fetch(`${baseUrl}?${params}`, {
-      next: { revalidate: 120 },
-    });
-
-    if (!res.ok) {
-      throw new Error(`Fetch failed with status ${res.status}`);
+    let json: any = null;
+    for (const endpoint of endpoints) {
+      try {
+        const res = await fetch(endpoint, {
+          next: { revalidate: 120 },
+        });
+        if (!res.ok) continue;
+        json = await res.json();
+        break;
+      } catch {
+        // Try next endpoint.
+      }
     }
-
-    const json = await res.json();
+    if (!json) throw new Error("Failed to fetch events from all endpoints");
 
     const activeEvents = filterEventsByYearAndSearch(
       json.data?.events ?? [],

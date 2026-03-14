@@ -1,9 +1,9 @@
 "use client";
 
 import { yupResolver } from "@hookform/resolvers/yup";
+import { Link } from "@/i18n/navigation";
 import { Mail, Phone } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
 import { useMemo } from "react";
 import { Controller, useForm } from "react-hook-form";
 import countryList from "react-select-country-list";
@@ -518,11 +518,7 @@ export default function ContactMainSection() {
                     >
                       <span>
                         {t("form.labels.agree")}{" "}
-                        <Link
-                          href="http://localhost:3000/en/privacy-policy"
-                          target="_blank"
-                          className="inline-block text-secondary underline"
-                        >
+                        <Link href="/privacy-policy" target="_blank" className="inline-block text-secondary underline">
                           {t("form.labels.privacy_policy")}
                         </Link>
                       </span>

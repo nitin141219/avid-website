@@ -11,14 +11,14 @@
                 "india": {
                     "country": "INDIA",
                     "office_label": "Corporate Office",
-                    "company": "Avid Organics Private Limited",
+                    "company": "Avid Organics Pvt. Ltd.",
                     "address_line1": "409/410 Sears Towers, Sevasi",
                     "address_line2": "Vadodara - 391 101, Gujarat, India"
                 },
                 "netherlands": {
                     "country": "NETHERLANDS",
                     "office_label": "Regional Sales Office",
-                    "company": "Avid Organics",
+                    "company": "Avid Organics Europe B.V. (i.o.)",
                     "address_line1": "Avenue Ceramique 221",
                     "address_line2": "6221 KX Maastricht",
                     "address_line3": "The Netherlands"

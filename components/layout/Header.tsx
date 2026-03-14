@@ -3,7 +3,7 @@
 import { useHash } from "@/hooks/useHash";
 import { Link, usePathname } from "@/i18n/navigation";
 import type { NavItemType } from "@/lib/getNavItems";
-import { cn } from "@/lib/utils";
+import { cn, resolveMediaUrl } from "@/lib/utils";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { ChevronDownIcon, ChevronRight, Menu } from "lucide-react";
 import { useTranslations } from "next-intl";
@@ -23,13 +23,33 @@ import { Skeleton } from "../ui/skeleton";
 const AutoBreadcrumb = dynamic(() => import("@/components/auto-breadcrumb/AutoBreadCrumb"), {
   ssr: false,
 });
-export default function Header({ navItems }: { navItems: NavItemType[] }) {
+
+const extractSpotlightItems = (payload: any) => {
+  if (Array.isArray(payload)) return payload;
+  if (Array.isArray(payload?.data)) return payload.data;
+  if (Array.isArray(payload?.data?.spotlights)) return payload.data.spotlights;
+  if (Array.isArray(payload?.data?.spotlight)) return payload.data.spotlight;
+  if (Array.isArray(payload?.spotlights)) return payload.spotlights;
+  if (Array.isArray(payload?.spotlight)) return payload.spotlight;
+  return [];
+};
+
+const EMPTY_SPOTLIGHTS: any[] = [];
+
+export default function Header({
+  navItems,
+  initialSpotlights = EMPTY_SPOTLIGHTS,
+}: {
+  navItems: NavItemType[];
+  initialSpotlights?: any[];
+}) {
   const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
-  const [spotlights, setSpotlights] = useState([]);
+  const [spotlights, setSpotlights] = useState(initialSpotlights);
   const [loading, setLoading] = useState(false);
   const [hasFetchedSpotlights, setHasFetchedSpotlights] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [imageFallbacks, setImageFallbacks] = useState<Record<string, true>>({});
   const spotlightRequestRef = useRef(false);
 
   const hash = useHash();
@@ -87,7 +107,6 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
     const nearBottom = maxScroll > 0 && y >= maxScroll - 4;
     const direction = delta > 0 ? "down" : "up";
 
-    // Ignore tiny jitter and aggressively ignore edge bounce jitter on mobile.
     if (absDelta < 2) return;
     if ((nearTop || nearBottom) && absDelta < 8) return;
 
@@ -100,7 +119,6 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
 
     if (nearBottom && direction === "down") return;
 
-    // Require some travel before toggling direction to prevent flicker.
     if (lastDirectionRef.current !== direction) {
       lastDirectionRef.current = direction;
       lastToggleYRef.current = y;
@@ -124,6 +142,19 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    setSpotlights(initialSpotlights);
+    setHasFetchedSpotlights(initialSpotlights.length > 0);
+    setLoading(false);
+    setImageFallbacks({});
+  }, [initialSpotlights]);
+
+  useEffect(() => {
+    setImageFallbacks({});
+  }, [
+    spotlights.map((item: any) => `${item?._id || ""}:${item?.image || item?.image_mobile || item?.imageMobile || item?.mobileImage || ""}`).join("|"),
+  ]);
+
   const fetchSpotlights = useCallback(async () => {
     if (hasFetchedSpotlights || spotlightRequestRef.current) return;
     spotlightRequestRef.current = true;
@@ -140,7 +171,7 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
         return;
       }
 
-      setSpotlights(data?.data || []);
+      setSpotlights(extractSpotlightItems(data));
       setHasFetchedSpotlights(true);
     } catch {
       setSpotlights([]);
@@ -152,10 +183,10 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   }, [hasFetchedSpotlights]);
 
   useEffect(() => {
-    if (openMenu || mobileMenuOpen) {
+    if ((openMenu || mobileMenuOpen) && !hasFetchedSpotlights) {
       void fetchSpotlights();
     }
-  }, [openMenu, mobileMenuOpen, fetchSpotlights]);
+  }, [openMenu, mobileMenuOpen, fetchSpotlights, hasFetchedSpotlights]);
 
   useEffect(() => {
     return () => {
@@ -164,8 +195,38 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
   }, [clearCloseMenuTimeout]);
 
   const sheetId = useId();
-  const getSpotlightImage = (item: any) =>
-    item?.image || item?.imageMobile || item?.mobileImage || item?.image_mobile || "/logo.png";
+  const getSpotlightImage = (item: any) => {
+    if (item?._id && imageFallbacks[item._id]) {
+      return "/logo.png";
+    }
+    const url = item?.image || item?.imageMobile || item?.mobileImage || item?.image_mobile || "/logo.png";
+    const resolved = resolveMediaUrl(url, "/logo.png");
+    const version = item?.updated_at || item?.updatedAt || item?.created_at || item?.createdAt || "";
+
+    if (!version || resolved.startsWith("/")) {
+      return resolved;
+    }
+
+    const separator = resolved.includes("?") ? "&" : "?";
+    return `${resolved}${separator}v=${encodeURIComponent(String(version))}`;
+  };
+  const fallbackSpotlights = [
+    {
+      _id: "fallback-spotlight-1",
+      slug: "/media/news",
+      title: t("spotlight.top_text"),
+      type: "news",
+      image: "/logo.png",
+    },
+    {
+      _id: "fallback-spotlight-2",
+      slug: "/media/news",
+      title: t("spotlight.bottom_text"),
+      type: "news",
+      image: "/logo.png",
+    },
+  ];
+  const renderedSpotlights = spotlights.length > 0 ? spotlights : fallbackSpotlights;
 
   return (
     <>
@@ -368,12 +429,14 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                                 <h4 className="mb-6 font-semibold text-light-dark text-sm uppercase">
                                   {t("spotlight.title")}
                                 </h4>
-                                {spotlights?.map((i: any) => (
+                                {renderedSpotlights.map((i: any) => (
                                   <Link
                                     href={
-                                      i?.type === "news"
-                                        ? `/media/news/${i?.slug}`
-                                        : `/media/events/${i?.slug}`
+                                      i?.slug?.startsWith?.("/")
+                                        ? i.slug
+                                        : i?.type === "news"
+                                          ? `/media/news/${i?.slug}`
+                                          : `/media/events/${i?.slug}`
                                     }
                                     key={i?._id}
                                     onClick={() => {
@@ -391,8 +454,15 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                                         alt={i?.title || "Logo-Tagline"}
                                         width={300}
                                         height={150}
+                                        unoptimized
                                         className="w-full h-full object-cover transition-all duration-300"
                                         sizes="300px"
+                                        onError={() => {
+                                          if (!i?._id) return;
+                                          setImageFallbacks((current) =>
+                                            current[i._id] ? current : { ...current, [i._id]: true }
+                                          );
+                                        }}
                                       />
                                     </div>
                                   </Link>
@@ -448,13 +518,15 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                           </div>
                         ) : (
                           <div className="space-y-4">
-                            {spotlights?.slice(0, 3).map((i: any) => (
+                            {renderedSpotlights.slice(0, 3).map((i: any) => (
                               <SheetClose key={i?._id} asChild>
                                 <Link
                                   href={
-                                    i?.type === "news"
-                                      ? `/media/news/${i?.slug}`
-                                      : `/media/events/${i?.slug}`
+                                    i?.slug?.startsWith?.("/")
+                                      ? i.slug
+                                      : i?.type === "news"
+                                        ? `/media/news/${i?.slug}`
+                                        : `/media/events/${i?.slug}`
                                   }
                                   className="block"
                                 >
@@ -470,8 +542,15 @@ export default function Header({ navItems }: { navItems: NavItemType[] }) {
                                       alt={i?.title || "Spotlight"}
                                       width={600}
                                       height={300}
+                                      unoptimized
                                       className="w-full h-full object-cover"
                                       sizes="100vw"
+                                      onError={() => {
+                                        if (!i?._id) return;
+                                        setImageFallbacks((current) =>
+                                          current[i._id] ? current : { ...current, [i._id]: true }
+                                        );
+                                      }}
                                     />
                                   </div>
                                 </Link>

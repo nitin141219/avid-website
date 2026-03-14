@@ -3,6 +3,7 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { getResponsiveImageSources } from "@/lib/utils";
+import DunsSeal from "./DunsSeal";
 
 const excellences = [
   {
@@ -122,6 +123,9 @@ export default function ManufacturingExcellenceMainSection() {
                 alt={i.src}
               />
             ))}
+          </div>
+          <div className="mt-8">
+            <DunsSeal />
           </div>
         </div>
       </section>

@@ -217,10 +217,7 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
     formData.append("content_es", contentEs);
     formData.append("author", values.author);
     formData.append("is_active", String(values.is_active));
-    const hasNewPdf = values.download_pdf instanceof FileList && values.download_pdf.length > 0;
-    if (hasNewPdf) {
-      formData.append("download_title", values.download_title || DEFAULT_DOWNLOAD_TITLE);
-    }
+    formData.append("download_title", values.download_title || DEFAULT_DOWNLOAD_TITLE);
 
     const appendImageField = (
       key: "image" | "image_mobile",
@@ -236,10 +233,6 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
       if (typeof value === "string" && value.startsWith("data:")) {
         const blob = dataURLtoBlob(value);
         formData.append(key, blob, `${key}.png`);
-        return;
-      }
-      if (typeof value === "string") {
-        formData.append(key, value);
       }
     };
 
@@ -248,10 +241,6 @@ export function NewsForm({ newsId, newsData }: NewsFormProps) {
 
     if (values.download_pdf instanceof FileList) {
       formData.append("download_pdf", values.download_pdf[0]);
-    }
-
-    if (typeof values.download_pdf === "string") {
-      formData.append("download_pdf", values.download_pdf);
     }
 
     try {

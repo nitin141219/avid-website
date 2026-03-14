@@ -1,8 +1,16 @@
 import { useTranslations } from "next-intl";
-import { Download, FileText } from "lucide-react";
+import { FileText } from "lucide-react";
 import SocialShare from "../blog/SocialShare";
 import NewsContent from "./NewsContent";
 import NewsDetailHeroSection from "./NewsDetailHeroSection";
+
+function formatFileSize(size?: number | string | null) {
+  const bytes = Number(size || 0);
+  if (!Number.isFinite(bytes) || bytes <= 0) return "";
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(2)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(2)} MB`;
+}
 
 export default function NewsDetails({ data }: { data: any }) {
   const tCommon = useTranslations("common");
@@ -21,6 +29,9 @@ export default function NewsDetails({ data }: { data: any }) {
     data?.pdf_title ||
     data?.pdfTitle ||
     "Copy of news and announcement";
+  const downloadSize = formatFileSize(
+    data?.download_size || data?.downloadSize || data?.pdf_size || data?.pdfSize
+  );
 
   return (
     <div className="mx-auto px-4 w-full">
@@ -29,25 +40,33 @@ export default function NewsDetails({ data }: { data: any }) {
         <NewsContent data={data} />
 
         {downloadUrl ? (
-          <section className="mt-12">
-            <h2 className="font-bold text-primary text-4xl">Downloads</h2>
+          <section className="mt-14">
+            <h2 className="font-extrabold text-primary text-3xl md:text-4xl">Downloads</h2>
+            <div className="bg-light-dark mt-1 mb-6 w-12 h-px" />
             <a
               href={downloadUrl}
               target="_blank"
               rel="noopener noreferrer"
               download
-              className="group flex justify-between items-center gap-4 bg-[#f5f5f6] hover:bg-[#ececee] mt-6 px-5 py-4 border border-[#d8d8df] w-full max-w-xl transition-colors"
+              className="group flex items-center gap-5 border border-primary/60 hover:bg-primary/5 hover:border-primary px-5 md:px-6 py-5 w-full max-w-[520px] transition-colors duration-300"
             >
-              <div className="flex items-start gap-4">
-                <div className="bg-white p-3 border border-[#d8d8df]">
-                  <FileText className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <p className="font-semibold text-primary text-xl leading-tight">{downloadTitle}</p>
-                  <p className="mt-1 text-primary/80 text-sm">PDF</p>
+              <div className="flex justify-center items-center border border-primary/20 group-hover:bg-primary group-hover:border-primary w-15 h-15 text-primary group-hover:text-white transition-colors duration-300">
+                <FileText className="w-7 h-7" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-extrabold text-off-black group-hover:text-primary text-xl md:text-2xl leading-tight transition-colors duration-300">
+                  {downloadTitle}
+                </p>
+                <div className="flex items-center gap-4 mt-2 text-base">
+                  <span className="font-semibold text-primary uppercase">PDF</span>
+                  {downloadSize ? (
+                    <>
+                      <span className="bg-light-dark w-px h-5" />
+                      <span className="text-medium-dark">{downloadSize}</span>
+                    </>
+                  ) : null}
                 </div>
               </div>
-              <Download className="w-5 h-5 text-primary" />
             </a>
           </section>
         ) : null}

@@ -1,6 +1,4 @@
-import { AuthProvider } from "@/components/auth/auth-context";
 import { routing } from "@/i18n/routing";
-import { getAuthUser } from "@/lib/auth";
 import { redHatDisplay } from "@/lib/fonts";
 import type { Metadata } from "next";
 import { hasLocale, Locale, NextIntlClientProvider } from "next-intl";
@@ -13,23 +11,29 @@ import DeferredClientWidgets from "./DeferredClientWidgets";
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.avidorganics.net"),
   title: {
-    default: "Avid Organics | Leading Manufacturers of Specialty Chemicals",
+    default: "Glycine & Glycolic Acid Manufacturer | Avid Organics",
     template: "%s | Avid Organics",
   },
   description:
-    "Leading manufacturers of specialty chemicals and pharmaceutical ingredients. FSSAI, FDA & REACH certified. Serving India, USA, Europe since 1999. GMP, ISO, WHO-GMP certified.",
+    "Manufacturer of glycine and glycolic acid with export supply, batch documentation, and technical support for pharma, personal care, food, and industry.",
   keywords: [
-    "specialty chemicals",
-    "pharmaceutical ingredients",
-    "chemical manufacturer",
-    "FSSAI certified",
+    "glycine manufacturer",
+    "glycolic acid manufacturer",
+    "specialty chemicals manufacturer",
+    "pharmaceutical grade glycine",
+    "cosmetic grade glycolic acid",
+    "food grade glycine",
+    "batch documentation",
+    "technical support",
+    "global distribution",
+    "export-ready manufacturer",
     "FDA approved",
     "REACH compliant",
-    "GMP certified",
+    "GMP certified chemicals",
   ],
-  authors: [{ name: "Avid Organics" }],
-  creator: "Avid Organics",
-  publisher: "Avid Organics",
+  authors: [{ name: "Avid Organics Pvt. Ltd." }],
+  creator: "Avid Organics Pvt. Ltd.",
+  publisher: "Avid Organics Pvt. Ltd.",
   formatDetection: {
     email: false,
     address: false,
@@ -40,9 +44,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.avidorganics.net",
     siteName: "Avid Organics",
-    title: "Avid Organics | Leading Manufacturers of Specialty Chemicals",
+    title: "Glycine & Glycolic Acid Manufacturer | Avid Organics",
     description:
-      "Global leader in specialty chemicals and pharmaceutical ingredients. FSSAI, FDA & REACH certified since 1999.",
+      "Manufacturer of glycine and glycolic acid with export supply, batch documentation, and technical support for pharma, personal care, food, and industry.",
     images: [
       {
         url: "/logo-tagline.png",
@@ -56,9 +60,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@avid_organics",
     creator: "@avid_organics",
-    title: "Avid Organics | Leading Manufacturers of Specialty Chemicals",
+    title: "Glycine & Glycolic Acid Manufacturer | Avid Organics",
     description:
-      "Global leader in specialty chemicals and pharmaceutical ingredients. FSSAI, FDA & REACH certified since 1999.",
+      "Manufacturer of glycine and glycolic acid with export supply, batch documentation, and technical support for pharma, personal care, food, and industry.",
     images: ["/logo-tagline.png"],
   },
   robots: {
@@ -95,6 +99,10 @@ export const viewport = {
   themeColor: "#1e40af",
 };
 
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
+
 export default async function RootLayout({
   children,
   params,
@@ -102,7 +110,6 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>;
 }>) {
-  const loggedInUser = await getAuthUser();
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID || "GTM-MWNTS7N9";
   const ahrefsAnalyticsKey =
     process.env.NEXT_PUBLIC_AHREFS_ANALYTICS_KEY || "+BQPSicnE4fbMeiKQnZ4UQ";
@@ -119,12 +126,45 @@ export default async function RootLayout({
   return (
     <html lang={locale} suppressHydrationWarning>
       <head>
-        <Script id="google-tag-manager" strategy="lazyOnload">
+        <Script id="google-tag-manager" strategy="afterInteractive">
           {`
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            (function(w,d,s,l,i){
+              function loadGtm(){
+                if (w.__avidGtmLoaded) return;
+                w.__avidGtmLoaded = true;
+                w[l]=w[l]||[];
+                w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+                var f=d.getElementsByTagName(s)[0], j=d.createElement(s), dl=l!='dataLayer'?'&l='+l:'';
+                j.async=true;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+                f.parentNode.insertBefore(j,f);
+              }
+
+              function deferLoad(){
+                if ('requestIdleCallback' in w) {
+                  w.requestIdleCallback(loadGtm, { timeout: 2500 });
+                } else {
+                  w.setTimeout(loadGtm, 2000);
+                }
+              }
+
+              if ('PerformanceObserver' in w) {
+                try {
+                  var observer = new PerformanceObserver(function(list){
+                    if (list.getEntries().length) {
+                      observer.disconnect();
+                      deferLoad();
+                    }
+                  });
+                  observer.observe({ type: 'largest-contentful-paint', buffered: true });
+                } catch (e) {
+                  w.addEventListener('load', deferLoad, { once: true });
+                }
+              } else {
+                w.addEventListener('load', deferLoad, { once: true });
+              }
+
+              w.addEventListener('load', function(){ w.setTimeout(loadGtm, 4000); }, { once: true });
             })(window,document,'script','dataLayer','${gtmId}');
           `}
         </Script>
@@ -151,7 +191,7 @@ export default async function RootLayout({
           </>
         ) : null}
         <NextIntlClientProvider>
-          <AuthProvider user={loggedInUser?.data || null}>{children}</AuthProvider>
+          {children}
         </NextIntlClientProvider>
         <DeferredClientWidgets />
       </body>

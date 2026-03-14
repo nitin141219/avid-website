@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import { getLocale } from "next-intl/server";
+import { normalizeResponsiveImageSources } from "@/lib/utils";
 import NewsCard from "./NewsCard";
 import NewsFilter from "./NewsFilter";
 import NewsPagination from "./NewsPagination";
@@ -24,27 +25,37 @@ export async function getCustomerNews(searchParams: SearchParams) {
       search: searchParams.search ?? "",
       locale,
     });
-    const baseUrl = process.env.BACKEND_URL
-      ? `${process.env.BACKEND_URL}/api/v1/customer/get-news`
-      : `${process.env.NEXT_PUBLIC_BASE_URL}/api/news`;
+    const endpoints = [
+      process.env.BACKEND_URL ? `${process.env.BACKEND_URL}/api/v1/customer/get-news?${params}` : "",
+      process.env.NEXT_PUBLIC_BASE_URL ? `${process.env.NEXT_PUBLIC_BASE_URL}/api/news?${params}` : "",
+      (process.env.NEXT_PUBLIC_BASE_URL || "").includes("avidorganics.net")
+        ? `https://api.avidorganics.net/api/v1/customer/get-news?${params}`
+        : "",
+    ].filter((endpoint, index, arr) => Boolean(endpoint) && arr.indexOf(endpoint) === index);
 
-    const res = await fetch(`${baseUrl}?${params}`, {
-      next: { revalidate: 120 },
-    });
+    for (const endpoint of endpoints) {
+      try {
+        const res = await fetch(endpoint, {
+          next: { revalidate: 120 },
+        });
+        if (!res.ok) continue;
 
-    if (!res.ok) {
-      throw new Error(`Fetch failed with status ${res.status}`);
+        const json = await res.json();
+
+        return {
+          news: Array.isArray(json?.data?.news)
+            ? json.data.news.map((item: any) => normalizeResponsiveImageSources(item))
+            : [],
+          pagination: json.data.pagination ?? {
+            current_page: 1,
+            total_page: 1,
+          },
+        };
+      } catch {
+        // Try next endpoint.
+      }
     }
-
-    const json = await res.json();
-
-    return {
-      news: json.data.news ?? [],
-      pagination: json.data.pagination ?? {
-        current_page: 1,
-        total_page: 1,
-      },
-    };
+    throw new Error("Failed to fetch news from all endpoints");
   } catch (error) {
     console.error("Error fetching news:", error);
 
